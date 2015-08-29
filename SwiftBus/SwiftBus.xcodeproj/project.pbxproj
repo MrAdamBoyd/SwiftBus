@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15B2673AC7F443334BEEC3EF /* Pods_SwiftBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		66CB227D1B926FCF00F820AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB227C1B926FCF00F820AE /* AppDelegate.swift */; };
 		66CB227F1B926FCF00F820AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB227E1B926FCF00F820AE /* ViewController.swift */; };
 		66CB22821B926FCF00F820AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22801B926FCF00F820AE /* Main.storyboard */; };
@@ -36,6 +37,9 @@
 		66CB228C1B926FCF00F820AE /* SwiftBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CB22911B926FCF00F820AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66CB22921B926FCF00F820AE /* SwiftBusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBusTests.swift; sourceTree = "<group>"; };
+		9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFF5CFC2AD4F983B81237597 /* Pods-SwiftBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus.debug.xcconfig"; sourceTree = "<group>"; };
+		F8EA33229AE47FE92FA917AB /* Pods-SwiftBus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBus.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B2673AC7F443334BEEC3EF /* Pods_SwiftBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15F8CE518C69A3B843827EDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFF5CFC2AD4F983B81237597 /* Pods-SwiftBus.debug.xcconfig */,
+				F8EA33229AE47FE92FA917AB /* Pods-SwiftBus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		66CB226E1B926FCF00F820AE = {
 			isa = PBXGroup;
 			children = (
 				66CB22791B926FCF00F820AE /* SwiftBus */,
 				66CB228F1B926FCF00F820AE /* SwiftBusTests */,
 				66CB22781B926FCF00F820AE /* Products */,
+				15F8CE518C69A3B843827EDD /* Pods */,
+				D790CE79029311AFAD649CA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +128,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D790CE79029311AFAD649CA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66CB22961B926FCF00F820AE /* Build configuration list for PBXNativeTarget "SwiftBus" */;
 			buildPhases = (
+				E5863C5EF19342EB5D43FF03 /* Check Pods Manifest.lock */,
 				66CB22731B926FCF00F820AE /* Sources */,
 				66CB22741B926FCF00F820AE /* Frameworks */,
 				66CB22751B926FCF00F820AE /* Resources */,
+				E70C3CFBF5696447A9D9A2DD /* Embed Pods Frameworks */,
+				79FDD55A038BC521223B6963 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,6 +233,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79FDD55A038BC521223B6963 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5863C5EF19342EB5D43FF03 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E70C3CFBF5696447A9D9A2DD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66CB22731B926FCF00F820AE /* Sources */ = {
@@ -338,6 +413,7 @@
 		};
 		66CB22971B926FCF00F820AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFF5CFC2AD4F983B81237597 /* Pods-SwiftBus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftBus/Info.plist;
@@ -348,6 +424,7 @@
 		};
 		66CB22981B926FCF00F820AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8EA33229AE47FE92FA917AB /* Pods-SwiftBus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftBus/Info.plist;
@@ -409,6 +486,7 @@
 				66CB22981B926FCF00F820AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66CB22991B926FCF00F820AE /* Build configuration list for PBXNativeTarget "SwiftBusTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +495,7 @@
 				66CB229B1B926FCF00F820AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
