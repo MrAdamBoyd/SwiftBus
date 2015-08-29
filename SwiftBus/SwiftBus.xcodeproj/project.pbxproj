@@ -14,6 +14,11 @@
 		66CB22841B926FCF00F820AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22831B926FCF00F820AE /* Images.xcassets */; };
 		66CB22871B926FCF00F820AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22851B926FCF00F820AE /* LaunchScreen.xib */; };
 		66CB22931B926FCF00F820AE /* SwiftBusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22921B926FCF00F820AE /* SwiftBusTests.swift */; };
+		66CB229E1B92714E00F820AE /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB229D1B92714E00F820AE /* ConnectionHandler.swift */; };
+		66CB22A01B92718900F820AE /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB229F1B92718900F820AE /* TransitStop.swift */; };
+		66CB22A21B9271C100F820AE /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22A11B9271C100F820AE /* TransitRoute.swift */; };
+		66CB22A41B92728B00F820AE /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22A31B92728B00F820AE /* TransitAgency.swift */; };
+		66CB22A61B92730800F820AE /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22A51B92730800F820AE /* TransitVehicle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,11 @@
 		66CB228C1B926FCF00F820AE /* SwiftBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CB22911B926FCF00F820AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66CB22921B926FCF00F820AE /* SwiftBusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBusTests.swift; sourceTree = "<group>"; };
+		66CB229D1B92714E00F820AE /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
+		66CB229F1B92718900F820AE /* TransitStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
+		66CB22A11B9271C100F820AE /* TransitRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
+		66CB22A31B92728B00F820AE /* TransitAgency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAgency.swift; sourceTree = "<group>"; };
+		66CB22A51B92730800F820AE /* TransitVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitVehicle.swift; sourceTree = "<group>"; };
 		9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF5CFC2AD4F983B81237597 /* Pods-SwiftBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus.debug.xcconfig"; sourceTree = "<group>"; };
 		F8EA33229AE47FE92FA917AB /* Pods-SwiftBus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBus.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftBus/Pods-SwiftBus.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 				66CB22801B926FCF00F820AE /* Main.storyboard */,
 				66CB22831B926FCF00F820AE /* Images.xcassets */,
 				66CB22851B926FCF00F820AE /* LaunchScreen.xib */,
+				66CB229C1B92712000F820AE /* SwiftBus */,
 				66CB227A1B926FCF00F820AE /* Supporting Files */,
 			);
 			path = SwiftBus;
@@ -126,6 +137,18 @@
 				66CB22911B926FCF00F820AE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66CB229C1B92712000F820AE /* SwiftBus */ = {
+			isa = PBXGroup;
+			children = (
+				66CB229D1B92714E00F820AE /* ConnectionHandler.swift */,
+				66CB22A31B92728B00F820AE /* TransitAgency.swift */,
+				66CB22A11B9271C100F820AE /* TransitRoute.swift */,
+				66CB22A51B92730800F820AE /* TransitVehicle.swift */,
+				66CB229F1B92718900F820AE /* TransitStop.swift */,
+			);
+			name = SwiftBus;
 			sourceTree = "<group>";
 		};
 		D790CE79029311AFAD649CA8 /* Frameworks */ = {
@@ -287,8 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CB22A61B92730800F820AE /* TransitVehicle.swift in Sources */,
 				66CB227F1B926FCF00F820AE /* ViewController.swift in Sources */,
 				66CB227D1B926FCF00F820AE /* AppDelegate.swift in Sources */,
+				66CB22A41B92728B00F820AE /* TransitAgency.swift in Sources */,
+				66CB229E1B92714E00F820AE /* ConnectionHandler.swift in Sources */,
+				66CB22A01B92718900F820AE /* TransitStop.swift in Sources */,
+				66CB22A21B9271C100F820AE /* TransitRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
