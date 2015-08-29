@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15B2673AC7F443334BEEC3EF /* Pods_SwiftBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		668CB7921B92740900CA70DB /* RequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CB7911B92740900CA70DB /* RequestURLs.swift */; };
 		66CB227D1B926FCF00F820AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB227C1B926FCF00F820AE /* AppDelegate.swift */; };
 		66CB227F1B926FCF00F820AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB227E1B926FCF00F820AE /* ViewController.swift */; };
 		66CB22821B926FCF00F820AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22801B926FCF00F820AE /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		668CB7911B92740900CA70DB /* RequestURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestURLs.swift; sourceTree = "<group>"; };
 		66CB22771B926FCF00F820AE /* SwiftBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CB227B1B926FCF00F820AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66CB227C1B926FCF00F820AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				66CB229D1B92714E00F820AE /* ConnectionHandler.swift */,
+				668CB7911B92740900CA70DB /* RequestURLs.swift */,
 				66CB22A31B92728B00F820AE /* TransitAgency.swift */,
 				66CB22A11B9271C100F820AE /* TransitRoute.swift */,
 				66CB22A51B92730800F820AE /* TransitVehicle.swift */,
@@ -313,6 +316,7 @@
 				66CB22A61B92730800F820AE /* TransitVehicle.swift in Sources */,
 				66CB227F1B926FCF00F820AE /* ViewController.swift in Sources */,
 				66CB227D1B926FCF00F820AE /* AppDelegate.swift in Sources */,
+				668CB7921B92740900CA70DB /* RequestURLs.swift in Sources */,
 				66CB22A41B92728B00F820AE /* TransitAgency.swift in Sources */,
 				66CB229E1B92714E00F820AE /* ConnectionHandler.swift in Sources */,
 				66CB22A01B92718900F820AE /* TransitStop.swift in Sources */,

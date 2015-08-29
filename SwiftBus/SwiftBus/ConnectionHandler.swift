@@ -14,10 +14,6 @@ enum RequestType:Int {
 }
 
 class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
-    static let sharedParser = MMBXmlParser()
-    
-    var delegate: MMBXmlParserDelegate?
-    
     private var currentRequestType:RequestType = .NoRequest
     private var connection:NSURLConnection?
     var xmlData:NSMutableData?
@@ -26,15 +22,12 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
     var sender:AnyObject?
     var transitStop:TransitStop?
     
-    //Private init for singleton
-    //private init() { }
-    
     //Request data for all lines
     func requestAllLineData() {
         xmlData = NSMutableData()
         currentRequestType = .AllLines
         
-        var allLinesURL = NSURL(string: kMMBAllLinesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        var allLinesURL = NSURL(string: kSwiftBusAllLinesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var allLinesURLRequest = NSURLRequest(URL: allLinesURL!)
         connection = NSURLConnection(request: allLinesURLRequest, delegate: self, startImmediately: true)
     }
@@ -45,7 +38,7 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         self.indexOfLine = indexOfLine
         self.sender = sender
         
-        var completeLineDefinitionURL = kMMBLineDefinitionURL + line
+        var completeLineDefinitionURL = kSwiftBusLineDefinitionURL + line
         var lineDefinitionURL = NSURL(string: completeLineDefinitionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var lineDefinitionURLRequest = NSURLRequest(URL: lineDefinitionURL!)
         connection = NSURLConnection(request: lineDefinitionURLRequest, delegate: self, startImmediately: true)
@@ -57,7 +50,7 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         currentRequestType = .StopPredictions
         transitStop = stop
         
-        var completeLinePredictionURL = kMMBLinePredictionURL1 + stop.routeTag + kMMBLinePredictionURL2 + stop.stopTag
+        var completeLinePredictionURL = kSwiftBusLinePredictionURL1 + stop.routeTag + kSwiftBusLinePredictionURL2 + stop.stopTag
         var linePredictionURL = NSURL(string: completeLinePredictionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var linePredictionRequest = NSURLRequest(URL: linePredictionURL!)
         connection = NSURLConnection(request: linePredictionRequest, delegate: self, startImmediately: true)
@@ -77,13 +70,13 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         //Going through all lines and saving them
         for child in xml["body"].children {
             if let tag = child.element!.attributes["tag"], title = child.element!.attributes["title"] {
-                MMBDataController.sharedController.addLine(TransitLine(lineNumber: tag, lineTitle: title))
+//                MMBDataController.sharedController.addLine(TransitLine(lineNumber: tag, lineTitle: title))
             }
         }
         
-        if let currentDelegate = self.delegate {
-            currentDelegate.allLinesDataFinishedLoading()
-        }
+//        if let currentDelegate = self.delegate {
+//            currentDelegate.allLinesDataFinishedLoading()
+//        }
         
         clearXMLParsingData()
     }
@@ -149,11 +142,11 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-        MMBDataController.sharedController.addStopsToLineAtIndex(indexOfLine!, inboundStops: inboundTransitStops, outboundStops: outboundTransitStops)
-        
-        if let currentDelegate = self.delegate {
-            currentDelegate.lineDefinitionFinishedLoading(indexOfLine!, sender: sender!)
-        }
+//        MMBDataController.sharedController.addStopsToLineAtIndex(indexOfLine!, inboundStops: inboundTransitStops, outboundStops: outboundTransitStops)
+//        
+//        if let currentDelegate = self.delegate {
+//            currentDelegate.lineDefinitionFinishedLoading(indexOfLine!, sender: sender!)
+//        }
         
         clearXMLParsingData()
         
@@ -176,8 +169,8 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         
         clearXMLParsingData()
         
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.predictionAdded(transitStop!)
+//        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+//        appDelegate.predictionAdded(transitStop!)
     }
     
     //MARK: NSURLConnectionDelegate

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5FDF61EC-EB4E-4F55-B9B8-A1B4F8C17448</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SwiftBus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>78493A860FEAAFEB1B1894D485F37DB4059ACA21</key>
+		<string>https://github.com/MrAdamBoyd/SwiftBus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SwiftBus/SwiftBus.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>78493A860FEAAFEB1B1894D485F37DB4059ACA21</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MrAdamBoyd/SwiftBus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78493A860FEAAFEB1B1894D485F37DB4059ACA21</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78493A860FEAAFEB1B1894D485F37DB4059ACA21</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftBus</string>
+		</dict>
+	</array>
+</dict>
+</plist>
