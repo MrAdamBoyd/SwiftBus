@@ -87,13 +87,35 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     //MARK: Parsing methods
     
     
+    /**
+    Creating all the transit agencies from the xml, calls the allAgenciesClosure when done
+    
+    :param: xml xml gotten from calling NextBus's API
+    */
     func parseAllAgenciesData(xml:XMLIndexer) {
-        println("parse all agencies data")
+        let agenciesXML:[XMLIndexer] = xml["body"].children
+        var transitAgencies:[TransitAgency] = []
+        
+        //Creating all the agencies
+        for agencyXML:XMLIndexer in agenciesXML {
+            
+            //If all the proper elements exist
+            if let agencyTag = agencyXML.element!.attributes["tag"], agencyTitle = agencyXML.element!.attributes["title"], agencyRegion = agencyXML.element!.attributes["regionTitle"] {
+                
+                var newAgency:TransitAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
+                
+                //Some agencies have a shortTitle
+                if let agencyShortTitle = agencyXML.element!.attributes["shortTitle"] {
+                    newAgency.agencyShortTitle = agencyShortTitle
+                }
+                
+                transitAgencies.append(newAgency)
+            }
+            
+        }
         
         if let closure = allAgenciesClosure as ([TransitAgency] -> Void)! {
-            let t1 = TransitAgency(agencyTag: "sfmta", agencyTitle: "SF MUNI", agencyRegion: "Norcal")
-            let t2 = TransitAgency(agencyTag: "nycmta", agencyTitle: "New York Subway", agencyRegion: "East")
-            closure([t1, t2])
+            closure(transitAgencies)
         }
     }
     

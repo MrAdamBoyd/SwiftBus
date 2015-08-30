@@ -10,12 +10,14 @@ import Foundation
 
 private let kAgencyTagEncoderString = "kAgencyTagEncoder"
 private let kAgencyTitleEncoderString = "kAgencyTitleEncoder"
+private let kAgencyShortTitleEncoderString = "kAgencyShortTitleEncoder"
 private let kAgencyRegionEncoderString = "kAgencyRegionEncoder"
 
 class TransitAgency: NSObject, NSCoding {
     
     var agencyTag:String = ""
     var agencyTitle:String = ""
+    var agencyShortTitle:String = ""
     var agencyRegion:String = ""
     
     //Convenvience
@@ -32,12 +34,14 @@ class TransitAgency: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
         agencyTitle = aDecoder.decodeObjectForKey(kAgencyTitleEncoderString) as! String
+        agencyShortTitle = aDecoder.decodeObjectForKey(kAgencyShortTitleEncoderString) as! String
         agencyRegion = aDecoder.decodeObjectForKey(kAgencyRegionEncoderString) as! String
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
         aCoder.encodeObject(agencyTitle, forKey: kAgencyTitleEncoderString)
+        aCoder.encodeObject(agencyShortTitle, forKey: kAgencyShortTitleEncoderString)
         aCoder.encodeObject(agencyRegion, forKey: kAgencyRegionEncoderString)
     }
 }
