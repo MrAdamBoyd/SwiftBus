@@ -13,7 +13,7 @@ enum RequestType:Int {
     case NoRequest = 0, AllAgencies, AllRoutes, RouteDefinition, StopPredictions
 }
 
-class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
+class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     private var currentRequestType:RequestType = .NoRequest
     private var connection:NSURLConnection?
     var xmlData:NSMutableData?
@@ -21,14 +21,17 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
     var indexOfLine:Int?
     var sender:AnyObject?
     var transitStop:TransitStop?
+    var allAgenciesClosure:([TransitAgency] -> Void)?
     
-    func requestAllAgencies() {
+    //MARK: Requesting data
+    
+    func requestAllAgencies(closure: ((agencies:[TransitAgency]) -> Void)?) {
         xmlData = NSMutableData()
         currentRequestType = .AllAgencies
         
-        var allAgenciesURL = NSURL(string: kSwiftBusAllAgenciesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        var allAgenciesURLRequest = NSURLRequest(URL: allAgenciesURL!)
-        connection = NSURLConnection(request: allAgenciesURLRequest, delegate: self, startImmediately: true)
+        allAgenciesClosure = closure
+        
+        startConnection(kSwiftBusAllAgenciesURL)
     }
     
     //Request data for all lines
@@ -63,6 +66,35 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         var linePredictionURL = NSURL(string: completeLinePredictionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var linePredictionRequest = NSURLRequest(URL: linePredictionURL!)
         connection = NSURLConnection(request: linePredictionRequest, delegate: self, startImmediately: true)
+    }
+    
+    /**
+    This is the method that all other request methods call in order to create the URL & start downloading data via an NSURLConnection
+    
+    :param: requestURL string of the url that is being requested
+    */
+    private func startConnection(requestURL:String) {
+        var optionalURL:NSURL? = NSURL(string: requestURL)
+        
+        if let url = optionalURL as NSURL! {
+            var urlRequest:NSURLRequest = NSURLRequest(URL: url)
+            connection = NSURLConnection(request: urlRequest, delegate: self, startImmediately: true)
+        } else {
+            //Alert user via closure that something bad happened
+        }
+    }
+    
+    //MARK: Parsing methods
+    
+    
+    func parseAllAgenciesData(xml:XMLIndexer) {
+        println("parse all agencies data")
+        
+        if let closure = allAgenciesClosure as ([TransitAgency] -> Void)! {
+            let t1 = TransitAgency(agencyTag: "sfmta", agencyTitle: "SF MUNI", agencyRegion: "Norcal")
+            let t2 = TransitAgency(agencyTag: "nycmta", agencyTitle: "New York Subway", agencyRegion: "East")
+            closure([t1, t2])
+        }
     }
     
     func parseAllRoutesData(xml:XMLIndexer) {
@@ -175,6 +207,8 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
             let xml = SWXMLHash.parse(xmlString)
             
             switch currentRequestType {
+            case .AllAgencies:
+                parseAllAgenciesData(xml)
             case .AllRoutes:
                 parseAllRoutesData(xml)
             case .RouteDefinition:

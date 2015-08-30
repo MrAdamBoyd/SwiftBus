@@ -11,8 +11,22 @@ import Foundation
 class SwiftBus {
     static let sharedController = SwiftBus()
     
+    var transitAgencies:[TransitAgency] = []
+    
     private init() {
         println("SwiftBus initialized")
+    }
+    
+    func getAgencies(closure: ((agencies:[TransitAgency]) -> Void)?) {
+        let connectionHandler = ConnectionHandler()
+        connectionHandler.requestAllAgencies({(agencies:[TransitAgency]) -> Void in
+            //Insert this closure around the inner one because the agencies need to be saved
+            self.transitAgencies = agencies
+            
+            if let innerClosure = closure as ([TransitAgency] -> Void)! {
+                innerClosure(agencies)
+            }
+        })
     }
     
     /*
