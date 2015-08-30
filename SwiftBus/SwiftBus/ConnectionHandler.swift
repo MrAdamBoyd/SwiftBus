@@ -10,7 +10,7 @@ import Foundation
 import SWXMLHash
 
 enum RequestType:Int {
-    case NoRequest = 0, AllLines, LineDefinition, StopPredictions
+    case NoRequest = 0, AllAgencies, AllRoutes, RouteDefinition, StopPredictions
 }
 
 class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
@@ -22,26 +22,35 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
     var sender:AnyObject?
     var transitStop:TransitStop?
     
-    //Request data for all lines
-    func requestAllLineData() {
+    func requestAllAgencies() {
         xmlData = NSMutableData()
-        currentRequestType = .AllLines
+        currentRequestType = .AllAgencies
         
-        var allLinesURL = NSURL(string: kSwiftBusAllLinesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        var allLinesURLRequest = NSURLRequest(URL: allLinesURL!)
+        var allAgenciesURL = NSURL(string: kSwiftBusAllAgenciesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        var allAgenciesURLRequest = NSURLRequest(URL: allAgenciesURL!)
+        connection = NSURLConnection(request: allAgenciesURLRequest, delegate: self, startImmediately: true)
+    }
+    
+    //Request data for all lines
+    func requestAllRouteData() {
+        xmlData = NSMutableData()
+        currentRequestType = .AllRoutes
+        
+        var allRoutesURL = NSURL(string: kSwiftBusAllRoutesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        var allLinesURLRequest = NSURLRequest(URL: allRoutesURL!)
         connection = NSURLConnection(request: allLinesURLRequest, delegate: self, startImmediately: true)
     }
     
-    func requestLineDefinitionData(line:String, indexOfLine:Int, sender:AnyObject) {
+    func requestRouteDefinitionData(line:String, indexOfLine:Int, sender:AnyObject) {
         xmlData = NSMutableData()
-        currentRequestType = .LineDefinition
+        currentRequestType = .RouteDefinition
         self.indexOfLine = indexOfLine
         self.sender = sender
         
-        var completeLineDefinitionURL = kSwiftBusLineDefinitionURL + line
-        var lineDefinitionURL = NSURL(string: completeLineDefinitionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        var lineDefinitionURLRequest = NSURLRequest(URL: lineDefinitionURL!)
-        connection = NSURLConnection(request: lineDefinitionURLRequest, delegate: self, startImmediately: true)
+        var completeRouteDefinitionURL = kSwiftBusRouteDefinitionURL + line
+        var routeDefinitionURL = NSURL(string: completeRouteDefinitionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
+        var routeDefinitionURLRequest = NSURLRequest(URL: routeDefinitionURL!)
+        connection = NSURLConnection(request: routeDefinitionURLRequest, delegate: self, startImmediately: true)
         
     }
     
@@ -50,23 +59,13 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         currentRequestType = .StopPredictions
         transitStop = stop
         
-        var completeLinePredictionURL = kSwiftBusLinePredictionURL1 + stop.routeTag + kSwiftBusLinePredictionURL2 + stop.stopTag
+        var completeLinePredictionURL = kSwiftBusRoutePredictionURL1 + stop.routeTag + kSwiftBusRoutePredictionURL2 + stop.stopTag
         var linePredictionURL = NSURL(string: completeLinePredictionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var linePredictionRequest = NSURLRequest(URL: linePredictionURL!)
         connection = NSURLConnection(request: linePredictionRequest, delegate: self, startImmediately: true)
     }
     
-    //Clears all data after making a request
-    func clearXMLParsingData() {
-        currentRequestType = .NoRequest
-        connection = nil
-        xmlData = nil
-        xmlString = ""
-        indexOfLine = nil
-        sender = nil
-    }
-    
-    func parseAllLinesData(xml:XMLIndexer) {
+    func parseAllRoutesData(xml:XMLIndexer) {
         //Going through all lines and saving them
         for child in xml["body"].children {
             if let tag = child.element!.attributes["tag"], title = child.element!.attributes["title"] {
@@ -77,8 +76,6 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
 //        if let currentDelegate = self.delegate {
 //            currentDelegate.allLinesDataFinishedLoading()
 //        }
-        
-        clearXMLParsingData()
     }
     
     //Parsing the line definition
@@ -148,8 +145,6 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
 //            currentDelegate.lineDefinitionFinishedLoading(indexOfLine!, sender: sender!)
 //        }
         
-        clearXMLParsingData()
-        
     }
     
     //Parsing the information for stop predictions
@@ -167,8 +162,6 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
         
         transitStop!.predictions = predictionArray
         
-        clearXMLParsingData()
-        
 //        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
 //        appDelegate.predictionAdded(transitStop!)
     }
@@ -182,14 +175,14 @@ class MMBXmlParser: NSObject, NSURLConnectionDataDelegate {
             let xml = SWXMLHash.parse(xmlString)
             
             switch currentRequestType {
-            case .AllLines:
-                parseAllLinesData(xml)
-            case .LineDefinition:
+            case .AllRoutes:
+                parseAllRoutesData(xml)
+            case .RouteDefinition:
                 parseLineDefinition(xml)
             case .StopPredictions:
                 parseStopPredictions(xml)
             default:
-                clearXMLParsingData()
+                println("Default")
             }
         }
     }

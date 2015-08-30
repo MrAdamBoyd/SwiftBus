@@ -8,7 +8,8 @@
 
 import Foundation
 
-let kSwiftBusAllLinesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni"
-let kSwiftBusLineDefinitionURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r="
-let kSwiftBusLinePredictionURL1 = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r="
-let kSwiftBusLinePredictionURL2 = "&s="
+let kSwiftBusAllAgenciesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList"
+let kSwiftBusAllRoutesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni"
+let kSwiftBusRouteDefinitionURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r="
+let kSwiftBusRoutePredictionURL1 = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r="
+let kSwiftBusRoutePredictionURL2 = "&s="
