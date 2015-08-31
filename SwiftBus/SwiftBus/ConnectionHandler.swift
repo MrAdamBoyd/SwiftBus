@@ -22,6 +22,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var sender:AnyObject?
     var transitStop:TransitStop?
     var allAgenciesClosure:([String : TransitAgency] -> Void)?
+    var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
     
     //MARK: Requesting data
     
@@ -35,13 +36,13 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Request data for all lines
-    func requestAllRouteData() {
+    func requestAllRouteData(agencyTag: String, closure: ((agencyRoutes:[String : TransitRoute]) -> Void)?) {
         xmlData = NSMutableData()
         currentRequestType = .AllRoutes
         
-        var allRoutesURL = NSURL(string: kSwiftBusAllRoutesURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        var allLinesURLRequest = NSURLRequest(URL: allRoutesURL!)
-        connection = NSURLConnection(request: allLinesURLRequest, delegate: self, startImmediately: true)
+        allRoutesForAgencyClosure = closure
+        
+        startConnection(kSwiftBusAllRoutesURL + agencyTag)
     }
     
     func requestRouteDefinitionData(line:String, indexOfLine:Int, sender:AnyObject) {
@@ -119,17 +120,27 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         }
     }
     
+    /**
+    Creating all the TransitRoutes from the xml, calls allRoutesForAgencyClosure when done
+    
+    :param: xml XML gotten from NextBus's API
+    */
     func parseAllRoutesData(xml:XMLIndexer) {
+        var transitRoutes:[String : TransitRoute] = [:]
+        
         //Going through all lines and saving them
         for child in xml["body"].children {
-            if let tag = child.element!.attributes["tag"], title = child.element!.attributes["title"] {
-//                MMBDataController.sharedController.addLine(TransitLine(lineNumber: tag, lineTitle: title))
+            
+            if let routeTag = child.element!.attributes["tag"], routeTitle = child.element!.attributes["title"] {
+                //If we can create all the routes
+                var currentRoute:TransitRoute = TransitRoute(routeTag: routeTag, routeTitle: routeTitle)
+                transitRoutes[routeTag] = currentRoute
             }
         }
         
-//        if let currentDelegate = self.delegate {
-//            currentDelegate.allLinesDataFinishedLoading()
-//        }
+        if let closure = allRoutesForAgencyClosure as ([String : TransitRoute] -> Void)! {
+            closure(transitRoutes)
+        }
     }
     
     //Parsing the line definition

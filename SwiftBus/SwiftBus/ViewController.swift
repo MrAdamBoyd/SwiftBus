@@ -16,7 +16,15 @@ class ViewController: UIViewController {
         
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             println(agencies.count)
-            println(agencies["sfmta"])
+            println(agencies["sf-muni"])
+        })
+        
+        SwiftBus.sharedController.listOfRoutesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+            println(agencyRoutes.count)
+        })
+        
+        SwiftBus.sharedController.listOfRoutesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+            println(agencyRoutes.count)
         })
     }
 

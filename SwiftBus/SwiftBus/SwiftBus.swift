@@ -11,7 +11,7 @@ import Foundation
 class SwiftBus {
     static let sharedController = SwiftBus()
     
-    private var transitAgencies:[String : TransitAgency] = [:]
+    private var _transitAgencies:[String : TransitAgency] = [:]
     
     private init() {
         println("SwiftBus initialized")
@@ -27,11 +27,11 @@ class SwiftBus {
     */
     func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         
-        if transitAgencies.count > 0 {
+        if _transitAgencies.count > 0 {
             
             //Transit agency data is in memory, provide that
             if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
-                innerClosure(transitAgencies)
+                innerClosure(_transitAgencies)
             }
             
         } else {
@@ -40,7 +40,7 @@ class SwiftBus {
             let connectionHandler = ConnectionHandler()
             connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
                 //Insert this closure around the inner one because the agencies need to be saved
-                self.transitAgencies = agencies
+                self._transitAgencies = agencies
                 
                 if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
                     innerClosure(agencies)
@@ -60,10 +60,46 @@ class SwiftBus {
         let connectionHandler = ConnectionHandler()
         connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
             //Insert this closure around the inner one because the agencies need to be saved
-            self.transitAgencies = agencies
+            self._transitAgencies = agencies
             
             if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
                 innerClosure(agencies)
+            }
+        })
+        
+    }
+    
+    /**
+    Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
+    
+    :param: agencyTag the transit agency that this will download the routes for
+    :param: closure   Code that is called after all the data has loaded
+    */
+    func listOfRoutesForAgency(agencyTag: String, closure: ((agencies:[String : TransitRoute]) -> Void)?) {
+        
+        //Getting all the agencies
+        transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
+            
+            if innerAgencies[agencyTag] != nil {
+                
+                //The agency exists & we need to load the transit agency data
+                let connectionHandler = ConnectionHandler()
+                connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+
+                    //Saving the routes for the agency
+                    self._transitAgencies[agencyTag]?.agencyRoutes = agencyRoutes
+                    
+                    //Return the transitRoutes for the agency
+                    if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
+                        innerClosure(agencyRoutes)
+                    }
+                })
+            } else {
+                
+                //The agency doesn't exist, return an empty dictionary
+                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
+                    innerClosure([String : TransitRoute]())
+                }
             }
         })
         

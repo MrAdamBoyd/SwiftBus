@@ -21,13 +21,13 @@ class TransitRoute: NSObject, NSCoding {
     var outboundStopsOnLine:[TransitStop] = []
     
     //Init without stops
-    init(lineNumber routeTag:String, lineTitle routeTitle:String) {
+    init(routeTag:String, routeTitle:String) {
         self.routeTag = routeTag
         self.routeTitle = routeTitle
     }
     
     //Init with stops
-    init(lineNumber routeTag:String, lineTitle routeTitle:String, withInboundStops inboundStopsOnLine:[TransitStop], andOutboundStops outboundStopsOnLine:[TransitStop]) {
+    init(routeTag:String, routeTitle:String, withInboundStops inboundStopsOnLine:[TransitStop], andOutboundStops outboundStopsOnLine:[TransitStop]) {
         self.routeTag = routeTag
         self.routeTitle = routeTitle
         self.inboundStopsOnLine = inboundStopsOnLine
