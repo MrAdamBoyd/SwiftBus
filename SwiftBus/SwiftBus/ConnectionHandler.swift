@@ -21,11 +21,11 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var indexOfLine:Int?
     var sender:AnyObject?
     var transitStop:TransitStop?
-    var allAgenciesClosure:([TransitAgency] -> Void)?
+    var allAgenciesClosure:([String : TransitAgency] -> Void)?
     
     //MARK: Requesting data
     
-    func requestAllAgencies(closure: ((agencies:[TransitAgency]) -> Void)?) {
+    func requestAllAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         xmlData = NSMutableData()
         currentRequestType = .AllAgencies
         
@@ -94,7 +94,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     */
     func parseAllAgenciesData(xml:XMLIndexer) {
         let agenciesXML:[XMLIndexer] = xml["body"].children
-        var transitAgencies:[TransitAgency] = []
+        var transitAgencies:[String : TransitAgency] = [:]
         
         //Creating all the agencies
         for agencyXML:XMLIndexer in agenciesXML {
@@ -109,12 +109,12 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                     newAgency.agencyShortTitle = agencyShortTitle
                 }
                 
-                transitAgencies.append(newAgency)
+                transitAgencies[agencyTag] = newAgency
             }
             
         }
         
-        if let closure = allAgenciesClosure as ([TransitAgency] -> Void)! {
+        if let closure = allAgenciesClosure as ([String : TransitAgency] -> Void)! {
             closure(transitAgencies)
         }
     }

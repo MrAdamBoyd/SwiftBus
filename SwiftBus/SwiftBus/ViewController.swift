@@ -14,9 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        SwiftBus.sharedController.getAgencies({(agencies:[TransitAgency]) -> Void in
+        SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             println(agencies.count)
-            println(SwiftBus.sharedController.transitAgencies[0].agencyTag)
+            println(agencies.["sfmta"])
         })
     }
 
