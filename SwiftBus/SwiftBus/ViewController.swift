@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             println(agencies.count)
-            println(agencies.["sfmta"])
+            println(agencies["sfmta"])
         })
     }
 
