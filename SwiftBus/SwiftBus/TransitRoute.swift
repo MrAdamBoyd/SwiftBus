@@ -7,11 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kRouteTitleEncoderString = "kRouteTitleEncoder"
 private let kInboundStopsOnLineEncoderString = "kInboundStopsOnLineEncoder"
 private let kOutboundStopsOnLineEncoderString = "kOutboundStopsOnLineEncoder"
+private let kRouteColorEncoderString = "kRouteColorEncoder"
+private let kOppositeColorEncoderString = "kOppositeColorEncoder"
+private let kLatMinEncoderString = "kLatMinEncoder"
+private let kLatMaxEncoderString = "kLatMaxEncoder"
+private let kLonMinEncoderString = "kLonMinEncoder"
+private let kLonMaxEncoderString = "kLonMaxEncoder"
+
 
 class TransitRoute: NSObject, NSCoding {
     
@@ -19,6 +27,13 @@ class TransitRoute: NSObject, NSCoding {
     var routeTitle:String = ""
     var inboundStopsOnLine:[TransitStop] = []
     var outboundStopsOnLine:[TransitStop] = []
+    var routeColor:UIColor = UIColor()
+    var oppositeColor:UIColor = UIColor()
+    var latMin:Double = 0
+    var latMax:Double = 0
+    var lonMin:Double = 0
+    var lonMax:Double = 0
+    
     
     //Init without stops
     init(routeTag:String, routeTitle:String) {
@@ -41,6 +56,12 @@ class TransitRoute: NSObject, NSCoding {
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
         inboundStopsOnLine = aDecoder.decodeObjectForKey(kInboundStopsOnLineEncoderString) as! [TransitStop]
         outboundStopsOnLine = aDecoder.decodeObjectForKey(kOutboundStopsOnLineEncoderString) as! [TransitStop]
+        routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! UIColor
+        oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! UIColor
+        latMin = aDecoder.decodeDoubleForKey(kLatMinEncoderString)
+        latMax = aDecoder.decodeDoubleForKey(kLatMaxEncoderString)
+        lonMin = aDecoder.decodeDoubleForKey(kLonMinEncoderString)
+        lonMax = aDecoder.decodeDoubleForKey(kLonMaxEncoderString)
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -48,5 +69,11 @@ class TransitRoute: NSObject, NSCoding {
         aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
         aCoder.encodeObject(inboundStopsOnLine, forKey: kInboundStopsOnLineEncoderString)
         aCoder.encodeObject(outboundStopsOnLine, forKey: kOutboundStopsOnLineEncoderString)
+        aCoder.encodeObject(routeColor, forKey: kRouteColorEncoderString)
+        aCoder.encodeObject(oppositeColor, forKey: kOppositeColorEncoderString)
+        aCoder.encodeDouble(latMin, forKey: kLatMinEncoderString)
+        aCoder.encodeDouble(latMax, forKey: kLatMaxEncoderString)
+        aCoder.encodeDouble(lonMin, forKey: kLonMinEncoderString)
+        aCoder.encodeDouble(lonMax, forKey: kLonMaxEncoderString)
     }
 }
