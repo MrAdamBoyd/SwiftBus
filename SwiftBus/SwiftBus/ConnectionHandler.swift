@@ -160,9 +160,10 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         for stopDirection in stopDirections {
             //For each direction, eg. "Inbound to downtown", "Inbound to Caltrain", "Outbound to Ocean Beach"
-            if let currentDirection:String = stopDirection.element!.attributes["title"] {
+            if let currentDirection:String = stopDirection.element!.attributes["title"], directionTag:String = stopDirection.element!.attributes["tag"] {
                 
                 stopDirectionDict[currentDirection] = []
+                currentRoute.directionTagToName[directionTag] = currentDirection
                 
                 for child in stopDirection.children {
                     //For each stop per direction
