@@ -26,6 +26,14 @@ class ViewController: UIViewController {
         SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
             println(agencyRoutes.count)
         })
+        
+        SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
+            
+            if let transitRoute = route as TransitRoute! {
+                println(transitRoute.routeColor)
+            }
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {

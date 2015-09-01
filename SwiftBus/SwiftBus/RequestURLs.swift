@@ -10,6 +10,6 @@ import Foundation
 
 let kSwiftBusAllAgenciesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList"
 let kSwiftBusAllRoutesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a="
-let kSwiftBusRouteDefinitionURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=sf-muni&r="
-let kSwiftBusRoutePredictionURL1 = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r="
-let kSwiftBusRoutePredictionURL2 = "&s="
+let kSwiftBusBaseURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a="
+let kSwiftBusRoute = "&r="
+let kSwiftBusStopPrediction = "&s="

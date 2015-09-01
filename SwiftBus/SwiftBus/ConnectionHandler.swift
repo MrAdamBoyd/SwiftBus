@@ -10,7 +10,7 @@ import Foundation
 import SWXMLHash
 
 enum RequestType:Int {
-    case NoRequest = 0, AllAgencies, AllRoutes, RouteDefinition, StopPredictions
+    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions
 }
 
 class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
@@ -18,11 +18,10 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     private var connection:NSURLConnection?
     var xmlData:NSMutableData?
     var xmlString:String = ""
-    var indexOfLine:Int?
-    var sender:AnyObject?
     var transitStop:TransitStop?
     var allAgenciesClosure:([String : TransitAgency] -> Void)?
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
+    var routeConfigurationClosure:(TransitRoute? -> Void)?
     
     //MARK: Requesting data
     
@@ -45,17 +44,12 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(kSwiftBusAllRoutesURL + agencyTag)
     }
     
-    func requestRouteDefinitionData(line:String, indexOfLine:Int, sender:AnyObject) {
+    func requestRouteConfiguration(routeTag:String, fromAgency agencyTag:String, closure:((route: TransitRoute?) -> Void)?) {
         xmlData = NSMutableData()
-        currentRequestType = .RouteDefinition
-        self.indexOfLine = indexOfLine
-        self.sender = sender
         
-        var completeRouteDefinitionURL = kSwiftBusRouteDefinitionURL + line
-        var routeDefinitionURL = NSURL(string: completeRouteDefinitionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
-        var routeDefinitionURLRequest = NSURLRequest(URL: routeDefinitionURL!)
-        connection = NSURLConnection(request: routeDefinitionURLRequest, delegate: self, startImmediately: true)
+        currentRequestType = .RouteConfiguration
         
+        startConnection(kSwiftBusBaseURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
     func requestStopPredictionData(stop:TransitStop) {
@@ -63,7 +57,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         currentRequestType = .StopPredictions
         transitStop = stop
         
-        var completeLinePredictionURL = kSwiftBusRoutePredictionURL1 + stop.routeTag + kSwiftBusRoutePredictionURL2 + stop.stopTag
+        var completeLinePredictionURL = kSwiftBusBaseURL + "sf-muni" + stop.routeTag + kSwiftBusStopPrediction + stop.stopTag
         var linePredictionURL = NSURL(string: completeLinePredictionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var linePredictionRequest = NSURLRequest(URL: linePredictionURL!)
         connection = NSURLConnection(request: linePredictionRequest, delegate: self, startImmediately: true)
@@ -145,11 +139,14 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //Parsing the line definition
     private func parseLineDefinition(xml:XMLIndexer) {
+        var currentRoute:TransitRoute
         var outboundStops: [String] = []
         var inboundStops: [String] = []
         var stopDictionary: [String: TransitStop] = [:]
         var inboundTransitStops: [TransitStop] = []
         var outboundTransitStops: [TransitStop] = []
+        
+        
         
         var stopDirections = xml["body"]["route"]["direction"]
         
@@ -205,11 +202,9 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-//        MMBDataController.sharedController.addStopsToLineAtIndex(indexOfLine!, inboundStops: inboundTransitStops, outboundStops: outboundTransitStops)
-//        
-//        if let currentDelegate = self.delegate {
-//            currentDelegate.lineDefinitionFinishedLoading(indexOfLine!, sender: sender!)
-//        }
+        if let closure = routeConfigurationClosure as (TransitRoute? -> Void)! {
+            closure(nil)
+        }
         
     }
     
@@ -245,7 +240,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 parseAllAgenciesData(xml)
             case .AllRoutes:
                 parseAllRoutesData(xml)
-            case .RouteDefinition:
+            case .RouteConfiguration:
                 parseLineDefinition(xml)
             case .StopPredictions:
                 parseStopPredictions(xml)

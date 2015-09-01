@@ -120,7 +120,19 @@ class SwiftBus {
                 
                 //If the route exists, get the route configuration
                 let connectionHandler = ConnectionHandler()
-                
+                connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+                    
+                    //If there were no problems getting the route
+                    if let transitRoute = route as TransitRoute! {
+                        self._transitAgencies[agencyTag]?.agencyRoutes[routeTag] = route
+                        
+                        //Call the closure
+                        if let innerClosure = closure as (TransitRoute? -> Void)! {
+                            innerClosure(transitRoute)
+                        }
+                        
+                    }
+                })
                 
             } else {
                 //If the route doesn't exist, return nil
