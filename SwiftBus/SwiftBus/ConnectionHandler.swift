@@ -49,6 +49,8 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         currentRequestType = .RouteConfiguration
         
+        routeConfigurationClosure = closure
+        
         startConnection(kSwiftBusRouteConfigURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
@@ -204,6 +206,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 //For each stop per direction
                 
                 if let transitStop = allStopsDictionary[stopTag] {
+                    //Getting the stop from the dictionary of all stops and adding it to the correct direction for the current TransitRoute
                     transitStop.direction = stopDirection
                     currentRoute.stopsOnRoute[stopDirection]!.append(transitStop)
                 }

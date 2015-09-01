@@ -15,11 +15,6 @@ private let kStopTagEncoderString = "kStopTagEncoder"
 private let kDirectionEncoderString = "kDirectionEncoder"
 private let kPredictionsEncoderString = "kPredictionsEncoder"
 
-//Direction for each line
-enum LineDirection:Int {
-    case NoDirection = 0, Inbound, Outbound
-}
-
 //Stored stop identifiers to get the data from
 class TransitStop:NSObject, NSCoding {
     var routeTitle:String = ""
