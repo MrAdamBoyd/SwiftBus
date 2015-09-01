@@ -149,7 +149,7 @@ class SwiftBus {
     }
     
     /**
-    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route
+    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
     
     :param: stopTag   Tag of the stop
     :param: routeTag  Tag of the route
@@ -165,11 +165,12 @@ class SwiftBus {
                     
                     //If the route exists, get the route configuration
                     let connectionHandler = ConnectionHandler()
-                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String:[Int]]) -> Void in
+                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String:[Int]], messages:[String]) -> Void in
                         
                         
                         if let currentStop = currentRoute.getStopForTag(stopTag) {
                             currentStop.predictions = predictions
+                            currentStop.messages = messages
                             
                             //Call the closure
                             if let innerClosure = closure as (TransitStop? -> Void)! {

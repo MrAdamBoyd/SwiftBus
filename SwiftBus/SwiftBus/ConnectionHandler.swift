@@ -21,7 +21,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var allAgenciesClosure:([String : TransitAgency] -> Void)?
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
     var routeConfigClosure:(TransitRoute? -> Void)?
-    var stopPredictionsClosure:([String : [Int]] -> Void)?
+    var stopPredictionsClosure:(([String : [Int]], [String]) -> Void)?
     
     //MARK: Requesting data
     
@@ -50,7 +50,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(kSwiftBusRouteConfigURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
-    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [Int]]) -> Void)?) {
+    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [Int]], messages:[String]) -> Void)?) {
         currentRequestType = .StopPredictions
         
         stopPredictionsClosure = closure
@@ -217,8 +217,8 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     //Parsing the information for stop predictions
     private func parseStopPredictions(xml:XMLIndexer) {
         var predictions = xml["body"]["predictions"]
-        var predictionArray:[Int] = []
         var predictionDict:[String:[Int]] = [:]
+        var messageArray:[String] = []
         
         //Getting all the predictions
         for predictionDirection in predictions.children {
@@ -239,12 +239,19 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
         }
         
-        if let closure = stopPredictionsClosure as ([String:[Int]] -> Void)! {
-            closure(predictionDict)
+        var messages = predictions["message"]
+        
+        for message in messages {
+            //Going through the messages and adding them
+            if let messageTitle = message.element!.attributes["text"] {
+                messageArray.append(messageTitle)
+            }
         }
         
-//        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-//        appDelegate.predictionAdded(transitStop!)
+        if let closure = stopPredictionsClosure as (([String:[Int]], [String]) -> Void)! {
+            closure(predictionDict, messageArray)
+        }
+        
     }
     
     //MARK: NSURLConnectionDelegate

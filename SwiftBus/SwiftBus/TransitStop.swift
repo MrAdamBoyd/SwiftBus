@@ -16,6 +16,7 @@ private let kDirectionEncoderString = "kDirectionEncoder"
 private let kLatEncoderString = "kLatEncoder"
 private let kLonEncoderString = "kLonEncoder"
 private let kPredictionsEncoderString = "kPredictionsEncoder"
+private let kMessagesEncoderString = "kMessagesEncoder"
 
 //Stored stop identifiers to get the data from
 class TransitStop:NSObject, NSCoding {
@@ -27,6 +28,7 @@ class TransitStop:NSObject, NSCoding {
     var lat:Double = 0
     var lon:Double = 0
     var predictions:[String : [Int]] = [:]
+    var messages:[String] = []
     
     //Init without predictions or direction
     init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
@@ -68,6 +70,7 @@ class TransitStop:NSObject, NSCoding {
         lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
         lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
         predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [String:[Int]]
+        messages = aDecoder.decodeObjectForKey(kMessagesEncoderString) as! [String]
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -79,5 +82,6 @@ class TransitStop:NSObject, NSCoding {
         aCoder.encodeDouble(lat, forKey: kLatEncoderString)
         aCoder.encodeDouble(lon, forKey: kLonEncoderString)
         aCoder.encodeObject(predictions, forKey: kPredictionsEncoderString)
+        aCoder.encodeObject(messages, forKey: kMessagesEncoderString)
     }
 }

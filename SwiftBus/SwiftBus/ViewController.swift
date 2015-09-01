@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             
         })
         
-        SwiftBus.sharedController.stopPredictions("8052", onRoute: "2", withAgency: "lametro", closure: {(route:TransitStop?) -> Void in
+        SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
