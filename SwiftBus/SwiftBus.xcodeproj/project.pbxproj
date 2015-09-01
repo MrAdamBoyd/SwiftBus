@@ -165,8 +165,8 @@
 				668CB7911B92740900CA70DB /* RequestURLs.swift */,
 				66CB22A31B92728B00F820AE /* TransitAgency.swift */,
 				66CB22A11B9271C100F820AE /* TransitRoute.swift */,
-				66CB22A51B92730800F820AE /* TransitVehicle.swift */,
 				66CB229F1B92718900F820AE /* TransitStop.swift */,
+				66CB22A51B92730800F820AE /* TransitVehicle.swift */,
 			);
 			name = SwiftBus;
 			sourceTree = "<group>";
