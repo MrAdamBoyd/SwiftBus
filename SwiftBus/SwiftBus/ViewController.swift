@@ -19,11 +19,11 @@ class ViewController: UIViewController {
             println(agencies["sf-muni"])
         })
         
-        SwiftBus.sharedController.listOfRoutesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+        SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
             println(agencyRoutes.count)
         })
         
-        SwiftBus.sharedController.listOfRoutesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+        SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
             println(agencyRoutes.count)
         })
     }

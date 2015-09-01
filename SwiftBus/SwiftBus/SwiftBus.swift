@@ -75,7 +75,7 @@ class SwiftBus {
     :param: agencyTag the transit agency that this will download the routes for
     :param: closure   Code that is called after all the data has loaded
     */
-    func listOfRoutesForAgency(agencyTag: String, closure: ((agencies:[String : TransitRoute]) -> Void)?) {
+    func routesForAgency(agencyTag: String, closure: ((agencies:[String : TransitRoute]) -> Void)?) {
         
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
@@ -103,6 +103,32 @@ class SwiftBus {
             }
         })
         
+    }
+    
+    /**
+    Gets the TransitStop object that contains a list of TransitStops in each direction and the location of each of those stops
+    
+    :param: routeTag  the route that is being looked up
+    :param: agencyTag the agency for which the route is being looked up
+    :param: closure   the code that gets called after the data is loaded
+    */
+    func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+        
+        //Getting all the routes for the agency
+        routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
+            if transitRoutes[routeTag] != nil {
+                
+                //If the route exists, get the route configuration
+                let connectionHandler = ConnectionHandler()
+                
+                
+            } else {
+                //If the route doesn't exist, return nil
+                if let innerClosure = closure as (TransitRoute? -> Void)! {
+                    innerClosure(nil)
+                }
+            }
+        })
     }
     
     /*

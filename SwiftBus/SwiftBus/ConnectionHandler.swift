@@ -93,7 +93,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     :param: xml xml gotten from calling NextBus's API
     */
-    func parseAllAgenciesData(xml:XMLIndexer) {
+    private func parseAllAgenciesData(xml:XMLIndexer) {
         let agenciesXML:[XMLIndexer] = xml["body"].children
         var transitAgencies:[String : TransitAgency] = [:]
         
@@ -125,7 +125,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     :param: xml XML gotten from NextBus's API
     */
-    func parseAllRoutesData(xml:XMLIndexer) {
+    private func parseAllRoutesData(xml:XMLIndexer) {
         var transitRoutes:[String : TransitRoute] = [:]
         
         //Going through all lines and saving them
@@ -144,7 +144,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Parsing the line definition
-    func parseLineDefinition(xml:XMLIndexer) {
+    private func parseLineDefinition(xml:XMLIndexer) {
         var outboundStops: [String] = []
         var inboundStops: [String] = []
         var stopDictionary: [String: TransitStop] = [:]
@@ -213,7 +213,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Parsing the information for stop predictions
-    func parseStopPredictions(xml:XMLIndexer) {
+    private func parseStopPredictions(xml:XMLIndexer) {
         var predictions = xml["body"]["predictions"]["direction"]
         var predictionArray:[Int] = []
         
@@ -233,7 +233,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDelegate
     
-    func connectionDidFinishLoading(connection: NSURLConnection) {
+    private func connectionDidFinishLoading(connection: NSURLConnection) {
         
         if let finishedXML = xmlData {
             xmlString = NSString(data: finishedXML, encoding: NSUTF8StringEncoding) as! String
@@ -257,7 +257,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDataDelegate
     
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+    private func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         
         xmlData?.appendData(data)
     }
