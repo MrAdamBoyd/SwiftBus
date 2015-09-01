@@ -13,6 +13,8 @@ private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kStopTitleEncoderString = "kStopTitleEncoder"
 private let kStopTagEncoderString = "kStopTagEncoder"
 private let kDirectionEncoderString = "kDirectionEncoder"
+private let kLatEncoderString = "kLatEncoder"
+private let kLonEncoderString = "kLonEncoder"
 private let kPredictionsEncoderString = "kPredictionsEncoder"
 
 //Stored stop identifiers to get the data from
@@ -22,6 +24,8 @@ class TransitStop:NSObject, NSCoding {
     var stopTitle:String = ""
     var stopTag:String = ""
     var direction:String = ""
+    var lat:Double = 0
+    var lon:Double = 0
     var predictions:[Int] = []
     
     //Init without predictions or direction
@@ -59,6 +63,8 @@ class TransitStop:NSObject, NSCoding {
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String
         stopTag = aDecoder.decodeObjectForKey(kStopTagEncoderString) as! String
         direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
+        lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
+        lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
         predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [Int]
     }
     
@@ -68,6 +74,8 @@ class TransitStop:NSObject, NSCoding {
         aCoder.encodeObject(stopTitle, forKey: kStopTitleEncoderString)
         aCoder.encodeObject(stopTag, forKey: kStopTagEncoderString)
         aCoder.encodeObject(direction, forKey: kDirectionEncoderString)
+        aCoder.encodeDouble(lat, forKey: kLatEncoderString)
+        aCoder.encodeDouble(lon, forKey: kLonEncoderString)
         aCoder.encodeObject(predictions, forKey: kPredictionsEncoderString)
     }
 }

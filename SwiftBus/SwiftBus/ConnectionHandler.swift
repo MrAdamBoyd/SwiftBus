@@ -188,9 +188,10 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         //Going through the stops and creating TransitStop objects
         for stop in stops {
-            if let routeTitle = xml["body"]["route"].element!.attributes["title"], routeTag = xml["body"]["route"].element!.attributes["tag"], stopTitle = stop.element!.attributes["title"], stopTag = stop.element!.attributes["tag"] {
+            if let routeTitle = xml["body"]["route"].element!.attributes["title"], routeTag = xml["body"]["route"].element!.attributes["tag"], stopTitle = stop.element!.attributes["title"], stopTag = stop.element!.attributes["tag"], stopLat = stop.element!.attributes["lat"], stopLon = stop.element!.attributes["lon"] {
                 let stop = TransitStop(routeTitle: routeTitle, routeTag: routeTag, stopTitle: stopTitle, stopTag: stopTag)
-                //TODO: Get it working with NSColor for Mac
+                stop.lat = (stopLat as NSString).doubleValue
+                stop.lon = (stopLon as NSString).doubleValue
                 
                 allStopsDictionary[stopTag] = stop
             }

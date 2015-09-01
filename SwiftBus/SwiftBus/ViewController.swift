@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         
         SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
             
+            //If the route exists
             if let transitRoute = route as TransitRoute! {
                 println(transitRoute.routeColor)
             }
