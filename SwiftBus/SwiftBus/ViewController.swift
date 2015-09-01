@@ -35,6 +35,15 @@ class ViewController: UIViewController {
             }
             
         })
+        
+        SwiftBus.sharedController.stopPredictions("8052", onRoute: "2", withAgency: "lametro", closure: {(route:TransitStop?) -> Void in
+            
+            //If the stop and route exists
+            if let transitStop = route as TransitStop! {
+                println(transitStop.combinedPredictions())
+            }
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {

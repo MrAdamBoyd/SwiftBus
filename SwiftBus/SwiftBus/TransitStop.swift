@@ -26,7 +26,7 @@ class TransitStop:NSObject, NSCoding {
     var direction:String = ""
     var lat:Double = 0
     var lon:Double = 0
-    var predictions:[Int] = []
+    var predictions:[String : [Int]] = [:]
     
     //Init without predictions or direction
     init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
@@ -36,23 +36,25 @@ class TransitStop:NSObject, NSCoding {
         self.stopTag = stopTag
     }
     
-    //Init without predictions
-    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:String) {
-        self.routeTitle = routeTitle
-        self.routeTag = routeTag
-        self.stopTitle = stopTitle
-        self.stopTag = stopTag
-        self.direction = direction
-    }
+    /**
+    Returns a list of all the predictions from the different directions in order
     
-    //Init with predictions
-    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:String, predictions:[Int]) {
-        self.routeTitle = routeTitle
-        self.routeTag = routeTag
-        self.stopTitle = stopTitle
-        self.stopTag = stopTag
-        self.direction = direction
-        self.predictions = predictions
+    :returns: In order list of all predictions from all different directions
+    */
+    func combinedPredictions() -> [Int] {
+        var listOfPredictions:[Int] = []
+        
+        for predictionDirection in predictions.values.array {
+            //Going through each direction
+            listOfPredictions += predictionDirection
+        }
+        
+        //Sorting the list
+        listOfPredictions.sort {
+            return $0 < $1
+        }
+        
+        return listOfPredictions
     }
     
     //MARK: NSCoding
@@ -65,7 +67,7 @@ class TransitStop:NSObject, NSCoding {
         direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
         lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
         lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
-        predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [Int]
+        predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [String:[Int]]
     }
     
     func encodeWithCoder(aCoder: NSCoder) {

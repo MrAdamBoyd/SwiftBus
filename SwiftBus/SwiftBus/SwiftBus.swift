@@ -131,12 +131,70 @@ class SwiftBus {
                             innerClosure(transitRoute)
                         }
                         
+                    } else {
+                        //There was a problem, return nil
+                        if let innerClosure = closure as (TransitRoute? -> Void)! {
+                            innerClosure(nil)
+                        }
                     }
                 })
                 
             } else {
                 //If the route doesn't exist, return nil
                 if let innerClosure = closure as (TransitRoute? -> Void)! {
+                    innerClosure(nil)
+                }
+            }
+        })
+    }
+    
+    /**
+    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route
+    
+    :param: stopTag   Tag of the stop
+    :param: routeTag  Tag of the route
+    :param: agencyTag Tag of the agency
+    :param: closure   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+    */
+    func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?) {
+        
+        //Getting the route configuration for the route
+        routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+            if let currentRoute = route as TransitRoute! {
+                if currentRoute.routeContainsStopWithTag(stopTag) {
+                    
+                    //If the route exists, get the route configuration
+                    let connectionHandler = ConnectionHandler()
+                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String:[Int]]) -> Void in
+                        
+                        
+                        if let currentStop = currentRoute.getStopForTag(stopTag) {
+                            currentStop.predictions = predictions
+                            
+                            //Call the closure
+                            if let innerClosure = closure as (TransitStop? -> Void)! {
+                                innerClosure(currentStop)
+                            }
+                            
+                        } else {
+                            //There was a problem, return nil
+                            if let innerClosure = closure as (TransitStop? -> Void)! {
+                                innerClosure(nil)
+                            }
+                        }
+                        
+                    })
+                    
+                    
+                } else {
+                    //This stop isn't in the route that was provided
+                    if let innerClosure = closure as (TransitStop? -> Void)! {
+                        innerClosure(nil)
+                    }
+                }
+            } else {
+                //There's been a problem, return nil
+                if let innerClosure = closure as (TransitStop? -> Void)! {
                     innerClosure(nil)
                 }
             }

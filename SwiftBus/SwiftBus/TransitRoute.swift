@@ -41,6 +41,50 @@ class TransitRoute: NSObject, NSCoding {
         self.routeTitle = routeTitle
     }
     
+    /**
+    Returns the TransitStop object for a certain stop tag if it exists
+    
+    :param: stopTag Tag of the stop that will be returned
+    
+    :returns: Optional TransitStop object for the tag provided
+    */
+    func getStopForTag(stopTag:String) -> TransitStop? {
+        for direction in stopsOnRoute.keys.array {
+            //For each direction
+            for directionStop in stopsOnRoute[direction]! {
+                //For each stop in each direction
+                if directionStop.stopTag == stopTag {
+                    //If the stop matches, set the value to true
+                    return directionStop
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    /**
+    This function checks all the stops in each direction to see if a stop with a certain stop tag can be found in this route
+    
+    :param: stopTag the tag that is being matched against
+    
+    :returns: Whether the stop is in this route
+    */
+    func routeContainsStopWithTag(stopTag:String) -> Bool {
+        return getStopForTag(stopTag) != nil
+    }
+    
+    /**
+    This function checks all the stops in each direction to see if a stop can be be found in this route
+    
+    :param: stop TransitStop object that is checked against all stops in the route
+    
+    :returns: Whether the stop is in this route
+    */
+    func routeContainsStop(stop:TransitStop) -> Bool {
+        return routeContainsStopWithTag(stop.routeTag)
+    }
+    
     //MARK: NSCoding
     
     required init(coder aDecoder: NSCoder) {
