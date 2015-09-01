@@ -34,6 +34,8 @@ class TransitRoute: NSObject, NSCoding {
     var lonMin:Double = 0
     var lonMax:Double = 0
     
+    //Basic init
+    override init() { super.init() }
     
     //Init without stops
     init(routeTag:String, routeTitle:String) {

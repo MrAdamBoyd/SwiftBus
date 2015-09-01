@@ -49,7 +49,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         currentRequestType = .RouteConfiguration
         
-        startConnection(kSwiftBusBaseURL + agencyTag + kSwiftBusRoute + routeTag)
+        startConnection(kSwiftBusRouteConfigURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
     func requestStopPredictionData(stop:TransitStop) {
@@ -57,7 +57,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         currentRequestType = .StopPredictions
         transitStop = stop
         
-        var completeLinePredictionURL = kSwiftBusBaseURL + "sf-muni" + stop.routeTag + kSwiftBusStopPrediction + stop.stopTag
+        var completeLinePredictionURL = kSwiftBusStopPredictionsURL + "sf-muni" + stop.routeTag + kSwiftBusStop + stop.stopTag
         var linePredictionURL = NSURL(string: completeLinePredictionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)
         var linePredictionRequest = NSURLRequest(URL: linePredictionURL!)
         connection = NSURLConnection(request: linePredictionRequest, delegate: self, startImmediately: true)
@@ -138,17 +138,29 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Parsing the line definition
-    private func parseLineDefinition(xml:XMLIndexer) {
-        var currentRoute:TransitRoute
+    private func parseRouteConfiguration(xml:XMLIndexer) {
+        var currentRoute:TransitRoute = TransitRoute()
         var outboundStops: [String] = []
         var inboundStops: [String] = []
-        var stopDictionary: [String: TransitStop] = [:]
+        var stopDictionary: [String : TransitStop] = [:]
         var inboundTransitStops: [TransitStop] = []
         var outboundTransitStops: [TransitStop] = []
         
+        var routeConfig:[String : String] = xml["body"]["route"].element!.attributes
         
+        //Creating the route from the current information
+        if let routeTag = routeConfig["tag"], routeTitle = routeConfig["title"], latMin = routeConfig["latMin"], latMax = routeConfig["latMax"], lonMin = routeConfig["lonMin"], lonMax = routeConfig["lonMax"], routeColorHex = routeConfig["color"], oppositeColorHex = routeConfig["oppositeColor"] {
+            currentRoute.routeTag = routeTag
+            currentRoute.routeTitle = routeTitle
+            currentRoute.latMin = (latMin as NSString).doubleValue
+            currentRoute.latMax = (latMax as NSString).doubleValue
+            currentRoute.lonMin = (lonMin as NSString).doubleValue
+            currentRoute.lonMax = (lonMax as NSString).doubleValue
+            currentRoute.routeColor = UIColor(hex: "#" + routeColorHex)
+            currentRoute.oppositeColor = UIColor(hex: "#" + oppositeColorHex)
+        }
         
-        var stopDirections = xml["body"]["route"]["direction"]
+        var stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
         
         //Getting the directions for each stop
         for stopDirection in stopDirections {
@@ -229,7 +241,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDelegate
     
-    private func connectionDidFinishLoading(connection: NSURLConnection) {
+    func connectionDidFinishLoading(connection: NSURLConnection) {
         
         if let finishedXML = xmlData {
             xmlString = NSString(data: finishedXML, encoding: NSUTF8StringEncoding) as! String
@@ -241,7 +253,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             case .AllRoutes:
                 parseAllRoutesData(xml)
             case .RouteConfiguration:
-                parseLineDefinition(xml)
+                parseRouteConfiguration(xml)
             case .StopPredictions:
                 parseStopPredictions(xml)
             default:
@@ -253,7 +265,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDataDelegate
     
-    private func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         
         xmlData?.appendData(data)
     }
