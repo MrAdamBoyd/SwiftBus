@@ -11,8 +11,7 @@ import UIKit
 
 private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kRouteTitleEncoderString = "kRouteTitleEncoder"
-private let kInboundStopsOnLineEncoderString = "kInboundStopsOnLineEncoder"
-private let kOutboundStopsOnLineEncoderString = "kOutboundStopsOnLineEncoder"
+private let kStopsOnRouteEncoderString = "kStopsOnRouteEncoder"
 private let kRouteColorEncoderString = "kRouteColorEncoder"
 private let kOppositeColorEncoderString = "kOppositeColorEncoder"
 private let kLatMinEncoderString = "kLatMinEncoder"
@@ -25,8 +24,7 @@ class TransitRoute: NSObject, NSCoding {
     
     var routeTag:String = ""
     var routeTitle:String = ""
-    var inboundStopsOnLine:[TransitStop] = []
-    var outboundStopsOnLine:[TransitStop] = []
+    var stopsOnRoute:[String : [TransitStop]] = [:]
     var routeColor:UIColor = UIColor()
     var oppositeColor:UIColor = UIColor()
     var latMin:Double = 0
@@ -43,21 +41,12 @@ class TransitRoute: NSObject, NSCoding {
         self.routeTitle = routeTitle
     }
     
-    //Init with stops
-    init(routeTag:String, routeTitle:String, withInboundStops inboundStopsOnLine:[TransitStop], andOutboundStops outboundStopsOnLine:[TransitStop]) {
-        self.routeTag = routeTag
-        self.routeTitle = routeTitle
-        self.inboundStopsOnLine = inboundStopsOnLine
-        self.outboundStopsOnLine = outboundStopsOnLine
-    }
-    
     //MARK: NSCoding
     
     required init(coder aDecoder: NSCoder) {
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
-        inboundStopsOnLine = aDecoder.decodeObjectForKey(kInboundStopsOnLineEncoderString) as! [TransitStop]
-        outboundStopsOnLine = aDecoder.decodeObjectForKey(kOutboundStopsOnLineEncoderString) as! [TransitStop]
+        stopsOnRoute = aDecoder.decodeObjectForKey(kStopsOnRouteEncoderString) as! [String : [TransitStop]]
         routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! UIColor
         oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! UIColor
         latMin = aDecoder.decodeDoubleForKey(kLatMinEncoderString)
@@ -69,8 +58,7 @@ class TransitRoute: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
-        aCoder.encodeObject(inboundStopsOnLine, forKey: kInboundStopsOnLineEncoderString)
-        aCoder.encodeObject(outboundStopsOnLine, forKey: kOutboundStopsOnLineEncoderString)
+        aCoder.encodeObject(stopsOnRoute, forKey: kStopsOnRouteEncoderString)
         aCoder.encodeObject(routeColor, forKey: kRouteColorEncoderString)
         aCoder.encodeObject(oppositeColor, forKey: kOppositeColorEncoderString)
         aCoder.encodeDouble(latMin, forKey: kLatMinEncoderString)

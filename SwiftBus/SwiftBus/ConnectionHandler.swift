@@ -142,7 +142,8 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         var currentRoute:TransitRoute = TransitRoute()
         var outboundStops: [String] = []
         var inboundStops: [String] = []
-        var stopDictionary: [String : TransitStop] = [:]
+        var stopDirectionDict: [String : [String]] = [:]
+        var allStopsDictionary: [String : TransitStop] = [:]
         var inboundTransitStops: [TransitStop] = []
         var outboundTransitStops: [TransitStop] = []
         
@@ -162,24 +163,17 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         var stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
         
-        //Getting the directions for each stop
         for stopDirection in stopDirections {
-            //For each direction, inbound and outbound
-            if stopDirection.element!.attributes["name"] == "Inbound" {
-                //If we are looking at inbound
+            //For each direction, eg. "Inbound to downtown", "Inbound to Caltrain", "Outbound to Ocean Beach"
+            if let currentDirection:String = stopDirection.element!.attributes["name"] {
+                
                 for child in stopDirection.children {
-                    //Go through and add the stop tags to the set of inbound tags
+                    //For each stop per direction
+                
                     if let tag:String = child.element!.attributes["tag"] {
-                        inboundStops.append(tag)
+                        stopDirectionDict[currentDirection]?.append(tag)
                     }
-                }
-            } else {
-                //If we are looking at outbound
-                for child in stopDirection.children {
-                    //Go through and add the stop tags to the set of inbound tags
-                    if let tag:String = child.element!.attributes["tag"] {
-                        outboundStops.append(tag)
-                    }
+                    
                 }
                 
             }
@@ -194,21 +188,31 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 let stop = TransitStop(routeTitle: routeTitle, routeTag: routeTag, stopTitle: stopTitle, stopTag: stopTag)
                 //TODO: Get it working with NSColor for Mac
                 
-                stopDictionary[stopTag] = stop
+                allStopsDictionary[stopTag] = stop
             }
         }
         
-        //Need to go through inbound and outbound stops IN ORDER and add them to an array of transit stops
+        //Going through all stops IN ORDER and add them to an array of transit stops
+        for stopsInDirection in stopDirectionDict.keys {
+            //For each direction
+            
+            for stop in stopsInDirection {
+                //For each stop per direction
+                
+                //if let transitStop = stopDirectionDict[stopsInDirection]
+            }
+            
+        }
         
         for stop in inboundStops {
-            if let transitStop = stopDictionary[stop] as TransitStop! {
+            if let transitStop = allStopsDictionary[stop] as TransitStop! {
                 transitStop.direction = .Inbound
                 inboundTransitStops.append(transitStop)
             }
         }
         
         for stop in outboundStops {
-            if let transitStop = stopDictionary[stop] as TransitStop! {
+            if let transitStop = allStopsDictionary[stop] as TransitStop! {
                 transitStop.direction = .Outbound
                 outboundTransitStops.append(transitStop)
             }
