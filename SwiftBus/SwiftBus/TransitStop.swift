@@ -26,7 +26,7 @@ class TransitStop:NSObject, NSCoding {
     var routeTag:String = ""
     var stopTitle:String = ""
     var stopTag:String = ""
-    var direction:LineDirection = .NoDirection
+    var direction:String = ""
     var predictions:[Int] = []
     
     //Init without predictions or direction
@@ -38,7 +38,7 @@ class TransitStop:NSObject, NSCoding {
     }
     
     //Init without predictions
-    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:LineDirection) {
+    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:String) {
         self.routeTitle = routeTitle
         self.routeTag = routeTag
         self.stopTitle = stopTitle
@@ -47,7 +47,7 @@ class TransitStop:NSObject, NSCoding {
     }
     
     //Init with predictions
-    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:LineDirection, predictions:[Int]) {
+    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String, direction:String, predictions:[Int]) {
         self.routeTitle = routeTitle
         self.routeTag = routeTag
         self.stopTitle = stopTitle
@@ -63,7 +63,7 @@ class TransitStop:NSObject, NSCoding {
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String
         stopTag = aDecoder.decodeObjectForKey(kStopTagEncoderString) as! String
-        direction = LineDirection(rawValue:(aDecoder.decodeIntegerForKey(kDirectionEncoderString) as Int)) ?? .NoDirection
+        direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
         predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [Int]
     }
     
@@ -72,7 +72,7 @@ class TransitStop:NSObject, NSCoding {
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(stopTitle, forKey: kStopTitleEncoderString)
         aCoder.encodeObject(stopTag, forKey: kStopTagEncoderString)
-        aCoder.encodeInteger(direction.rawValue, forKey: kDirectionEncoderString)
+        aCoder.encodeObject(direction, forKey: kDirectionEncoderString)
         aCoder.encodeObject(predictions, forKey: kPredictionsEncoderString)
     }
 }

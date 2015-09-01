@@ -165,7 +165,9 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         for stopDirection in stopDirections {
             //For each direction, eg. "Inbound to downtown", "Inbound to Caltrain", "Outbound to Ocean Beach"
-            if let currentDirection:String = stopDirection.element!.attributes["name"] {
+            if let currentDirection:String = stopDirection.element!.attributes["title"] {
+                
+                stopDirectionDict[currentDirection] = []
                 
                 for child in stopDirection.children {
                     //For each stop per direction
@@ -193,33 +195,24 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         }
         
         //Going through all stops IN ORDER and add them to an array of transit stops
-        for stopsInDirection in stopDirectionDict.keys {
+        for stopDirection in stopDirectionDict.keys {
             //For each direction
             
-            for stop in stopsInDirection {
+            currentRoute.stopsOnRoute[stopDirection] = []
+            
+            for stopTag in stopDirectionDict[stopDirection]! {
                 //For each stop per direction
                 
-                //if let transitStop = stopDirectionDict[stopsInDirection]
+                if let transitStop = allStopsDictionary[stopTag] {
+                    transitStop.direction = stopDirection
+                    currentRoute.stopsOnRoute[stopDirection]!.append(transitStop)
+                }
             }
             
-        }
-        
-        for stop in inboundStops {
-            if let transitStop = allStopsDictionary[stop] as TransitStop! {
-                transitStop.direction = .Inbound
-                inboundTransitStops.append(transitStop)
-            }
-        }
-        
-        for stop in outboundStops {
-            if let transitStop = allStopsDictionary[stop] as TransitStop! {
-                transitStop.direction = .Outbound
-                outboundTransitStops.append(transitStop)
-            }
         }
         
         if let closure = routeConfigurationClosure as (TransitRoute? -> Void)! {
-            closure(nil)
+            closure(currentRoute)
         }
         
     }
