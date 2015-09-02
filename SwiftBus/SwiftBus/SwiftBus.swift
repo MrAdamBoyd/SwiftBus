@@ -18,11 +18,9 @@ import Foundation
 class SwiftBus {
     static let sharedController = SwiftBus()
     
-    private var _transitAgencies:[String : TransitAgency] = [:]
+    private var masterListTransitAgencies:[String : TransitAgency] = [:]
     
-    private init() {
-        println("SwiftBus initialized")
-    }
+    private init() { }
     
     /*
     Calls that are pulled live each time
@@ -46,11 +44,11 @@ class SwiftBus {
     */
     func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         
-        if _transitAgencies.count > 0 {
+        if masterListTransitAgencies.count > 0 {
             
             //Transit agency data is in memory, provide that
             if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
-                innerClosure(_transitAgencies)
+                innerClosure(masterListTransitAgencies)
             }
             
         } else {
@@ -59,7 +57,7 @@ class SwiftBus {
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
                 //Insert this closure around the inner one because the agencies need to be saved
-                self._transitAgencies = agencies
+                self.masterListTransitAgencies = agencies
                 
                 if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
                     innerClosure(agencies)
@@ -93,7 +91,7 @@ class SwiftBus {
                     }
 
                     //Saving the routes for the agency
-                    self._transitAgencies[agencyTag]?.agencyRoutes = agencyRoutes
+                    self.masterListTransitAgencies[agencyTag]?.agencyRoutes = agencyRoutes
                     
                     //Return the transitRoutes for the agency
                     if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
@@ -139,7 +137,7 @@ class SwiftBus {
                             }
                         }
                         
-                        self._transitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
+                        self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
                         
                         //Call the closure
                         if let innerClosure = closure as (TransitRoute? -> Void)! {
@@ -253,6 +251,6 @@ class SwiftBus {
     This method clears the transitAgency dictionary from all TransitAgency objects. Because it is formatted as a tree, this clears all information for all routes and stops as well. Any function calls will download new information.
     */
     func clearSavedData() {
-        _transitAgencies = [:]
+        masterListTransitAgencies = [:]
     }
 }

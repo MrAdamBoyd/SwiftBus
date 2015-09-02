@@ -23,6 +23,12 @@ class TransitPrediction: NSObject, NSCoding {
     //Basic init
     override init() { super.init() }
     
+    //Init with only # of minutes
+    init(predictionInMinutes:Int) {
+        self.predictionInMinutes = predictionInMinutes
+        self.predictionInSeconds = self.predictionInMinutes * 60
+    }
+    
     //Init with all parameters
     init(numberOfVehicles:Int, predictionInMinutes:Int, predictionInSeconds:Int, vehicleTag:Int) {
         self.numberOfVehicles = numberOfVehicles

@@ -5,7 +5,7 @@
 -Able to get vehicle locations from TransitRoute object
 -Able to get stop predictions from TransitRoute Object (need to store shortName for each stop, predictions can be called on stopName and tag)
 -Refresh methods for SwiftBus
-Write tests
+-Write tests
 Convert to Swift 2.0 on another branch
 Documentation
 Get Cocoapod working

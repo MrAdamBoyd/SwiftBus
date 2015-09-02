@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         
     }
     
-    
     @IBAction func agencyListTouched(sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             println("Number of agencies loaded: \(agencies.count)")
