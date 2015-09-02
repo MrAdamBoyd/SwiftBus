@@ -47,6 +47,46 @@ class TransitRoute: NSObject, NSCoding {
         self.routeTitle = routeTitle
     }
     
+    
+    /**
+    Initializes the object with everything needed to get the route config
+    
+    :param: routeTag  tag of the route, eg. "5R"
+    :param: agencyTag agency where the route is, eg. "sf-muni"
+    
+    :returns: None
+    */
+    init(routeTag:String, agencyTag:String) {
+        self.routeTag = routeTag
+        self.agencyTag = agencyTag
+    }
+    
+    /**
+    Downloading the information about the route config, only need the routeTag and the agencyTag
+    
+    :param: finishedLoading Code that is called when the route is finished loading
+        :param: success Whether or not the downloading was a success
+        :param: route   The route object with all the information
+    */
+    func getRouteConfig(finishedLoading:(success:Bool, route:TransitRoute) -> Void) {
+        let connectionHandler = SwiftBusConnectionHandler()
+        connectionHandler.requestRouteConfiguration(self.routeTag, fromAgency: self.agencyTag, closure: {(route:TransitRoute?) -> Void in
+            
+            //If the route exists
+            if let thisRoute = route {
+                self.updateData(thisRoute)
+                
+                finishedLoading(success: true, route: self)
+                
+                
+            } else {
+                //This agency doesn't exist
+                finishedLoading(success: false, route: self)
+            }
+        })
+
+    }
+    
     /**
     Returns the TransitStop object for a certain stop tag if it exists
     
@@ -89,6 +129,20 @@ class TransitRoute: NSObject, NSCoding {
     */
     func routeContainsStop(stop:TransitStop) -> Bool {
         return routeContainsStopWithTag(stop.routeTag)
+    }
+    
+    //Used to update all the data after getting the route information
+    private func updateData(newRoute:TransitRoute) {
+        self.routeTitle = newRoute.routeTitle
+        self.stopsOnRoute = newRoute.stopsOnRoute
+        self.directionTagToName = newRoute.directionTagToName
+        self.routeColor = newRoute.routeColor
+        self.oppositeColor = newRoute.oppositeColor
+        self.vehiclesOnRoute = newRoute.vehiclesOnRoute
+        self.latMin = newRoute.latMin
+        self.latMax = newRoute.latMax
+        self.lonMin = newRoute.lonMin
+        self.lonMax = newRoute.lonMax
     }
     
     //MARK: NSCoding

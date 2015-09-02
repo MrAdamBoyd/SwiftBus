@@ -20,6 +20,12 @@ class ViewController: UIViewController {
             println("HI")
         })
         
+        var route = TransitRoute(routeTag: "5R", agencyTag: "sf-muni")
+        
+        route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
+            println("HI")
+        })
+        
     }
     
     

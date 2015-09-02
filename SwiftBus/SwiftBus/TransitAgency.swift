@@ -36,9 +36,18 @@ class TransitAgency: NSObject, NSCoding {
         self.agencyRegion = agencyRegion
     }
     
+    /**
+    Downloads all agency data from provided agencytag
+    
+    :param: finishedLoading Code that is called when the data is finished loading
+        :param: success Whether or not the call was successful
+        :param: agency  The agency when the data is loaded
+    */
     func getAgencyData(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
         //We need to load the transit agency data
         let connectionHandler = SwiftBusConnectionHandler()
+        
+        //Need to request agency data first because only this call has the region and full name
         connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
             
             //Getting the current agency
