@@ -85,6 +85,11 @@ class SwiftBus {
                 //The agency exists & we need to load the transit agency data
                 let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+                    
+                    //Adding the agency to the route
+                    for route in agencyRoutes.values.array {
+                        route.agencyTag = agencyTag
+                    }
 
                     //Saving the routes for the agency
                     self._transitAgencies[agencyTag]?.agencyRoutes = agencyRoutes
@@ -125,8 +130,7 @@ class SwiftBus {
                     //If there were no problems getting the route
                     if let transitRoute = route as TransitRoute! {
                         
-                        //Applying agencyTag to TransitRoute object and all TransitStop subelements
-                        transitRoute.agencyTag = agencyTag
+                        //Applying agencyTag to all TransitStop subelements
                         for routeDirection in transitRoute.stopsOnRoute.values.array {
                             for stop in routeDirection {
                                 stop.agencyTag = agencyTag

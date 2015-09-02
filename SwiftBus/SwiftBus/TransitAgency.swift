@@ -25,10 +25,40 @@ class TransitAgency: NSObject, NSCoding {
     //Convenvience
     override init() { }
     
+    //User initialization, only need the agencyTag, everything else can be downloaded
+    init(agencyTag:String) {
+        self.agencyTag = agencyTag
+    }
+    
     init(agencyTag:String, agencyTitle:String, agencyRegion:String) {
         self.agencyTag = agencyTag
         self.agencyTitle = agencyTitle
         self.agencyRegion = agencyRegion
+    }
+    
+    func getAgencyData(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
+        //We need to load the transit agency data
+        let connectionHandler = SwiftBusConnectionHandler()
+        connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
+            
+            //Getting the current agency
+            if let thisAgency = agencies[self.agencyTag] {
+                self.agencyTitle = thisAgency.agencyTitle
+                self.agencyShortTitle = thisAgency.agencyShortTitle
+                self.agencyRegion = thisAgency.agencyRegion
+                
+                connectionHandler.requestAllRouteData(self.agencyTag, closure: {(newAgencyRoutes:[String : TransitRoute]) -> Void in
+                    self.agencyRoutes = newAgencyRoutes
+                    
+                    finishedLoading(success: true, agency: self)
+                    
+                })
+                
+            } else {
+                //This agency doesn't exist
+                finishedLoading(success: false, agency: self)
+            }
+        })
     }
 
     //MARK : NSCoding

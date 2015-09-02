@@ -73,6 +73,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     :param: requestURL string of the url that is being requested
     */
     private func startConnection(requestURL:String) {
+        xmlData = NSMutableData()
         var optionalURL:NSURL? = NSURL(string: requestURL)
         
         if let url = optionalURL as NSURL! {

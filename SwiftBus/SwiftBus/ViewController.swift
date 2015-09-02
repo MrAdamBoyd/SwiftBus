@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var agency = TransitAgency(agencyTag: "sf-muni")
+        
+        agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
+            println("HI")
+        })
+        
     }
     
     
