@@ -69,7 +69,8 @@ class ViewController: UIViewController {
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
                 println("Stop: \(transitStop.stopTitle)")
-                println("Predictions at stop \(transitStop.combinedPredictions()) mins")
+                var predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
+                println("Predictions at stop \(predictionStrings) mins")
                 println()
             }
             

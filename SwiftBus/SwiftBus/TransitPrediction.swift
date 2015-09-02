@@ -20,6 +20,17 @@ class TransitPrediction: NSObject, NSCoding {
     var predictionInSeconds:Int = 0
     var vehicleTag:Int = 0
     
+    //Basic init
+    override init() { super.init() }
+    
+    //Init with all parameters
+    init(numberOfVehicles:Int, predictionInMinutes:Int, predictionInSeconds:Int, vehicleTag:Int) {
+        self.numberOfVehicles = numberOfVehicles
+        self.predictionInMinutes = predictionInMinutes
+        self.predictionInSeconds = predictionInSeconds
+        self.vehicleTag = vehicleTag
+    }
+    
     //MARK : NSCoding
     required init(coder aDecoder: NSCoder) {
         numberOfVehicles = aDecoder.decodeObjectForKey(kNumberOfVehiclesEncoderString) as! Int

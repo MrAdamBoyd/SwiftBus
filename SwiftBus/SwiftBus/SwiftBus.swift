@@ -203,7 +203,7 @@ class SwiftBus {
                     
                     //If the route exists, get the route configuration
                     let connectionHandler = ConnectionHandler()
-                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String:[Int]], messages:[String]) -> Void in
+                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                         
                         
                         if let currentStop = currentRoute.getStopForTag(stopTag) {

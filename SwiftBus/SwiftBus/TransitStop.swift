@@ -29,7 +29,7 @@ class TransitStop:NSObject, NSCoding {
     var direction:String = ""
     var lat:Double = 0
     var lon:Double = 0
-    var predictions:[String : [Int]] = [:]
+    var predictions:[String : [TransitPrediction]] = [:]
     var messages:[String] = []
     
     //Init without predictions or direction
@@ -45,23 +45,23 @@ class TransitStop:NSObject, NSCoding {
     
     :param: closure Code that is called after the call has been downloaded and parsed
     */
-    func getPredictionsAndMessages(closure:((predictions:[String : [Int]], messages:[String]) -> Void)?) {
+    func getPredictionsAndMessages(closure:((predictions:[String : [TransitPrediction]], messages:[String]) -> Void)?) {
         if agencyTag != "" {
             let connectionHandler = ConnectionHandler()
-            connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String:[Int]], messages:[String]) -> Void in
+            connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                 
                 self.predictions = predictions
                 self.messages = messages
                 
                 //Call closure with predictions
-                if let innerClosure = closure as (([String : [Int]], [String]) -> Void)! {
+                if let innerClosure = closure as (([String : [TransitPrediction]], [String]) -> Void)! {
                     innerClosure(predictions, messages)
                 }
                 
             })
         } else {
             //Call closure with nil
-            if let innerClosure = closure as (([String : [Int]], [String]) -> Void)! {
+            if let innerClosure = closure as (([String : [TransitPrediction]], [String]) -> Void)! {
                 innerClosure([:], [])
             }
         }
@@ -72,8 +72,8 @@ class TransitStop:NSObject, NSCoding {
     
     :returns: In order list of all predictions from all different directions
     */
-    func combinedPredictions() -> [Int] {
-        var listOfPredictions:[Int] = []
+    func combinedPredictions() -> [TransitPrediction] {
+        var listOfPredictions:[TransitPrediction] = []
         
         for predictionDirection in predictions.values.array {
             //Going through each direction
@@ -82,7 +82,7 @@ class TransitStop:NSObject, NSCoding {
         
         //Sorting the list
         listOfPredictions.sort {
-            return $0 < $1
+            return $0.predictionInSeconds < $1.predictionInSeconds
         }
         
         return listOfPredictions
@@ -99,7 +99,7 @@ class TransitStop:NSObject, NSCoding {
         direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
         lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
         lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
-        predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [String:[Int]]
+        predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [String : [TransitPrediction]]
         messages = aDecoder.decodeObjectForKey(kMessagesEncoderString) as! [String]
     }
     

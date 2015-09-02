@@ -1,5 +1,5 @@
 -TransitPrediction conforms to NSCoding
-Replace array of ints with TransitPrediction objects
+-Replace array of ints with TransitPrediction objects
 Change names to ABSwiftBus (and ConnectionHandler)
 Able to call route config from TransitRoute (add agencyTag when downloading routes, not on routeConfig)
 Able to get vehicle locations from TransitRoute object

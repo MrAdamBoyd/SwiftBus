@@ -21,7 +21,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var allAgenciesClosure:([String : TransitAgency] -> Void)?
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
     var routeConfigClosure:(TransitRoute? -> Void)?
-    var stopPredictionsClosure:(([String : [Int]], [String]) -> Void)?
+    var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)?
     var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)?
     
     //MARK: Requesting data
@@ -59,7 +59,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(kSwiftBusVehicleLocationsURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
-    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [Int]], messages:[String]) -> Void)?) {
+    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [TransitPrediction]], messages:[String]) -> Void)?) {
         currentRequestType = .StopPredictions
         
         stopPredictionsClosure = closure
@@ -259,7 +259,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     //Parsing the information for stop predictions
     private func parseStopPredictions(xml:XMLIndexer) {
         var predictions = xml["body"]["predictions"]
-        var predictionDict:[String:[Int]] = [:]
+        var predictionDict:[String : [TransitPrediction]] = [:]
         var messageArray:[String] = []
         
         //Getting all the predictions
@@ -272,9 +272,13 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 
                 for prediction in predictionDirection.children {
                     //Getting each individual prediction in minutes
-                    var predictionString:String = prediction.element!.attributes["minutes"]!
-                    if let predictionInt = predictionString.toInt() {
-                        predictionDict[directionName]?.append(predictionInt)
+                    
+                    if let numberOfVechiles = prediction.element!.attributes["vehiclesInConsist"]!.toInt(),predictionInMinutes = prediction.element!.attributes["minutes"]!.toInt(), predictionInSeconds = prediction.element!.attributes["seconds"]!.toInt(), vehicleTag = prediction.element!.attributes["vehicle"]!.toInt() {
+                        //If all the elements exist
+                        
+                        var newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
+                        
+                        predictionDict[directionName]?.append(newPrediction)
                     }
                 }
             }
@@ -290,7 +294,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-        if let closure = stopPredictionsClosure as (([String:[Int]], [String]) -> Void)! {
+        if let closure = stopPredictionsClosure as (([String:[TransitPrediction]], [String]) -> Void)! {
             closure(predictionDict, messageArray)
         }
         
