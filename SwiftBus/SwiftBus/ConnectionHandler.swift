@@ -10,7 +10,7 @@ import Foundation
 import SWXMLHash
 
 enum RequestType:Int {
-    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions
+    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions, VehicleLocations
 }
 
 class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
@@ -22,6 +22,7 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
     var routeConfigClosure:(TransitRoute? -> Void)?
     var stopPredictionsClosure:(([String : [Int]], [String]) -> Void)?
+    var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)?
     
     //MARK: Requesting data
     
@@ -48,6 +49,14 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         routeConfigClosure = closure
         
         startConnection(kSwiftBusRouteConfigURL + agencyTag + kSwiftBusRoute + routeTag)
+    }
+    
+    func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:((locations:[String : [TransitVehicle]]) -> Void)?) {
+        currentRequestType = .VehicleLocations
+        
+        vehicleLocationsClosure = closure
+        
+        startConnection(kSwiftBusVehicleLocationsURL + agencyTag + kSwiftBusRoute + routeTag)
     }
     
     func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [Int]], messages:[String]) -> Void)?) {
@@ -215,6 +224,38 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
     }
     
+    //Parsing vehicle locations for a route
+    private func parseVehicleLocations(xml:XMLIndexer) {
+        var vehicles = xml["body"]
+        var dictionaryOfVehicles:[String : [TransitVehicle]] = [:]
+        
+        for vehicle in vehicles.children {
+            let attributes = vehicle.element!.attributes
+            
+            if let vehicleID = attributes["id"], directionTag = attributes["dirTag"], lat = attributes["lat"], lon = attributes["lon"], secondsSinceLastReport = attributes["secsSinceReport"], heading = attributes["heading"], speedKmH = attributes["speedKmHr"] {
+                //If all the proper attributes exist
+                var newVehicle = TransitVehicle(vehicleID: vehicleID, directionTag: directionTag, lat: lat, lon: lon, secondsSinceReport: secondsSinceLastReport, heading: heading, speedKmH: speedKmH)
+                
+                //If there is a leading vehicle
+                if let leadingVehicleId = attributes["leadingVehicleId"] {
+                    newVehicle.leadingVehicleId = leadingVehicleId.toInt()!
+                }
+                
+                //Adding newVehicle to the dictionary if it hasn't been created
+                if dictionaryOfVehicles[directionTag] == nil {
+                    dictionaryOfVehicles[directionTag] = [newVehicle]
+                } else {
+                    dictionaryOfVehicles[directionTag]?.append(newVehicle)
+                }
+                
+            }
+        }
+        
+        if let closure = vehicleLocationsClosure as ([String : [TransitVehicle]] -> Void)! {
+            closure(dictionaryOfVehicles)
+        }
+    }
+    
     //Parsing the information for stop predictions
     private func parseStopPredictions(xml:XMLIndexer) {
         var predictions = xml["body"]["predictions"]
@@ -268,6 +309,8 @@ class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             parseAllRoutesData(xml)
         case .RouteConfiguration:
             parseRouteConfiguration(xml)
+        case .VehicleLocations:
+            parseVehicleLocations(xml)
         case .StopPredictions:
             parseStopPredictions(xml)
         default:

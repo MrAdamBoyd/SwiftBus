@@ -15,6 +15,7 @@ private let kStopsOnRouteEncoderString = "kStopsOnRouteEncoder"
 private let kDirectionTagToNameEncoderString = "kDirectionTagToNameEncoder"
 private let kRouteColorEncoderString = "kRouteColorEncoder"
 private let kOppositeColorEncoderString = "kOppositeColorEncoder"
+private let kVehiclesOnRouteEncoderString = "kVehiclesOnRouteEncoder"
 private let kLatMinEncoderString = "kLatMinEncoder"
 private let kLatMaxEncoderString = "kLatMaxEncoder"
 private let kLonMinEncoderString = "kLonMinEncoder"
@@ -29,6 +30,7 @@ class TransitRoute: NSObject, NSCoding {
     var directionTagToName:[String : String] = [:]
     var routeColor:UIColor = UIColor()
     var oppositeColor:UIColor = UIColor()
+    var vehiclesOnRoute:[TransitVehicle] = []
     var latMin:Double = 0
     var latMax:Double = 0
     var lonMin:Double = 0
@@ -96,6 +98,7 @@ class TransitRoute: NSObject, NSCoding {
         directionTagToName = aDecoder.decodeObjectForKey(kDirectionTagToNameEncoderString) as! [String : String]
         routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! UIColor
         oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! UIColor
+        vehiclesOnRoute = aDecoder.decodeObjectForKey(kVehiclesOnRouteEncoderString) as! [TransitVehicle]
         latMin = aDecoder.decodeDoubleForKey(kLatMinEncoderString)
         latMax = aDecoder.decodeDoubleForKey(kLatMaxEncoderString)
         lonMin = aDecoder.decodeDoubleForKey(kLonMinEncoderString)
@@ -109,6 +112,7 @@ class TransitRoute: NSObject, NSCoding {
         aCoder.encodeObject(directionTagToName, forKey: kDirectionTagToNameEncoderString)
         aCoder.encodeObject(routeColor, forKey: kRouteColorEncoderString)
         aCoder.encodeObject(oppositeColor, forKey: kOppositeColorEncoderString)
+        aCoder.encodeObject(vehiclesOnRoute, forKey: kVehiclesOnRouteEncoderString)
         aCoder.encodeDouble(latMin, forKey: kLatMinEncoderString)
         aCoder.encodeDouble(latMax, forKey: kLatMaxEncoderString)
         aCoder.encodeDouble(lonMin, forKey: kLonMinEncoderString)

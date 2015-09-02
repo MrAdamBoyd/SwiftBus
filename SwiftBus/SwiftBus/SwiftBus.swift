@@ -148,6 +148,35 @@ class SwiftBus {
         })
     }
     
+    func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+        
+        //Getting the route configuration for the route
+        routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+            if let currentRoute = route as TransitRoute! {
+                //If the route exists, get the route configuration
+                let connectionHandler = ConnectionHandler()
+                connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
+                    
+                    //TODO: Figure out directions for vehicles
+                    for vehiclesInDirection in locations.values.array {
+                        currentRoute.vehiclesOnRoute += vehiclesInDirection
+                    }
+                    
+                    if let innerClosure = closure as (TransitRoute? -> Void)! {
+                        innerClosure(currentRoute)
+                    }
+                    
+                })
+                
+            } else {
+                //There's been a problem, return nil
+                if let innerClosure = closure as (TransitRoute? -> Void)! {
+                    innerClosure(nil)
+                }
+            }
+        })
+    }
+    
     /**
     Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
     

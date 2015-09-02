@@ -36,6 +36,12 @@ class ViewController: UIViewController {
             
         })
         
+        SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
+            if let transitRoute = route as TransitRoute! {
+                println(transitRoute.vehiclesOnRoute.count)
+            }
+        })
+        
         SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
             
             //If the stop and route exists
