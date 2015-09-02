@@ -37,7 +37,7 @@ class SwiftBus {
         } else {
             
             //We need to load the transit agency data
-            let connectionHandler = ConnectionHandler()
+            let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
                 //Insert this closure around the inner one because the agencies need to be saved
                 self._transitAgencies = agencies
@@ -57,7 +57,7 @@ class SwiftBus {
     */
     func refreshTransitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         //We need to load the transit agency data
-        let connectionHandler = ConnectionHandler()
+        let connectionHandler = SwiftBusConnectionHandler()
         connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
             //Insert this closure around the inner one because the agencies need to be saved
             self._transitAgencies = agencies
@@ -83,7 +83,7 @@ class SwiftBus {
             if innerAgencies[agencyTag] != nil {
                 
                 //The agency exists & we need to load the transit agency data
-                let connectionHandler = ConnectionHandler()
+                let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
 
                     //Saving the routes for the agency
@@ -119,7 +119,7 @@ class SwiftBus {
             if transitRoutes[routeTag] != nil {
                 
                 //If the route exists, get the route configuration
-                let connectionHandler = ConnectionHandler()
+                let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
                     
                     //If there were no problems getting the route
@@ -162,8 +162,9 @@ class SwiftBus {
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
             if let currentRoute = route as TransitRoute! {
+                
                 //If the route exists, get the route configuration
-                let connectionHandler = ConnectionHandler()
+                let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
                     
                     //TODO: Figure out directions for vehicles
@@ -202,7 +203,7 @@ class SwiftBus {
                 if currentRoute.routeContainsStopWithTag(stopTag) {
                     
                     //If the route exists, get the route configuration
-                    let connectionHandler = ConnectionHandler()
+                    let connectionHandler = SwiftBusConnectionHandler()
                     connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                         
                         

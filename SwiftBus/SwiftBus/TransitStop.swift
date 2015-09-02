@@ -47,7 +47,7 @@ class TransitStop:NSObject, NSCoding {
     */
     func getPredictionsAndMessages(closure:((predictions:[String : [TransitPrediction]], messages:[String]) -> Void)?) {
         if agencyTag != "" {
-            let connectionHandler = ConnectionHandler()
+            let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                 
                 self.predictions = predictions

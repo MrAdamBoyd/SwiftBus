@@ -10,7 +10,7 @@
 		15B2673AC7F443334BEEC3EF /* Pods_SwiftBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8652ECB335E80257A41F02 /* Pods_SwiftBus.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6661E3631B96A85D00A5FF26 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6661E3621B96A85D00A5FF26 /* TransitPrediction.swift */; };
 		6661E3651B96AB1700A5FF26 /* Launch Plan in Resources */ = {isa = PBXBuildFile; fileRef = 6661E3641B96AB1700A5FF26 /* Launch Plan */; };
-		668CB7921B92740900CA70DB /* RequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CB7911B92740900CA70DB /* RequestURLs.swift */; };
+		668CB7921B92740900CA70DB /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CB7911B92740900CA70DB /* SwiftBusRequestURLs.swift */; };
 		668CB7941B9274C200CA70DB /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 668CB7931B9274C200CA70DB /* SwiftBus.swift */; };
 		6691867F1B9529E3006D7EF1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6691867E1B9529E3006D7EF1 /* UIColor+Hex.swift */; };
 		669186811B952ADA006D7EF1 /* String+FloatValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669186801B952ADA006D7EF1 /* String+FloatValue.swift */; };
@@ -20,7 +20,7 @@
 		66CB22841B926FCF00F820AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22831B926FCF00F820AE /* Images.xcassets */; };
 		66CB22871B926FCF00F820AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CB22851B926FCF00F820AE /* LaunchScreen.xib */; };
 		66CB22931B926FCF00F820AE /* SwiftBusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22921B926FCF00F820AE /* SwiftBusTests.swift */; };
-		66CB229E1B92714E00F820AE /* ConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB229D1B92714E00F820AE /* ConnectionHandler.swift */; };
+		66CB229E1B92714E00F820AE /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB229D1B92714E00F820AE /* SwiftBusConnectionHandler.swift */; };
 		66CB22A01B92718900F820AE /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB229F1B92718900F820AE /* TransitStop.swift */; };
 		66CB22A21B9271C100F820AE /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22A11B9271C100F820AE /* TransitRoute.swift */; };
 		66CB22A41B92728B00F820AE /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CB22A31B92728B00F820AE /* TransitAgency.swift */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		6661E3621B96A85D00A5FF26 /* TransitPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitPrediction.swift; sourceTree = "<group>"; };
 		6661E3641B96AB1700A5FF26 /* Launch Plan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Launch Plan"; sourceTree = "<group>"; };
-		668CB7911B92740900CA70DB /* RequestURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestURLs.swift; sourceTree = "<group>"; };
+		668CB7911B92740900CA70DB /* SwiftBusRequestURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBusRequestURLs.swift; sourceTree = "<group>"; };
 		668CB7931B9274C200CA70DB /* SwiftBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBus.swift; sourceTree = "<group>"; };
 		6691867E1B9529E3006D7EF1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		669186801B952ADA006D7EF1 /* String+FloatValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+FloatValue.swift"; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		66CB228C1B926FCF00F820AE /* SwiftBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66CB22911B926FCF00F820AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66CB22921B926FCF00F820AE /* SwiftBusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBusTests.swift; sourceTree = "<group>"; };
-		66CB229D1B92714E00F820AE /* ConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionHandler.swift; sourceTree = "<group>"; };
+		66CB229D1B92714E00F820AE /* SwiftBusConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBusConnectionHandler.swift; sourceTree = "<group>"; };
 		66CB229F1B92718900F820AE /* TransitStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
 		66CB22A11B9271C100F820AE /* TransitRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
 		66CB22A31B92728B00F820AE /* TransitAgency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAgency.swift; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 			children = (
 				669186821B952AF7006D7EF1 /* Extensions */,
 				668CB7931B9274C200CA70DB /* SwiftBus.swift */,
-				66CB229D1B92714E00F820AE /* ConnectionHandler.swift */,
-				668CB7911B92740900CA70DB /* RequestURLs.swift */,
+				66CB229D1B92714E00F820AE /* SwiftBusConnectionHandler.swift */,
+				668CB7911B92740900CA70DB /* SwiftBusRequestURLs.swift */,
 				66CB22A31B92728B00F820AE /* TransitAgency.swift */,
 				66CB22A11B9271C100F820AE /* TransitRoute.swift */,
 				66CB229F1B92718900F820AE /* TransitStop.swift */,
@@ -342,9 +342,9 @@
 				66CB227F1B926FCF00F820AE /* ViewController.swift in Sources */,
 				66CB227D1B926FCF00F820AE /* AppDelegate.swift in Sources */,
 				668CB7941B9274C200CA70DB /* SwiftBus.swift in Sources */,
-				668CB7921B92740900CA70DB /* RequestURLs.swift in Sources */,
+				668CB7921B92740900CA70DB /* SwiftBusRequestURLs.swift in Sources */,
 				66CB22A41B92728B00F820AE /* TransitAgency.swift in Sources */,
-				66CB229E1B92714E00F820AE /* ConnectionHandler.swift in Sources */,
+				66CB229E1B92714E00F820AE /* SwiftBusConnectionHandler.swift in Sources */,
 				669186811B952ADA006D7EF1 /* String+FloatValue.swift in Sources */,
 				66CB22A01B92718900F820AE /* TransitStop.swift in Sources */,
 				66CB22A21B9271C100F820AE /* TransitRoute.swift in Sources */,

@@ -13,7 +13,7 @@ enum RequestType:Int {
     case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions, VehicleLocations
 }
 
-class ConnectionHandler: NSObject, NSURLConnectionDataDelegate {
+class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     private var currentRequestType:RequestType = .NoRequest
     private var connection:NSURLConnection?
     var xmlData:NSMutableData = NSMutableData()
