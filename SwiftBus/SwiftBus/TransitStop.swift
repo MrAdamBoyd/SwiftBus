@@ -12,6 +12,7 @@ private let kRouteTitleEncoderString = "kRouteTitleEncoder"
 private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kStopTitleEncoderString = "kStopTitleEncoder"
 private let kStopTagEncoderString = "kStopTagEncoder"
+private let kAgencyTagEncoderString = "kAgencyTagEncoder"
 private let kDirectionEncoderString = "kDirectionEncoder"
 private let kLatEncoderString = "kLatEncoder"
 private let kLonEncoderString = "kLonEncoder"
@@ -24,6 +25,7 @@ class TransitStop:NSObject, NSCoding {
     var routeTag:String = ""
     var stopTitle:String = ""
     var stopTag:String = ""
+    var agencyTag:String = ""
     var direction:String = ""
     var lat:Double = 0
     var lon:Double = 0
@@ -36,6 +38,33 @@ class TransitStop:NSObject, NSCoding {
         self.routeTag = routeTag
         self.stopTitle = stopTitle
         self.stopTag = stopTag
+    }
+    
+    /**
+    Gets the predictions and messages for the current stop and calls the closure with the predictions and messages as a parameter. If the agency tag hasn't been loaded, it will call the closure with an empty dictionary.
+    
+    :param: closure Code that is called after the call has been downloaded and parsed
+    */
+    func getPredictionsAndMessages(closure:((predictions:[String : [Int]], messages:[String]) -> Void)?) {
+        if agencyTag != "" {
+            let connectionHandler = ConnectionHandler()
+            connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String:[Int]], messages:[String]) -> Void in
+                
+                self.predictions = predictions
+                self.messages = messages
+                
+                //Call closure with predictions
+                if let innerClosure = closure as (([String : [Int]], [String]) -> Void)! {
+                    innerClosure(predictions, messages)
+                }
+                
+            })
+        } else {
+            //Call closure with nil
+            if let innerClosure = closure as (([String : [Int]], [String]) -> Void)! {
+                innerClosure([:], [])
+            }
+        }
     }
     
     /**
@@ -66,6 +95,7 @@ class TransitStop:NSObject, NSCoding {
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String
         stopTag = aDecoder.decodeObjectForKey(kStopTagEncoderString) as! String
+        agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
         direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
         lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
         lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
@@ -78,6 +108,7 @@ class TransitStop:NSObject, NSCoding {
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(stopTitle, forKey: kStopTitleEncoderString)
         aCoder.encodeObject(stopTag, forKey: kStopTagEncoderString)
+        aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
         aCoder.encodeObject(direction, forKey: kDirectionEncoderString)
         aCoder.encodeDouble(lat, forKey: kLatEncoderString)
         aCoder.encodeDouble(lon, forKey: kLonEncoderString)

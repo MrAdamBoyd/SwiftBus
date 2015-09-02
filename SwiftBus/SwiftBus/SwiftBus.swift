@@ -124,7 +124,16 @@ class SwiftBus {
                     
                     //If there were no problems getting the route
                     if let transitRoute = route as TransitRoute! {
-                        self._transitAgencies[agencyTag]?.agencyRoutes[routeTag] = route
+                        
+                        //Applying agencyTag to TransitRoute object and all TransitStop subelements
+                        transitRoute.agencyTag = agencyTag
+                        for routeDirection in transitRoute.stopsOnRoute.values.array {
+                            for stop in routeDirection {
+                                stop.agencyTag = agencyTag
+                            }
+                        }
+                        
+                        self._transitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
                         
                         //Call the closure
                         if let innerClosure = closure as (TransitRoute? -> Void)! {

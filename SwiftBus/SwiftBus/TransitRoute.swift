@@ -11,6 +11,7 @@ import UIKit
 
 private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kRouteTitleEncoderString = "kRouteTitleEncoder"
+private let kAgencyTagEncoderString = "kAgencyTagEncoder"
 private let kStopsOnRouteEncoderString = "kStopsOnRouteEncoder"
 private let kDirectionTagToNameEncoderString = "kDirectionTagToNameEncoder"
 private let kRouteColorEncoderString = "kRouteColorEncoder"
@@ -26,6 +27,7 @@ class TransitRoute: NSObject, NSCoding {
     
     var routeTag:String = ""
     var routeTitle:String = ""
+    var agencyTag:String = ""
     var stopsOnRoute:[String : [TransitStop]] = [:]
     var directionTagToName:[String : String] = [:]
     var routeColor:UIColor = UIColor()
@@ -94,6 +96,7 @@ class TransitRoute: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
+        agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
         stopsOnRoute = aDecoder.decodeObjectForKey(kStopsOnRouteEncoderString) as! [String : [TransitStop]]
         directionTagToName = aDecoder.decodeObjectForKey(kDirectionTagToNameEncoderString) as! [String : String]
         routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! UIColor
@@ -108,6 +111,7 @@ class TransitRoute: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
+        aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
         aCoder.encodeObject(stopsOnRoute, forKey: kStopsOnRouteEncoderString)
         aCoder.encodeObject(directionTagToName, forKey: kDirectionTagToNameEncoderString)
         aCoder.encodeObject(routeColor, forKey: kRouteColorEncoderString)
