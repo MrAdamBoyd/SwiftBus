@@ -274,7 +274,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 for prediction in predictionDirection.children {
                     //Getting each individual prediction in minutes
                     
-                    if let numberOfVechiles = prediction.element!.attributes["vehiclesInConsist"]!.toInt(),predictionInMinutes = prediction.element!.attributes["minutes"]!.toInt(), predictionInSeconds = prediction.element!.attributes["seconds"]!.toInt(), vehicleTag = prediction.element!.attributes["vehicle"]!.toInt() {
+                    if let numberOfVechiles = prediction.element?.attributes["vehiclesInConsist"]?.toInt(),predictionInMinutes = prediction.element?.attributes["minutes"]?.toInt(), predictionInSeconds = prediction.element?.attributes["seconds"]!.toInt(), vehicleTag = prediction.element?.attributes["vehicle"]?.toInt() {
                         //If all the elements exist
                         
                         var newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)

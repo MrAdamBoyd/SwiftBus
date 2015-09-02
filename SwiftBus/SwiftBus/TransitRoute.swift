@@ -121,7 +121,8 @@ class TransitRoute: NSObject, NSCoding {
     
     :param: stopTag         Tag of the stop
     :param: finishedLoading Code that is called when the information is done downloading
-    :param: predictions
+        :param: success     Whether or not call was a success
+        :param: predictions Predictions for the current stop
     */
     func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
