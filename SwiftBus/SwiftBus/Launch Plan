@@ -7,3 +7,4 @@ Able to get stop predictions from TransitRoute Object (need to store shortName f
 Simple methods in SwiftBus class so user can bypass storing of information
 Write tests
 Convert to Swift 2.0 on another branch
+Get Cocoapod working
