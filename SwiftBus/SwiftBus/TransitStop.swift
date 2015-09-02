@@ -45,7 +45,7 @@ class TransitStop:NSObject, NSCoding {
     
     :param: closure Code that is called after the call has been downloaded and parsed
     */
-    func getPredictionsAndMessages(closure:((predictions:[String : [TransitPrediction]], messages:[String]) -> Void)?) {
+    func getPredictionsAndMessages(closure:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
         if agencyTag != "" {
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
@@ -53,17 +53,13 @@ class TransitStop:NSObject, NSCoding {
                 self.predictions = predictions
                 self.messages = messages
                 
-                //Call closure with predictions
-                if let innerClosure = closure as (([String : [TransitPrediction]], [String]) -> Void)! {
-                    innerClosure(predictions, messages)
-                }
+                //Call closure with success, predictions, and message
+                closure(success: true, predictions: predictions, messages: messages)
                 
             })
         } else {
-            //Call closure with nil
-            if let innerClosure = closure as (([String : [TransitPrediction]], [String]) -> Void)! {
-                innerClosure([:], [])
-            }
+            //Stop doesn't exist
+            closure(success: false, predictions: [:], messages: [])
         }
     }
     

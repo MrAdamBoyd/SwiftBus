@@ -117,6 +117,40 @@ class TransitRoute: NSObject, NSCoding {
     }
     
     /**
+    Getting the stop predictions for a certain stop
+    
+    :param: stopTag         Tag of the stop
+    :param: finishedLoading Code that is called when the information is done downloading
+    :param: predictions
+    */
+    func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+        getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
+            if success {
+                //Everything should be fine
+                if let stop = self.getStopForTag(stopTag) {
+                    
+                    let connectionHandler = SwiftBusConnectionHandler()
+                    connectionHandler.requestStopPredictionData(stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+                        
+                        //Saving the messages and predictions
+                        stop.predictions = predictions
+                        stop.messages = messages
+                        
+                        //Finished loading, send back
+                        finishedLoading(success: true, predictions: predictions)
+                    })
+                } else {
+                    //The stop doesn't exist
+                    finishedLoading(success: false, predictions: [:])
+                }
+            } else {
+                //Encountered a problem, the route probably doesn't exist or the agency isn't right
+                finishedLoading(success: false, predictions: [:])
+            }
+        })
+    }
+    
+    /**
     Returns the TransitStop object for a certain stop tag if it exists
     
     :param: stopTag Tag of the stop that will be returned
