@@ -1,4 +1,4 @@
-TransitPrediction conforms to NSCoding
+-TransitPrediction conforms to NSCoding
 Replace array of ints with TransitPrediction objects
 Change names to ABSwiftBus (and ConnectionHandler)
 Able to call route config from TransitRoute (add agencyTag when downloading routes, not on routeConfig)
@@ -8,3 +8,6 @@ Simple methods in SwiftBus class so user can bypass storing of information
 Write tests
 Convert to Swift 2.0 on another branch
 Get Cocoapod working
+
+Branches are named after Bojack Horseman characters
+Ethan - Launch plan
