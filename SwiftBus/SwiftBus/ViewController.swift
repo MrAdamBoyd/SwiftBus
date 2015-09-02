@@ -22,7 +22,11 @@ class ViewController: UIViewController {
         
         var route = TransitRoute(routeTag: "5R", agencyTag: "sf-muni")
         
-        route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
+//        route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
+//            println("HI")
+//        })
+        
+        route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
             println("HI")
         })
         

@@ -88,6 +88,35 @@ class TransitRoute: NSObject, NSCoding {
     }
     
     /**
+    Downloads the information about vehicle locations, also gets the route config
+    
+    :param: finishedLoading Code that is called when loading is done
+        :param: success     Whether or not it was a success
+        :param: vehicles    Locations of the vehicles
+    */
+    func getVehicleLocations(finishedLoading:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
+        getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
+            if success {
+                let connectionHandler = SwiftBusConnectionHandler()
+                connectionHandler.requestVehicleLocationData(onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(locations:[String : [TransitVehicle]]) -> Void in
+                        
+                    self.vehiclesOnRoute = []
+                    
+                    //TODO: Figure out directions for vehicles
+                    for vehiclesInDirection in locations.values.array {
+                        self.vehiclesOnRoute += vehiclesInDirection
+                    }
+                    
+                    //Note: If vehicles on route == [], the route isn't running
+                    finishedLoading(success: true, vehicles: self.vehiclesOnRoute)
+                })
+            } else {
+                finishedLoading(success: false, vehicles: [])
+            }
+        })
+    }
+    
+    /**
     Returns the TransitStop object for a certain stop tag if it exists
     
     :param: stopTag Tag of the stop that will be returned

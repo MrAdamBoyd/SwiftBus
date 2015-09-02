@@ -2,10 +2,11 @@
 -Replace array of ints with TransitPrediction objects
 -Change names of ConnectionHandler and RequestURLs
 -Able to call route config from TransitRoute (add agencyTag when downloading routes, not on routeConfig)
-Able to get vehicle locations from TransitRoute object
+-Able to get vehicle locations from TransitRoute object
 Able to get stop predictions from TransitRoute Object (need to store shortName for each stop, predictions can be called on stopName and tag)
 Simple methods in SwiftBus class so user can bypass storing of information
 Write tests
+Determine if agency, stop, and route objects should return objects from SwiftBus singleton
 Convert to Swift 2.0 on another branch
 Documentation
 Get Cocoapod working

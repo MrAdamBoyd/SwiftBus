@@ -171,6 +171,8 @@ class SwiftBus {
                 let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
                     
+                    currentRoute.vehiclesOnRoute = []
+                    
                     //TODO: Figure out directions for vehicles
                     for vehiclesInDirection in locations.values.array {
                         currentRoute.vehiclesOnRoute += vehiclesInDirection
