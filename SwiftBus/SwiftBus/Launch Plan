@@ -6,9 +6,6 @@
 -Able to get stop predictions from TransitRoute Object (need to store shortName for each stop, predictions can be called on stopName and tag)
 -Refresh methods for SwiftBus
 -Write tests
-Convert to Swift 2.0 on another branch
-Documentation
-Get Cocoapod working
 
 Branches are named after Bojack Horseman characters
-Ethan - Launch plan
+Ethan - Getting everything ready for launch
