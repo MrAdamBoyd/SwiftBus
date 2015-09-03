@@ -43,7 +43,7 @@ class TransitAgency: NSObject, NSCoding {
         :param: success Whether or not the call was successful
         :param: agency  The agency when the data is loaded
     */
-    func getAgencyData(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
+    func getAgencyAndRoutes(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
         //We need to load the transit agency data
         let connectionHandler = SwiftBusConnectionHandler()
         

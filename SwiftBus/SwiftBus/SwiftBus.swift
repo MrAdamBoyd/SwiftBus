@@ -70,16 +70,16 @@ class SwiftBus {
     /**
     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
     
-    :param: agencyTag the transit agency that this will download the routes for
-    :param: closure   Code that is called after all the data has loaded
-        :param: routes  Dictionary of routeTags to TransitRoute objects
+    :param: agencyTag Tag of the agency
+    :param: closure   Code that is called after everything has loaded
+        :param: agency  Optional TransitAgency object that contains the routes
     */
-    func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
+    func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?) {
         
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
             
-            if innerAgencies[agencyTag] != nil {
+            if let currentAgency = innerAgencies[agencyTag] {
                 
                 //The agency exists & we need to load the transit agency data
                 let connectionHandler = SwiftBusConnectionHandler()
@@ -89,24 +89,47 @@ class SwiftBus {
                     for route in agencyRoutes.values.array {
                         route.agencyTag = agencyTag
                     }
-
+                    
                     //Saving the routes for the agency
-                    self.masterListTransitAgencies[agencyTag]?.agencyRoutes = agencyRoutes
+                    currentAgency.agencyRoutes = agencyRoutes
                     
                     //Return the transitRoutes for the agency
-                    if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
-                        innerClosure(agencyRoutes)
+                    if let innerClosure = closure as (TransitAgency? -> Void)! {
+                        innerClosure(currentAgency)
                     }
                 })
             } else {
                 
                 //The agency doesn't exist, return an empty dictionary
-                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
-                    innerClosure([String : TransitRoute]())
+                if let innerClosure = closure as (TransitAgency? -> Void)! {
+                    innerClosure(nil)
                 }
             }
         })
-        
+
+    }
+    
+    /**
+    Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
+    
+    :param: agencyTag the transit agency that this will download the routes for
+    :param: closure   Code that is called after all the data has loaded
+        :param: routes  Dictionary of routeTags to TransitRoute objects
+    */
+    func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
+        routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
+            if let currentAgency = agency {
+                //The agency exists
+                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
+                    innerClosure(currentAgency.agencyRoutes)
+                }
+            } else {
+                //The agency doesn't exist, return an empty dictionary
+                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
+                    innerClosure([:])
+                }
+            }
+        })
     }
     
     /**
