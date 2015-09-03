@@ -39,8 +39,8 @@ class SwiftBus {
     agencies.keys.array will return a list of the keys used
     agencies.values.array will return a list of TransitAgencies
     
-    :param: closure Code that is called after the dictionary of agencies has loaded
-        :param: agencies    Dictionary of agencyTags to TransitAgency objects
+    - parameter closure: Code that is called after the dictionary of agencies has loaded
+        - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
     func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         
@@ -70,9 +70,9 @@ class SwiftBus {
     /**
     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
     
-    :param: agencyTag Tag of the agency
-    :param: closure   Code that is called after everything has loaded
-        :param: agency  Optional TransitAgency object that contains the routes
+    - parameter agencyTag: Tag of the agency
+    - parameter closure:   Code that is called after everything has loaded
+        - parameter agency:  Optional TransitAgency object that contains the routes
     */
     func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?) {
         
@@ -86,7 +86,7 @@ class SwiftBus {
                 connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
                     
                     //Adding the agency to the route
-                    for route in agencyRoutes.values.array {
+                    for route in agencyRoutes.values {
                         route.agencyTag = agencyTag
                     }
                     
@@ -112,9 +112,9 @@ class SwiftBus {
     /**
     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
     
-    :param: agencyTag the transit agency that this will download the routes for
-    :param: closure   Code that is called after all the data has loaded
-        :param: routes  Dictionary of routeTags to TransitRoute objects
+    - parameter agencyTag: the transit agency that this will download the routes for
+    - parameter closure:   Code that is called after all the data has loaded
+        - parameter routes:  Dictionary of routeTags to TransitRoute objects
     */
     func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
         routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
@@ -135,10 +135,10 @@ class SwiftBus {
     /**
     Gets the TransitStop object that contains a list of TransitStops in each direction and the location of each of those stops
     
-    :param: routeTag  the route that is being looked up
-    :param: agencyTag the agency for which the route is being looked up
-    :param: closure   the code that gets called after the data is loaded
-        :param: route   TransitRoute object that contains the configuration requested
+    - parameter routeTag:  the route that is being looked up
+    - parameter agencyTag: the agency for which the route is being looked up
+    - parameter closure:   the code that gets called after the data is loaded
+        - parameter route:   TransitRoute object that contains the configuration requested
     */
     func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
         
@@ -154,7 +154,7 @@ class SwiftBus {
                     if let transitRoute = route as TransitRoute! {
                         
                         //Applying agencyTag to all TransitStop subelements
-                        for routeDirection in transitRoute.stopsOnRoute.values.array {
+                        for routeDirection in transitRoute.stopsOnRoute.values {
                             for stop in routeDirection {
                                 stop.agencyTag = agencyTag
                             }
@@ -187,10 +187,10 @@ class SwiftBus {
     /**
     Gets the vehicle locations for a particular route
     
-    :param: routeTag  Tag of the route we are looking at
-    :param: agencyTag Tag of the agency where the line is
-    :param: closure   Code that gets called after the call has completed
-        :param: route   Optional TransitRoute object that contains the vehicle locations
+    - parameter routeTag:  Tag of the route we are looking at
+    - parameter agencyTag: Tag of the agency where the line is
+    - parameter closure:   Code that gets called after the call has completed
+        - parameter route:   Optional TransitRoute object that contains the vehicle locations
     */
     func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
         
@@ -205,7 +205,7 @@ class SwiftBus {
                     currentRoute.vehiclesOnRoute = []
                     
                     //TODO: Figure out directions for vehicles
-                    for vehiclesInDirection in locations.values.array {
+                    for vehiclesInDirection in locations.values {
                         currentRoute.vehiclesOnRoute += vehiclesInDirection
                     }
                     
@@ -227,11 +227,11 @@ class SwiftBus {
     /**
     Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
     
-    :param: stopTag   Tag of the stop
-    :param: routeTag  Tag of the route
-    :param: agencyTag Tag of the agency
-    :param: closure   Code that is called after the result is gotten, route will be nil if stop doesn't exist
-        :param: stop    Optional TransitStop object that contains the predictions
+    - parameter stopTag:   Tag of the stop
+    - parameter routeTag:  Tag of the route
+    - parameter agencyTag: Tag of the agency
+    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+        - parameter stop:    Optional TransitStop object that contains the predictions
     */
     func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?) {
         

@@ -70,14 +70,14 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     /**
     This is the method that all other request methods call in order to create the URL & start downloading data via an NSURLConnection
     
-    :param: requestURL string of the url that is being requested
+    - parameter requestURL: string of the url that is being requested
     */
     private func startConnection(requestURL:String) {
         xmlData = NSMutableData()
-        var optionalURL:NSURL? = NSURL(string: requestURL)
+        let optionalURL:NSURL? = NSURL(string: requestURL)
         
         if let url = optionalURL as NSURL! {
-            var urlRequest:NSURLRequest = NSURLRequest(URL: url)
+            let urlRequest:NSURLRequest = NSURLRequest(URL: url)
             connection = NSURLConnection(request: urlRequest, delegate: self, startImmediately: true)
         } else {
             //TODO: Alert user via closure that something bad happened
@@ -90,7 +90,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     /**
     Creating all the transit agencies from the xml, calls the allAgenciesClosure when done
     
-    :param: xml xml gotten from calling NextBus's API
+    - parameter xml: xml gotten from calling NextBus's API
     */
     private func parseAllAgenciesData(xml:XMLIndexer) {
         let agenciesXML:[XMLIndexer] = xml["body"].children
@@ -102,7 +102,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             //If all the proper elements exist
             if let agencyTag = agencyXML.element!.attributes["tag"], agencyTitle = agencyXML.element!.attributes["title"], agencyRegion = agencyXML.element!.attributes["regionTitle"] {
                 
-                var newAgency:TransitAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
+                let newAgency:TransitAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
                 
                 //Some agencies have a shortTitle
                 if let agencyShortTitle = agencyXML.element!.attributes["shortTitle"] {
@@ -122,7 +122,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     /**
     Creating all the TransitRoutes from the xml, calls allRoutesForAgencyClosure when done
     
-    :param: xml XML gotten from NextBus's API
+    - parameter xml: XML gotten from NextBus's API
     */
     private func parseAllRoutesData(xml:XMLIndexer) {
         var transitRoutes:[String : TransitRoute] = [:]
@@ -132,7 +132,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
             if let routeTag = child.element!.attributes["tag"], routeTitle = child.element!.attributes["title"] {
                 //If we can create all the routes
-                var currentRoute:TransitRoute = TransitRoute(routeTag: routeTag, routeTitle: routeTitle)
+                let currentRoute:TransitRoute = TransitRoute(routeTag: routeTag, routeTitle: routeTitle)
                 transitRoutes[routeTag] = currentRoute
             }
         }
@@ -144,13 +144,9 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //Parsing the line definition
     private func parseRouteConfiguration(xml:XMLIndexer) {
-        var currentRoute:TransitRoute = TransitRoute()
-        var outboundStops: [String] = []
-        var inboundStops: [String] = []
+        let currentRoute:TransitRoute = TransitRoute()
         var stopDirectionDict: [String : [String]] = [:]
         var allStopsDictionary: [String : TransitStop] = [:]
-        var inboundTransitStops: [TransitStop] = []
-        var outboundTransitStops: [TransitStop] = []
         
         var routeConfig:[String : String] = xml["body"]["route"].element!.attributes
         
@@ -166,7 +162,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             currentRoute.oppositeColor = UIColor(hex: "#" + oppositeColorHex)
         }
         
-        var stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
+        let stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
         
         for stopDirection in stopDirections {
             //For each direction, eg. "Inbound to downtown", "Inbound to Caltrain", "Outbound to Ocean Beach"
@@ -188,7 +184,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         }
         
         //Now we need to go through all the named stops, and add the proper direction to them
-        var stops = xml["body"]["route"]["stop"]
+        let stops = xml["body"]["route"]["stop"]
         
         //Going through the stops and creating TransitStop objects
         for stop in stops {
@@ -227,7 +223,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //Parsing vehicle locations for a route
     private func parseVehicleLocations(xml:XMLIndexer) {
-        var vehicles = xml["body"]
+        let vehicles = xml["body"]
         var dictionaryOfVehicles:[String : [TransitVehicle]] = [:]
         
         for vehicle in vehicles.children {
@@ -235,11 +231,11 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
             if let vehicleID = attributes["id"], directionTag = attributes["dirTag"], lat = attributes["lat"], lon = attributes["lon"], secondsSinceLastReport = attributes["secsSinceReport"], heading = attributes["heading"], speedKmH = attributes["speedKmHr"] {
                 //If all the proper attributes exist
-                var newVehicle = TransitVehicle(vehicleID: vehicleID, directionTag: directionTag, lat: lat, lon: lon, secondsSinceReport: secondsSinceLastReport, heading: heading, speedKmH: speedKmH)
+                let newVehicle = TransitVehicle(vehicleID: vehicleID, directionTag: directionTag, lat: lat, lon: lon, secondsSinceReport: secondsSinceLastReport, heading: heading, speedKmH: speedKmH)
                 
                 //If there is a leading vehicle
                 if let leadingVehicleId = attributes["leadingVehicleId"] {
-                    newVehicle.leadingVehicleId = leadingVehicleId.toInt()!
+                    newVehicle.leadingVehicleId = Int(leadingVehicleId)!
                 }
                 
                 //Adding newVehicle to the dictionary if it hasn't been created
@@ -259,7 +255,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //Parsing the information for stop predictions
     private func parseStopPredictions(xml:XMLIndexer) {
-        var predictions = xml["body"]["predictions"]
+        let predictions = xml["body"]["predictions"]
         var predictionDict:[String : [TransitPrediction]] = [:]
         var messageArray:[String] = []
         
@@ -274,10 +270,10 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 for prediction in predictionDirection.children {
                     //Getting each individual prediction in minutes
                     
-                    if let numberOfVechiles = prediction.element?.attributes["vehiclesInConsist"]?.toInt(),predictionInMinutes = prediction.element?.attributes["minutes"]?.toInt(), predictionInSeconds = prediction.element?.attributes["seconds"]!.toInt(), vehicleTag = prediction.element?.attributes["vehicle"]?.toInt() {
+                    if let numberOfVechiles = Int((prediction.element?.attributes["vehiclesInConsist"])!),predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
                         //If all the elements exist
                         
-                        var newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
+                        let newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
                         
                         predictionDict[directionName]?.append(newPrediction)
                     }
@@ -286,7 +282,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
         }
         
-        var messages = predictions["message"]
+        let messages = predictions["message"]
         
         for message in messages {
             //Going through the messages and adding them
@@ -319,7 +315,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         case .StopPredictions:
             parseStopPredictions(xml)
         default:
-            println("Default")
+            print("Default")
         }
     }
     

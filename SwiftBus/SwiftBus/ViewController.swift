@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     
     @IBAction func agencyListTouched(sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
-            println("Number of agencies loaded: \(agencies.count)")
+            print("Number of agencies loaded: \(agencies.count)", terminator: "")
             for agency in agencies.values {
-                println("Name: " + agency.agencyTitle)
+                print("Name: " + agency.agencyTitle, terminator: "")
             }
-            println()
+            print("")
         })
     }
 
@@ -32,11 +32,11 @@ class ViewController: UIViewController {
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
         SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
-            println("Number of routes loaded for SF MUNI: \(agencyRoutes.count)")
+            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)")
             for route in agencyRoutes.values {
-                println("Route title: " + route.routeTitle)
+                print("Route title: " + route.routeTitle)
             }
-            println()
+            print("")
         })
         
     }
@@ -48,9 +48,9 @@ class ViewController: UIViewController {
         SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
             //If the route exists
             if let transitRoute = route as TransitRoute! {
-                println("Route config for route " + transitRoute.routeTitle)
-                println("Number of stops on route in one direction: \(transitRoute.stopsOnRoute.values.array[0].count)")
-                println()
+                print("Route config for route " + transitRoute.routeTitle)
+                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)")
+                print("")
             }
             
         })
@@ -63,9 +63,9 @@ class ViewController: UIViewController {
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
         SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
             if let transitRoute = route as TransitRoute! {
-                println("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah")
-                println("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)")
-                println()
+                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah")
+                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)")
+                print("")
             }
         })
         
@@ -79,10 +79,10 @@ class ViewController: UIViewController {
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
-                println("Stop: \(transitStop.stopTitle)")
-                var predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
-                println("Predictions at stop \(predictionStrings) mins")
-                println()
+                print("Stop: \(transitStop.stopTitle)", terminator: "")
+                let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
+                print("Predictions at stop \(predictionStrings) mins", terminator: "")
+                print("", terminator: "")
             }
             
         })

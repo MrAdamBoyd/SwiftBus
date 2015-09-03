@@ -43,10 +43,10 @@ class TransitStop:NSObject, NSCoding {
     /**
     Gets the predictions and messages for the current stop and calls the closure with the predictions and messages as a parameter. If the agency tag hasn't been loaded, it will call the closure with an empty dictionary.
     
-    :param: finishedLoading Code that is called after the call has been downloaded and parsed
-        :param: success     Whether or not the call was a success
-        :param: predictions The predictions, in all directions, for this stop
-        :param: messages    The messages for this stop
+    - parameter finishedLoading: Code that is called after the call has been downloaded and parsed
+        - parameter success:     Whether or not the call was a success
+        - parameter predictions: The predictions, in all directions, for this stop
+        - parameter messages:    The messages for this stop
     */
     func getPredictionsAndMessages(finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
         if agencyTag != "" {
@@ -69,18 +69,18 @@ class TransitStop:NSObject, NSCoding {
     /**
     Returns a list of all the predictions from the different directions in order
     
-    :returns: In order list of all predictions from all different directions
+    - returns: In order list of all predictions from all different directions
     */
     func combinedPredictions() -> [TransitPrediction] {
         var listOfPredictions:[TransitPrediction] = []
         
-        for predictionDirection in predictions.values.array {
+        for predictionDirection in predictions.values {
             //Going through each direction
             listOfPredictions += predictionDirection
         }
         
         //Sorting the list
-        listOfPredictions.sort {
+        listOfPredictions.sortInPlace {
             return $0.predictionInSeconds < $1.predictionInSeconds
         }
         
@@ -89,7 +89,7 @@ class TransitStop:NSObject, NSCoding {
     
     //MARK: NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String

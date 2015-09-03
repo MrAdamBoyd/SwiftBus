@@ -39,9 +39,9 @@ class TransitAgency: NSObject, NSCoding {
     /**
     Downloads all agency data from provided agencytag
     
-    :param: finishedLoading Code that is called when the data is finished loading
-        :param: success Whether or not the call was successful
-        :param: agency  The agency when the data is loaded
+    - parameter finishedLoading: Code that is called when the data is finished loading
+        - parameter success: Whether or not the call was successful
+        - parameter agency:  The agency when the data is loaded
     */
     func getAgencyAndRoutes(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
         //We need to load the transit agency data

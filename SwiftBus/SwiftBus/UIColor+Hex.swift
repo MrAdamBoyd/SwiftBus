@@ -12,10 +12,10 @@ import UIKit
 extension UIColor {
     convenience init(var hex: String) {
         var alpha: Float = 100
-        let hexLength = count(hex)
+        let hexLength = hex.characters.count
         if !(hexLength == 7 || hexLength == 9) {
             // A hex must be either 7 or 9 characters (#GGRRBBAA)
-            println("improper call to 'colorFromHex', hex length must be 7 or 9 chars (#GGRRBBAA)")
+            print("improper call to 'colorFromHex', hex length must be 7 or 9 chars (#GGRRBBAA)")
             self.init(white: 0, alpha: 1)
             return
         }
@@ -28,7 +28,7 @@ extension UIColor {
         
         // Establishing the rgb color
         var rgb: UInt32 = 0
-        var s: NSScanner = NSScanner(string: hex)
+        let s: NSScanner = NSScanner(string: hex)
         // Setting the scan location to ignore the leading `#`
         s.scanLocation = 1
         // Scanning the int into the rgb colors

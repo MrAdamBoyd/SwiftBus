@@ -51,10 +51,10 @@ class TransitRoute: NSObject, NSCoding {
     /**
     Initializes the object with everything needed to get the route config
     
-    :param: routeTag  tag of the route, eg. "5R"
-    :param: agencyTag agency where the route is, eg. "sf-muni"
+    - parameter routeTag:  tag of the route, eg. "5R"
+    - parameter agencyTag: agency where the route is, eg. "sf-muni"
     
-    :returns: None
+    - returns: None
     */
     init(routeTag:String, agencyTag:String) {
         self.routeTag = routeTag
@@ -64,9 +64,9 @@ class TransitRoute: NSObject, NSCoding {
     /**
     Downloading the information about the route config, only need the routeTag and the agencyTag
     
-    :param: finishedLoading Code that is called when the route is finished loading
-        :param: success Whether or not the downloading was a success
-        :param: route   The route object with all the information
+    - parameter finishedLoading: Code that is called when the route is finished loading
+        - parameter success: Whether or not the downloading was a success
+        - parameter route:   The route object with all the information
     */
     func getRouteConfig(finishedLoading:(success:Bool, route:TransitRoute) -> Void) {
         let connectionHandler = SwiftBusConnectionHandler()
@@ -90,9 +90,9 @@ class TransitRoute: NSObject, NSCoding {
     /**
     Downloads the information about vehicle locations, also gets the route config
     
-    :param: finishedLoading Code that is called when loading is done
-        :param: success     Whether or not it was a success
-        :param: vehicles    Locations of the vehicles
+    - parameter finishedLoading: Code that is called when loading is done
+        - parameter success:     Whether or not it was a success
+        - parameter vehicles:    Locations of the vehicles
     */
     func getVehicleLocations(finishedLoading:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
@@ -103,7 +103,7 @@ class TransitRoute: NSObject, NSCoding {
                     self.vehiclesOnRoute = []
                     
                     //TODO: Figure out directions for vehicles
-                    for vehiclesInDirection in locations.values.array {
+                    for vehiclesInDirection in locations.values {
                         self.vehiclesOnRoute += vehiclesInDirection
                     }
                     
@@ -119,10 +119,10 @@ class TransitRoute: NSObject, NSCoding {
     /**
     Getting the stop predictions for a certain stop
     
-    :param: stopTag         Tag of the stop
-    :param: finishedLoading Code that is called when the information is done downloading
-        :param: success     Whether or not call was a success
-        :param: predictions Predictions for the current stop
+    - parameter stopTag:         Tag of the stop
+    - parameter finishedLoading: Code that is called when the information is done downloading
+        - parameter success:     Whether or not call was a success
+        - parameter predictions: Predictions for the current stop
     */
     func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
@@ -154,12 +154,12 @@ class TransitRoute: NSObject, NSCoding {
     /**
     Returns the TransitStop object for a certain stop tag if it exists
     
-    :param: stopTag Tag of the stop that will be returned
+    - parameter stopTag: Tag of the stop that will be returned
     
-    :returns: Optional TransitStop object for the tag provided
+    - returns: Optional TransitStop object for the tag provided
     */
     func getStopForTag(stopTag:String) -> TransitStop? {
-        for direction in stopsOnRoute.keys.array {
+        for direction in stopsOnRoute.keys {
             //For each direction
             for directionStop in stopsOnRoute[direction]! {
                 //For each stop in each direction
@@ -176,9 +176,9 @@ class TransitRoute: NSObject, NSCoding {
     /**
     This function checks all the stops in each direction to see if a stop with a certain stop tag can be found in this route
     
-    :param: stopTag the tag that is being matched against
+    - parameter stopTag: the tag that is being matched against
     
-    :returns: Whether the stop is in this route
+    - returns: Whether the stop is in this route
     */
     func routeContainsStopWithTag(stopTag:String) -> Bool {
         return getStopForTag(stopTag) != nil
@@ -187,9 +187,9 @@ class TransitRoute: NSObject, NSCoding {
     /**
     This function checks all the stops in each direction to see if a stop can be be found in this route
     
-    :param: stop TransitStop object that is checked against all stops in the route
+    - parameter stop: TransitStop object that is checked against all stops in the route
     
-    :returns: Whether the stop is in this route
+    - returns: Whether the stop is in this route
     */
     func routeContainsStop(stop:TransitStop) -> Bool {
         return routeContainsStopWithTag(stop.routeTag)
