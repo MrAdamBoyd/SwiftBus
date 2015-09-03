@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     
     @IBAction func agencyListTouched(sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
-            print("Number of agencies loaded: \(agencies.count)", terminator: "")
+            print("Number of agencies loaded: \(agencies.count)", terminator: "\n")
             for agency in agencies.values {
-                print("Name: " + agency.agencyTitle, terminator: "")
+                print("Name: " + agency.agencyTitle, terminator: "\n")
             }
-            print("")
+            print("\n")
         })
     }
 
@@ -32,11 +32,11 @@ class ViewController: UIViewController {
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
         SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
-            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)")
+            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)\n")
             for route in agencyRoutes.values {
                 print("Route title: " + route.routeTitle)
             }
-            print("")
+            print("\n")
         })
         
     }
@@ -48,9 +48,9 @@ class ViewController: UIViewController {
         SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
             //If the route exists
             if let transitRoute = route as TransitRoute! {
-                print("Route config for route " + transitRoute.routeTitle)
-                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)")
-                print("")
+                print("Route config for route " + transitRoute.routeTitle + "\n")
+                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)\n")
+                print("\n")
             }
             
         })
@@ -63,9 +63,9 @@ class ViewController: UIViewController {
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
         SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
             if let transitRoute = route as TransitRoute! {
-                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah")
-                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)")
-                print("")
+                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah\n")
+                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)\n")
+                print("\n")
             }
         })
         
@@ -79,10 +79,10 @@ class ViewController: UIViewController {
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
-                print("Stop: \(transitStop.stopTitle)", terminator: "")
+                print("Stop: \(transitStop.stopTitle)", terminator: "\n")
                 let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
-                print("Predictions at stop \(predictionStrings) mins", terminator: "")
-                print("", terminator: "")
+                print("Predictions at stop \(predictionStrings) mins", terminator: "\n")
+                print("", terminator: "\n")
             }
             
         })

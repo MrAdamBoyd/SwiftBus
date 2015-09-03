@@ -8,7 +8,7 @@
 
 import Foundation
 
-let kSwiftBusAllAgenciesURL = "https://webservices.nextbus.com/service/publicXMLFeed?command=agencyList"
+let kSwiftBusAllAgenciesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList"
 let kSwiftBusAllRoutesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a="
 let kSwiftBusRouteConfigURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a="
 let kSwiftBusVehicleLocationsURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a="

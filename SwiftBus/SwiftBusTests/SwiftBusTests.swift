@@ -19,7 +19,7 @@ class SwiftBusTests: XCTestCase {
     override func setUp() {
         
         //Creating agency
-        var agency = TransitAgency()
+        let agency = TransitAgency()
         agency.agencyTag = "sf-muni"
         agency.agencyTitle = "San Francisco Muni"
         agency.agencyRegion = "California-Northern"
@@ -42,7 +42,7 @@ class SwiftBusTests: XCTestCase {
     }
     
     func testRouteGetStop() {
-        if let existingStop = route.getStopForTag("3909") {
+        if let _ = route.getStopForTag("3909") {
             XCTAssert(true, "Stop is gotten properly")
         } else {
             XCTAssert(false, "Stop is not gotten properly")
