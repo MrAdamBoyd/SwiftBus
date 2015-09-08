@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "Asynchronous Swift wrapper for the NextBus API."
 
   s.homepage         = "https://github.com/MrAdamBoyd/SwiftBus"
-  s.author           = { "Adam Boyd" }
+  s.author           = "Adam Boyd"
   s.source           = { :git => "https://github.com/MrAdamBoyd/SwiftBus.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/MrAdamBoyd'
 
