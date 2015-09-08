@@ -7,10 +7,10 @@ Pod::Spec.new do |s|
   s.author       = "Adam Boyd"
   s.ios.deployment_target = "8.0"
   s.osx.deployment_target = "10.9"
-  s.watchos.deployment_target = "1.0"
 
-  s.source       = { :git => "https://github.com/MrAdamBoyd/SwiftBus", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/MrAdamBoyd/SwiftBus.git", :tag => s.version.to_s }
   s.source_files  = "SwiftBus/SwiftBus/*.swift"
+  s.exclude_files = "SwiftBus/SwiftBus/AppDelegate.swift", "SwiftBus/SwiftBus/ViewController.swift"
   s.dependency 'SWXMLHash', '~> 1.1.0'
 
 end

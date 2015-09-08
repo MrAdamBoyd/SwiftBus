@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 private let kRouteTagEncoderString = "kRouteTagEncoder"
 private let kRouteTitleEncoderString = "kRouteTitleEncoder"
@@ -30,8 +29,8 @@ class TransitRoute: NSObject, NSCoding {
     var agencyTag:String = ""
     var stopsOnRoute:[String : [TransitStop]] = [:]
     var directionTagToName:[String : String] = [:]
-    var routeColor:UIColor = UIColor()
-    var oppositeColor:UIColor = UIColor()
+    var routeColor:String = ""
+    var oppositeColor:String = ""
     var vehiclesOnRoute:[TransitVehicle] = []
     var latMin:Double = 0
     var latMax:Double = 0
@@ -217,8 +216,8 @@ class TransitRoute: NSObject, NSCoding {
         agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
         stopsOnRoute = aDecoder.decodeObjectForKey(kStopsOnRouteEncoderString) as! [String : [TransitStop]]
         directionTagToName = aDecoder.decodeObjectForKey(kDirectionTagToNameEncoderString) as! [String : String]
-        routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! UIColor
-        oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! UIColor
+        routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! String
+        oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! String
         vehiclesOnRoute = aDecoder.decodeObjectForKey(kVehiclesOnRouteEncoderString) as! [TransitVehicle]
         latMin = aDecoder.decodeDoubleForKey(kLatMinEncoderString)
         latMax = aDecoder.decodeDoubleForKey(kLatMaxEncoderString)
