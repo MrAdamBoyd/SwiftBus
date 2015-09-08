@@ -14,23 +14,23 @@ private let kAgencyShortTitleEncoderString = "kAgencyShortTitleEncoder"
 private let kAgencyRegionEncoderString = "kAgencyRegionEncoder"
 private let kAgencyRoutesEncoderString = "kAgencyRoutesEncoder"
 
-class TransitAgency: NSObject, NSCoding {
+public class TransitAgency: NSObject, NSCoding {
     
-    var agencyTag:String = ""
-    var agencyTitle:String = ""
-    var agencyShortTitle:String = ""
-    var agencyRegion:String = ""
-    var agencyRoutes:[String : TransitRoute] = [:]
+    public var agencyTag:String = ""
+    public var agencyTitle:String = ""
+    public var agencyShortTitle:String = ""
+    public var agencyRegion:String = ""
+    public var agencyRoutes:[String : TransitRoute] = [:]
     
     //Convenvience
-    override init() { }
+    public override init() { }
     
     //User initialization, only need the agencyTag, everything else can be downloaded
-    init(agencyTag:String) {
+    public init(agencyTag:String) {
         self.agencyTag = agencyTag
     }
     
-    init(agencyTag:String, agencyTitle:String, agencyRegion:String) {
+    public init(agencyTag:String, agencyTitle:String, agencyRegion:String) {
         self.agencyTag = agencyTag
         self.agencyTitle = agencyTitle
         self.agencyRegion = agencyRegion
@@ -43,7 +43,7 @@ class TransitAgency: NSObject, NSCoding {
         - parameter success: Whether or not the call was successful
         - parameter agency:  The agency when the data is loaded
     */
-    func getAgencyAndRoutes(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
+    public func getAgencyAndRoutes(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
         //We need to load the transit agency data
         let connectionHandler = SwiftBusConnectionHandler()
         
@@ -72,7 +72,7 @@ class TransitAgency: NSObject, NSCoding {
 
     //MARK : NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
         agencyTitle = aDecoder.decodeObjectForKey(kAgencyTitleEncoderString) as! String
         agencyShortTitle = aDecoder.decodeObjectForKey(kAgencyShortTitleEncoderString) as! String
@@ -80,7 +80,7 @@ class TransitAgency: NSObject, NSCoding {
         agencyRoutes = aDecoder.decodeObjectForKey(kAgencyRoutesEncoderString) as! [String : TransitRoute]
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
         aCoder.encodeObject(agencyTitle, forKey: kAgencyTitleEncoderString)
         aCoder.encodeObject(agencyShortTitle, forKey: kAgencyShortTitleEncoderString)

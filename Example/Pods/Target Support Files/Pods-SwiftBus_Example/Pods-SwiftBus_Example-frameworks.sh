@@ -52,8 +52,10 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Pods-SwiftBus_Example/SWXMLHash.framework'
   install_framework 'Pods-SwiftBus_Example/SwiftBus.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'Pods-SwiftBus_Example/SWXMLHash.framework'
   install_framework 'Pods-SwiftBus_Example/SwiftBus.framework'
 fi

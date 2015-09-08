@@ -7,81 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012A07BB06923344A3348C8F84298BBB /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F1FE7BF3224858AFCE071253AA44E168 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DC96E022E01DD38F94B3B9906F990F7 /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F33382F96E7EB6D8C1CC212F992560E /* Pods-SwiftBus_Example-dummy.m */; };
-		1A35E13A6F939BF672FA7FE2A3C5AA84 /* SwiftBus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41149A8A7ABACBBD7DA8A9639FFAF246 /* SwiftBus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27E0967820B7C7028480CAB433CE432E /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B30A419FB575ABE0F5C8E4E86D60752 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3C15E1A74BB452B6CE1FE236DEB4A6D7 /* SwiftBus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D695ABAAA1E3408D507F7FA55953EBFB /* SwiftBus.bundle */; };
-		969A4637976050D3FBF418422F30752A /* SwiftBus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E8533FFEB23322C6E320EC9891C000 /* SwiftBus-dummy.m */; };
-		B61B205438C9ADBEA462A220D1256D19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA831C66777DAC944AFB45684A4D97E /* Foundation.framework */; };
-		B917B481358555717B419079CEB3D21E /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F92DF7FB36ADDCA1C182389FDB716F6A /* Pods-SwiftBus_Tests-dummy.m */; };
-		C88EB53E79BD273712F3FD9AA87FE196 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA831C66777DAC944AFB45684A4D97E /* Foundation.framework */; };
-		CAE6395F42330278BDADA03BA7F4D87C /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593F47FE6CA259419289BADAC4FA009 /* ReplaceMe.swift */; };
-		FB76AACF59284A1A527A445A695E464F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA831C66777DAC944AFB45684A4D97E /* Foundation.framework */; };
+		2949C43F4D5F5771755BA94032D22DA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */; };
+		2AA1FF295CAD4E2FDD9FB3C5D7C96418 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A57FF7F7405D703A6796A6253497654 /* SWXMLHash.swift */; };
+		4E7D1011907D9A485D2E6725AA6F991A /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F31B225B049E9BC3922AC672E2885709 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		664290BC1B9E8F5000EE5096 /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B41B9E8F5000EE5096 /* SwiftBus.swift */; settings = {ASSET_TAGS = (); }; };
+		664290BD1B9E8F5000EE5096 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B51B9E8F5000EE5096 /* SwiftBusConnectionHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		664290BE1B9E8F5000EE5096 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B61B9E8F5000EE5096 /* SwiftBusRequestURLs.swift */; settings = {ASSET_TAGS = (); }; };
+		664290BF1B9E8F5000EE5096 /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B71B9E8F5000EE5096 /* TransitAgency.swift */; settings = {ASSET_TAGS = (); }; };
+		664290C01B9E8F5000EE5096 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B81B9E8F5000EE5096 /* TransitPrediction.swift */; settings = {ASSET_TAGS = (); }; };
+		664290C11B9E8F5000EE5096 /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290B91B9E8F5000EE5096 /* TransitRoute.swift */; settings = {ASSET_TAGS = (); }; };
+		664290C21B9E8F5000EE5096 /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290BA1B9E8F5000EE5096 /* TransitStop.swift */; settings = {ASSET_TAGS = (); }; };
+		664290C31B9E8F5000EE5096 /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664290BB1B9E8F5000EE5096 /* TransitVehicle.swift */; settings = {ASSET_TAGS = (); }; };
+		6A31D1E9ACE09D54754FF86831F43423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */; };
+		6F7732DCF6B02A3B08322F0EA75FABF3 /* SwiftBus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D695ABAAA1E3408D507F7FA55953EBFB /* SwiftBus.bundle */; };
+		983A580BB3B6C88145B7540E9CF407FF /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E2B62E04AE9896421B8FBDD3E8C405 /* Pods-SwiftBus_Tests-dummy.m */; };
+		98F59B11618DB082103C9D26A97436CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */; };
+		A69FBE161BB4D0FC432ED6C4405A2899 /* SWXMLHash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07093050933597E2939944418938841C /* SWXMLHash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA3D484C73F082DF1E2E570911EAB87D /* SwiftBus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A95BFEFF039D39E9B05B3270D40BE /* SwiftBus-dummy.m */; };
+		C6C48F31B93B0FADAB6A063B8B272F7D /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 70FEDD979D23AFC19C565B67B0EAB6AA /* Pods-SwiftBus_Example-dummy.m */; };
+		D23542DC7D497A011FAADE36847A331C /* SWXMLHash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D334277F2E2F6AD2054DFEE0351766C /* SWXMLHash-dummy.m */; };
+		E508C43FA753BE8C7BEE0342166101AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */; };
+		E7AB2186669F45A37ED8FF8FA590CC68 /* SwiftBus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A5429D3D4C5E56C2D9B9A5C2B1FDAE /* SwiftBus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F92B1B2551A495CF01F062ECF3E6F5B2 /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F3CE47459CE32DD6FD5E7310A3D503 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB2D467F8539741DDA04EB350CD8EADB /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD604125AC4CB4C513B4A79B30D1050 /* SWXMLHash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2DD9DCCAAC45C477B9988C00A2374DDE /* PBXContainerItemProxy */ = {
+		0A0C9695A407EC137C24B67E207C7ABA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 045130F38998460A519763A8B341C157;
+			remoteGlobalIDString = A79A63106C47CE52245D4FE6F3ED3423;
 			remoteInfo = SwiftBus;
 		};
-		8623B61C1B6654A47FF2261809117218 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 045130F38998460A519763A8B341C157;
-			remoteInfo = SwiftBus;
-		};
-		CA4CBAEE33080765570B512D022FF6C6 /* PBXContainerItemProxy */ = {
+		69EC22744953A74375CDD38B04198426 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = ED8363553B2FDEEE9EFD0B685E75E2B2;
 			remoteInfo = "SwiftBus-SwiftBus";
 		};
+		80D01D8F7730E97F885209B0EC733745 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55785764541F12E4C52D2D9A312815D5;
+			remoteInfo = SWXMLHash;
+		};
+		9C13BB8ED1516BB68251F239D8961B9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55785764541F12E4C52D2D9A312815D5;
+			remoteInfo = SWXMLHash;
+		};
+		C9A56F752653DCD8DE6F152C837F6622 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A79A63106C47CE52245D4FE6F3ED3423;
+			remoteInfo = SwiftBus;
+		};
+		DC06A6D4909712C9D94A87A4BF46C865 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55785764541F12E4C52D2D9A312815D5;
+			remoteInfo = SWXMLHash;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07093050933597E2939944418938841C /* SWXMLHash-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-umbrella.h"; sourceTree = "<group>"; };
 		07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftBus-Private.xcconfig"; sourceTree = "<group>"; };
-		2BA831C66777DAC944AFB45684A4D97E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		0D5EBB28D507EBB577A344D8B543D8DE /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1316AF115D2317F929A39589EAFEEA3E /* Pods-SwiftBus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		22857582E4AA899E23A18B697CB7D8E2 /* Pods-SwiftBus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		29D4CA3E4CEAA0C6603820EEE1152BCA /* SWXMLHash-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SWXMLHash-Private.xcconfig"; sourceTree = "<group>"; };
 		2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Example.modulemap"; sourceTree = "<group>"; };
+		304133247846FF3F92D52C7CED7D72D5 /* SWXMLHash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-prefix.pch"; sourceTree = "<group>"; };
+		37F3CE47459CE32DD6FD5E7310A3D503 /* Pods-SwiftBus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Example-umbrella.h"; sourceTree = "<group>"; };
 		3A864B3A2538C3CC1D2F1244E637A876 /* SwiftBus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftBus.modulemap; sourceTree = "<group>"; };
 		3BA7835764604087511CDD00D3D1494B /* Pods-SwiftBus_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		3EF5FD201E03469AC1BB283C38ED9767 /* Pods-SwiftBus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		41149A8A7ABACBBD7DA8A9639FFAF246 /* SwiftBus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-umbrella.h"; sourceTree = "<group>"; };
 		42D47E358BFFF0D80C4F768952C5B6AB /* SwiftBus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-prefix.pch"; sourceTree = "<group>"; };
 		46C7A1872718FD01D1AD6AD5646B3520 /* Pods-SwiftBus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		47BE7D979B89B239CE9712E75543A7AB /* Pods-SwiftBus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		49D5948EED01C56342FB6FDB1A71989E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50E07D10E185C5D788FB17B2F90B7573 /* Pods-SwiftBus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5593F47FE6CA259419289BADAC4FA009 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
-		5B30A419FB575ABE0F5C8E4E86D60752 /* Pods-SwiftBus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Tests-umbrella.h"; sourceTree = "<group>"; };
+		4D710A6BB4E732B04A30C89FEF224021 /* Pods-SwiftBus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		54005A0A830DABCA61B7EE867582E56E /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E21B29BA2DF6A44405B0D21F06F4AA9 /* Pods-SwiftBus_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-resources.sh"; sourceTree = "<group>"; };
+		6527A1C3473CBA691696A8FED4C68545 /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		664290B41B9E8F5000EE5096 /* SwiftBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBus.swift; sourceTree = "<group>"; };
+		664290B51B9E8F5000EE5096 /* SwiftBusConnectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBusConnectionHandler.swift; sourceTree = "<group>"; };
+		664290B61B9E8F5000EE5096 /* SwiftBusRequestURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBusRequestURLs.swift; sourceTree = "<group>"; };
+		664290B71B9E8F5000EE5096 /* TransitAgency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAgency.swift; sourceTree = "<group>"; };
+		664290B81B9E8F5000EE5096 /* TransitPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitPrediction.swift; sourceTree = "<group>"; };
+		664290B91B9E8F5000EE5096 /* TransitRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
+		664290BA1B9E8F5000EE5096 /* TransitStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
+		664290BB1B9E8F5000EE5096 /* TransitVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitVehicle.swift; sourceTree = "<group>"; };
 		669161C808952BF725A66C5CF4552843 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F33382F96E7EB6D8C1CC212F992560E /* Pods-SwiftBus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Example-dummy.m"; sourceTree = "<group>"; };
+		70FEDD979D23AFC19C565B67B0EAB6AA /* Pods-SwiftBus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Example-dummy.m"; sourceTree = "<group>"; };
+		74A5429D3D4C5E56C2D9B9A5C2B1FDAE /* SwiftBus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-umbrella.h"; sourceTree = "<group>"; };
 		7615EAF5E798BEC4636465CF109E9064 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7621D5E8355F9D7E66DF49EBEDF55046 /* Pods-SwiftBus_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-resources.sh"; sourceTree = "<group>"; };
-		85E8533FFEB23322C6E320EC9891C000 /* SwiftBus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftBus-dummy.m"; sourceTree = "<group>"; };
+		7C467D744B4072D53C4B20358C4D7D76 /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		8FE2C4E4653F1A8CC351F92FA73FB6A0 /* SwiftBus.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftBus.xcconfig; sourceTree = "<group>"; };
-		A2445B9B05C51C6566EB4EBBCD197B2D /* Pods-SwiftBus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.release.xcconfig"; sourceTree = "<group>"; };
+		97BBE538C8B3851A9FF2AD83FD2F8FE6 /* Pods-SwiftBus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9A57FF7F7405D703A6796A6253497654 /* SWXMLHash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = Source/SWXMLHash.swift; sourceTree = "<group>"; };
+		9D334277F2E2F6AD2054DFEE0351766C /* SWXMLHash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWXMLHash-dummy.m"; sourceTree = "<group>"; };
+		A5E011B9C83E24852697044FAFC46C1E /* SWXMLHash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SWXMLHash.modulemap; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BAC451C089506C176D68BAFE8E0E4150 /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF4A95BFEFF039D39E9B05B3270D40BE /* SwiftBus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftBus-dummy.m"; sourceTree = "<group>"; };
 		CAB7AB84E1A991DE4D7445A50BD44FD3 /* Pods-SwiftBus_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CDD604125AC4CB4C513B4A79B30D1050 /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D47228AED85BDA56EAB84721126BCDC0 /* SWXMLHash.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWXMLHash.xcconfig; sourceTree = "<group>"; };
 		D695ABAAA1E3408D507F7FA55953EBFB /* SwiftBus.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBus.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC689F95BC7B80B5C006FBF0CB7F988C /* Pods-SwiftBus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9E7CC6519875E5A7D4B8BE8337B9E07 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFAFC11E178AA2FC0CEF8130C97853D8 /* Pods-SwiftBus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		E2380CCB9731819D42DCA673238A6D41 /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1FE7BF3224858AFCE071253AA44E168 /* Pods-SwiftBus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Example-umbrella.h"; sourceTree = "<group>"; };
+		E1E2B62E04AE9896421B8FBDD3E8C405 /* Pods-SwiftBus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Tests-dummy.m"; sourceTree = "<group>"; };
+		F31B225B049E9BC3922AC672E2885709 /* Pods-SwiftBus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F567173B0154513363EF607C29EE7C01 /* Pods-SwiftBus_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-frameworks.sh"; sourceTree = "<group>"; };
 		F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Tests.modulemap"; sourceTree = "<group>"; };
-		F92DF7FB36ADDCA1C182389FDB716F6A /* Pods-SwiftBus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Tests-dummy.m"; sourceTree = "<group>"; };
-		FB43DE3EF74568C4CFBF02E925256501 /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		081211A24FE0EB51D4FC79127AA2B158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2949C43F4D5F5771755BA94032D22DA3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1B3AAE6CBC484E7B18B6E485A2DA58B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,47 +147,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		231AD42618F8C5E92306A1F39FAE22D2 /* Frameworks */ = {
+		3A5CF79702A6A2EA97339103597AB952 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61B205438C9ADBEA462A220D1256D19 /* Foundation.framework in Frameworks */,
+				6A31D1E9ACE09D54754FF86831F43423 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4FF8246EF0804E129A1550ADA4DC1758 /* Frameworks */ = {
+		3BFC2D934E09D28CAA9963FEAA6BA6A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C88EB53E79BD273712F3FD9AA87FE196 /* Foundation.framework in Frameworks */,
+				98F59B11618DB082103C9D26A97436CE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59BBF2120B6C435B9737CBF52BD38A78 /* Frameworks */ = {
+		7CF3CEB30B6E932A4E4A3FF6AE80C86A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB76AACF59284A1A527A445A695E464F /* Foundation.framework in Frameworks */,
+				E508C43FA753BE8C7BEE0342166101AE /* Foundation.framework in Frameworks */,
+				FB2D467F8539741DDA04EB350CD8EADB /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C4C36BE892B21175EC0ACB158F65896 /* Pod */ = {
+		1875F9607F51F0C5B88CB6AF03A087D6 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				E2F7326A7D405D265C1F6D40D7975C9D /* Classes */,
+				E4065A74A6FA01A7503F65BC8AF840BC /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+		28C74C2243901C4DD1D92B8166991522 /* SWXMLHash */ = {
 			isa = PBXGroup;
 			children = (
-				2BA831C66777DAC944AFB45684A4D97E /* Foundation.framework */,
+				9A57FF7F7405D703A6796A6253497654 /* SWXMLHash.swift */,
+				A4DE33B3AE4AAA7C3F7456064138E18A /* Support Files */,
+			);
+			path = SWXMLHash;
+			sourceTree = "<group>";
+		};
+		4BD4D2CEE33A0D187DA6FB4C3E6CD011 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				872A6360FE4C7B5E615C0801C54E9FF2 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		7A8797248051A54F948BAEAC68AA66D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDD604125AC4CB4C513B4A79B30D1050 /* SWXMLHash.framework */,
+				4BD4D2CEE33A0D187DA6FB4C3E6CD011 /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -137,7 +214,8 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				9748C2AE86B3CFF8DC3E6A973165B6EC /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7A8797248051A54F948BAEAC68AA66D6 /* Frameworks */,
+				FB1F6F753C50440C1AEE725CCDE703F2 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				F1FCDBF4C6F83B1AA7DD91E8B7AD673F /* Targets Support Files */,
 			);
@@ -150,9 +228,9 @@
 				3A864B3A2538C3CC1D2F1244E637A876 /* SwiftBus.modulemap */,
 				8FE2C4E4653F1A8CC351F92FA73FB6A0 /* SwiftBus.xcconfig */,
 				07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */,
-				85E8533FFEB23322C6E320EC9891C000 /* SwiftBus-dummy.m */,
+				BF4A95BFEFF039D39E9B05B3270D40BE /* SwiftBus-dummy.m */,
 				42D47E358BFFF0D80C4F768952C5B6AB /* SwiftBus-prefix.pch */,
-				41149A8A7ABACBBD7DA8A9639FFAF246 /* SwiftBus-umbrella.h */,
+				74A5429D3D4C5E56C2D9B9A5C2B1FDAE /* SwiftBus-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/SwiftBus";
@@ -173,29 +251,36 @@
 				F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */,
 				3EF5FD201E03469AC1BB283C38ED9767 /* Pods-SwiftBus_Tests-acknowledgements.markdown */,
 				46C7A1872718FD01D1AD6AD5646B3520 /* Pods-SwiftBus_Tests-acknowledgements.plist */,
-				F92DF7FB36ADDCA1C182389FDB716F6A /* Pods-SwiftBus_Tests-dummy.m */,
+				E1E2B62E04AE9896421B8FBDD3E8C405 /* Pods-SwiftBus_Tests-dummy.m */,
 				3BA7835764604087511CDD00D3D1494B /* Pods-SwiftBus_Tests-frameworks.sh */,
 				5E21B29BA2DF6A44405B0D21F06F4AA9 /* Pods-SwiftBus_Tests-resources.sh */,
-				5B30A419FB575ABE0F5C8E4E86D60752 /* Pods-SwiftBus_Tests-umbrella.h */,
-				DC689F95BC7B80B5C006FBF0CB7F988C /* Pods-SwiftBus_Tests.debug.xcconfig */,
-				50E07D10E185C5D788FB17B2F90B7573 /* Pods-SwiftBus_Tests.release.xcconfig */,
+				F31B225B049E9BC3922AC672E2885709 /* Pods-SwiftBus_Tests-umbrella.h */,
+				22857582E4AA899E23A18B697CB7D8E2 /* Pods-SwiftBus_Tests.debug.xcconfig */,
+				1316AF115D2317F929A39589EAFEEA3E /* Pods-SwiftBus_Tests.release.xcconfig */,
 			);
 			name = "Pods-SwiftBus_Tests";
 			path = "Target Support Files/Pods-SwiftBus_Tests";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		A4DE33B3AE4AAA7C3F7456064138E18A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				D9E7CC6519875E5A7D4B8BE8337B9E07 /* Info.plist */,
+				A5E011B9C83E24852697044FAFC46C1E /* SWXMLHash.modulemap */,
+				D47228AED85BDA56EAB84721126BCDC0 /* SWXMLHash.xcconfig */,
+				29D4CA3E4CEAA0C6603820EEE1152BCA /* SWXMLHash-Private.xcconfig */,
+				9D334277F2E2F6AD2054DFEE0351766C /* SWXMLHash-dummy.m */,
+				304133247846FF3F92D52C7CED7D72D5 /* SWXMLHash-prefix.pch */,
+				07093050933597E2939944418938841C /* SWXMLHash-umbrella.h */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/SWXMLHash";
 			sourceTree = "<group>";
 		};
 		C131FAC6F41C7A61D828BE4C49EB9F68 /* SwiftBus */ = {
 			isa = PBXGroup;
 			children = (
-				2C4C36BE892B21175EC0ACB158F65896 /* Pod */,
+				1875F9607F51F0C5B88CB6AF03A087D6 /* Pod */,
 				83B68263F71A32897C918DADAA0A92EA /* Support Files */,
 			);
 			name = SwiftBus;
@@ -205,10 +290,11 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB43DE3EF74568C4CFBF02E925256501 /* Pods_SwiftBus_Example.framework */,
-				E2380CCB9731819D42DCA673238A6D41 /* Pods_SwiftBus_Tests.framework */,
+				0D5EBB28D507EBB577A344D8B543D8DE /* Pods_SwiftBus_Example.framework */,
+				7C467D744B4072D53C4B20358C4D7D76 /* Pods_SwiftBus_Tests.framework */,
+				6527A1C3473CBA691696A8FED4C68545 /* SWXMLHash.framework */,
 				D695ABAAA1E3408D507F7FA55953EBFB /* SwiftBus.bundle */,
-				BAC451C089506C176D68BAFE8E0E4150 /* SwiftBus.framework */,
+				54005A0A830DABCA61B7EE867582E56E /* SwiftBus.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,21 +306,28 @@
 				2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */,
 				CAB7AB84E1A991DE4D7445A50BD44FD3 /* Pods-SwiftBus_Example-acknowledgements.markdown */,
 				DFAFC11E178AA2FC0CEF8130C97853D8 /* Pods-SwiftBus_Example-acknowledgements.plist */,
-				6F33382F96E7EB6D8C1CC212F992560E /* Pods-SwiftBus_Example-dummy.m */,
+				70FEDD979D23AFC19C565B67B0EAB6AA /* Pods-SwiftBus_Example-dummy.m */,
 				F567173B0154513363EF607C29EE7C01 /* Pods-SwiftBus_Example-frameworks.sh */,
 				7621D5E8355F9D7E66DF49EBEDF55046 /* Pods-SwiftBus_Example-resources.sh */,
-				F1FE7BF3224858AFCE071253AA44E168 /* Pods-SwiftBus_Example-umbrella.h */,
-				47BE7D979B89B239CE9712E75543A7AB /* Pods-SwiftBus_Example.debug.xcconfig */,
-				A2445B9B05C51C6566EB4EBBCD197B2D /* Pods-SwiftBus_Example.release.xcconfig */,
+				37F3CE47459CE32DD6FD5E7310A3D503 /* Pods-SwiftBus_Example-umbrella.h */,
+				4D710A6BB4E732B04A30C89FEF224021 /* Pods-SwiftBus_Example.debug.xcconfig */,
+				97BBE538C8B3851A9FF2AD83FD2F8FE6 /* Pods-SwiftBus_Example.release.xcconfig */,
 			);
 			name = "Pods-SwiftBus_Example";
 			path = "Target Support Files/Pods-SwiftBus_Example";
 			sourceTree = "<group>";
 		};
-		E2F7326A7D405D265C1F6D40D7975C9D /* Classes */ = {
+		E4065A74A6FA01A7503F65BC8AF840BC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5593F47FE6CA259419289BADAC4FA009 /* ReplaceMe.swift */,
+				664290B41B9E8F5000EE5096 /* SwiftBus.swift */,
+				664290B51B9E8F5000EE5096 /* SwiftBusConnectionHandler.swift */,
+				664290B61B9E8F5000EE5096 /* SwiftBusRequestURLs.swift */,
+				664290B71B9E8F5000EE5096 /* TransitAgency.swift */,
+				664290B81B9E8F5000EE5096 /* TransitPrediction.swift */,
+				664290B91B9E8F5000EE5096 /* TransitRoute.swift */,
+				664290BA1B9E8F5000EE5096 /* TransitStop.swift */,
+				664290BB1B9E8F5000EE5096 /* TransitVehicle.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -248,71 +341,125 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		FB1F6F753C50440C1AEE725CCDE703F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28C74C2243901C4DD1D92B8166991522 /* SWXMLHash */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0C3719CD87CA0D8C2EF15355FC264B37 /* Headers */ = {
+		26005352D04A42E0F9C9126DD8CF6C55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				012A07BB06923344A3348C8F84298BBB /* Pods-SwiftBus_Example-umbrella.h in Headers */,
+				E7AB2186669F45A37ED8FF8FA590CC68 /* SwiftBus-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76FC37A58E8034AD027912827FD68EA8 /* Headers */ = {
+		7AA675F7862B1CF8486DEB79B0535B62 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E0967820B7C7028480CAB433CE432E /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
+				F92B1B2551A495CF01F062ECF3E6F5B2 /* Pods-SwiftBus_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E92D2C8DF6209E2CD184C2B6ECB18819 /* Headers */ = {
+		945DE22FC2243B86A0E15268925B4CAA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A35E13A6F939BF672FA7FE2A3C5AA84 /* SwiftBus-umbrella.h in Headers */,
+				4E7D1011907D9A485D2E6725AA6F991A /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C103293206F61C772571BEECF2185C4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A69FBE161BB4D0FC432ED6C4405A2899 /* SWXMLHash-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		045130F38998460A519763A8B341C157 /* SwiftBus */ = {
+		142B2CA761229B27C4D6E9CA0BE1AD9F /* Pods-SwiftBus_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93BF802DC37200BB71519E344BC61A49 /* Build configuration list for PBXNativeTarget "SwiftBus" */;
+			buildConfigurationList = 10A251EF662AE9084A699EADE45E26A5 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
 			buildPhases = (
-				A90F8C66DEDC1CF392C49E6C7B8A86E0 /* Sources */,
-				4FF8246EF0804E129A1550ADA4DC1758 /* Frameworks */,
-				0D0A723550CF7B25FB50D459FB096C95 /* Resources */,
-				E92D2C8DF6209E2CD184C2B6ECB18819 /* Headers */,
+				3DD7E8DFA82C6A43B8AD233DAA01188D /* Sources */,
+				081211A24FE0EB51D4FC79127AA2B158 /* Frameworks */,
+				945DE22FC2243B86A0E15268925B4CAA /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				327E9005EAC0A8CC8ED38684AE6BD6A9 /* PBXTargetDependency */,
-			);
-			name = SwiftBus;
-			productName = SwiftBus;
-			productReference = BAC451C089506C176D68BAFE8E0E4150 /* SwiftBus.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		137B00F35BA51D9C5E35FF39286657DE /* Pods-SwiftBus_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 00B3DFD5948C9FDABCAE7675F382043D /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
-			buildPhases = (
-				D67C9B220C9A0DF3714C423ACDB5C48C /* Sources */,
-				231AD42618F8C5E92306A1F39FAE22D2 /* Frameworks */,
-				76FC37A58E8034AD027912827FD68EA8 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E4D909877CF0B364E97C2CFB52DFBAB6 /* PBXTargetDependency */,
+				0C7F999E5D41BFD51CDA253E9E208497 /* PBXTargetDependency */,
+				2EBA2395329C59DC8ECFC881EA6F186D /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftBus_Tests";
 			productName = "Pods-SwiftBus_Tests";
-			productReference = E2380CCB9731819D42DCA673238A6D41 /* Pods_SwiftBus_Tests.framework */;
+			productReference = 7C467D744B4072D53C4B20358C4D7D76 /* Pods_SwiftBus_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		34777D2BC4107969C375418043F12A56 /* Pods-SwiftBus_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A76B37471FF4B6D2F65E8177B17623FC /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
+			buildPhases = (
+				BC372E1466D4C4D4321E6B536036C3EB /* Sources */,
+				3A5CF79702A6A2EA97339103597AB952 /* Frameworks */,
+				7AA675F7862B1CF8486DEB79B0535B62 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				684AC6949DB6DC4327B2C74CB0D84B8E /* PBXTargetDependency */,
+				72C2B6FD4A38174E44F2FEBF9B5D588F /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftBus_Example";
+			productName = "Pods-SwiftBus_Example";
+			productReference = 0D5EBB28D507EBB577A344D8B543D8DE /* Pods_SwiftBus_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		55785764541F12E4C52D2D9A312815D5 /* SWXMLHash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26D01F239A7ECC0B1718F65F2CA5978E /* Build configuration list for PBXNativeTarget "SWXMLHash" */;
+			buildPhases = (
+				7A6C5C0C1E5BE77DD23905613031E968 /* Sources */,
+				3BFC2D934E09D28CAA9963FEAA6BA6A3 /* Frameworks */,
+				C103293206F61C772571BEECF2185C4D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SWXMLHash;
+			productName = SWXMLHash;
+			productReference = 6527A1C3473CBA691696A8FED4C68545 /* SWXMLHash.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A79A63106C47CE52245D4FE6F3ED3423 /* SwiftBus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC78C70A75E6684F5F88F925E18190AA /* Build configuration list for PBXNativeTarget "SwiftBus" */;
+			buildPhases = (
+				ACDA5A0AF028FD8DA406F62BEA48AF6C /* Sources */,
+				7CF3CEB30B6E932A4E4A3FF6AE80C86A /* Frameworks */,
+				79744EA48E1FE5EE275D929E2C48EB00 /* Resources */,
+				26005352D04A42E0F9C9126DD8CF6C55 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD75812151C877BD48F5DA4ED3BD2894 /* PBXTargetDependency */,
+				5A8B0EE8804D662871EBA3626BCF9F4E /* PBXTargetDependency */,
+			);
+			name = SwiftBus;
+			productName = SwiftBus;
+			productReference = 54005A0A830DABCA61B7EE867582E56E /* SwiftBus.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		ED8363553B2FDEEE9EFD0B685E75E2B2 /* SwiftBus-SwiftBus */ = {
@@ -331,24 +478,6 @@
 			productName = "SwiftBus-SwiftBus";
 			productReference = D695ABAAA1E3408D507F7FA55953EBFB /* SwiftBus.bundle */;
 			productType = "com.apple.product-type.bundle";
-		};
-		F24D1A56841538842C644AF58CBDE7EC /* Pods-SwiftBus_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F30D941EF65C96A6138D23376B707248 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
-			buildPhases = (
-				A89EB12ED4BDCBA8B1386C7EE0BAF1C1 /* Sources */,
-				59BBF2120B6C435B9737CBF52BD38A78 /* Frameworks */,
-				0C3719CD87CA0D8C2EF15355FC264B37 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2F6975124715DC927186A4766848408B /* PBXTargetDependency */,
-			);
-			name = "Pods-SwiftBus_Example";
-			productName = "Pods-SwiftBus_Example";
-			productReference = FB43DE3EF74568C4CFBF02E925256501 /* Pods_SwiftBus_Example.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -371,20 +500,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F24D1A56841538842C644AF58CBDE7EC /* Pods-SwiftBus_Example */,
-				137B00F35BA51D9C5E35FF39286657DE /* Pods-SwiftBus_Tests */,
-				045130F38998460A519763A8B341C157 /* SwiftBus */,
+				34777D2BC4107969C375418043F12A56 /* Pods-SwiftBus_Example */,
+				142B2CA761229B27C4D6E9CA0BE1AD9F /* Pods-SwiftBus_Tests */,
+				55785764541F12E4C52D2D9A312815D5 /* SWXMLHash */,
+				A79A63106C47CE52245D4FE6F3ED3423 /* SwiftBus */,
 				ED8363553B2FDEEE9EFD0B685E75E2B2 /* SwiftBus-SwiftBus */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0D0A723550CF7B25FB50D459FB096C95 /* Resources */ = {
+		79744EA48E1FE5EE275D929E2C48EB00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C15E1A74BB452B6CE1FE236DEB4A6D7 /* SwiftBus.bundle in Resources */,
+				6F7732DCF6B02A3B08322F0EA75FABF3 /* SwiftBus.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +528,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3DD7E8DFA82C6A43B8AD233DAA01188D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				983A580BB3B6C88145B7540E9CF407FF /* Pods-SwiftBus_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A6C5C0C1E5BE77DD23905613031E968 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23542DC7D497A011FAADE36847A331C /* SWXMLHash-dummy.m in Sources */,
+				2AA1FF295CAD4E2FDD9FB3C5D7C96418 /* SWXMLHash.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C08E85570FA3A3A40DD7F2D93CAA021 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,55 +552,102 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A89EB12ED4BDCBA8B1386C7EE0BAF1C1 /* Sources */ = {
+		ACDA5A0AF028FD8DA406F62BEA48AF6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DC96E022E01DD38F94B3B9906F990F7 /* Pods-SwiftBus_Example-dummy.m in Sources */,
+				664290C01B9E8F5000EE5096 /* TransitPrediction.swift in Sources */,
+				664290BF1B9E8F5000EE5096 /* TransitAgency.swift in Sources */,
+				664290C11B9E8F5000EE5096 /* TransitRoute.swift in Sources */,
+				664290BC1B9E8F5000EE5096 /* SwiftBus.swift in Sources */,
+				664290BD1B9E8F5000EE5096 /* SwiftBusConnectionHandler.swift in Sources */,
+				664290BE1B9E8F5000EE5096 /* SwiftBusRequestURLs.swift in Sources */,
+				AA3D484C73F082DF1E2E570911EAB87D /* SwiftBus-dummy.m in Sources */,
+				664290C31B9E8F5000EE5096 /* TransitVehicle.swift in Sources */,
+				664290C21B9E8F5000EE5096 /* TransitStop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A90F8C66DEDC1CF392C49E6C7B8A86E0 /* Sources */ = {
+		BC372E1466D4C4D4321E6B536036C3EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE6395F42330278BDADA03BA7F4D87C /* ReplaceMe.swift in Sources */,
-				969A4637976050D3FBF418422F30752A /* SwiftBus-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D67C9B220C9A0DF3714C423ACDB5C48C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B917B481358555717B419079CEB3D21E /* Pods-SwiftBus_Tests-dummy.m in Sources */,
+				C6C48F31B93B0FADAB6A063B8B272F7D /* Pods-SwiftBus_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2F6975124715DC927186A4766848408B /* PBXTargetDependency */ = {
+		0C7F999E5D41BFD51CDA253E9E208497 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWXMLHash;
+			target = 55785764541F12E4C52D2D9A312815D5 /* SWXMLHash */;
+			targetProxy = 9C13BB8ED1516BB68251F239D8961B9C /* PBXContainerItemProxy */;
+		};
+		2EBA2395329C59DC8ECFC881EA6F186D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftBus;
-			target = 045130F38998460A519763A8B341C157 /* SwiftBus */;
-			targetProxy = 8623B61C1B6654A47FF2261809117218 /* PBXContainerItemProxy */;
+			target = A79A63106C47CE52245D4FE6F3ED3423 /* SwiftBus */;
+			targetProxy = C9A56F752653DCD8DE6F152C837F6622 /* PBXContainerItemProxy */;
 		};
-		327E9005EAC0A8CC8ED38684AE6BD6A9 /* PBXTargetDependency */ = {
+		5A8B0EE8804D662871EBA3626BCF9F4E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SwiftBus-SwiftBus";
 			target = ED8363553B2FDEEE9EFD0B685E75E2B2 /* SwiftBus-SwiftBus */;
-			targetProxy = CA4CBAEE33080765570B512D022FF6C6 /* PBXContainerItemProxy */;
+			targetProxy = 69EC22744953A74375CDD38B04198426 /* PBXContainerItemProxy */;
 		};
-		E4D909877CF0B364E97C2CFB52DFBAB6 /* PBXTargetDependency */ = {
+		684AC6949DB6DC4327B2C74CB0D84B8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWXMLHash;
+			target = 55785764541F12E4C52D2D9A312815D5 /* SWXMLHash */;
+			targetProxy = 80D01D8F7730E97F885209B0EC733745 /* PBXContainerItemProxy */;
+		};
+		72C2B6FD4A38174E44F2FEBF9B5D588F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftBus;
-			target = 045130F38998460A519763A8B341C157 /* SwiftBus */;
-			targetProxy = 2DD9DCCAAC45C477B9988C00A2374DDE /* PBXContainerItemProxy */;
+			target = A79A63106C47CE52245D4FE6F3ED3423 /* SwiftBus */;
+			targetProxy = 0A0C9695A407EC137C24B67E207C7ABA /* PBXContainerItemProxy */;
+		};
+		CD75812151C877BD48F5DA4ED3BD2894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWXMLHash;
+			target = 55785764541F12E4C52D2D9A312815D5 /* SWXMLHash */;
+			targetProxy = DC06A6D4909712C9D94A87A4BF46C865 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0D69BA619C76F9B5414C51348D89E3C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22857582E4AA899E23A18B697CB7D8E2 /* Pods-SwiftBus_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SwiftBus_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -485,6 +679,92 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		299F562C8CE08DB54ED8CEDD015A189B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2C3CDF00C3875F4304BAC333391833B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4B8BF193604D8890A8B0DDC0DEA04B92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1316AF115D2317F929A39589EAFEEA3E /* Pods-SwiftBus_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SwiftBus_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -539,25 +819,27 @@
 			};
 			name = Debug;
 		};
-		67224B25285C2FA12C160BC5EBA8DEB2 /* Release */ = {
+		7AA8F5CFCC4AAB50529D6EF0CAED9D88 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */;
+			baseConfigurationReference = 97BBE538C8B3851A9FF2AD83FD2F8FE6 /* Pods-SwiftBus_Example.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftBus;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SwiftBus_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,33 +848,32 @@
 			};
 			name = Release;
 		};
-		81ED2CA33FCAEFEB510E5BE47A8F8908 /* Debug */ = {
+		87DCF96AD830C10F50BAD79484C7CDAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07ED1A1007989C8CD4D7E69E27FF63D7 /* SwiftBus-Private.xcconfig */;
+			baseConfigurationReference = 29D4CA3E4CEAA0C6603820EEE1152BCA /* SWXMLHash-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.0;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftBus;
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWXMLHash;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		8BA154761F96C7C04687A3EAEB22EC99 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -606,9 +887,9 @@
 			};
 			name = Release;
 		};
-		ACBDA7CEB1E0BC9443599D031256D245 /* Debug */ = {
+		8E8357DDCB22690CA87811C54C0F4049 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC689F95BC7B80B5C006FBF0CB7F988C /* Pods-SwiftBus_Tests.debug.xcconfig */;
+			baseConfigurationReference = 4D710A6BB4E732B04A30C89FEF224021 /* Pods-SwiftBus_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -617,16 +898,16 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_SwiftBus_Tests;
+				PRODUCT_NAME = Pods_SwiftBus_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -636,85 +917,25 @@
 			};
 			name = Debug;
 		};
-		BE48C657C45177C0C27200B89F8BFFAC /* Release */ = {
+		B687DC390E435D6E4AF6248A5B96368A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50E07D10E185C5D788FB17B2F90B7573 /* Pods-SwiftBus_Tests.release.xcconfig */;
+			baseConfigurationReference = 29D4CA3E4CEAA0C6603820EEE1152BCA /* SWXMLHash-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_SwiftBus_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CCF58A95B83220BC33F05F5F5BA9F23D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2445B9B05C51C6566EB4EBBCD197B2D /* Pods-SwiftBus_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_SwiftBus_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FDC7977FF3C3C517D0890E7B69C8A4C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47BE7D979B89B239CE9712E75543A7AB /* Pods-SwiftBus_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_SwiftBus_Example;
+				PRODUCT_NAME = SWXMLHash;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -727,11 +948,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00B3DFD5948C9FDABCAE7675F382043D /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
+		10A251EF662AE9084A699EADE45E26A5 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ACBDA7CEB1E0BC9443599D031256D245 /* Debug */,
-				BE48C657C45177C0C27200B89F8BFFAC /* Release */,
+				0D69BA619C76F9B5414C51348D89E3C2 /* Debug */,
+				4B8BF193604D8890A8B0DDC0DEA04B92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -745,6 +966,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		26D01F239A7ECC0B1718F65F2CA5978E /* Build configuration list for PBXNativeTarget "SWXMLHash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B687DC390E435D6E4AF6248A5B96368A /* Debug */,
+				87DCF96AD830C10F50BAD79484C7CDAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -754,20 +984,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93BF802DC37200BB71519E344BC61A49 /* Build configuration list for PBXNativeTarget "SwiftBus" */ = {
+		A76B37471FF4B6D2F65E8177B17623FC /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				81ED2CA33FCAEFEB510E5BE47A8F8908 /* Debug */,
-				67224B25285C2FA12C160BC5EBA8DEB2 /* Release */,
+				8E8357DDCB22690CA87811C54C0F4049 /* Debug */,
+				7AA8F5CFCC4AAB50529D6EF0CAED9D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F30D941EF65C96A6138D23376B707248 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
+		AC78C70A75E6684F5F88F925E18190AA /* Build configuration list for PBXNativeTarget "SwiftBus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDC7977FF3C3C517D0890E7B69C8A4C7 /* Debug */,
-				CCF58A95B83220BC33F05F5F5BA9F23D /* Release */,
+				2C3CDF00C3875F4304BAC333391833B8 /* Debug */,
+				299F562C8CE08DB54ED8CEDD015A189B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

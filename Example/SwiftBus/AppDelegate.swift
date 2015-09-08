@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SwiftBus
 //
-//  Created by Adam Boyd on 09/07/2015.
+//  Created by Adam on 2015-08-29.
 //  Copyright (c) 2015 Adam Boyd. All rights reserved.
 //
 
@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 

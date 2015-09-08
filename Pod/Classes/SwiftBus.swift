@@ -15,8 +15,8 @@
 
 import Foundation
 
-class SwiftBus {
-    static let sharedController = SwiftBus()
+public class SwiftBus {
+    public static let sharedController = SwiftBus()
     
     private var masterListTransitAgencies:[String : TransitAgency] = [:]
     
@@ -42,7 +42,7 @@ class SwiftBus {
     - parameter closure: Code that is called after the dictionary of agencies has loaded
         - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
-    func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
+    public func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
         
         if masterListTransitAgencies.count > 0 {
             
@@ -74,7 +74,7 @@ class SwiftBus {
     - parameter closure:   Code that is called after everything has loaded
         - parameter agency:  Optional TransitAgency object that contains the routes
     */
-    func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?) {
+    public func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?) {
         
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
@@ -116,7 +116,7 @@ class SwiftBus {
     - parameter closure:   Code that is called after all the data has loaded
         - parameter routes:  Dictionary of routeTags to TransitRoute objects
     */
-    func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
+    public func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
         routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
             if let currentAgency = agency {
                 //The agency exists
@@ -140,7 +140,7 @@ class SwiftBus {
     - parameter closure:   the code that gets called after the data is loaded
         - parameter route:   TransitRoute object that contains the configuration requested
     */
-    func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+    public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
         
         //Getting all the routes for the agency
         routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
@@ -192,7 +192,7 @@ class SwiftBus {
     - parameter closure:   Code that gets called after the call has completed
         - parameter route:   Optional TransitRoute object that contains the vehicle locations
     */
-    func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+    public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
@@ -233,7 +233,7 @@ class SwiftBus {
     - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStop object that contains the predictions
     */
-    func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?) {
+    public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
@@ -273,7 +273,7 @@ class SwiftBus {
     /**
     This method clears the transitAgency dictionary from all TransitAgency objects. Because it is formatted as a tree, this clears all information for all routes and stops as well. Any function calls will download new information.
     */
-    func clearSavedData() {
+    public func clearSavedData() {
         masterListTransitAgencies = [:]
     }
 }

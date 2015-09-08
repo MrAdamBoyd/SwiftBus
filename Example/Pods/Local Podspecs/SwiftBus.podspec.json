@@ -1,17 +1,14 @@
 {
   "name": "SwiftBus",
-  "version": "0.1.0",
-  "summary": "A short description of SwiftBus.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/SwiftBus",
-  "license": "MIT",
-  "authors": {
-    "Adam Boyd": "adamboyd50@gmail.com"
-  },
+  "version": "1.0",
+  "summary": "Asynchronous Swift wrapper for the NextBus API.",
+  "homepage": "https://github.com/MrAdamBoyd/SwiftBus",
+  "authors": "Adam Boyd",
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/SwiftBus.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/MrAdamBoyd/SwiftBus.git",
+    "tag": "1.0"
   },
+  "social_media_url": "https://twitter.com/MrAdamBoyd",
   "platforms": {
     "ios": "8.0"
   },
@@ -20,6 +17,11 @@
   "resource_bundles": {
     "SwiftBus": [
       "Pod/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "SWXMLHash": [
+      "~> 1.1.0"
     ]
   }
 }

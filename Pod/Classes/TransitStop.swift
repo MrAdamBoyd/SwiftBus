@@ -20,20 +20,20 @@ private let kPredictionsEncoderString = "kPredictionsEncoder"
 private let kMessagesEncoderString = "kMessagesEncoder"
 
 //Stored stop identifiers to get the data from
-class TransitStop:NSObject, NSCoding {
-    var routeTitle:String = ""
-    var routeTag:String = ""
-    var stopTitle:String = ""
-    var stopTag:String = ""
-    var agencyTag:String = ""
-    var direction:String = ""
-    var lat:Double = 0
-    var lon:Double = 0
-    var predictions:[String : [TransitPrediction]] = [:]
-    var messages:[String] = []
+public class TransitStop:NSObject, NSCoding {
+    public var routeTitle:String = ""
+    public var routeTag:String = ""
+    public var stopTitle:String = ""
+    public var stopTag:String = ""
+    public var agencyTag:String = ""
+    public var direction:String = ""
+    public var lat:Double = 0
+    public var lon:Double = 0
+    public var predictions:[String : [TransitPrediction]] = [:]
+    public var messages:[String] = []
     
     //Init without predictions or direction
-    init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
+    public init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
         self.routeTitle = routeTitle
         self.routeTag = routeTag
         self.stopTitle = stopTitle
@@ -48,7 +48,7 @@ class TransitStop:NSObject, NSCoding {
         - parameter predictions: The predictions, in all directions, for this stop
         - parameter messages:    The messages for this stop
     */
-    func getPredictionsAndMessages(finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
+    public func getPredictionsAndMessages(finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
         if agencyTag != "" {
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
@@ -71,7 +71,7 @@ class TransitStop:NSObject, NSCoding {
     
     - returns: In order list of all predictions from all different directions
     */
-    func combinedPredictions() -> [TransitPrediction] {
+    public func combinedPredictions() -> [TransitPrediction] {
         var listOfPredictions:[TransitPrediction] = []
         
         for predictionDirection in predictions.values {
@@ -89,7 +89,7 @@ class TransitStop:NSObject, NSCoding {
     
     //MARK: NSCoding
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String
@@ -102,7 +102,7 @@ class TransitStop:NSObject, NSCoding {
         messages = aDecoder.decodeObjectForKey(kMessagesEncoderString) as! [String]
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(stopTitle, forKey: kStopTitleEncoderString)

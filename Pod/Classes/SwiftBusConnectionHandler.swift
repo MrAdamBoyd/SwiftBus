@@ -14,8 +14,8 @@ enum RequestType:Int {
 }
 
 class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
-    private var currentRequestType:RequestType = .NoRequest
-    private var connection:NSURLConnection?
+    var currentRequestType:RequestType = .NoRequest
+    var connection:NSURLConnection?
     var xmlData:NSMutableData = NSMutableData()
     var xmlString:String = ""
     var allAgenciesClosure:([String : TransitAgency] -> Void)?

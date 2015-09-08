@@ -17,22 +17,22 @@ private let kLeadingVehicleIdEncoderString = "kKeadingVehicleIdEncoder"
 private let kHeadingEncoderString = "kHeadingEncoder"
 private let kSpeedKmHEncoderString = "kSpeedKmHEncoder"
 
-class TransitVehicle:NSObject, NSCoding {
+public class TransitVehicle:NSObject, NSCoding {
     
-    var vehicleId:Int = 0
-    var directionTag:String = ""
-    var lat:Double = 0
-    var lon:Double = 0
-    var secondsSinceReport:Int = 0
-    var leadingVehicleId:Int = 0
-    var heading:Int = 0
-    var speedKmH:Int = 0
+    public var vehicleId:Int = 0
+    public var directionTag:String = ""
+    public var lat:Double = 0
+    public var lon:Double = 0
+    public var secondsSinceReport:Int = 0
+    public var leadingVehicleId:Int = 0
+    public var heading:Int = 0
+    public var speedKmH:Int = 0
     
     //Basic init
-    override init() { super.init() }
+    public override init() { super.init() }
     
     //Init with proper things as Ints and Doubles
-    init(vehicleId:Int, directionTag:String, lat:Double, lon:Double, secondsSinceReport:Int, heading:Int, speedKmH:Int) {
+    public init(vehicleId:Int, directionTag:String, lat:Double, lon:Double, secondsSinceReport:Int, heading:Int, speedKmH:Int) {
         self.vehicleId = vehicleId
         self.directionTag = directionTag
         self.lat = lat
@@ -43,7 +43,7 @@ class TransitVehicle:NSObject, NSCoding {
     }
     
     //Init with everything as string, convert in init
-    init(vehicleID:String, directionTag:String, lat:String, lon:String, secondsSinceReport:String, heading:String, speedKmH:String) {
+    public init(vehicleID:String, directionTag:String, lat:String, lon:String, secondsSinceReport:String, heading:String, speedKmH:String) {
         self.vehicleId = Int(vehicleID)!
         self.directionTag = directionTag
         self.lat = (lat as NSString).doubleValue
@@ -55,7 +55,7 @@ class TransitVehicle:NSObject, NSCoding {
     
     //MARK : NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         vehicleId = aDecoder.decodeObjectForKey(kVehicleIdEncoderString) as! Int
         directionTag = aDecoder.decodeObjectForKey(kDirectionTagEncoderString) as! String
         lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
@@ -66,7 +66,7 @@ class TransitVehicle:NSObject, NSCoding {
         speedKmH = aDecoder.decodeObjectForKey(kSpeedKmHEncoderString) as! Int
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(vehicleId, forKey: kVehicleIdEncoderString)
         aCoder.encodeObject(directionTag, forKey: kDirectionTagEncoderString)
         aCoder.encodeDouble(lat, forKey: kLatEncoderString)

@@ -1,5 +1,7 @@
 PODS:
-  - SwiftBus (0.1.0)
+  - SwiftBus (1.0):
+    - SWXMLHash (~> 1.1.0)
+  - SWXMLHash (1.1.0)
 
 DEPENDENCIES:
   - SwiftBus (from `../`)
@@ -9,6 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftBus: 2eb61585881da870475416d4c509689c3f66fab4
+  SwiftBus: 4c6ce8304736030e3822041f351d2e0d71fce8e4
+  SWXMLHash: 3937b867dfe3091a84304176d80399fc2e709c37
 
 COCOAPODS: 0.38.2

@@ -22,26 +22,26 @@ private let kLonMinEncoderString = "kLonMinEncoder"
 private let kLonMaxEncoderString = "kLonMaxEncoder"
 
 
-class TransitRoute: NSObject, NSCoding {
+public class TransitRoute: NSObject, NSCoding {
     
-    var routeTag:String = ""
-    var routeTitle:String = ""
-    var agencyTag:String = ""
-    var stopsOnRoute:[String : [TransitStop]] = [:]
-    var directionTagToName:[String : String] = [:]
-    var routeColor:String = ""
-    var oppositeColor:String = ""
-    var vehiclesOnRoute:[TransitVehicle] = []
-    var latMin:Double = 0
-    var latMax:Double = 0
-    var lonMin:Double = 0
-    var lonMax:Double = 0
+    public var routeTag:String = ""
+    public var routeTitle:String = ""
+    public var agencyTag:String = ""
+    public var stopsOnRoute:[String : [TransitStop]] = [:]
+    public var directionTagToName:[String : String] = [:]
+    public var routeColor:String = ""
+    public var oppositeColor:String = ""
+    public var vehiclesOnRoute:[TransitVehicle] = []
+    public var latMin:Double = 0
+    public var latMax:Double = 0
+    public var lonMin:Double = 0
+    public var lonMax:Double = 0
     
     //Basic init
-    override init() { super.init() }
+    public override init() { super.init() }
     
     //Init without stops
-    init(routeTag:String, routeTitle:String) {
+    public init(routeTag:String, routeTitle:String) {
         self.routeTag = routeTag
         self.routeTitle = routeTitle
     }
@@ -55,7 +55,7 @@ class TransitRoute: NSObject, NSCoding {
     
     - returns: None
     */
-    init(routeTag:String, agencyTag:String) {
+    public init(routeTag:String, agencyTag:String) {
         self.routeTag = routeTag
         self.agencyTag = agencyTag
     }
@@ -67,7 +67,7 @@ class TransitRoute: NSObject, NSCoding {
         - parameter success: Whether or not the downloading was a success
         - parameter route:   The route object with all the information
     */
-    func getRouteConfig(finishedLoading:(success:Bool, route:TransitRoute) -> Void) {
+    public func getRouteConfig(finishedLoading:(success:Bool, route:TransitRoute) -> Void) {
         let connectionHandler = SwiftBusConnectionHandler()
         connectionHandler.requestRouteConfiguration(self.routeTag, fromAgency: self.agencyTag, closure: {(route:TransitRoute?) -> Void in
             
@@ -93,7 +93,7 @@ class TransitRoute: NSObject, NSCoding {
         - parameter success:     Whether or not it was a success
         - parameter vehicles:    Locations of the vehicles
     */
-    func getVehicleLocations(finishedLoading:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
+    public func getVehicleLocations(finishedLoading:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 let connectionHandler = SwiftBusConnectionHandler()
@@ -123,7 +123,7 @@ class TransitRoute: NSObject, NSCoding {
         - parameter success:     Whether or not call was a success
         - parameter predictions: Predictions for the current stop
     */
-    func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+    public func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 //Everything should be fine
@@ -157,7 +157,7 @@ class TransitRoute: NSObject, NSCoding {
     
     - returns: Optional TransitStop object for the tag provided
     */
-    func getStopForTag(stopTag:String) -> TransitStop? {
+    public func getStopForTag(stopTag:String) -> TransitStop? {
         for direction in stopsOnRoute.keys {
             //For each direction
             for directionStop in stopsOnRoute[direction]! {
@@ -179,7 +179,7 @@ class TransitRoute: NSObject, NSCoding {
     
     - returns: Whether the stop is in this route
     */
-    func routeContainsStopWithTag(stopTag:String) -> Bool {
+    public func routeContainsStopWithTag(stopTag:String) -> Bool {
         return getStopForTag(stopTag) != nil
     }
     
@@ -190,7 +190,7 @@ class TransitRoute: NSObject, NSCoding {
     
     - returns: Whether the stop is in this route
     */
-    func routeContainsStop(stop:TransitStop) -> Bool {
+    public func routeContainsStop(stop:TransitStop) -> Bool {
         return routeContainsStopWithTag(stop.routeTag)
     }
     
@@ -210,7 +210,7 @@ class TransitRoute: NSObject, NSCoding {
     
     //MARK: NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
         agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
@@ -225,7 +225,7 @@ class TransitRoute: NSObject, NSCoding {
         lonMax = aDecoder.decodeDoubleForKey(kLonMaxEncoderString)
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
         aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
         aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)

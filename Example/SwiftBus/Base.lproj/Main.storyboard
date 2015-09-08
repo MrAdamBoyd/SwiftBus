@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SwiftBus_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,7 +16,66 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tw-mb-dl0">
+                                <rect key="frame" x="260" y="28" width="80" height="30"/>
+                                <state key="normal" title="Agency List">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="agencyListTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2aW-Bf-Hv4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZM-Sx-v6Z">
+                                <rect key="frame" x="237" y="66" width="127" height="30"/>
+                                <state key="normal" title="Routes for Agency">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="routesForAgencyTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="60d-CX-qsy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4m4-wx-oqH">
+                                <rect key="frame" x="240" y="142" width="120" height="30"/>
+                                <state key="normal" title="Vehicle Locations">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="vehicleLocationsTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ka8-Sb-RQc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w6-02-wVH">
+                                <rect key="frame" x="243" y="180" width="114" height="30"/>
+                                <state key="normal" title="Stop Predictions">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopPredictionsTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dfl-a1-Xr2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wo3-3M-nL9">
+                                <rect key="frame" x="231" y="104" width="138" height="30"/>
+                                <state key="normal" title="Route Configuration">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="routeConfigurationTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jJu-LZ-5ZH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="5tw-mb-dl0" secondAttribute="centerX" id="0YZ-cf-32i"/>
+                            <constraint firstItem="5tw-mb-dl0" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="28" id="3oZ-pl-ngJ"/>
+                            <constraint firstItem="hZM-Sx-v6Z" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="66" id="9JM-tR-Aqg"/>
+                            <constraint firstAttribute="centerX" secondItem="4m4-wx-oqH" secondAttribute="centerX" id="EkB-Ql-HMC"/>
+                            <constraint firstAttribute="centerX" secondItem="hZM-Sx-v6Z" secondAttribute="centerX" id="c9t-u9-cOv"/>
+                            <constraint firstAttribute="centerX" secondItem="wo3-3M-nL9" secondAttribute="centerX" id="fyK-e9-Phy"/>
+                            <constraint firstAttribute="centerX" secondItem="3w6-02-wVH" secondAttribute="centerX" id="hVu-0f-Q33"/>
+                            <constraint firstItem="3w6-02-wVH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="180" id="oLB-uX-cNK"/>
+                            <constraint firstItem="wo3-3M-nL9" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="104" id="ojg-PK-C6C"/>
+                            <constraint firstItem="4m4-wx-oqH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="142" id="uAK-OL-HCP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
