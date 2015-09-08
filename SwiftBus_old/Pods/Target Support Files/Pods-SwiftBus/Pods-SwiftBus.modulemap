@@ -1,6 +1,0 @@
-framework module Pods_SwiftBus {
-  umbrella header "Pods-SwiftBus-umbrella.h"
-
-  export *
-  module * { export * }
-}
