@@ -11,6 +11,26 @@ Interface for NextBus API written in Swift
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+SwiftBus will run on iOS 8 and above, and Mac OS X 10.9 Mavericks and above. If you are using or targeting iOS 9 and OS X 10.11 and above, you also need to have NSAppTransportSecurity working with `nextbus.com`.
+
+## NSAppTransportSecurity
+Starting in iOS 9 and OS X 10.11, Apple is restricting the use of `http` addresses unless otherwise specified. Because NextBus's website is currently http-only, NSAppTransportSecurity needs to be enabled for `nextbus.com`. Add this to your `Info.plist`:
+
+`<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>nextbus.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+        </dict>
+    </dict>
+</dict>`
 
 ## Installation
 
