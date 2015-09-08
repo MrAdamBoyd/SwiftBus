@@ -22,8 +22,11 @@ pod "SwiftBus"
 ```
 
 ## Author
+My name is Adam Boyd.
 
-Adam Boyd, adamboyd50@gmail.com
+Your best bet to contact me is on Twitter. [@MrAdamBoyd](https://twitter.com/MrAdamBoyd)
+
+My website is [adamjboyd.com](http://www.adamjboyd.com).
 
 ## License
 
