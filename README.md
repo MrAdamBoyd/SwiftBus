@@ -6,6 +6,23 @@ Interface for NextBus API written in Swift
 [![License](https://img.shields.io/cocoapods/l/SwiftBus.svg?style=flat)](http://cocoapods.org/pods/SwiftBus)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBus.svg?style=flat)](http://cocoapods.org/pods/SwiftBus)
 
+## Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Requirements](#requirements)
+* [NSAppTransportSecurity](#nsapptransportsecurity)
+* [Author](#author)
+* [License](#license)
+
+## Installation
+
+SwiftBus is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "SwiftBus"
+```
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -84,15 +101,6 @@ Starting in iOS 9 and OS X 10.11, Apple is restricting the use of `http` address
         </dict>
     </dict>
 </dict>
-```
-
-## Installation
-
-SwiftBus is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "SwiftBus"
 ```
 
 ## Author
