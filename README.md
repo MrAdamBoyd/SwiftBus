@@ -10,6 +10,58 @@ Interface for NextBus API written in Swift
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+SwiftBus manages everything for you, so you can focus on making your app great. The primary way to interact with SwiftBus is through its singleton.
+
+For example, if you wanted to get a list of routes for a certain agency, you'd do this:
+```
+SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+    for route in agencyRoutes.values {
+        print("Route title: " + route.routeTitle)
+    }
+})
+```
+
+Or if you wanted to get a list of vehicle locations for a certain route:
+```
+SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
+    if let transitRoute = route as TransitRoute! {
+        print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah\n")
+    }
+})
+```
+
+SwiftBus's usefulness shows itself here. If you tried to get the vehicle locations for a route on an agency that hasn't been loaded yet, SwiftBus will download all that information for you, so you can access it later without making any API calls. Using the example above, the route information for the N Judah is now downloaded, even though you didn't explicitly make that call.
+
+Here's a list of all the calls you can make through the SwiftBus singleton:
+```
+public func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?)
+
+public func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?)
+
+public func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute])
+
+public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?)
+
+public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?)
+
+public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?)
+```
+
+You don't have to deal with the SwiftBus singleton, though, if you don't want to. You can make these calls through the various Transit* objects included in SwiftBus. For example, you could get stop predictions by calling the singleton like this:
+```
+SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
+    ...
+})
+```
+
+Or like this:
+```
+var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
+route.getStopPredictionsForStop("3909", finishedLoading: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
+    ...
+})
+```
+
 ## Requirements
 SwiftBus will run on iOS 8 and above, and Mac OS X 10.9 Mavericks and above. If you are using or targeting iOS 9 and OS X 10.11 and above, you also need to have NSAppTransportSecurity working with `nextbus.com`.
 
