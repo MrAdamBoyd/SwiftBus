@@ -16,7 +16,7 @@ SwiftBus will run on iOS 8 and above, and Mac OS X 10.9 Mavericks and above. If 
 ## NSAppTransportSecurity
 Starting in iOS 9 and OS X 10.11, Apple is restricting the use of `http` addresses unless otherwise specified. Because NextBus's website is currently http-only, NSAppTransportSecurity needs to be enabled for `nextbus.com`. Add this to your `Info.plist`:
 
-
+```
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSExceptionDomains</key>
@@ -32,6 +32,7 @@ Starting in iOS 9 and OS X 10.11, Apple is restricting the use of `http` address
         </dict>
     </dict>
 </dict>
+```
 
 ## Installation
 
