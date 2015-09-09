@@ -1,5 +1,5 @@
 # SwiftBus
-Interface for NextBus API written in Swift
+Interface for NextBus API written in Swift. Inspired by another side project of mine, [Muni Menu Bar](https://github.com/MrAdamBoyd/MuniMenuBar).
 
 [![CI Status](http://img.shields.io/travis/Adam Boyd/SwiftBus.svg?style=flat)](https://travis-ci.org/Adam Boyd/SwiftBus)
 [![Version](https://img.shields.io/cocoapods/v/SwiftBus.svg?style=flat)](http://cocoapods.org/pods/SwiftBus)
