@@ -44,13 +44,14 @@ public class TransitVehicle:NSObject, NSCoding {
     
     //Init with everything as string, convert in init
     public init(vehicleID:String, directionTag:String, lat:String, lon:String, secondsSinceReport:String, heading:String, speedKmH:String) {
-        self.vehicleId = Int(vehicleID)!
+        self.vehicleId = vehicleID.toInt()!
+        self.vehicleId = vehicleID.toInt()!
         self.directionTag = directionTag
         self.lat = (lat as NSString).doubleValue
         self.lon = (lon as NSString).doubleValue
-        self.secondsSinceReport = Int(secondsSinceReport)!
-        self.heading = Int(heading)!
-        self.speedKmH = Int(speedKmH)!
+        self.secondsSinceReport = secondsSinceReport.toInt()!
+        self.heading = heading.toInt()!
+        self.speedKmH = speedKmH.toInt()!
     }
     
     //MARK : NSCoding

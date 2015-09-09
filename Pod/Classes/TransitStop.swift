@@ -80,7 +80,7 @@ public class TransitStop:NSObject, NSCoding {
         }
         
         //Sorting the list
-        listOfPredictions.sortInPlace {
+        listOfPredictions.sort {
             return $0.predictionInSeconds < $1.predictionInSeconds
         }
         
@@ -89,7 +89,7 @@ public class TransitStop:NSObject, NSCoding {
     
     //MARK: NSCoding
     
-    public required init?(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
         routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
         stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String

@@ -235,7 +235,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 
                 //If there is a leading vehicle
                 if let leadingVehicleId = attributes["leadingVehicleId"] {
-                    newVehicle.leadingVehicleId = Int(leadingVehicleId)!
+                    newVehicle.leadingVehicleId = leadingVehicleId.toInt()!
                 }
                 
                 //Adding newVehicle to the dictionary if it hasn't been created
@@ -270,7 +270,8 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                 for prediction in predictionDirection.children {
                     //Getting each individual prediction in minutes
                     
-                    if let numberOfVechiles = Int((prediction.element?.attributes["vehiclesInConsist"])!),predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
+                    let currentAttributes = prediction.element!.attributes
+                    if let numberOfVechiles = currentAttributes["vehiclesInConsist"]!.toInt(),predictionInMinutes = currentAttributes["minutes"]!.toInt(), predictionInSeconds = currentAttributes["seconds"]!.toInt(), vehicleTag = currentAttributes["vehicle"]!.toInt() {
                         //If all the elements exist
                         
                         let newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
