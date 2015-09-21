@@ -160,6 +160,13 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             currentRoute.lonMax = (lonMax as NSString).doubleValue
             currentRoute.routeColor = routeColorHex
             currentRoute.oppositeColor = oppositeColorHex
+            #if os(OSX)
+            currentRoute.representedRouteColor = NSColor(rgba: "#" + routeColorHex)
+            currentRoute.representedOppositeColor = NSColor(rgba: "#" + oppositeColorHex)
+            #else
+            currentRoute.representedRouteColor = UIColor(rgba: "#" + routeColorHex)
+            currentRoute.representedOppositeColor = UIColor(rgba: "#" + oppositeColorHex)
+            #endif
         }
         
         let stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
