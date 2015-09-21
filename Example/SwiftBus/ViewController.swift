@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     
     @IBAction func agencyListTouched(sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
-            print("Number of agencies loaded: \(agencies.count)", terminator: "\n")
+            print("\n-----")
+            print("Number of agencies loaded: \(agencies.count)")
             for agency in agencies.values {
-                print("Name: " + agency.agencyTitle, terminator: "\n")
+                print("Name: " + agency.agencyTitle)
             }
-            print("")
         })
     }
 
@@ -33,11 +33,11 @@ class ViewController: UIViewController {
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
         SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
-            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)\n")
+            print("\n-----")
+            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)")
             for route in agencyRoutes.values {
                 print("Route title: " + route.routeTitle)
             }
-            print("\n")
         })
         
     }
@@ -49,9 +49,9 @@ class ViewController: UIViewController {
         SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
             //If the route exists
             if let transitRoute = route as TransitRoute! {
-                print("Route config for route " + transitRoute.routeTitle + "\n")
-                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)\n")
-                print("\n")
+                print("\n-----")
+                print("Route config for route " + transitRoute.routeTitle)
+                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)")
             }
             
         })
@@ -64,9 +64,9 @@ class ViewController: UIViewController {
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
         SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
             if let transitRoute = route as TransitRoute! {
-                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah\n")
-                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)\n")
-                print("\n")
+                print("\n-----")
+                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah")
+                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)")
             }
         })
         
@@ -80,10 +80,10 @@ class ViewController: UIViewController {
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
-                print("Stop: \(transitStop.stopTitle)", terminator: "\n")
+                print("\n-----")
+                print("Stop: \(transitStop.stopTitle)")
                 let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
-                print("Predictions at stop \(predictionStrings) mins", terminator: "\n")
-                print("", terminator: "\n")
+                print("Predictions at stop \(predictionStrings) mins")
             }
             
         })
@@ -94,7 +94,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
