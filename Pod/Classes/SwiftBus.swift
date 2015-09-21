@@ -45,11 +45,9 @@ public class SwiftBus {
     public func transitAgencies(closure: (agencies:[String : TransitAgency]) -> Void) {
         
         if masterListTransitAgencies.count > 0 {
-            
             closure(agencies: masterListTransitAgencies)
             
         } else {
-            
             //We need to load the transit agency data
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
@@ -74,28 +72,27 @@ public class SwiftBus {
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
             
-            if let currentAgency = innerAgencies[agencyTag] {
-                
-                //The agency exists & we need to load the transit agency data
-                let connectionHandler = SwiftBusConnectionHandler()
-                connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
-                    
-                    //Adding the agency to the route
-                    for route in agencyRoutes.values {
-                        route.agencyTag = agencyTag
-                    }
-                    
-                    //Saving the routes for the agency
-                    currentAgency.agencyRoutes = agencyRoutes
-                    
-                    //Return the transitRoutes for the agency
-                    closure(agency: currentAgency)
-                })
-            } else {
-                
+            guard let currentAgency = innerAgencies[agencyTag] else {
                 //The agency doesn't exist, return an empty dictionary
                 closure(agency: nil)
+                return
             }
+                
+            //The agency exists & we need to load the transit agency data
+            let connectionHandler = SwiftBusConnectionHandler()
+            connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+                
+                //Adding the agency to the route
+                for route in agencyRoutes.values {
+                    route.agencyTag = agencyTag
+                }
+                
+                //Saving the routes for the agency
+                currentAgency.agencyRoutes = agencyRoutes
+                
+                //Return the transitRoutes for the agency
+                closure(agency: currentAgency)
+            })
         })
 
     }
@@ -109,13 +106,14 @@ public class SwiftBus {
     */
     public func routesForAgency(agencyTag: String, closure: (routes:[String : TransitRoute]) -> Void) {
         routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
-            if let currentAgency = agency {
-                //The agency exists
-                closure(routes: currentAgency.agencyRoutes)
-            } else {
+            
+            guard let currentAgency = agency else {
                 //The agency doesn't exist, return an empty dictionary
                 closure(routes: [:])
+                return
             }
+            
+            closure(routes: currentAgency.agencyRoutes)
         })
     }
     
@@ -131,37 +129,38 @@ public class SwiftBus {
         
         //Getting all the routes for the agency
         routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
-            if transitRoutes[routeTag] != nil {
-                
-                //If the route exists, get the route configuration
-                let connectionHandler = SwiftBusConnectionHandler()
-                connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
-                    
-                    //If there were no problems getting the route
-                    if let transitRoute = route as TransitRoute! {
-                        
-                        //Applying agencyTag to all TransitStop subelements
-                        for routeDirection in transitRoute.stopsOnRoute.values {
-                            for stop in routeDirection {
-                                stop.agencyTag = agencyTag
-                            }
-                        }
-                        
-                        self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
-                        
-                        //Call the closure
-                        closure(route: transitRoute)
-                        
-                    } else {
-                        //There was a problem, return nil
-                        closure(route: nil)
-                    }
-                })
-                
-            } else {
+            
+            guard transitRoutes[routeTag] != nil else {
                 //If the route doesn't exist, return nil
                 closure(route: nil)
+                return
             }
+            
+            //If the route exists, get the route configuration
+            let connectionHandler = SwiftBusConnectionHandler()
+            connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+                
+                //If there were no problems getting the route
+                if let transitRoute = route as TransitRoute! {
+                    
+                    //Applying agencyTag to all TransitStop subelements
+                    for routeDirection in transitRoute.stopsOnRoute.values {
+                        for stop in routeDirection {
+                            stop.agencyTag = agencyTag
+                        }
+                    }
+                    
+                    self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
+                    
+                    //Call the closure
+                    closure(route: transitRoute)
+                    
+                } else {
+                    //There was a problem, return nil
+                    closure(route: nil)
+                }
+            })
+            
         })
     }
     
@@ -177,27 +176,28 @@ public class SwiftBus {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
-            if let currentRoute = route as TransitRoute! {
-                
-                //If the route exists, get the route configuration
-                let connectionHandler = SwiftBusConnectionHandler()
-                connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
-                    
-                    currentRoute.vehiclesOnRoute = []
-                    
-                    //TODO: Figure out directions for vehicles
-                    for vehiclesInDirection in locations.values {
-                        currentRoute.vehiclesOnRoute += vehiclesInDirection
-                    }
-                    
-                    closure(route: currentRoute)
-                    
-                })
-                
-            } else {
+            
+            guard let currentRoute = route as TransitRoute! else {
                 //There's been a problem, return nil
                 closure(route: nil)
+                return
             }
+                
+            //Get the route configuration
+            let connectionHandler = SwiftBusConnectionHandler()
+            connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
+                
+                currentRoute.vehiclesOnRoute = []
+                
+                //TODO: Figure out directions for vehicles
+                for vehiclesInDirection in locations.values {
+                    currentRoute.vehiclesOnRoute += vehiclesInDirection
+                }
+                
+                closure(route: currentRoute)
+                
+            })
+                
         })
     }
     
@@ -215,25 +215,24 @@ public class SwiftBus {
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
             if let currentRoute = route as TransitRoute! {
-                if let currentStop = currentRoute.getStopForTag(stopTag) {
-                    
-                    //If the route exists, get the route configuration
-                    let connectionHandler = SwiftBusConnectionHandler()
-                    connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
-                        
-                        currentStop.predictions = predictions
-                        currentStop.messages = messages
-                        
-                        //Call the closure
-                        closure(stop: currentStop)
-                        
-                    })
-                    
-                    
-                } else {
+                guard let currentStop = currentRoute.getStopForTag(stopTag) else {
                     //This stop isn't in the route that was provided
                     closure(stop: nil)
+                    return
                 }
+                
+                //Get the route configuration
+                let connectionHandler = SwiftBusConnectionHandler()
+                connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+                    
+                    currentStop.predictions = predictions
+                    currentStop.messages = messages
+                    
+                    //Call the closure
+                    closure(stop: currentStop)
+                    
+                })
+                    
             } else {
                 //There's been a problem, return nil
                 closure(stop: nil)
