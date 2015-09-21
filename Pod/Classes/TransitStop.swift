@@ -43,12 +43,12 @@ public class TransitStop:NSObject, NSCoding {
     /**
     Gets the predictions and messages for the current stop and calls the closure with the predictions and messages as a parameter. If the agency tag hasn't been loaded, it will call the closure with an empty dictionary.
     
-    - parameter finishedLoading: Code that is called after the call has been downloaded and parsed
+    - parameter closure:    Code that is called after the call has been downloaded and parsed
         - parameter success:     Whether or not the call was a success
         - parameter predictions: The predictions, in all directions, for this stop
         - parameter messages:    The messages for this stop
     */
-    public func getPredictionsAndMessages(finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
+    public func getPredictionsAndMessages(closure:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
         if agencyTag != "" {
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
@@ -57,12 +57,12 @@ public class TransitStop:NSObject, NSCoding {
                 self.messages = messages
                 
                 //Call closure with success, predictions, and message
-                finishedLoading(success: true, predictions: predictions, messages: messages)
+                closure(success: true, predictions: predictions, messages: messages)
                 
             })
         } else {
             //Stop doesn't exist
-            finishedLoading(success: false, predictions: [:], messages: [])
+            closure(success: false, predictions: [:], messages: [])
         }
     }
     

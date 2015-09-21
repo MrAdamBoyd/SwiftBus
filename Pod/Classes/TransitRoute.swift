@@ -74,11 +74,11 @@ public class TransitRoute: NSObject, NSCoding {
     /**
     Downloading the information about the route config, only need the routeTag and the agencyTag
     
-    - parameter finishedLoading: Code that is called when the route is finished loading
+    - parameter closure: Code that is called when the route is finished loading
         - parameter success: Whether or not the downloading was a success
         - parameter route:   The route object with all the information
     */
-    public func getRouteConfig(finishedLoading:(success:Bool, route:TransitRoute) -> Void) {
+    public func getRouteConfig(closure:(success:Bool, route:TransitRoute) -> Void) {
         let connectionHandler = SwiftBusConnectionHandler()
         connectionHandler.requestRouteConfiguration(self.routeTag, fromAgency: self.agencyTag, closure: {(route:TransitRoute?) -> Void in
             
@@ -86,12 +86,12 @@ public class TransitRoute: NSObject, NSCoding {
             if let thisRoute = route {
                 self.updateData(thisRoute)
                 
-                finishedLoading(success: true, route: self)
+                closure(success: true, route: self)
                 
                 
             } else {
                 //This agency doesn't exist
-                finishedLoading(success: false, route: self)
+                closure(success: false, route: self)
             }
         })
 
@@ -100,11 +100,11 @@ public class TransitRoute: NSObject, NSCoding {
     /**
     Downloads the information about vehicle locations, also gets the route config
     
-    - parameter finishedLoading: Code that is called when loading is done
-        - parameter success:     Whether or not it was a success
-        - parameter vehicles:    Locations of the vehicles
+    - parameter closure:    Code that is called when loading is done
+        - parameter success:    Whether or not it was a success
+        - parameter vehicles:   Locations of the vehicles
     */
-    public func getVehicleLocations(finishedLoading:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
+    public func getVehicleLocations(closure:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 let connectionHandler = SwiftBusConnectionHandler()
@@ -118,23 +118,28 @@ public class TransitRoute: NSObject, NSCoding {
                     }
                     
                     //Note: If vehicles on route == [], the route isn't running
-                    finishedLoading(success: true, vehicles: self.vehiclesOnRoute)
+                    closure(success: true, vehicles: self.vehiclesOnRoute)
                 })
             } else {
-                finishedLoading(success: false, vehicles: [])
+                closure(success: false, vehicles: [])
             }
         })
+    }
+    
+    @available(*, deprecated=1.2, message="finishedLoading renamed to closure")
+    public func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+        getStopPredictionsForStop(stopTag, closure: finishedLoading)
     }
     
     /**
     Getting the stop predictions for a certain stop
     
-    - parameter stopTag:         Tag of the stop
-    - parameter finishedLoading: Code that is called when the information is done downloading
-        - parameter success:     Whether or not call was a success
-        - parameter predictions: Predictions for the current stop
+    - parameter stopTag:    Tag of the stop
+    - parameter closure:    Code that is called when the information is done downloading
+        - parameter success:        Whether or not call was a success
+        - parameter predictions:    Predictions for the current stop
     */
-    public func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+    public func getStopPredictionsForStop(stopTag:String, closure:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 //Everything should be fine
@@ -148,15 +153,15 @@ public class TransitRoute: NSObject, NSCoding {
                         stop.messages = messages
                         
                         //Finished loading, send back
-                        finishedLoading(success: true, predictions: predictions)
+                        closure(success: true, predictions: predictions)
                     })
                 } else {
                     //The stop doesn't exist
-                    finishedLoading(success: false, predictions: [:])
+                    closure(success: false, predictions: [:])
                 }
             } else {
                 //Encountered a problem, the route probably doesn't exist or the agency isn't right
-                finishedLoading(success: false, predictions: [:])
+                closure(success: false, predictions: [:])
             }
         })
     }

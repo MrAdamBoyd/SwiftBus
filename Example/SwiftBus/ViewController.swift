@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     @IBAction func stopPredictionsTouched(sender: AnyObject) {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
-        //route.getStopPredictionsForStop("3909", finishedLoading: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
+        //route.getStopPredictionsForStop("3909", closure: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
         SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
             
             //If the stop and route exists

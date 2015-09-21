@@ -39,11 +39,11 @@ public class TransitAgency: NSObject, NSCoding {
     /**
     Downloads all agency data from provided agencytag
     
-    - parameter finishedLoading: Code that is called when the data is finished loading
-        - parameter success: Whether or not the call was successful
-        - parameter agency:  The agency when the data is loaded
+    - parameter closure:    Code that is called when the data is finished loading
+        - parameter success:    Whether or not the call was successful
+        - parameter agency:     The agency when the data is loaded
     */
-    public func getAgencyAndRoutes(finishedLoading:(success:Bool, agency:TransitAgency) -> Void) {
+    public func getAgencyAndRoutes(closure:(success:Bool, agency:TransitAgency) -> Void) {
         //We need to load the transit agency data
         let connectionHandler = SwiftBusConnectionHandler()
         
@@ -59,13 +59,13 @@ public class TransitAgency: NSObject, NSCoding {
                 connectionHandler.requestAllRouteData(self.agencyTag, closure: {(newAgencyRoutes:[String : TransitRoute]) -> Void in
                     self.agencyRoutes = newAgencyRoutes
                     
-                    finishedLoading(success: true, agency: self)
+                    closure(success: true, agency: self)
                     
                 })
                 
             } else {
                 //This agency doesn't exist
-                finishedLoading(success: false, agency: self)
+                closure(success: false, agency: self)
             }
         })
     }

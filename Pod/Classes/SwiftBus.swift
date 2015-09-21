@@ -42,14 +42,11 @@ public class SwiftBus {
     - parameter closure: Code that is called after the dictionary of agencies has loaded
         - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
-    public func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
+    public func transitAgencies(closure: (agencies:[String : TransitAgency]) -> Void) {
         
         if masterListTransitAgencies.count > 0 {
             
-            //Transit agency data is in memory, provide that
-            if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
-                innerClosure(masterListTransitAgencies)
-            }
+            closure(agencies: masterListTransitAgencies)
             
         } else {
             
@@ -58,10 +55,8 @@ public class SwiftBus {
             connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
                 //Insert this closure around the inner one because the agencies need to be saved
                 self.masterListTransitAgencies = agencies
-                
-                if let innerClosure = closure as ([String : TransitAgency] -> Void)! {
-                    innerClosure(agencies)
-                }
+
+                closure(agencies: agencies)
             })
             
         }
@@ -74,7 +69,7 @@ public class SwiftBus {
     - parameter closure:   Code that is called after everything has loaded
         - parameter agency:  Optional TransitAgency object that contains the routes
     */
-    public func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?) {
+    public func routesForAgency(agencyTag: String, closure: (agency:TransitAgency?) -> Void) {
         
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
@@ -94,16 +89,12 @@ public class SwiftBus {
                     currentAgency.agencyRoutes = agencyRoutes
                     
                     //Return the transitRoutes for the agency
-                    if let innerClosure = closure as (TransitAgency? -> Void)! {
-                        innerClosure(currentAgency)
-                    }
+                    closure(agency: currentAgency)
                 })
             } else {
                 
                 //The agency doesn't exist, return an empty dictionary
-                if let innerClosure = closure as (TransitAgency? -> Void)! {
-                    innerClosure(nil)
-                }
+                closure(agency: nil)
             }
         })
 
@@ -116,18 +107,14 @@ public class SwiftBus {
     - parameter closure:   Code that is called after all the data has loaded
         - parameter routes:  Dictionary of routeTags to TransitRoute objects
     */
-    public func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute]) -> Void)?) {
+    public func routesForAgency(agencyTag: String, closure: (routes:[String : TransitRoute]) -> Void) {
         routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
             if let currentAgency = agency {
                 //The agency exists
-                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
-                    innerClosure(currentAgency.agencyRoutes)
-                }
+                closure(routes: currentAgency.agencyRoutes)
             } else {
                 //The agency doesn't exist, return an empty dictionary
-                if let innerClosure = closure as ([String : TransitRoute] -> Void)! {
-                    innerClosure([:])
-                }
+                closure(routes: [:])
             }
         })
     }
@@ -140,7 +127,7 @@ public class SwiftBus {
     - parameter closure:   the code that gets called after the data is loaded
         - parameter route:   TransitRoute object that contains the configuration requested
     */
-    public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+    public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void) {
         
         //Getting all the routes for the agency
         routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
@@ -163,23 +150,17 @@ public class SwiftBus {
                         self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
                         
                         //Call the closure
-                        if let innerClosure = closure as (TransitRoute? -> Void)! {
-                            innerClosure(transitRoute)
-                        }
+                        closure(route: transitRoute)
                         
                     } else {
                         //There was a problem, return nil
-                        if let innerClosure = closure as (TransitRoute? -> Void)! {
-                            innerClosure(nil)
-                        }
+                        closure(route: nil)
                     }
                 })
                 
             } else {
                 //If the route doesn't exist, return nil
-                if let innerClosure = closure as (TransitRoute? -> Void)! {
-                    innerClosure(nil)
-                }
+                closure(route: nil)
             }
         })
     }
@@ -192,7 +173,7 @@ public class SwiftBus {
     - parameter closure:   Code that gets called after the call has completed
         - parameter route:   Optional TransitRoute object that contains the vehicle locations
     */
-    public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?) {
+    public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
@@ -209,17 +190,13 @@ public class SwiftBus {
                         currentRoute.vehiclesOnRoute += vehiclesInDirection
                     }
                     
-                    if let innerClosure = closure as (TransitRoute? -> Void)! {
-                        innerClosure(currentRoute)
-                    }
+                    closure(route: currentRoute)
                     
                 })
                 
             } else {
                 //There's been a problem, return nil
-                if let innerClosure = closure as (TransitRoute? -> Void)! {
-                    innerClosure(nil)
-                }
+                closure(route: nil)
             }
         })
     }
@@ -233,7 +210,7 @@ public class SwiftBus {
     - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStop object that contains the predictions
     */
-    public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?) {
+    public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: (stop: TransitStop?) -> Void) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
@@ -248,24 +225,18 @@ public class SwiftBus {
                         currentStop.messages = messages
                         
                         //Call the closure
-                        if let innerClosure = closure as (TransitStop? -> Void)! {
-                            innerClosure(currentStop)
-                        }
+                        closure(stop: currentStop)
                         
                     })
                     
                     
                 } else {
                     //This stop isn't in the route that was provided
-                    if let innerClosure = closure as (TransitStop? -> Void)! {
-                        innerClosure(nil)
-                    }
+                    closure(stop: nil)
                 }
             } else {
                 //There's been a problem, return nil
-                if let innerClosure = closure as (TransitStop? -> Void)! {
-                    innerClosure(nil)
-                }
+                closure(stop: nil)
             }
         })
     }
