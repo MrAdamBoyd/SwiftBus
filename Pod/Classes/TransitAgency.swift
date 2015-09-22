@@ -8,11 +8,11 @@
 
 import Foundation
 
-private let kAgencyTagEncoderString = "kAgencyTagEncoder"
-private let kAgencyTitleEncoderString = "kAgencyTitleEncoder"
-private let kAgencyShortTitleEncoderString = "kAgencyShortTitleEncoder"
-private let kAgencyRegionEncoderString = "kAgencyRegionEncoder"
-private let kAgencyRoutesEncoderString = "kAgencyRoutesEncoder"
+private let agencyTagEncoderString = "kAgencyTagEncoder"
+private let agencyTitleEncoderString = "kAgencyTitleEncoder"
+private let agencyShortTitleEncoderString = "kAgencyShortTitleEncoder"
+private let agencyRegionEncoderString = "kAgencyRegionEncoder"
+private let agencyRoutesEncoderString = "kAgencyRoutesEncoder"
 
 public class TransitAgency: NSObject, NSCoding {
     
@@ -73,18 +73,18 @@ public class TransitAgency: NSObject, NSCoding {
     //MARK : NSCoding
     
     required public init(coder aDecoder: NSCoder) {
-        agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
-        agencyTitle = aDecoder.decodeObjectForKey(kAgencyTitleEncoderString) as! String
-        agencyShortTitle = aDecoder.decodeObjectForKey(kAgencyShortTitleEncoderString) as! String
-        agencyRegion = aDecoder.decodeObjectForKey(kAgencyRegionEncoderString) as! String
-        agencyRoutes = aDecoder.decodeObjectForKey(kAgencyRoutesEncoderString) as! [String : TransitRoute]
+        agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
+        agencyTitle = aDecoder.decodeObjectForKey(agencyTitleEncoderString) as! String
+        agencyShortTitle = aDecoder.decodeObjectForKey(agencyShortTitleEncoderString) as! String
+        agencyRegion = aDecoder.decodeObjectForKey(agencyRegionEncoderString) as! String
+        agencyRoutes = aDecoder.decodeObjectForKey(agencyRoutesEncoderString) as! [String : TransitRoute]
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
-        aCoder.encodeObject(agencyTitle, forKey: kAgencyTitleEncoderString)
-        aCoder.encodeObject(agencyShortTitle, forKey: kAgencyShortTitleEncoderString)
-        aCoder.encodeObject(agencyRegion, forKey: kAgencyRegionEncoderString)
-        aCoder.encodeObject(agencyRoutes, forKey: kAgencyRoutesEncoderString)
+        aCoder.encodeObject(agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encodeObject(agencyTitle, forKey: agencyTitleEncoderString)
+        aCoder.encodeObject(agencyShortTitle, forKey: agencyShortTitleEncoderString)
+        aCoder.encodeObject(agencyRegion, forKey: agencyRegionEncoderString)
+        aCoder.encodeObject(agencyRoutes, forKey: agencyRoutesEncoderString)
     }
 }

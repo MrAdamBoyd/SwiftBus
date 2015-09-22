@@ -16,7 +16,7 @@ enum RequestType:Int {
 class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var currentRequestType:RequestType = .NoRequest
     var connection:NSURLConnection?
-    var xmlData:NSMutableData = NSMutableData()
+    var xmlData = NSMutableData()
     var xmlString:String = ""
     var allAgenciesClosure:([String : TransitAgency] -> Void)?
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
@@ -31,7 +31,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         allAgenciesClosure = closure
         
-        startConnection(kSwiftBusAllAgenciesURL)
+        startConnection(allAgenciesURL)
     }
     
     //Request data for all lines
@@ -40,7 +40,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         allRoutesForAgencyClosure = closure
         
-        startConnection(kSwiftBusAllRoutesURL + agencyTag)
+        startConnection(allRoutesURL + agencyTag)
     }
     
     func requestRouteConfiguration(routeTag:String, fromAgency agencyTag:String, closure:((route: TransitRoute?) -> Void)?) {
@@ -48,7 +48,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         routeConfigClosure = closure
         
-        startConnection(kSwiftBusRouteConfigURL + agencyTag + kSwiftBusRoute + routeTag)
+        startConnection(routeConfigURL + agencyTag + routeURLSegment + routeTag)
     }
     
     func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:((locations:[String : [TransitVehicle]]) -> Void)?) {
@@ -56,7 +56,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         vehicleLocationsClosure = closure
         
-        startConnection(kSwiftBusVehicleLocationsURL + agencyTag + kSwiftBusRoute + routeTag)
+        startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag)
     }
     
     func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [TransitPrediction]], messages:[String]) -> Void)?) {
@@ -64,7 +64,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         
         stopPredictionsClosure = closure
         
-        startConnection(kSwiftBusStopPredictionsURL + agencyTag + kSwiftBusRoute + routeTag + kSwiftBusStop + stopTag)
+        startConnection(stopPredictionsURL + agencyTag + routeURLSegment + routeTag + stopURLSegment + stopTag)
     }
     
     /**

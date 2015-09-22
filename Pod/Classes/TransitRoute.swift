@@ -8,20 +8,20 @@
 
 import Foundation
 
-private let kRouteTagEncoderString = "kRouteTagEncoder"
-private let kRouteTitleEncoderString = "kRouteTitleEncoder"
-private let kAgencyTagEncoderString = "kAgencyTagEncoder"
-private let kStopsOnRouteEncoderString = "kStopsOnRouteEncoder"
-private let kDirectionTagToNameEncoderString = "kDirectionTagToNameEncoder"
-private let kRouteColorEncoderString = "kRouteColorEncoder"
-private let kOppositeColorEncoderString = "kOppositeColorEncoder"
-private let kRepresentedRouteColorEncoderString = "kRepresentedRouteColorEncoder"
-private let kRepresentedOppositeColorEncoderString = "kRepresentedOppositeColorEncoder"
-private let kVehiclesOnRouteEncoderString = "kVehiclesOnRouteEncoder"
-private let kLatMinEncoderString = "kLatMinEncoder"
-private let kLatMaxEncoderString = "kLatMaxEncoder"
-private let kLonMinEncoderString = "kLonMinEncoder"
-private let kLonMaxEncoderString = "kLonMaxEncoder"
+private let routeTagEncoderString = "kRouteTagEncoder"
+private let routeTitleEncoderString = "kRouteTitleEncoder"
+private let agencyTagEncoderString = "kAgencyTagEncoder"
+private let stopsOnRouteEncoderString = "kStopsOnRouteEncoder"
+private let directionTagToNameEncoderString = "kDirectionTagToNameEncoder"
+private let routeColorEncoderString = "kRouteColorEncoder"
+private let oppositeColorEncoderString = "kOppositeColorEncoder"
+private let representedRouteColorEncoderString = "kRepresentedRouteColorEncoder"
+private let representedOppositeColorEncoderString = "kRepresentedOppositeColorEncoder"
+private let vehiclesOnRouteEncoderString = "kVehiclesOnRouteEncoder"
+private let latMinEncoderString = "kLatMinEncoder"
+private let latMaxEncoderString = "kLatMaxEncoder"
+private let lonMinEncoderString = "kLonMinEncoder"
+private let lonMaxEncoderString = "kLonMaxEncoder"
 
 
 public class TransitRoute: NSObject, NSCoding {
@@ -35,11 +35,11 @@ public class TransitRoute: NSObject, NSCoding {
     public var oppositeColor:String = ""
     
     #if os(OSX)
-    public var representedRouteColor:NSColor = NSColor()
-    public var representedOppositeColor:NSColor = NSColor()
+    public var representedRouteColor = NSColor()
+    public var representedOppositeColor = NSColor()
     #else
-    public var representedRouteColor:UIColor = UIColor()
-    public var representedOppositeColor:UIColor = UIColor()
+    public var representedRouteColor = UIColor()
+    public var representedOppositeColor = UIColor()
     #endif
     
     public var vehiclesOnRoute:[TransitVehicle] = []
@@ -229,41 +229,41 @@ public class TransitRoute: NSObject, NSCoding {
     //MARK: NSCoding
     
     public required init(coder aDecoder: NSCoder) {
-        routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
-        routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
-        agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
-        stopsOnRoute = aDecoder.decodeObjectForKey(kStopsOnRouteEncoderString) as! [String : [TransitStop]]
-        directionTagToName = aDecoder.decodeObjectForKey(kDirectionTagToNameEncoderString) as! [String : String]
-        routeColor = aDecoder.decodeObjectForKey(kRouteColorEncoderString) as! String
-        oppositeColor = aDecoder.decodeObjectForKey(kOppositeColorEncoderString) as! String
+        routeTag = aDecoder.decodeObjectForKey(routeTagEncoderString) as! String
+        routeTitle = aDecoder.decodeObjectForKey(routeTitleEncoderString) as! String
+        agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
+        stopsOnRoute = aDecoder.decodeObjectForKey(stopsOnRouteEncoderString) as! [String : [TransitStop]]
+        directionTagToName = aDecoder.decodeObjectForKey(directionTagToNameEncoderString) as! [String : String]
+        routeColor = aDecoder.decodeObjectForKey(routeColorEncoderString) as! String
+        oppositeColor = aDecoder.decodeObjectForKey(oppositeColorEncoderString) as! String
         #if os(OSX)
-        representedRouteColor = aDecoder.decodeObjectForKey(kRepresentedRouteColorEncoderString) as! NSColor
-        representedOppositeColor = aDecoder.decodeObjectForKey(kRepresentedOppositeColorEncoderString) as! NSColor
+        representedRouteColor = aDecoder.decodeObjectForKey(representedRouteColorEncoderString) as! NSColor
+        representedOppositeColor = aDecoder.decodeObjectForKey(representedOppositeColorEncoderString) as! NSColor
         #else
-        representedRouteColor = aDecoder.decodeObjectForKey(kRepresentedRouteColorEncoderString) as! UIColor
-        representedOppositeColor = aDecoder.decodeObjectForKey(kRepresentedOppositeColorEncoderString) as! UIColor
+        representedRouteColor = aDecoder.decodeObjectForKey(representedRouteColorEncoderString) as! UIColor
+        representedOppositeColor = aDecoder.decodeObjectForKey(representedOppositeColorEncoderString) as! UIColor
         #endif
-        vehiclesOnRoute = aDecoder.decodeObjectForKey(kVehiclesOnRouteEncoderString) as! [TransitVehicle]
-        latMin = aDecoder.decodeDoubleForKey(kLatMinEncoderString)
-        latMax = aDecoder.decodeDoubleForKey(kLatMaxEncoderString)
-        lonMin = aDecoder.decodeDoubleForKey(kLonMinEncoderString)
-        lonMax = aDecoder.decodeDoubleForKey(kLonMaxEncoderString)
+        vehiclesOnRoute = aDecoder.decodeObjectForKey(vehiclesOnRouteEncoderString) as! [TransitVehicle]
+        latMin = aDecoder.decodeDoubleForKey(latMinEncoderString)
+        latMax = aDecoder.decodeDoubleForKey(latMaxEncoderString)
+        lonMin = aDecoder.decodeDoubleForKey(lonMinEncoderString)
+        lonMax = aDecoder.decodeDoubleForKey(lonMaxEncoderString)
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
-        aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
-        aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
-        aCoder.encodeObject(stopsOnRoute, forKey: kStopsOnRouteEncoderString)
-        aCoder.encodeObject(directionTagToName, forKey: kDirectionTagToNameEncoderString)
-        aCoder.encodeObject(routeColor, forKey: kRouteColorEncoderString)
-        aCoder.encodeObject(oppositeColor, forKey: kOppositeColorEncoderString)
-        aCoder.encodeObject(representedRouteColor, forKey: kRepresentedRouteColorEncoderString)
-        aCoder.encodeObject(representedOppositeColor, forKey: kRepresentedOppositeColorEncoderString)
-        aCoder.encodeObject(vehiclesOnRoute, forKey: kVehiclesOnRouteEncoderString)
-        aCoder.encodeDouble(latMin, forKey: kLatMinEncoderString)
-        aCoder.encodeDouble(latMax, forKey: kLatMaxEncoderString)
-        aCoder.encodeDouble(lonMin, forKey: kLonMinEncoderString)
-        aCoder.encodeDouble(lonMax, forKey: kLonMaxEncoderString)
+        aCoder.encodeObject(routeTag, forKey: routeTagEncoderString)
+        aCoder.encodeObject(routeTitle, forKey: routeTitleEncoderString)
+        aCoder.encodeObject(agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encodeObject(stopsOnRoute, forKey: stopsOnRouteEncoderString)
+        aCoder.encodeObject(directionTagToName, forKey: directionTagToNameEncoderString)
+        aCoder.encodeObject(routeColor, forKey: routeColorEncoderString)
+        aCoder.encodeObject(oppositeColor, forKey: oppositeColorEncoderString)
+        aCoder.encodeObject(representedRouteColor, forKey: representedRouteColorEncoderString)
+        aCoder.encodeObject(representedOppositeColor, forKey: representedOppositeColorEncoderString)
+        aCoder.encodeObject(vehiclesOnRoute, forKey: vehiclesOnRouteEncoderString)
+        aCoder.encodeDouble(latMin, forKey: latMinEncoderString)
+        aCoder.encodeDouble(latMax, forKey: latMaxEncoderString)
+        aCoder.encodeDouble(lonMin, forKey: lonMinEncoderString)
+        aCoder.encodeDouble(lonMax, forKey: lonMaxEncoderString)
     }
 }

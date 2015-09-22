@@ -8,10 +8,10 @@
 
 import Foundation
 
-private let kNumberOfVehiclesEncoderString = "kNumberOfVehiclesEncoder"
-private let kPredictionInMinutesEncoderString = "kPredictionInMinutesEncoder"
-private let kPredictionInSecondsEncoderString = "kPredictionInSecondsEncoder"
-private let kVehicleTagEncoderString = "kVehicleTagEncoder"
+private let numberOfVehiclesEncoderString = "kNumberOfVehiclesEncoder"
+private let predictionInMinutesEncoderString = "kPredictionInMinutesEncoder"
+private let predictionInSecondsEncoderString = "kPredictionInSecondsEncoder"
+private let vehicleTagEncoderString = "kVehicleTagEncoder"
 
 public class TransitPrediction: NSObject, NSCoding {
     
@@ -39,17 +39,17 @@ public class TransitPrediction: NSObject, NSCoding {
     
     //MARK : NSCoding
     public required init(coder aDecoder: NSCoder) {
-        numberOfVehicles = aDecoder.decodeObjectForKey(kNumberOfVehiclesEncoderString) as! Int
-        predictionInMinutes = aDecoder.decodeObjectForKey(kPredictionInMinutesEncoderString) as! Int
-        predictionInSeconds = aDecoder.decodeObjectForKey(kPredictionInSecondsEncoderString) as! Int
-        vehicleTag = aDecoder.decodeObjectForKey(kVehicleTagEncoderString) as! Int
+        numberOfVehicles = aDecoder.decodeObjectForKey(numberOfVehiclesEncoderString) as! Int
+        predictionInMinutes = aDecoder.decodeObjectForKey(predictionInMinutesEncoderString) as! Int
+        predictionInSeconds = aDecoder.decodeObjectForKey(predictionInSecondsEncoderString) as! Int
+        vehicleTag = aDecoder.decodeObjectForKey(vehicleTagEncoderString) as! Int
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(numberOfVehicles, forKey: kNumberOfVehiclesEncoderString)
-        aCoder.encodeObject(predictionInMinutes, forKey: kPredictionInMinutesEncoderString)
-        aCoder.encodeObject(predictionInSeconds, forKey: kPredictionInSecondsEncoderString)
-        aCoder.encodeObject(vehicleTag, forKey: kVehicleTagEncoderString)
+        aCoder.encodeObject(numberOfVehicles, forKey: numberOfVehiclesEncoderString)
+        aCoder.encodeObject(predictionInMinutes, forKey: predictionInMinutesEncoderString)
+        aCoder.encodeObject(predictionInSeconds, forKey: predictionInSecondsEncoderString)
+        aCoder.encodeObject(vehicleTag, forKey: vehicleTagEncoderString)
     }
     
 }

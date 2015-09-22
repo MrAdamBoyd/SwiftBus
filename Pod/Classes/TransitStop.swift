@@ -8,19 +8,20 @@
 
 import Foundation
 
-private let kRouteTitleEncoderString = "kRouteTitleEncoder"
-private let kRouteTagEncoderString = "kRouteTagEncoder"
-private let kStopTitleEncoderString = "kStopTitleEncoder"
-private let kStopTagEncoderString = "kStopTagEncoder"
-private let kAgencyTagEncoderString = "kAgencyTagEncoder"
-private let kDirectionEncoderString = "kDirectionEncoder"
-private let kLatEncoderString = "kLatEncoder"
-private let kLonEncoderString = "kLonEncoder"
-private let kPredictionsEncoderString = "kPredictionsEncoder"
-private let kMessagesEncoderString = "kMessagesEncoder"
+private let routeTitleEncoderString = "kRouteTitleEncoder"
+private let routeTagEncoderString = "kRouteTagEncoder"
+private let stopTitleEncoderString = "kStopTitleEncoder"
+private let stopTagEncoderString = "kStopTagEncoder"
+private let agencyTagEncoderString = "kAgencyTagEncoder"
+private let directionEncoderString = "kDirectionEncoder"
+private let latEncoderString = "kLatEncoder"
+private let lonEncoderString = "kLonEncoder"
+private let predictionsEncoderString = "kPredictionsEncoder"
+private let messagesEncoderString = "kMessagesEncoder"
 
 //Stored stop identifiers to get the data from
 public class TransitStop:NSObject, NSCoding {
+    
     public var routeTitle:String = ""
     public var routeTag:String = ""
     public var stopTitle:String = ""
@@ -90,28 +91,28 @@ public class TransitStop:NSObject, NSCoding {
     //MARK: NSCoding
     
     public required init?(coder aDecoder: NSCoder) {
-        routeTitle = aDecoder.decodeObjectForKey(kRouteTitleEncoderString) as! String
-        routeTag = aDecoder.decodeObjectForKey(kRouteTagEncoderString) as! String
-        stopTitle = aDecoder.decodeObjectForKey(kStopTitleEncoderString) as! String
-        stopTag = aDecoder.decodeObjectForKey(kStopTagEncoderString) as! String
-        agencyTag = aDecoder.decodeObjectForKey(kAgencyTagEncoderString) as! String
-        direction = aDecoder.decodeObjectForKey(kDirectionEncoderString) as! String
-        lat = aDecoder.decodeDoubleForKey(kLatEncoderString)
-        lon = aDecoder.decodeDoubleForKey(kLonEncoderString)
-        predictions = aDecoder.decodeObjectForKey(kPredictionsEncoderString) as! [String : [TransitPrediction]]
-        messages = aDecoder.decodeObjectForKey(kMessagesEncoderString) as! [String]
+        routeTitle = aDecoder.decodeObjectForKey(routeTitleEncoderString) as! String
+        routeTag = aDecoder.decodeObjectForKey(routeTagEncoderString) as! String
+        stopTitle = aDecoder.decodeObjectForKey(stopTitleEncoderString) as! String
+        stopTag = aDecoder.decodeObjectForKey(stopTagEncoderString) as! String
+        agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
+        direction = aDecoder.decodeObjectForKey(directionEncoderString) as! String
+        lat = aDecoder.decodeDoubleForKey(latEncoderString)
+        lon = aDecoder.decodeDoubleForKey(lonEncoderString)
+        predictions = aDecoder.decodeObjectForKey(predictionsEncoderString) as! [String : [TransitPrediction]]
+        messages = aDecoder.decodeObjectForKey(messagesEncoderString) as! [String]
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(routeTitle, forKey: kRouteTitleEncoderString)
-        aCoder.encodeObject(routeTag, forKey: kRouteTagEncoderString)
-        aCoder.encodeObject(stopTitle, forKey: kStopTitleEncoderString)
-        aCoder.encodeObject(stopTag, forKey: kStopTagEncoderString)
-        aCoder.encodeObject(agencyTag, forKey: kAgencyTagEncoderString)
-        aCoder.encodeObject(direction, forKey: kDirectionEncoderString)
-        aCoder.encodeDouble(lat, forKey: kLatEncoderString)
-        aCoder.encodeDouble(lon, forKey: kLonEncoderString)
-        aCoder.encodeObject(predictions, forKey: kPredictionsEncoderString)
-        aCoder.encodeObject(messages, forKey: kMessagesEncoderString)
+        aCoder.encodeObject(routeTitle, forKey: routeTitleEncoderString)
+        aCoder.encodeObject(routeTag, forKey: routeTagEncoderString)
+        aCoder.encodeObject(stopTitle, forKey: stopTitleEncoderString)
+        aCoder.encodeObject(stopTag, forKey: stopTagEncoderString)
+        aCoder.encodeObject(agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encodeObject(direction, forKey: directionEncoderString)
+        aCoder.encodeDouble(lat, forKey: latEncoderString)
+        aCoder.encodeDouble(lon, forKey: lonEncoderString)
+        aCoder.encodeObject(predictions, forKey: predictionsEncoderString)
+        aCoder.encodeObject(messages, forKey: messagesEncoderString)
     }
 }
