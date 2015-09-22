@@ -69,7 +69,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         //Building the multi stop url
         var multiplePredictionString = multiplePredictionsURL + agencyTag
         for tag in routeTags {
-            multiplePredictionString += multiplePredictionsURL + tag + "|" + stopTag
+            multiplePredictionString += multiStopURLSegment + tag + "|" + stopTag
         }
         
         startConnection(multiplePredictionString)
@@ -90,7 +90,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     */
     private func startConnection(requestURL:String) {
         xmlData = NSMutableData()
-        let optionalURL:NSURL? = NSURL(string: requestURL)
+        let optionalURL:NSURL? = NSURL(string: requestURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
         
         if let url = optionalURL as NSURL! {
             let urlRequest:NSURLRequest = NSURLRequest(URL: url)

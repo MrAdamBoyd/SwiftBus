@@ -192,7 +192,12 @@ class SwiftBusDataParser: NSObject {
     }
     
     func parseStationPredictions(xml:XMLIndexer, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
+        let predictions = xml["body"]
         
+        
+        for predictionDirection in predictions.children {
+            print(predictionDirection.element!.attributes["routeTitle"])
+        }
     }
     
     /**
