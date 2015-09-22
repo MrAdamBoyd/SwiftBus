@@ -14,19 +14,20 @@ enum RequestType:Int {
 }
 
 class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
+    
     var currentRequestType:RequestType = .NoRequest
     var connection:NSURLConnection?
     var xmlData = NSMutableData()
     var xmlString:String = ""
-    var allAgenciesClosure:([String : TransitAgency] -> Void)?
-    var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)?
-    var routeConfigClosure:(TransitRoute? -> Void)?
-    var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)?
-    var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)?
+    var allAgenciesClosure:([String : TransitAgency] -> Void)!
+    var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)!
+    var routeConfigClosure:(TransitRoute? -> Void)!
+    var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
+    var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)!
     
     //MARK: Requesting data
     
-    func requestAllAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?) {
+    func requestAllAgencies(closure: (agencies:[String : TransitAgency]) -> Void) {
         currentRequestType = .AllAgencies
         
         allAgenciesClosure = closure
@@ -35,7 +36,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Request data for all lines
-    func requestAllRouteData(agencyTag: String, closure: ((agencyRoutes:[String : TransitRoute]) -> Void)?) {
+    func requestAllRouteData(agencyTag: String, closure: (agencyRoutes:[String : TransitRoute]) -> Void) {
         currentRequestType = .AllRoutes
         
         allRoutesForAgencyClosure = closure
@@ -43,7 +44,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(allRoutesURL + agencyTag)
     }
     
-    func requestRouteConfiguration(routeTag:String, fromAgency agencyTag:String, closure:((route: TransitRoute?) -> Void)?) {
+    func requestRouteConfiguration(routeTag:String, fromAgency agencyTag:String, closure:(route: TransitRoute?) -> Void) {
         currentRequestType = .RouteConfiguration
         
         routeConfigClosure = closure
@@ -51,7 +52,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(routeConfigURL + agencyTag + routeURLSegment + routeTag)
     }
     
-    func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:((locations:[String : [TransitVehicle]]) -> Void)?) {
+    func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:(locations:[String : [TransitVehicle]]) -> Void) {
         currentRequestType = .VehicleLocations
         
         vehicleLocationsClosure = closure
@@ -59,7 +60,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag)
     }
     
-    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:((predictions: [String : [TransitPrediction]], messages:[String]) -> Void)?) {
+    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
         currentRequestType = .StopPredictions
         
         stopPredictionsClosure = closure
@@ -114,9 +115,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
         }
         
-        if let closure = allAgenciesClosure as ([String : TransitAgency] -> Void)! {
-            closure(transitAgencies)
-        }
+        allAgenciesClosure(transitAgencies)
     }
     
     /**
@@ -137,37 +136,39 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-        if let closure = allRoutesForAgencyClosure as ([String : TransitRoute] -> Void)! {
-            closure(transitRoutes)
-        }
+        allRoutesForAgencyClosure(transitRoutes)
     }
     
     //Parsing the line definition
     private func parseRouteConfiguration(xml:XMLIndexer) {
-        let currentRoute:TransitRoute = TransitRoute()
+        let currentRoute = TransitRoute()
         var stopDirectionDict: [String : [String]] = [:]
         var allStopsDictionary: [String : TransitStop] = [:]
         
         var routeConfig:[String : String] = xml["body"]["route"].element!.attributes
         
         //Creating the route from the current information
-        if let routeTag = routeConfig["tag"], routeTitle = routeConfig["title"], latMin = routeConfig["latMin"], latMax = routeConfig["latMax"], lonMin = routeConfig["lonMin"], lonMax = routeConfig["lonMax"], routeColorHex = routeConfig["color"], oppositeColorHex = routeConfig["oppositeColor"] {
-            currentRoute.routeTag = routeTag
-            currentRoute.routeTitle = routeTitle
-            currentRoute.latMin = (latMin as NSString).doubleValue
-            currentRoute.latMax = (latMax as NSString).doubleValue
-            currentRoute.lonMin = (lonMin as NSString).doubleValue
-            currentRoute.lonMax = (lonMax as NSString).doubleValue
-            currentRoute.routeColor = routeColorHex
-            currentRoute.oppositeColor = oppositeColorHex
-            #if os(OSX)
-            currentRoute.representedRouteColor = NSColor(rgba: "#" + routeColorHex)
-            currentRoute.representedOppositeColor = NSColor(rgba: "#" + oppositeColorHex)
-            #else
-            currentRoute.representedRouteColor = UIColor(rgba: "#" + routeColorHex)
-            currentRoute.representedOppositeColor = UIColor(rgba: "#" + oppositeColorHex)
-            #endif
+        guard let routeTag = routeConfig["tag"], routeTitle = routeConfig["title"], latMin = routeConfig["latMin"], latMax = routeConfig["latMax"], lonMin = routeConfig["lonMin"], lonMax = routeConfig["lonMax"], routeColorHex = routeConfig["color"], oppositeColorHex = routeConfig["oppositeColor"] else {
+            //Couldn't get the route information, return
+            routeConfigClosure(currentRoute)
+            return
         }
+        
+        currentRoute.routeTag = routeTag
+        currentRoute.routeTitle = routeTitle
+        currentRoute.latMin = (latMin as NSString).doubleValue
+        currentRoute.latMax = (latMax as NSString).doubleValue
+        currentRoute.lonMin = (lonMin as NSString).doubleValue
+        currentRoute.lonMax = (lonMax as NSString).doubleValue
+        currentRoute.routeColor = routeColorHex
+        currentRoute.oppositeColor = oppositeColorHex
+        #if os(OSX)
+        currentRoute.representedRouteColor = NSColor(rgba: "#" + routeColorHex)
+        currentRoute.representedOppositeColor = NSColor(rgba: "#" + oppositeColorHex)
+        #else
+        currentRoute.representedRouteColor = UIColor(rgba: "#" + routeColorHex)
+        currentRoute.representedOppositeColor = UIColor(rgba: "#" + oppositeColorHex)
+        #endif
         
         let stopDirections:XMLIndexer = xml["body"]["route"]["direction"]
         
@@ -222,10 +223,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             
         }
         
-        if let closure = routeConfigClosure as (TransitRoute? -> Void)! {
-            closure(currentRoute)
-        }
-        
+        routeConfigClosure(currentRoute)
     }
     
     //Parsing vehicle locations for a route
@@ -255,9 +253,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-        if let closure = vehicleLocationsClosure as ([String : [TransitVehicle]] -> Void)! {
-            closure(dictionaryOfVehicles)
-        }
+        vehicleLocationsClosure(dictionaryOfVehicles)
     }
     
     //Parsing the information for stop predictions
@@ -286,7 +282,6 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
                     }
                 }
             }
-            
         }
         
         let messages = predictions["message"]
@@ -298,10 +293,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             }
         }
         
-        if let closure = stopPredictionsClosure as (([String:[TransitPrediction]], [String]) -> Void)! {
-            closure(predictionDict, messageArray)
-        }
-        
+        stopPredictionsClosure(predictionDict, messageArray)
     }
     
     //MARK: NSURLConnectionDelegate
