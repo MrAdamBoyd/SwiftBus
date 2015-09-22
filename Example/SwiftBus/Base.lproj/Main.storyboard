@@ -26,8 +26,8 @@
                                     <action selector="agencyListTouched:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2aW-Bf-Hv4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZM-Sx-v6Z">
-                                <rect key="frame" x="237" y="66" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZM-Sx-v6Z">
+                                <rect key="frame" x="237" y="66" width="126" height="30"/>
                                 <state key="normal" title="Routes for Agency">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -80,6 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="652" y="470"/>
         </scene>
     </scenes>
 </document>
