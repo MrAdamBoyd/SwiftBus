@@ -19,7 +19,7 @@ private let lonEncoderString = "kLonEncoder"
 private let predictionsEncoderString = "kPredictionsEncoder"
 private let messagesEncoderString = "kMessagesEncoder"
 
-//Stored stop identifiers to get the data from
+//A transit stop is a single stop which is tied to a single route
 public class TransitStop:NSObject, NSCoding {
     
     public var routeTitle:String = ""

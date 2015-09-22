@@ -12,6 +12,8 @@ let allAgenciesURL = "http://webservices.nextbus.com/service/publicXMLFeed?comma
 let allRoutesURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a="
 let routeConfigURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a="
 let vehicleLocationsURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a="
+let multiplePredictionsURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictionsForMultiStops&a="
 let stopPredictionsURL = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a="
 let routeURLSegment = "&r="
 let stopURLSegment = "&s="
+let multiStopURLSegment = "&stops="

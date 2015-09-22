@@ -205,6 +205,33 @@ public class SwiftBus {
     Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
     
     - parameter stopTag:   Tag of the stop
+    - parameter routeTags: Tags of the routes that serve the stop
+    - parameter agencyTag: Tag of the agency
+    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+        - parameter stop:    Optional TransitStation that contains the predictions
+    */
+    public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: (station: TransitStation?) -> Void) {
+        
+        //TODO: Make sure all routes exist and serve this tag
+        
+        //Get the predictions
+        let connectionHandler = SwiftBusConnectionHandler()
+        connectionHandler.requestStationPredictionData(stopTag, forRoutes: routeTags, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+            
+            let currentStation = TransitStation()
+            currentStation.stopTag = stopTag
+            currentStation.agencyTag = agencyTag
+            
+            closure(station: currentStation)
+            
+        })
+        
+    }
+    
+    /**
+    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
+    
+    - parameter stopTag:   Tag of the stop
     - parameter routeTag:  Tag of the route
     - parameter agencyTag: Tag of the agency
     - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist

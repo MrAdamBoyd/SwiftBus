@@ -10,7 +10,7 @@ import Foundation
 import SWXMLHash
 
 enum RequestType:Int {
-    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions, VehicleLocations
+    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions, StationPredictions, VehicleLocations
 }
 
 class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
@@ -22,6 +22,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var allAgenciesClosure:([String : TransitAgency] -> Void)!
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)!
     var routeConfigClosure:(TransitRoute? -> Void)!
+    var stationPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
     var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
     var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)!
     
@@ -58,6 +59,20 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         vehicleLocationsClosure = closure
         
         startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag)
+    }
+    
+    func requestStationPredictionData(stopTag: String, forRoutes routeTags:[String], withAgency agencyTag:String, closure: (predictions: [String : [TransitPrediction]], messages:  [String]) -> Void) {
+        currentRequestType = .StationPredictions
+        
+        stationPredictionsClosure = closure
+        
+        //Building the multi stop url
+        var multiplePredictionString = multiplePredictionsURL + agencyTag
+        for tag in routeTags {
+            multiplePredictionString += multiplePredictionsURL + tag + "|" + stopTag
+        }
+        
+        startConnection(multiplePredictionString)
     }
     
     func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
@@ -101,6 +116,8 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
             parser.parseRouteConfiguration(xml, closure: routeConfigClosure)
         case .VehicleLocations:
             parser.parseVehicleLocations(xml, closure: vehicleLocationsClosure)
+        case .StationPredictions:
+            parser.parseStationPredictions(xml, closure: stationPredictionsClosure)
         default:
             //Stop predictions
             parser.parseStopPredictions(xml, closure: stopPredictionsClosure)

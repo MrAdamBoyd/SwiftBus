@@ -71,6 +71,21 @@ class ViewController: UIViewController {
         })
         
     }
+
+    @IBAction func stationPredictionsTouched(sender: AnyObject) {
+        //TODO: Provide alternative
+        SwiftBus.sharedController.stationPredictions("5726", forRoutes: ["T", "L", "M"], withAgency: "sf-muni", closure: {(station: TransitStation?) -> Void in
+            if let transitStation = station as TransitStation! {
+                print("\n-----")
+                print("Station: \(transitStation.stopTitle)")
+                let lineTitles = transitStation.routesAtStation.map({"\($0.routeTitle)"})
+                print("Lines: \(lineTitles)")
+                let predictionStrings = transitStation.combinedPredictions().map({$0.predictionInMinutes})
+                print("Predictions at stop \(predictionStrings) mins")
+            }
+        })
+    }
+    
     
     @IBAction func stopPredictionsTouched(sender: AnyObject) {
         //Alternative:

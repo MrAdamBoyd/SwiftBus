@@ -191,6 +191,10 @@ class SwiftBusDataParser: NSObject {
         closure(locations: dictionaryOfVehicles)
     }
     
+    func parseStationPredictions(xml:XMLIndexer, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
+        
+    }
+    
     /**
     Parsing the stop prediction data
     
