@@ -191,13 +191,21 @@ class SwiftBusDataParser: NSObject {
         closure(locations: dictionaryOfVehicles)
     }
     
-    func parseStationPredictions(xml:XMLIndexer, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
+    func parseStationPredictions(xml:XMLIndexer, closure:(predictions: [String : [String : [TransitPrediction]]]) -> Void) {
         let predictions = xml["body"]
+        var predictionDict:[String : [String : [TransitPrediction]]] = [:]
         
+        //Separate the main parsing from the parseStopPredictions function so these two can share code
+        //New private function will parse each direction
         
-        for predictionDirection in predictions.children {
-            print(predictionDirection.element!.attributes["routeTitle"])
+        //For each route that the user wants to get predictions for
+        for route in predictions.children {
+            if let routeTitle = route.element!.attributes["routeTitle"] {
+                predictionDict[routeTitle] = parsePredictions(route)
+            }
         }
+        
+        
     }
     
     /**
@@ -208,30 +216,9 @@ class SwiftBusDataParser: NSObject {
     */
     func parseStopPredictions(xml:XMLIndexer, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
         let predictions = xml["body"]["predictions"]
-        var predictionDict:[String : [TransitPrediction]] = [:]
         var messageArray:[String] = []
         
-        //Getting all the predictions
-        for predictionDirection in predictions.children {
-            
-            //Getting the direction name
-            if let directionName = predictionDirection.element!.attributes["title"] {
-                
-                predictionDict[directionName] = []
-                
-                for prediction in predictionDirection.children {
-                    //Getting each individual prediction in minutes
-                    
-                    if let numberOfVechiles = Int((prediction.element?.attributes["vehiclesInConsist"])!),predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
-                        //If all the elements exist
-                        
-                        let newPrediction = TransitPrediction(numberOfVehicles: numberOfVechiles, predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
-                        
-                        predictionDict[directionName]?.append(newPrediction)
-                    }
-                }
-            }
-        }
+        let predictionDict:[String : [TransitPrediction]] = parsePredictions(predictions)
         
         let messages = predictions["message"]
         
@@ -244,4 +231,38 @@ class SwiftBusDataParser: NSObject {
     
         closure(predictions: predictionDict, messages: messageArray)
     }
+}
+
+//Parses the predictions for one line in all directions at the stop
+private func parsePredictions(predictionXML:XMLIndexer) -> [String : [TransitPrediction]] {
+    var predictions:[String : [TransitPrediction]] = [:]
+    
+    //Getting all the predictions
+    for direction in predictionXML.children {
+        
+        //Getting the direction name
+        if let directionName = direction.element!.attributes["title"] {
+            
+            predictions[directionName] = []
+            
+            for prediction in direction.children {
+                //Getting each individual prediction in minutes
+                
+                if let predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
+                    //If all the elements exist
+                    
+                    let newPrediction = TransitPrediction(predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
+                    
+                    //Number of vehicles is optionally provided by the API
+                    if let numberOfVechiles = prediction.element?.attributes["vehiclesInConsist"] {
+                        newPrediction.numberOfVehicles = Int(numberOfVechiles)!
+                    }
+                    
+                    predictions[directionName]?.append(newPrediction)
+                }
+            }
+        }
+    }
+    
+    return predictions
 }

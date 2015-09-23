@@ -22,7 +22,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     var allAgenciesClosure:([String : TransitAgency] -> Void)!
     var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)!
     var routeConfigClosure:(TransitRoute? -> Void)!
-    var stationPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
+    var stationPredictionsClosure:(([String : [String : [TransitPrediction]]]) -> Void)!
     var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
     var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)!
     
@@ -61,7 +61,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag)
     }
     
-    func requestStationPredictionData(stopTag: String, forRoutes routeTags:[String], withAgency agencyTag:String, closure: (predictions: [String : [TransitPrediction]], messages:  [String]) -> Void) {
+    func requestStationPredictionData(stopTag: String, forRoutes routeTags:[String], withAgency agencyTag:String, closure: (predictions: [String : [String : [TransitPrediction]]]) -> Void) {
         currentRequestType = .StationPredictions
         
         stationPredictionsClosure = closure

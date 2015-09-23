@@ -29,9 +29,8 @@ public class TransitPrediction: NSObject, NSCoding {
         self.predictionInSeconds = self.predictionInMinutes * 60
     }
     
-    //Init with all parameters
-    public init(numberOfVehicles:Int, predictionInMinutes:Int, predictionInSeconds:Int, vehicleTag:Int) {
-        self.numberOfVehicles = numberOfVehicles
+    //Init with all parameters except number of vehicles
+    public init(predictionInMinutes:Int, predictionInSeconds:Int, vehicleTag:Int) {
         self.predictionInMinutes = predictionInMinutes
         self.predictionInSeconds = predictionInSeconds
         self.vehicleTag = vehicleTag

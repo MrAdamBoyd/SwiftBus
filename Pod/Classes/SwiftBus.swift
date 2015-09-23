@@ -216,7 +216,7 @@ public class SwiftBus {
         
         //Get the predictions
         let connectionHandler = SwiftBusConnectionHandler()
-        connectionHandler.requestStationPredictionData(stopTag, forRoutes: routeTags, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+        connectionHandler.requestStationPredictionData(stopTag, forRoutes: routeTags, withAgency: agencyTag, closure: {(predictions:[String :[String : [TransitPrediction]]]) -> Void in
             
             let currentStation = TransitStation()
             currentStation.stopTag = stopTag
