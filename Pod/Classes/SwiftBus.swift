@@ -165,6 +165,38 @@ public class SwiftBus {
     }
     
     /**
+    Gets the route configuration for all routeTags provided. All routes must come from the same agency
+    
+    - parameter routeTags: array of routes that will be looked up
+    - parameter agencyTag: the agency for which the route is being looked up
+    - parameter closure:   the code that gets called after all routes have been loaded
+        - parameter routes: dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
+    */
+    public func configurationForMultipleRoutes(routeTags: [String], forAgency agencyTag:String, closure:(routes:[String : TransitRoute]) -> Void) {
+        var routesLoaded = 0
+        var routeDictionary:[String : TransitRoute] = [:]
+        
+        //Going through each route tag
+        for routeTag in routeTags {
+            
+            //Getting the route configuration
+            routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route: TransitRoute?) -> Void in
+                
+                //The route exists
+                if let transitRoute = route {
+                    routeDictionary[routeTag] = transitRoute
+                    routesLoaded++
+                    
+                    //We have loaded all the routes, call the closure
+                    if routesLoaded == routeTags.count {
+                        closure(routes: routeDictionary)
+                    }
+                }
+            })
+        }
+    }
+    
+    /**
     Gets the vehicle locations for a particular route
     
     - parameter routeTag:  Tag of the route we are looking at
@@ -212,22 +244,34 @@ public class SwiftBus {
     */
     public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: (station: TransitStation?) -> Void) {
         
-        //TODO: Make sure all routes exist and serve this tag
-        
-        //Get the predictions
-        let connectionHandler = SwiftBusConnectionHandler()
-        connectionHandler.requestStationPredictionData(stopTag, forRoutes: routeTags, withAgency: agencyTag, closure: {(predictions:[String :[String : [TransitPrediction]]]) -> Void in
+        //Getting the configuration for all routes
+        configurationForMultipleRoutes(routeTags, forAgency: agencyTag, closure: {(routes:[String : TransitRoute]) -> Void in
             
-            let currentStation = TransitStation()
-            currentStation.stopTag = stopTag
-            currentStation.agencyTag = agencyTag
+            //Only use the routes that exist
+            let existingRoutes = Array(routes.keys)
             
-            
-            
-            closure(station: currentStation)
-            
+            //Get the predictions
+            let connectionHandler = SwiftBusConnectionHandler()
+            connectionHandler.requestStationPredictionData(stopTag, forRoutes: existingRoutes, withAgency: agencyTag, closure: {(predictions:[String :[String : [TransitPrediction]]]) -> Void in
+                
+                let currentStation = TransitStation()
+                currentStation.stopTag = stopTag
+                currentStation.agencyTag = agencyTag
+                currentStation.routesAtStation = Array(routes.values)
+                currentStation.stopTitle = Array(routes.values)[0].getStopForTag(stopTag)!.stopTitle //Safe, we know all these exist
+                currentStation.predictions = predictions
+                
+                //Saving the predictions in the TransitStop objects for all TransitRoutes
+                for route in routes.values {
+                    if let stop = route.getStopForTag(stopTag) {
+                        stop.predictions = predictions[route.routeTag]!
+                    }
+                }
+                
+                closure(station: currentStation)
+                
+            })
         })
-        
     }
     
     /**

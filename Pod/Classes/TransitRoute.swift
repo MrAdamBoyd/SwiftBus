@@ -29,8 +29,8 @@ public class TransitRoute: NSObject, NSCoding {
     public var routeTag:String = ""
     public var routeTitle:String = ""
     public var agencyTag:String = ""
-    public var stopsOnRoute:[String : [TransitStop]] = [:]
-    public var directionTagToName:[String : String] = [:]
+    public var stopsOnRoute:[String : [TransitStop]] = [:] //[stopTag: [stop]]
+    public var directionTagToName:[String : String] = [:] //[directionTag : directionName]
     public var routeColor:String = ""
     public var oppositeColor:String = ""
     

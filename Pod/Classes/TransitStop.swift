@@ -30,7 +30,7 @@ public class TransitStop:NSObject, NSCoding {
     public var direction:String = ""
     public var lat:Double = 0
     public var lon:Double = 0
-    public var predictions:[String : [TransitPrediction]] = [:]
+    public var predictions:[String : [TransitPrediction]] = [:] //[direction : [prediction]]
     public var messages:[String] = []
     
     //Init without predictions or direction

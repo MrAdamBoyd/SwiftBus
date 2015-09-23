@@ -25,7 +25,7 @@ public class TransitStation:NSObject, NSCoding {
     public var agencyTag:String = ""
     public var lat:Double = 0
     public var lon:Double = 0
-    public var predictions:[String : [TransitPrediction]] = [:]
+    public var predictions:[String : [String : [TransitPrediction]]] = [:] //[routeTag : [direction : prediction]]
     public var messages:[String] = []
     
     //Basic init
@@ -54,9 +54,12 @@ public class TransitStation:NSObject, NSCoding {
     public func combinedPredictions() -> [TransitPrediction] {
         var listOfPredictions:[TransitPrediction] = []
         //TODO: Update for how station is structured
-        for predictionDirection in predictions.values {
-            //Going through each direction
-            listOfPredictions += predictionDirection
+        for line in predictions.values {
+            //Going through each line
+            for predictionDirection in line.values {
+                //Going through each direction
+                listOfPredictions += predictionDirection
+            }
         }
         
         //Sorting the list
@@ -76,7 +79,7 @@ public class TransitStation:NSObject, NSCoding {
         agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
         lat = aDecoder.decodeDoubleForKey(latEncoderString)
         lon = aDecoder.decodeDoubleForKey(lonEncoderString)
-        predictions = aDecoder.decodeObjectForKey(predictionsEncoderString) as! [String : [TransitPrediction]]
+        predictions = aDecoder.decodeObjectForKey(predictionsEncoderString) as! [String : [String : [TransitPrediction]]]
         messages = aDecoder.decodeObjectForKey(messagesEncoderString) as! [String]
     }
     
