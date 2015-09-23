@@ -222,6 +222,8 @@ public class SwiftBus {
             currentStation.stopTag = stopTag
             currentStation.agencyTag = agencyTag
             
+            
+            
             closure(station: currentStation)
             
         })

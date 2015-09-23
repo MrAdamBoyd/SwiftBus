@@ -195,17 +195,14 @@ class SwiftBusDataParser: NSObject {
         let predictions = xml["body"]
         var predictionDict:[String : [String : [TransitPrediction]]] = [:]
         
-        //Separate the main parsing from the parseStopPredictions function so these two can share code
-        //New private function will parse each direction
-        
         //For each route that the user wants to get predictions for
         for route in predictions.children {
-            if let routeTitle = route.element!.attributes["routeTitle"] {
+            if let routeTitle = route.element!.attributes["routeTag"] {
                 predictionDict[routeTitle] = parsePredictions(route)
             }
         }
         
-        
+        closure(predictions: predictionDict)
     }
     
     /**
