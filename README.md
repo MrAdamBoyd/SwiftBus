@@ -117,7 +117,9 @@ My website is [adamjboyd.com](http://www.adamjboyd.com).
 
 ## Changelog
 1.0: Initial Release
+
 1.1: Bug fixes
+
 1.2: New object: TransitStation. A station is just like a TransitStop except for that there are multiple lines that stop there. Getting the predictions for a certain station gets the predictions for all lines that stop at that stop. TransitStations are created manually, so you don't have to show all lines that stop there.
 
 ## License
