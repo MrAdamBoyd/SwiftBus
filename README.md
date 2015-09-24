@@ -12,6 +12,7 @@ Interface for NextBus API written in Swift. Inspired by another side project of 
 * [Requirements](#requirements)
 * [NSAppTransportSecurity](#nsapptransportsecurity)
 * [Author](#author)
+* [Changelog](#changelog)
 * [License](#license)
 
 ## Installation
@@ -51,17 +52,21 @@ SwiftBus's usefulness shows itself here. If you tried to get the vehicle locatio
 
 Here's a list of all the calls you can make through the SwiftBus singleton:
 ```
-public func transitAgencies(closure: ((agencies:[String : TransitAgency]) -> Void)?)
+public func transitAgencies(closure: (agencies:[String : TransitAgency]) -> Void)
 
-public func routesForAgency(agencyTag: String, closure: ((agency:TransitAgency?) -> Void)?)
+public func routesForAgency(agencyTag: String, closure: (agency:TransitAgency?) -> Void)
 
-public func routesForAgency(agencyTag: String, closure: ((routes:[String : TransitRoute])
+public func configurationForMultipleRoutes(routeTags: [String], forAgency agencyTag:String, closure:(routes:[String : TransitRoute]) -> Void)
 
-public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?)
+public func routesForAgency(agencyTag: String, closure: (routes:[String : TransitRoute] -> Void)
 
-public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:((route: TransitRoute?) -> Void)?)
+public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void)
 
-public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: ((stop: TransitStop?) -> Void)?)
+public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void)
+
+public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: (station: TransitStation?) -> Void)
+
+public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: (stop: TransitStop?) -> Void)
 ```
 
 You don't have to deal with the SwiftBus singleton, though, if you don't want to. You can make these calls through the various Transit* objects included in SwiftBus. For example, you could get stop predictions by calling the singleton like this:
@@ -109,6 +114,11 @@ My name is Adam Boyd.
 Your best bet to contact me is on Twitter. [@MrAdamBoyd](https://twitter.com/MrAdamBoyd)
 
 My website is [adamjboyd.com](http://www.adamjboyd.com).
+
+## Changelog
+1.0: Initial Release
+1.1: Bug fixes
+1.2: New object: TransitStation. A station is just like a TransitStop except for that there are multiple lines that stop there. Getting the predictions for a certain station gets the predictions for all lines that stop at that stop. TransitStations are created manually, so you don't have to show all lines that stop there.
 
 ## License
 
