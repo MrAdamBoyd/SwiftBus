@@ -73,7 +73,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func stationPredictionsTouched(sender: AnyObject) {
-        //TODO: Provide alternative
         SwiftBus.sharedController.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: {(station: TransitStation?) -> Void in
             if let transitStation = station as TransitStation! {
                 print("\n-----")

@@ -221,7 +221,6 @@ public class SwiftBus {
                 
                 currentRoute.vehiclesOnRoute = []
                 
-                //TODO: Figure out directions for vehicles
                 for vehiclesInDirection in locations.values {
                     currentRoute.vehiclesOnRoute += vehiclesInDirection
                 }

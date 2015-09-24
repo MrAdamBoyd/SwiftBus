@@ -112,7 +112,6 @@ public class TransitRoute: NSObject, NSCoding {
                         
                     self.vehiclesOnRoute = []
                     
-                    //TODO: Figure out directions for vehicles
                     for vehiclesInDirection in locations.values {
                         self.vehiclesOnRoute += vehiclesInDirection
                     }

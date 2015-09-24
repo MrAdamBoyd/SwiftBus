@@ -53,7 +53,7 @@ public class TransitStation:NSObject, NSCoding {
     */
     public func combinedPredictions() -> [TransitPrediction] {
         var listOfPredictions:[TransitPrediction] = []
-        //TODO: Update for how station is structured
+
         for line in predictions.values {
             //Going through each line
             for predictionDirection in line.values {
