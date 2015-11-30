@@ -19,11 +19,14 @@ class ViewController: UIViewController {
     
     @IBAction func agencyListTouched(sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
+            let agenciesString = "Number of agencies loaded: \(agencies.count)"
+            let agencyNamesString = agencies.map({_, agency in "\(agency.agencyTitle)"})
+            
             print("\n-----")
-            print("Number of agencies loaded: \(agencies.count)")
-            for agency in agencies.values {
-                print("Name: " + agency.agencyTitle)
-            }
+            print(agenciesString)
+            print(agencyNamesString)
+            
+            self.showAlertControllerWithTitle(agenciesString, message: "\(agencyNamesString)")
         })
     }
 
@@ -33,11 +36,14 @@ class ViewController: UIViewController {
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
         SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+            let agencyString = "Number of routes loaded for SF MUNI: \(agencyRoutes.count)"
+            let routeNamesString = agencyRoutes.map({_, route in "\(route.routeTitle)"})
+            
             print("\n-----")
-            print("Number of routes loaded for SF MUNI: \(agencyRoutes.count)")
-            for route in agencyRoutes.values {
-                print("Route title: " + route.routeTitle)
-            }
+            print(agencyString)
+            print(routeNamesString)
+            
+            self.showAlertControllerWithTitle(agencyString, message: "\(routeNamesString)")
         })
         
     }
@@ -49,9 +55,14 @@ class ViewController: UIViewController {
         SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
             //If the route exists
             if let transitRoute = route as TransitRoute! {
+                let routeCongigMessage = "Route config for route \(transitRoute.routeTitle)"
+                let numberOfStopsMessage = "Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)"
+                
                 print("\n-----")
-                print("Route config for route " + transitRoute.routeTitle)
-                print("Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)")
+                print(routeCongigMessage)
+                print(numberOfStopsMessage)
+                
+                self.showAlertControllerWithTitle(routeCongigMessage, message: numberOfStopsMessage)
             }
             
         })
@@ -64,9 +75,14 @@ class ViewController: UIViewController {
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
         SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
             if let transitRoute = route as TransitRoute! {
+                let vehicleTitleMessage = "\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah"
+                let messageString = "Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)"
+                
                 print("\n-----")
-                print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah")
-                print("Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)")
+                print(vehicleTitleMessage)
+                print(messageString)
+                
+                self.showAlertControllerWithTitle(vehicleTitleMessage, message: messageString)
             }
         })
         
@@ -75,12 +91,15 @@ class ViewController: UIViewController {
     @IBAction func stationPredictionsTouched(sender: AnyObject) {
         SwiftBus.sharedController.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: {(station: TransitStation?) -> Void in
             if let transitStation = station as TransitStation! {
+                let lineTitles = "Prediction for lines: \(transitStation.routesAtStation.map({"\($0.routeTitle)"}))"
+                let predictionStrings = "Predictions at stop \(transitStation.combinedPredictions().map({$0.predictionInMinutes}))"
+                
                 print("\n-----")
                 print("Station: \(transitStation.stopTitle)")
-                let lineTitles = transitStation.routesAtStation.map({"\($0.routeTitle)"})
-                print("Lines: \(lineTitles)")
-                let predictionStrings = transitStation.combinedPredictions().map({$0.predictionInMinutes})
-                print("Predictions at stop \(predictionStrings) mins")
+                print(lineTitles)
+                print(predictionStrings)
+                
+                self.showAlertControllerWithTitle(lineTitles, message: "\(predictionStrings)")
             }
         })
     }
@@ -94,14 +113,24 @@ class ViewController: UIViewController {
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
+                let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
+                
                 print("\n-----")
                 print("Stop: \(transitStop.stopTitle)")
-                let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
                 print("Predictions at stop \(predictionStrings) mins")
+                
+                self.showAlertControllerWithTitle("Stop Predictions for stop \(transitStop.stopTitle)", message: "\(predictionStrings)")
             }
             
         })
         
+    }
+    
+    func showAlertControllerWithTitle(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
