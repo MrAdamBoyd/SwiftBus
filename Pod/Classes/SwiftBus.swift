@@ -16,7 +16,7 @@
 import Foundation
 
 open class SwiftBus {
-    open static let sharedController = SwiftBus()
+    open static let shared = SwiftBus()
     
     fileprivate var masterListTransitAgencies:[String : TransitAgency] = [:]
     
@@ -54,7 +54,7 @@ open class SwiftBus {
                 //Insert this closure around the inner one because the agencies need to be saved
                 self.masterListTransitAgencies = agencies
 
-                closure(agencies: agencies)
+                closure(agencies)
             })
             
         }
@@ -91,7 +91,7 @@ open class SwiftBus {
                 currentAgency.agencyRoutes = agencyRoutes
                 
                 //Return the transitRoutes for the agency
-                closure(agency: currentAgency)
+                closure(currentAgency)
             })
         })
 
@@ -153,11 +153,11 @@ open class SwiftBus {
                     self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
                     
                     //Call the closure
-                    closure(route: transitRoute)
+                    closure(transitRoute)
                     
                 } else {
                     //There was a problem, return nil
-                    closure(route: nil)
+                    closure(nil)
                 }
             })
             
@@ -232,47 +232,47 @@ open class SwiftBus {
         })
     }
     
-    /**
-    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
-    
-    - parameter stopTag:   Tag of the stop
-    - parameter routeTags: Tags of the routes that serve the stop
-    - parameter agencyTag: Tag of the agency
-    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
-        - parameter stop:    Optional TransitStation that contains the predictions
-    */
-    open func stationPredictions(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: @escaping (_ station: TransitStation?) -> Void) {
-        
-        //Getting the configuration for all routes
-        configurationForMultipleRoutes(routeTags, forAgency: agencyTag, closure: {(routes:[String : TransitRoute]) -> Void in
-            
-            //Only use the routes that exist
-            let existingRoutes = Array(routes.keys)
-            
-            //Get the predictions
-            let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestStationPredictionData(stopTag, forRoutes: existingRoutes, withAgency: agencyTag, closure: {(predictions:[String :[String : [TransitPrediction]]]) -> Void in
-                
-                let currentStation = TransitStation()
-                currentStation.stopTag = stopTag
-                currentStation.agencyTag = agencyTag
-                currentStation.routesAtStation = Array(routes.values)
-                currentStation.stopTitle = Array(routes.values)[0].getStopForTag(stopTag)!.stopTitle //Safe, we know all these exist
-                currentStation.predictions = predictions
-                
-                //Saving the predictions in the TransitStop objects for all TransitRoutes
-                for route in routes.values {
-                    if let stop = route.getStopForTag(stopTag) {
-                        stop.predictions = predictions[route.routeTag]!
-                    }
-                }
-                
-                closure(station: currentStation)
-                
-            })
-        })
-    }
-    
+//    /**
+//    Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
+//    
+//    - parameter stopTag:   Tag of the stop
+//    - parameter routeTags: Tags of the routes that serve the stop
+//    - parameter agencyTag: Tag of the agency
+//    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+//        - parameter stop:    Optional TransitStation that contains the predictions
+//    */
+//    open func stationPredictions(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: @escaping (_ station: TransitStation?) -> Void) {
+//        
+//        //Getting the configuration for all routes
+//        configurationForMultipleRoutes(routeTags, forAgency: agencyTag, closure: {(routes:[String : TransitRoute]) -> Void in
+//            
+//            //Only use the routes that exist
+//            let existingRoutes = Array(routes.keys)
+//            
+//            //Get the predictions
+//            let connectionHandler = SwiftBusConnectionHandler()
+//            connectionHandler.requestStationPredictionData(stopTag, forRoutes: existingRoutes, withAgency: agencyTag, closure: { (predictions:[String :[String : [TransitPrediction]]]) -> Void in
+//                
+//                let currentStation = TransitStation()
+//                currentStation.stopTag = stopTag
+//                currentStation.agencyTag = agencyTag
+//                currentStation.routesAtStation = Array(routes.values)
+//                currentStation.stopTitle = Array(routes.values)[0].getStopForTag(stopTag)!.stopTitle //Safe, we know all these exist
+//                currentStation.predictions = predictions
+//                
+//                //Saving the predictions in the TransitStop objects for all TransitRoutes
+//                for route in routes.values {
+//                    if let stop = route.getStopForTag(stopTag) {
+//                        stop.predictions = predictions[route.routeTag]!
+//                    }
+//                }
+//                
+//                closure(currentStation)
+//                
+//            })
+//        })
+//    }
+//    
     /**
     Returns the predictions for a certain stop on a route, returns nil if the stop isn't on the route, also gets all the messages for that stop
     
@@ -301,7 +301,7 @@ open class SwiftBus {
                     currentStop.messages = messages
                     
                     //Call the closure
-                    closure(stop: currentStop)
+                    closure(currentStop)
                     
                 })
                     

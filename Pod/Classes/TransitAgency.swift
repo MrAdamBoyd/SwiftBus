@@ -59,13 +59,13 @@ open class TransitAgency: NSObject, NSCoding {
                 connectionHandler.requestAllRouteData(self.agencyTag, closure: {(newAgencyRoutes:[String : TransitRoute]) -> Void in
                     self.agencyRoutes = newAgencyRoutes
                     
-                    closure(success: true, agency: self)
+                    closure(true, self)
                     
                 })
                 
             } else {
                 //This agency doesn't exist
-                closure(success: false, agency: self)
+                closure(false, self)
             }
         })
     }

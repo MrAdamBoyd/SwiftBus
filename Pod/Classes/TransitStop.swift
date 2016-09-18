@@ -58,7 +58,7 @@ open class TransitStop:NSObject, NSCoding {
                 self.messages = messages
                 
                 //Call closure with success, predictions, and message
-                closure(success: true, predictions: predictions, messages: messages)
+                closure(true, predictions, messages)
                 
             })
         } else {

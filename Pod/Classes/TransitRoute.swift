@@ -38,8 +38,8 @@ open class TransitRoute: NSObject, NSCoding {
     public var representedRouteColor = NSColor()
     public var representedOppositeColor = NSColor()
     #else
-    open var representedRouteColor = UIColor()
-    open var representedOppositeColor = UIColor()
+    open var representedRouteColor = UIColor.clear
+    open var representedOppositeColor = UIColor.clear
     #endif
     
     open var vehiclesOnRoute:[TransitVehicle] = []
@@ -86,12 +86,12 @@ open class TransitRoute: NSObject, NSCoding {
             if let thisRoute = route {
                 self.updateData(thisRoute)
                 
-                closure(success: true, route: self)
+                closure(true, self)
                 
                 
             } else {
                 //This agency doesn't exist
-                closure(success: false, route: self)
+                closure(false, self)
             }
         })
 
@@ -152,7 +152,7 @@ open class TransitRoute: NSObject, NSCoding {
                         stop.messages = messages
                         
                         //Finished loading, send back
-                        closure(success: true, predictions: predictions)
+                        closure(true, predictions)
                     })
                 } else {
                     //The stop doesn't exist
