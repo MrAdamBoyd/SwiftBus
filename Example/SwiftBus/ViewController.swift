@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func agencyListTouched(sender: AnyObject) {
+    @IBAction func agencyListTouched(_ sender: AnyObject) {
         SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             let agenciesString = "Number of agencies loaded: \(agencies.count)"
             let agencyNamesString = agencies.map({_, agency in "\(agency.agencyTitle)"})
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func routesForAgencyTouched(sender: AnyObject) {
+    @IBAction func routesForAgencyTouched(_ sender: AnyObject) {
         //Alternative:
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func routeConfigurationTouched(sender: AnyObject) {
+    @IBAction func routeConfigurationTouched(_ sender: AnyObject) {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func vehicleLocationsTouched(sender: AnyObject) {
+    @IBAction func vehicleLocationsTouched(_ sender: AnyObject) {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func stationPredictionsTouched(sender: AnyObject) {
+    @IBAction func stationPredictionsTouched(_ sender: AnyObject) {
         SwiftBus.sharedController.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: {(station: TransitStation?) -> Void in
             if let transitStation = station as TransitStation! {
                 let lineTitles = "Prediction for lines: \(transitStation.routesAtStation.map({"\($0.routeTitle)"}))"
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func stopPredictionsTouched(sender: AnyObject) {
+    @IBAction func stopPredictionsTouched(_ sender: AnyObject) {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getStopPredictionsForStop("3909", closure: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
@@ -126,11 +126,11 @@ class ViewController: UIViewController {
         
     }
     
-    func showAlertControllerWithTitle(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil))
+    func showAlertControllerWithTitle(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
