@@ -15,12 +15,12 @@
 
 import Foundation
 
-public class SwiftBus {
-    public static let sharedController = SwiftBus()
+open class SwiftBus {
+    open static let sharedController = SwiftBus()
     
-    private var masterListTransitAgencies:[String : TransitAgency] = [:]
+    fileprivate var masterListTransitAgencies:[String : TransitAgency] = [:]
     
-    private init() { }
+    fileprivate init() { }
     
     /*
     Calls that are pulled live each time
@@ -42,10 +42,10 @@ public class SwiftBus {
     - parameter closure: Code that is called after the dictionary of agencies has loaded
         - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
-    public func transitAgencies(closure: (agencies:[String : TransitAgency]) -> Void) {
+    open func transitAgencies(_ closure: @escaping (_ agencies:[String : TransitAgency]) -> Void) {
         
         if masterListTransitAgencies.count > 0 {
-            closure(agencies: masterListTransitAgencies)
+            closure(masterListTransitAgencies)
             
         } else {
             //We need to load the transit agency data
@@ -67,14 +67,14 @@ public class SwiftBus {
     - parameter closure:   Code that is called after everything has loaded
         - parameter agency:  Optional TransitAgency object that contains the routes
     */
-    public func routesForAgency(agencyTag: String, closure: (agency:TransitAgency?) -> Void) {
+    open func routesForAgency(_ agencyTag: String, closure: @escaping (_ agency:TransitAgency?) -> Void) {
         
         //Getting all the agencies
         transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
             
             guard let currentAgency = innerAgencies[agencyTag] else {
                 //The agency doesn't exist, return an empty dictionary
-                closure(agency: nil)
+                closure(nil)
                 return
             }
                 
@@ -104,16 +104,16 @@ public class SwiftBus {
     - parameter closure:   Code that is called after all the data has loaded
         - parameter routes:  Dictionary of routeTags to TransitRoute objects
     */
-    public func routesForAgency(agencyTag: String, closure: (routes:[String : TransitRoute]) -> Void) {
+    open func routesForAgency(_ agencyTag: String, closure: @escaping (_ routes:[String : TransitRoute]) -> Void) {
         routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
             
             guard let currentAgency = agency else {
                 //The agency doesn't exist, return an empty dictionary
-                closure(routes: [:])
+                closure([:])
                 return
             }
             
-            closure(routes: currentAgency.agencyRoutes)
+            closure(currentAgency.agencyRoutes)
         })
     }
     
@@ -125,14 +125,14 @@ public class SwiftBus {
     - parameter closure:   the code that gets called after the data is loaded
         - parameter route:   TransitRoute object that contains the configuration requested
     */
-    public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void) {
+    open func routeConfiguration(_ routeTag: String, forAgency agencyTag: String, closure:@escaping (_ route: TransitRoute?) -> Void) {
         
         //Getting all the routes for the agency
         routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
             
             guard transitRoutes[routeTag] != nil else {
                 //If the route doesn't exist, return nil
-                closure(route: nil)
+                closure(nil)
                 return
             }
             
@@ -172,7 +172,7 @@ public class SwiftBus {
     - parameter closure:   the code that gets called after all routes have been loaded
         - parameter routes: dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
     */
-    public func configurationForMultipleRoutes(routeTags: [String], forAgency agencyTag:String, closure:(routes:[String : TransitRoute]) -> Void) {
+    open func configurationForMultipleRoutes(_ routeTags: [String], forAgency agencyTag:String, closure:@escaping (_ routes:[String : TransitRoute]) -> Void) {
         var routesLoaded = 0
         var routeDictionary:[String : TransitRoute] = [:]
         
@@ -185,11 +185,11 @@ public class SwiftBus {
                 //The route exists
                 if let transitRoute = route {
                     routeDictionary[routeTag] = transitRoute
-                    routesLoaded++
+                    routesLoaded += 1
                     
                     //We have loaded all the routes, call the closure
                     if routesLoaded == routeTags.count {
-                        closure(routes: routeDictionary)
+                        closure(routeDictionary)
                     }
                 }
             })
@@ -204,14 +204,14 @@ public class SwiftBus {
     - parameter closure:   Code that gets called after the call has completed
         - parameter route:   Optional TransitRoute object that contains the vehicle locations
     */
-    public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void) {
+    open func vehicleLocationsForRoute(_ routeTag: String, forAgency agencyTag: String, closure:@escaping (_ route: TransitRoute?) -> Void) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
             
             guard let currentRoute = route as TransitRoute! else {
                 //There's been a problem, return nil
-                closure(route: nil)
+                closure(nil)
                 return
             }
                 
@@ -225,7 +225,7 @@ public class SwiftBus {
                     currentRoute.vehiclesOnRoute += vehiclesInDirection
                 }
                 
-                closure(route: currentRoute)
+                closure(currentRoute)
                 
             })
                 
@@ -241,7 +241,7 @@ public class SwiftBus {
     - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStation that contains the predictions
     */
-    public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: (station: TransitStation?) -> Void) {
+    open func stationPredictions(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: @escaping (_ station: TransitStation?) -> Void) {
         
         //Getting the configuration for all routes
         configurationForMultipleRoutes(routeTags, forAgency: agencyTag, closure: {(routes:[String : TransitRoute]) -> Void in
@@ -282,14 +282,14 @@ public class SwiftBus {
     - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStop object that contains the predictions
     */
-    public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: (stop: TransitStop?) -> Void) {
+    open func stopPredictions(_ stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: @escaping (_ stop: TransitStop?) -> Void) {
         
         //Getting the route configuration for the route
         routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
             if let currentRoute = route as TransitRoute! {
                 guard let currentStop = currentRoute.getStopForTag(stopTag) else {
                     //This stop isn't in the route that was provided
-                    closure(stop: nil)
+                    closure(nil)
                     return
                 }
                 
@@ -307,7 +307,7 @@ public class SwiftBus {
                     
             } else {
                 //There's been a problem, return nil
-                closure(stop: nil)
+                closure(nil)
             }
         })
     }
@@ -315,7 +315,7 @@ public class SwiftBus {
     /**
     This method clears the transitAgency dictionary from all TransitAgency objects. Because it is formatted as a tree, this clears all information for all routes and stops as well. Any function calls will download new information.
     */
-    public func clearSavedData() {
+    open func clearSavedData() {
         masterListTransitAgencies = [:]
     }
 }

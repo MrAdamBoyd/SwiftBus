@@ -20,18 +20,18 @@ private let predictionsEncoderString = "kPredictionsEncoder"
 private let messagesEncoderString = "kMessagesEncoder"
 
 //A transit stop is a single stop which is tied to a single route
-public class TransitStop:NSObject, NSCoding {
+open class TransitStop:NSObject, NSCoding {
     
-    public var routeTitle:String = ""
-    public var routeTag:String = ""
-    public var stopTitle:String = ""
-    public var stopTag:String = ""
-    public var agencyTag:String = ""
-    public var direction:String = ""
-    public var lat:Double = 0
-    public var lon:Double = 0
-    public var predictions:[String : [TransitPrediction]] = [:] //[direction : [prediction]]
-    public var messages:[String] = []
+    open var routeTitle:String = ""
+    open var routeTag:String = ""
+    open var stopTitle:String = ""
+    open var stopTag:String = ""
+    open var agencyTag:String = ""
+    open var direction:String = ""
+    open var lat:Double = 0
+    open var lon:Double = 0
+    open var predictions:[String : [TransitPrediction]] = [:] //[direction : [prediction]]
+    open var messages:[String] = []
     
     //Init without predictions or direction
     public init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
@@ -49,7 +49,7 @@ public class TransitStop:NSObject, NSCoding {
         - parameter predictions: The predictions, in all directions, for this stop
         - parameter messages:    The messages for this stop
     */
-    public func getPredictionsAndMessages(closure:(success:Bool, predictions:[String : [TransitPrediction]], messages:[String]) -> Void) {
+    open func getPredictionsAndMessages(_ closure:@escaping (_ success:Bool, _ predictions:[String : [TransitPrediction]], _ messages:[String]) -> Void) {
         if agencyTag != "" {
             let connectionHandler = SwiftBusConnectionHandler()
             connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
@@ -63,7 +63,7 @@ public class TransitStop:NSObject, NSCoding {
             })
         } else {
             //Stop doesn't exist
-            closure(success: false, predictions: [:], messages: [])
+            closure(false, [:], [])
         }
     }
     
@@ -72,7 +72,7 @@ public class TransitStop:NSObject, NSCoding {
     
     - returns: In order list of all predictions from all different directions
     */
-    public func combinedPredictions() -> [TransitPrediction] {
+    open func combinedPredictions() -> [TransitPrediction] {
         var listOfPredictions:[TransitPrediction] = []
         
         for predictionDirection in predictions.values {
@@ -81,7 +81,7 @@ public class TransitStop:NSObject, NSCoding {
         }
         
         //Sorting the list
-        listOfPredictions.sortInPlace {
+        listOfPredictions.sort {
             return $0.predictionInSeconds < $1.predictionInSeconds
         }
         
@@ -91,28 +91,28 @@ public class TransitStop:NSObject, NSCoding {
     //MARK: NSCoding
     
     public required init?(coder aDecoder: NSCoder) {
-        routeTitle = aDecoder.decodeObjectForKey(routeTitleEncoderString) as! String
-        routeTag = aDecoder.decodeObjectForKey(routeTagEncoderString) as! String
-        stopTitle = aDecoder.decodeObjectForKey(stopTitleEncoderString) as! String
-        stopTag = aDecoder.decodeObjectForKey(stopTagEncoderString) as! String
-        agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
-        direction = aDecoder.decodeObjectForKey(directionEncoderString) as! String
-        lat = aDecoder.decodeDoubleForKey(latEncoderString)
-        lon = aDecoder.decodeDoubleForKey(lonEncoderString)
-        predictions = aDecoder.decodeObjectForKey(predictionsEncoderString) as! [String : [TransitPrediction]]
-        messages = aDecoder.decodeObjectForKey(messagesEncoderString) as! [String]
+        routeTitle = aDecoder.decodeObject(forKey: routeTitleEncoderString) as! String
+        routeTag = aDecoder.decodeObject(forKey: routeTagEncoderString) as! String
+        stopTitle = aDecoder.decodeObject(forKey: stopTitleEncoderString) as! String
+        stopTag = aDecoder.decodeObject(forKey: stopTagEncoderString) as! String
+        agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
+        direction = aDecoder.decodeObject(forKey: directionEncoderString) as! String
+        lat = aDecoder.decodeDouble(forKey: latEncoderString)
+        lon = aDecoder.decodeDouble(forKey: lonEncoderString)
+        predictions = aDecoder.decodeObject(forKey: predictionsEncoderString) as! [String : [TransitPrediction]]
+        messages = aDecoder.decodeObject(forKey: messagesEncoderString) as! [String]
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(routeTitle, forKey: routeTitleEncoderString)
-        aCoder.encodeObject(routeTag, forKey: routeTagEncoderString)
-        aCoder.encodeObject(stopTitle, forKey: stopTitleEncoderString)
-        aCoder.encodeObject(stopTag, forKey: stopTagEncoderString)
-        aCoder.encodeObject(agencyTag, forKey: agencyTagEncoderString)
-        aCoder.encodeObject(direction, forKey: directionEncoderString)
-        aCoder.encodeDouble(lat, forKey: latEncoderString)
-        aCoder.encodeDouble(lon, forKey: lonEncoderString)
-        aCoder.encodeObject(predictions, forKey: predictionsEncoderString)
-        aCoder.encodeObject(messages, forKey: messagesEncoderString)
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(routeTitle, forKey: routeTitleEncoderString)
+        aCoder.encode(routeTag, forKey: routeTagEncoderString)
+        aCoder.encode(stopTitle, forKey: stopTitleEncoderString)
+        aCoder.encode(stopTag, forKey: stopTagEncoderString)
+        aCoder.encode(agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encode(direction, forKey: directionEncoderString)
+        aCoder.encode(lat, forKey: latEncoderString)
+        aCoder.encode(lon, forKey: lonEncoderString)
+        aCoder.encode(predictions, forKey: predictionsEncoderString)
+        aCoder.encode(messages, forKey: messagesEncoderString)
     }
 }

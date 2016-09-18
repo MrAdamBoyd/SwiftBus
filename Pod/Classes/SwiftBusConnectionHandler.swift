@@ -10,26 +10,26 @@ import Foundation
 import SWXMLHash
 
 enum RequestType:Int {
-    case NoRequest = 0, AllAgencies, AllRoutes, RouteConfiguration, StopPredictions, StationPredictions, VehicleLocations
+    case noRequest = 0, allAgencies, allRoutes, routeConfiguration, stopPredictions, stationPredictions, vehicleLocations
 }
 
 class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
-    var currentRequestType:RequestType = .NoRequest
+    var currentRequestType:RequestType = .noRequest
     var connection:NSURLConnection?
     var xmlData = NSMutableData()
     var xmlString:String = ""
-    var allAgenciesClosure:([String : TransitAgency] -> Void)!
-    var allRoutesForAgencyClosure:([String : TransitRoute] -> Void)!
-    var routeConfigClosure:(TransitRoute? -> Void)!
+    var allAgenciesClosure:(([String : TransitAgency]) -> Void)!
+    var allRoutesForAgencyClosure:(([String : TransitRoute]) -> Void)!
+    var routeConfigClosure:((TransitRoute?) -> Void)!
     var stationPredictionsClosure:(([String : [String : [TransitPrediction]]]) -> Void)!
     var stopPredictionsClosure:(([String : [TransitPrediction]], [String]) -> Void)!
-    var vehicleLocationsClosure:([String : [TransitVehicle]] -> Void)!
+    var vehicleLocationsClosure:(([String : [TransitVehicle]]) -> Void)!
     
     //MARK: Requesting data
     
-    func requestAllAgencies(closure: (agencies:[String : TransitAgency]) -> Void) {
-        currentRequestType = .AllAgencies
+    func requestAllAgencies(_ closure: @escaping (_ agencies:[String : TransitAgency]) -> Void) {
+        currentRequestType = .allAgencies
         
         allAgenciesClosure = closure
         
@@ -37,32 +37,32 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     }
     
     //Request data for all lines
-    func requestAllRouteData(agencyTag: String, closure: (agencyRoutes:[String : TransitRoute]) -> Void) {
-        currentRequestType = .AllRoutes
+    func requestAllRouteData(_ agencyTag: String, closure: @escaping (_ agencyRoutes:[String : TransitRoute]) -> Void) {
+        currentRequestType = .allRoutes
         
         allRoutesForAgencyClosure = closure
         
         startConnection(allRoutesURL + agencyTag)
     }
     
-    func requestRouteConfiguration(routeTag:String, fromAgency agencyTag:String, closure:(route: TransitRoute?) -> Void) {
-        currentRequestType = .RouteConfiguration
+    func requestRouteConfiguration(_ routeTag:String, fromAgency agencyTag:String, closure:@escaping (_ route: TransitRoute?) -> Void) {
+        currentRequestType = .routeConfiguration
         
         routeConfigClosure = closure
         
         startConnection(routeConfigURL + agencyTag + routeURLSegment + routeTag)
     }
     
-    func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:(locations:[String : [TransitVehicle]]) -> Void) {
-        currentRequestType = .VehicleLocations
+    func requestVehicleLocationData(onRoute routeTag:String, withAgency agencyTag:String, closure:@escaping (_ locations:[String : [TransitVehicle]]) -> Void) {
+        currentRequestType = .vehicleLocations
         
         vehicleLocationsClosure = closure
         
         startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag)
     }
     
-    func requestStationPredictionData(stopTag: String, forRoutes routeTags:[String], withAgency agencyTag:String, closure: (predictions: [String : [String : [TransitPrediction]]]) -> Void) {
-        currentRequestType = .StationPredictions
+    func requestStationPredictionData(_ stopTag: String, forRoutes routeTags:[String], withAgency agencyTag:String, closure: @escaping (_ predictions: [String : [String : [TransitPrediction]]]) -> Void) {
+        currentRequestType = .stationPredictions
         
         stationPredictionsClosure = closure
         
@@ -75,8 +75,8 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(multiplePredictionString)
     }
     
-    func requestStopPredictionData(stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
-        currentRequestType = .StopPredictions
+    func requestStopPredictionData(_ stopTag:String, onRoute routeTag:String, withAgency agencyTag:String, closure:@escaping (_ predictions: [String : [TransitPrediction]], _ messages:[String]) -> Void) {
+        currentRequestType = .stopPredictions
         
         stopPredictionsClosure = closure
         
@@ -88,12 +88,12 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     - parameter requestURL: string of the url that is being requested
     */
-    private func startConnection(requestURL:String) {
+    fileprivate func startConnection(_ requestURL:String) {
         xmlData = NSMutableData()
-        let optionalURL:NSURL? = NSURL(string: requestURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
+        let optionalURL:URL? = URL(string: requestURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         
-        if let url = optionalURL as NSURL! {
-            let urlRequest:NSURLRequest = NSURLRequest(URL: url)
+        if let url = optionalURL as URL! {
+            let urlRequest:URLRequest = URLRequest(url: url)
             connection = NSURLConnection(request: urlRequest, delegate: self, startImmediately: true)
         } else {
             //TODO: Alert user via closure that something bad happened
@@ -102,21 +102,21 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDelegate
     
-    func connectionDidFinishLoading(connection: NSURLConnection) {
-        xmlString = NSString(data: xmlData, encoding: NSUTF8StringEncoding) as! String
+    func connectionDidFinishLoading(_ connection: NSURLConnection) {
+        xmlString = NSString(data: xmlData as Data, encoding: String.Encoding.utf8.rawValue) as! String
         let xml = SWXMLHash.parse(xmlString)
         let parser = SwiftBusDataParser()
         
         switch currentRequestType {
-        case .AllAgencies:
+        case .allAgencies:
             parser.parseAllAgenciesData(xml, closure: allAgenciesClosure)
-        case .AllRoutes:
+        case .allRoutes:
             parser.parseAllRoutesData(xml, closure: allRoutesForAgencyClosure)
-        case .RouteConfiguration:
+        case .routeConfiguration:
             parser.parseRouteConfiguration(xml, closure: routeConfigClosure)
-        case .VehicleLocations:
+        case .vehicleLocations:
             parser.parseVehicleLocations(xml, closure: vehicleLocationsClosure)
-        case .StationPredictions:
+        case .stationPredictions:
             parser.parseStationPredictions(xml, closure: stationPredictionsClosure)
         default:
             //Stop predictions
@@ -127,8 +127,8 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
     
     //MARK: NSURLConnectionDataDelegate
     
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+    func connection(_ connection: NSURLConnection, didReceive data: Data) {
         
-        xmlData.appendData(data)
+        xmlData.append(data)
     }
 }

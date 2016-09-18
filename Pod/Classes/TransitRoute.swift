@@ -24,29 +24,29 @@ private let lonMinEncoderString = "kLonMinEncoder"
 private let lonMaxEncoderString = "kLonMaxEncoder"
 
 
-public class TransitRoute: NSObject, NSCoding {
+open class TransitRoute: NSObject, NSCoding {
     
-    public var routeTag:String = ""
-    public var routeTitle:String = ""
-    public var agencyTag:String = ""
-    public var stopsOnRoute:[String : [TransitStop]] = [:] //[stopTag: [stop]]
-    public var directionTagToName:[String : String] = [:] //[directionTag : directionName]
-    public var routeColor:String = ""
-    public var oppositeColor:String = ""
+    open var routeTag:String = ""
+    open var routeTitle:String = ""
+    open var agencyTag:String = ""
+    open var stopsOnRoute:[String : [TransitStop]] = [:] //[stopTag: [stop]]
+    open var directionTagToName:[String : String] = [:] //[directionTag : directionName]
+    open var routeColor:String = ""
+    open var oppositeColor:String = ""
     
     #if os(OSX)
     public var representedRouteColor = NSColor()
     public var representedOppositeColor = NSColor()
     #else
-    public var representedRouteColor = UIColor()
-    public var representedOppositeColor = UIColor()
+    open var representedRouteColor = UIColor()
+    open var representedOppositeColor = UIColor()
     #endif
     
-    public var vehiclesOnRoute:[TransitVehicle] = []
-    public var latMin:Double = 0
-    public var latMax:Double = 0
-    public var lonMin:Double = 0
-    public var lonMax:Double = 0
+    open var vehiclesOnRoute:[TransitVehicle] = []
+    open var latMin:Double = 0
+    open var latMax:Double = 0
+    open var lonMin:Double = 0
+    open var lonMax:Double = 0
     
     //Basic init
     public override init() { super.init() }
@@ -78,7 +78,7 @@ public class TransitRoute: NSObject, NSCoding {
         - parameter success: Whether or not the downloading was a success
         - parameter route:   The route object with all the information
     */
-    public func getRouteConfig(closure:(success:Bool, route:TransitRoute) -> Void) {
+    open func getRouteConfig(_ closure:@escaping (_ success:Bool, _ route:TransitRoute) -> Void) {
         let connectionHandler = SwiftBusConnectionHandler()
         connectionHandler.requestRouteConfiguration(self.routeTag, fromAgency: self.agencyTag, closure: {(route:TransitRoute?) -> Void in
             
@@ -104,7 +104,7 @@ public class TransitRoute: NSObject, NSCoding {
         - parameter success:    Whether or not it was a success
         - parameter vehicles:   Locations of the vehicles
     */
-    public func getVehicleLocations(closure:(success:Bool, vehicles:[TransitVehicle]) -> Void) {
+    open func getVehicleLocations(_ closure:@escaping (_ success:Bool, _ vehicles:[TransitVehicle]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 let connectionHandler = SwiftBusConnectionHandler()
@@ -117,16 +117,16 @@ public class TransitRoute: NSObject, NSCoding {
                     }
                     
                     //Note: If vehicles on route == [], the route isn't running
-                    closure(success: true, vehicles: self.vehiclesOnRoute)
+                    closure(true, self.vehiclesOnRoute)
                 })
             } else {
-                closure(success: false, vehicles: [])
+                closure(false, [])
             }
         })
     }
     
-    @available(*, deprecated=1.2, message="finishedLoading renamed to closure")
-    public func getStopPredictionsForStop(stopTag:String, finishedLoading:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+    @available(*, deprecated: 1.2, message: "finishedLoading renamed to closure")
+    open func getStopPredictionsForStop(_ stopTag:String, finishedLoading:@escaping (_ success:Bool, _ predictions:[String : [TransitPrediction]]) -> Void) {
         getStopPredictionsForStop(stopTag, closure: finishedLoading)
     }
     
@@ -138,7 +138,7 @@ public class TransitRoute: NSObject, NSCoding {
         - parameter success:        Whether or not call was a success
         - parameter predictions:    Predictions for the current stop
     */
-    public func getStopPredictionsForStop(stopTag:String, closure:(success:Bool, predictions:[String : [TransitPrediction]]) -> Void) {
+    open func getStopPredictionsForStop(_ stopTag:String, closure:@escaping (_ success:Bool, _ predictions:[String : [TransitPrediction]]) -> Void) {
         getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
             if success {
                 //Everything should be fine
@@ -156,11 +156,11 @@ public class TransitRoute: NSObject, NSCoding {
                     })
                 } else {
                     //The stop doesn't exist
-                    closure(success: false, predictions: [:])
+                    closure(false, [:])
                 }
             } else {
                 //Encountered a problem, the route probably doesn't exist or the agency isn't right
-                closure(success: false, predictions: [:])
+                closure(false, [:])
             }
         })
     }
@@ -172,7 +172,7 @@ public class TransitRoute: NSObject, NSCoding {
     
     - returns: Optional TransitStop object for the tag provided
     */
-    public func getStopForTag(stopTag:String) -> TransitStop? {
+    open func getStopForTag(_ stopTag:String) -> TransitStop? {
         for direction in stopsOnRoute.keys {
             //For each direction
             for directionStop in stopsOnRoute[direction]! {
@@ -194,7 +194,7 @@ public class TransitRoute: NSObject, NSCoding {
     
     - returns: Whether the stop is in this route
     */
-    public func routeContainsStopWithTag(stopTag:String) -> Bool {
+    open func routeContainsStopWithTag(_ stopTag:String) -> Bool {
         return getStopForTag(stopTag) != nil
     }
     
@@ -205,12 +205,12 @@ public class TransitRoute: NSObject, NSCoding {
     
     - returns: Whether the stop is in this route
     */
-    public func routeContainsStop(stop:TransitStop) -> Bool {
+    open func routeContainsStop(_ stop:TransitStop) -> Bool {
         return routeContainsStopWithTag(stop.routeTag)
     }
     
     //Used to update all the data after getting the route information
-    private func updateData(newRoute:TransitRoute) {
+    fileprivate func updateData(_ newRoute:TransitRoute) {
         self.routeTitle = newRoute.routeTitle
         self.stopsOnRoute = newRoute.stopsOnRoute
         self.directionTagToName = newRoute.directionTagToName
@@ -228,41 +228,41 @@ public class TransitRoute: NSObject, NSCoding {
     //MARK: NSCoding
     
     public required init(coder aDecoder: NSCoder) {
-        routeTag = aDecoder.decodeObjectForKey(routeTagEncoderString) as! String
-        routeTitle = aDecoder.decodeObjectForKey(routeTitleEncoderString) as! String
-        agencyTag = aDecoder.decodeObjectForKey(agencyTagEncoderString) as! String
-        stopsOnRoute = aDecoder.decodeObjectForKey(stopsOnRouteEncoderString) as! [String : [TransitStop]]
-        directionTagToName = aDecoder.decodeObjectForKey(directionTagToNameEncoderString) as! [String : String]
-        routeColor = aDecoder.decodeObjectForKey(routeColorEncoderString) as! String
-        oppositeColor = aDecoder.decodeObjectForKey(oppositeColorEncoderString) as! String
+        routeTag = aDecoder.decodeObject(forKey: routeTagEncoderString) as! String
+        routeTitle = aDecoder.decodeObject(forKey: routeTitleEncoderString) as! String
+        agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
+        stopsOnRoute = aDecoder.decodeObject(forKey: stopsOnRouteEncoderString) as! [String : [TransitStop]]
+        directionTagToName = aDecoder.decodeObject(forKey: directionTagToNameEncoderString) as! [String : String]
+        routeColor = aDecoder.decodeObject(forKey: routeColorEncoderString) as! String
+        oppositeColor = aDecoder.decodeObject(forKey: oppositeColorEncoderString) as! String
         #if os(OSX)
         representedRouteColor = aDecoder.decodeObjectForKey(representedRouteColorEncoderString) as! NSColor
         representedOppositeColor = aDecoder.decodeObjectForKey(representedOppositeColorEncoderString) as! NSColor
         #else
-        representedRouteColor = aDecoder.decodeObjectForKey(representedRouteColorEncoderString) as! UIColor
-        representedOppositeColor = aDecoder.decodeObjectForKey(representedOppositeColorEncoderString) as! UIColor
+        representedRouteColor = aDecoder.decodeObject(forKey: representedRouteColorEncoderString) as! UIColor
+        representedOppositeColor = aDecoder.decodeObject(forKey: representedOppositeColorEncoderString) as! UIColor
         #endif
-        vehiclesOnRoute = aDecoder.decodeObjectForKey(vehiclesOnRouteEncoderString) as! [TransitVehicle]
-        latMin = aDecoder.decodeDoubleForKey(latMinEncoderString)
-        latMax = aDecoder.decodeDoubleForKey(latMaxEncoderString)
-        lonMin = aDecoder.decodeDoubleForKey(lonMinEncoderString)
-        lonMax = aDecoder.decodeDoubleForKey(lonMaxEncoderString)
+        vehiclesOnRoute = aDecoder.decodeObject(forKey: vehiclesOnRouteEncoderString) as! [TransitVehicle]
+        latMin = aDecoder.decodeDouble(forKey: latMinEncoderString)
+        latMax = aDecoder.decodeDouble(forKey: latMaxEncoderString)
+        lonMin = aDecoder.decodeDouble(forKey: lonMinEncoderString)
+        lonMax = aDecoder.decodeDouble(forKey: lonMaxEncoderString)
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(routeTag, forKey: routeTagEncoderString)
-        aCoder.encodeObject(routeTitle, forKey: routeTitleEncoderString)
-        aCoder.encodeObject(agencyTag, forKey: agencyTagEncoderString)
-        aCoder.encodeObject(stopsOnRoute, forKey: stopsOnRouteEncoderString)
-        aCoder.encodeObject(directionTagToName, forKey: directionTagToNameEncoderString)
-        aCoder.encodeObject(routeColor, forKey: routeColorEncoderString)
-        aCoder.encodeObject(oppositeColor, forKey: oppositeColorEncoderString)
-        aCoder.encodeObject(representedRouteColor, forKey: representedRouteColorEncoderString)
-        aCoder.encodeObject(representedOppositeColor, forKey: representedOppositeColorEncoderString)
-        aCoder.encodeObject(vehiclesOnRoute, forKey: vehiclesOnRouteEncoderString)
-        aCoder.encodeDouble(latMin, forKey: latMinEncoderString)
-        aCoder.encodeDouble(latMax, forKey: latMaxEncoderString)
-        aCoder.encodeDouble(lonMin, forKey: lonMinEncoderString)
-        aCoder.encodeDouble(lonMax, forKey: lonMaxEncoderString)
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(routeTag, forKey: routeTagEncoderString)
+        aCoder.encode(routeTitle, forKey: routeTitleEncoderString)
+        aCoder.encode(agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encode(stopsOnRoute, forKey: stopsOnRouteEncoderString)
+        aCoder.encode(directionTagToName, forKey: directionTagToNameEncoderString)
+        aCoder.encode(routeColor, forKey: routeColorEncoderString)
+        aCoder.encode(oppositeColor, forKey: oppositeColorEncoderString)
+        aCoder.encode(representedRouteColor, forKey: representedRouteColorEncoderString)
+        aCoder.encode(representedOppositeColor, forKey: representedOppositeColorEncoderString)
+        aCoder.encode(vehiclesOnRoute, forKey: vehiclesOnRouteEncoderString)
+        aCoder.encode(latMin, forKey: latMinEncoderString)
+        aCoder.encode(latMax, forKey: latMaxEncoderString)
+        aCoder.encode(lonMin, forKey: lonMinEncoderString)
+        aCoder.encode(lonMax, forKey: lonMaxEncoderString)
     }
 }

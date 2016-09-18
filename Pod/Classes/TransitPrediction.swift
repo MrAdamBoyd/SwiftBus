@@ -13,12 +13,12 @@ private let predictionInMinutesEncoderString = "kPredictionInMinutesEncoder"
 private let predictionInSecondsEncoderString = "kPredictionInSecondsEncoder"
 private let vehicleTagEncoderString = "kVehicleTagEncoder"
 
-public class TransitPrediction: NSObject, NSCoding {
+open class TransitPrediction: NSObject, NSCoding {
     
-    public var numberOfVehicles:Int = 0
-    public var predictionInMinutes:Int = 0
-    public var predictionInSeconds:Int = 0
-    public var vehicleTag:Int = 0
+    open var numberOfVehicles:Int = 0
+    open var predictionInMinutes:Int = 0
+    open var predictionInSeconds:Int = 0
+    open var vehicleTag:Int = 0
     
     //Basic init
     public override init() { super.init() }
@@ -38,17 +38,17 @@ public class TransitPrediction: NSObject, NSCoding {
     
     //MARK : NSCoding
     public required init(coder aDecoder: NSCoder) {
-        numberOfVehicles = aDecoder.decodeObjectForKey(numberOfVehiclesEncoderString) as! Int
-        predictionInMinutes = aDecoder.decodeObjectForKey(predictionInMinutesEncoderString) as! Int
-        predictionInSeconds = aDecoder.decodeObjectForKey(predictionInSecondsEncoderString) as! Int
-        vehicleTag = aDecoder.decodeObjectForKey(vehicleTagEncoderString) as! Int
+        numberOfVehicles = aDecoder.decodeObject(forKey: numberOfVehiclesEncoderString) as! Int
+        predictionInMinutes = aDecoder.decodeObject(forKey: predictionInMinutesEncoderString) as! Int
+        predictionInSeconds = aDecoder.decodeObject(forKey: predictionInSecondsEncoderString) as! Int
+        vehicleTag = aDecoder.decodeObject(forKey: vehicleTagEncoderString) as! Int
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(numberOfVehicles, forKey: numberOfVehiclesEncoderString)
-        aCoder.encodeObject(predictionInMinutes, forKey: predictionInMinutesEncoderString)
-        aCoder.encodeObject(predictionInSeconds, forKey: predictionInSecondsEncoderString)
-        aCoder.encodeObject(vehicleTag, forKey: vehicleTagEncoderString)
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(numberOfVehicles, forKey: numberOfVehiclesEncoderString)
+        aCoder.encode(predictionInMinutes, forKey: predictionInMinutesEncoderString)
+        aCoder.encode(predictionInSeconds, forKey: predictionInSecondsEncoderString)
+        aCoder.encode(vehicleTag, forKey: vehicleTagEncoderString)
     }
     
 }

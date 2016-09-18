@@ -17,7 +17,7 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    xml gotten from calling NextBus's API
     - parameter closure:code that gets called when fetch of information is complete
     */
-    func parseAllAgenciesData(xml:XMLIndexer, closure: (agencies:[String : TransitAgency]) -> Void) {
+    func parseAllAgenciesData(_ xml:XMLIndexer, closure: (_ agencies:[String : TransitAgency]) -> Void) {
         let agenciesXML:[XMLIndexer] = xml["body"].children
         var transitAgencies:[String : TransitAgency] = [:]
         
@@ -25,7 +25,7 @@ class SwiftBusDataParser: NSObject {
         for agencyXML:XMLIndexer in agenciesXML {
             
             //If all the proper elements exist
-            if let agencyTag = agencyXML.element!.attributes["tag"], agencyTitle = agencyXML.element!.attributes["title"], agencyRegion = agencyXML.element!.attributes["regionTitle"] {
+            if let agencyTag = agencyXML.element!.attributes["tag"], let agencyTitle = agencyXML.element!.attributes["title"], let agencyRegion = agencyXML.element!.attributes["regionTitle"] {
                 
                 let newAgency:TransitAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
                 
@@ -39,7 +39,7 @@ class SwiftBusDataParser: NSObject {
             
         }
         
-        closure(agencies: transitAgencies)
+        closure(transitAgencies)
     }
     
     /**
@@ -48,20 +48,20 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    XML gotten from NextBus's API
     - parameter closure:code that gets called when fetch of information is complete
     */
-    func parseAllRoutesData(xml:XMLIndexer, closure: (agencyRoutes:[String : TransitRoute]) -> Void) {
+    func parseAllRoutesData(_ xml:XMLIndexer, closure: (_ agencyRoutes:[String : TransitRoute]) -> Void) {
         var transitRoutes:[String : TransitRoute] = [:]
         
         //Going through all lines and saving them
         for child in xml["body"].children {
             
-            if let routeTag = child.element!.attributes["tag"], routeTitle = child.element!.attributes["title"] {
+            if let routeTag = child.element!.attributes["tag"], let routeTitle = child.element!.attributes["title"] {
                 //If we can create all the routes
                 let currentRoute:TransitRoute = TransitRoute(routeTag: routeTag, routeTitle: routeTitle)
                 transitRoutes[routeTag] = currentRoute
             }
         }
         
-        closure(agencyRoutes: transitRoutes)
+        closure(transitRoutes)
     }
     
     /**
@@ -70,7 +70,7 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    XML gotten from NextBus's API
     - parameter closure:code that gets called when fetch of information is complete
     */
-    func parseRouteConfiguration(xml:XMLIndexer, closure:(route: TransitRoute?) -> Void) {
+    func parseRouteConfiguration(_ xml:XMLIndexer, closure:(_ route: TransitRoute?) -> Void) {
         let currentRoute = TransitRoute()
         var stopDirectionDict: [String : [String]] = [:]
         var allStopsDictionary: [String : TransitStop] = [:]
@@ -78,9 +78,9 @@ class SwiftBusDataParser: NSObject {
         var routeConfig:[String : String] = xml["body"]["route"].element!.attributes
         
         //Creating the route from the current information
-        guard let routeTag = routeConfig["tag"], routeTitle = routeConfig["title"], latMin = routeConfig["latMin"], latMax = routeConfig["latMax"], lonMin = routeConfig["lonMin"], lonMax = routeConfig["lonMax"], routeColorHex = routeConfig["color"], oppositeColorHex = routeConfig["oppositeColor"] else {
+        guard let routeTag = routeConfig["tag"], let routeTitle = routeConfig["title"], let latMin = routeConfig["latMin"], let latMax = routeConfig["latMax"], let lonMin = routeConfig["lonMin"], let lonMax = routeConfig["lonMax"], let routeColorHex = routeConfig["color"], let oppositeColorHex = routeConfig["oppositeColor"] else {
             //Couldn't get the route information, return
-            closure(route: currentRoute)
+            closure(currentRoute)
             return
         }
         
@@ -104,7 +104,7 @@ class SwiftBusDataParser: NSObject {
         
         for stopDirection in stopDirections {
             //For each direction, eg. "Inbound to downtown", "Inbound to Caltrain", "Outbound to Ocean Beach"
-            if let currentDirection:String = stopDirection.element!.attributes["title"], directionTag:String = stopDirection.element!.attributes["tag"] {
+            if let currentDirection:String = stopDirection.element!.attributes["title"], let directionTag:String = stopDirection.element!.attributes["tag"] {
                 
                 stopDirectionDict[currentDirection] = []
                 currentRoute.directionTagToName[directionTag] = currentDirection
@@ -126,7 +126,7 @@ class SwiftBusDataParser: NSObject {
         
         //Going through the stops and creating TransitStop objects
         for stop in stops {
-            if let routeTitle = xml["body"]["route"].element!.attributes["title"], routeTag = xml["body"]["route"].element!.attributes["tag"], stopTitle = stop.element!.attributes["title"], stopTag = stop.element!.attributes["tag"], stopLat = stop.element!.attributes["lat"], stopLon = stop.element!.attributes["lon"] {
+            if let routeTitle = xml["body"]["route"].element!.attributes["title"], let routeTag = xml["body"]["route"].element!.attributes["tag"], let stopTitle = stop.element!.attributes["title"], let stopTag = stop.element!.attributes["tag"], let stopLat = stop.element!.attributes["lat"], let stopLon = stop.element!.attributes["lon"] {
                 let stop = TransitStop(routeTitle: routeTitle, routeTag: routeTag, stopTitle: stopTitle, stopTag: stopTag)
                 stop.lat = (stopLat as NSString).doubleValue
                 stop.lon = (stopLon as NSString).doubleValue
@@ -153,7 +153,7 @@ class SwiftBusDataParser: NSObject {
             
         }
         
-        closure(route: currentRoute)
+        closure(currentRoute)
     }
     
     /**
@@ -162,14 +162,14 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    XML gotten from NextBus's API
     - parameter closure:code that gets called when fetch of information is complete
     */
-    func parseVehicleLocations(xml:XMLIndexer, closure:(locations:[String : [TransitVehicle]]) -> Void) {
+    func parseVehicleLocations(_ xml:XMLIndexer, closure:(_ locations:[String : [TransitVehicle]]) -> Void) {
         let vehicles = xml["body"]
         var dictionaryOfVehicles:[String : [TransitVehicle]] = [:]
         
         for vehicle in vehicles.children {
             let attributes = vehicle.element!.attributes
             
-            if let vehicleID = attributes["id"], directionTag = attributes["dirTag"], lat = attributes["lat"], lon = attributes["lon"], secondsSinceLastReport = attributes["secsSinceReport"], heading = attributes["heading"], speedKmH = attributes["speedKmHr"] {
+            if let vehicleID = attributes["id"], let directionTag = attributes["dirTag"], let lat = attributes["lat"], let lon = attributes["lon"], let secondsSinceLastReport = attributes["secsSinceReport"], let heading = attributes["heading"], let speedKmH = attributes["speedKmHr"] {
                 //If all the proper attributes exist
                 let newVehicle = TransitVehicle(vehicleID: vehicleID, directionTag: directionTag, lat: lat, lon: lon, secondsSinceReport: secondsSinceLastReport, heading: heading, speedKmH: speedKmH)
                 
@@ -188,10 +188,10 @@ class SwiftBusDataParser: NSObject {
             }
         }
         
-        closure(locations: dictionaryOfVehicles)
+        closure(dictionaryOfVehicles)
     }
     
-    func parseStationPredictions(xml:XMLIndexer, closure:(predictions: [String : [String : [TransitPrediction]]]) -> Void) {
+    func parseStationPredictions(_ xml:XMLIndexer, closure:(_ predictions: [String : [String : [TransitPrediction]]]) -> Void) {
         let predictions = xml["body"]
         var predictionDict:[String : [String : [TransitPrediction]]] = [:]
         
@@ -202,7 +202,7 @@ class SwiftBusDataParser: NSObject {
             }
         }
         
-        closure(predictions: predictionDict)
+        closure(predictionDict)
     }
     
     /**
@@ -211,7 +211,7 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    XML gotten from NextBus's API
     - parameter closure:code that gets called when fetch of information is complete
     */
-    func parseStopPredictions(xml:XMLIndexer, closure:(predictions: [String : [TransitPrediction]], messages:[String]) -> Void) {
+    func parseStopPredictions(_ xml:XMLIndexer, closure:(_ predictions: [String : [TransitPrediction]], _ messages:[String]) -> Void) {
         let predictions = xml["body"]["predictions"]
         var messageArray:[String] = []
         
@@ -226,12 +226,12 @@ class SwiftBusDataParser: NSObject {
             }
         }
     
-        closure(predictions: predictionDict, messages: messageArray)
+        closure(predictionDict, messageArray)
     }
 }
 
 //Parses the predictions for one line in all directions at the stop
-private func parsePredictions(predictionXML:XMLIndexer) -> [String : [TransitPrediction]] {
+private func parsePredictions(_ predictionXML:XMLIndexer) -> [String : [TransitPrediction]] {
     var predictions:[String : [TransitPrediction]] = [:]
     
     //Getting all the predictions
@@ -245,7 +245,7 @@ private func parsePredictions(predictionXML:XMLIndexer) -> [String : [TransitPre
             for prediction in direction.children {
                 //Getting each individual prediction in minutes
                 
-                if let predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
+                if let predictionInMinutes = Int((prediction.element?.attributes["minutes"])!), let predictionInSeconds = Int((prediction.element?.attributes["seconds"])!), let vehicleTag = Int((prediction.element?.attributes["vehicle"])!) {
                     //If all the elements exist
                     
                     let newPrediction = TransitPrediction(predictionInMinutes: predictionInMinutes, predictionInSeconds: predictionInSeconds, vehicleTag: vehicleTag)
