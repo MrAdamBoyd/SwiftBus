@@ -45,7 +45,7 @@ class SwiftBusConnectionHandler: NSObject, NSURLConnectionDataDelegate {
         startConnection(allRoutesURL + agencyTag)
     }
     
-    func requestRouteConfiguration(_ routeTag:String, fromAgency agencyTag:String, closure:@escaping (_ route: TransitRoute?) -> Void) {
+    func requestRouteConfiguration(_ routeTag:String, fromAgency agencyTag:String, closure: @escaping (_ route: TransitRoute?) -> Void) {
         currentRequestType = .routeConfiguration
         
         routeConfigClosure = closure

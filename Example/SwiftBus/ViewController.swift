@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func agencyListTouched(_ sender: AnyObject) {
-        SwiftBus.sharedController.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
+        SwiftBus.shared.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
             let agenciesString = "Number of agencies loaded: \(agencies.count)"
             let agencyNamesString = agencies.map({_, agency in "\(agency.agencyTitle)"})
             
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         //Alternative:
         //var agency = TransitAgency(agencyTag: "sf-muni")
         //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
-        SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+        SwiftBus.shared.routesForAgency("sf-muni", closure: { agencyRoutes -> Void in
             let agencyString = "Number of routes loaded for SF MUNI: \(agencyRoutes.count)"
             let routeNamesString = agencyRoutes.map({_, route in "\(route.routeTitle)"})
             
@@ -52,9 +52,9 @@ class ViewController: UIViewController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
-        SwiftBus.sharedController.routeConfiguration("5R", forAgency: "sf-muni", closure: {(route:TransitRoute?) -> Void in
+        SwiftBus.shared.routeConfiguration("5R", forAgency: "sf-muni", closure: { route -> Void in
             //If the route exists
-            if let transitRoute = route as TransitRoute! {
+            if let transitRoute = route as? TransitRoute {
                 let routeCongigMessage = "Route config for route \(transitRoute.routeTitle)"
                 let numberOfStopsMessage = "Number of stops on route in one direction: \(Array(transitRoute.stopsOnRoute.values)[0].count)"
                 
@@ -73,8 +73,8 @@ class ViewController: UIViewController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
-        SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
-            if let transitRoute = route as TransitRoute! {
+        SwiftBus.shared.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{ route -> Void in
+            if let transitRoute = route as? TransitRoute {
                 let vehicleTitleMessage = "\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah"
                 let messageString = "Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)"
                 
@@ -89,8 +89,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func stationPredictionsTouched(_ sender: AnyObject) {
-        SwiftBus.sharedController.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: {(station: TransitStation?) -> Void in
-            if let transitStation = station as TransitStation! {
+        SwiftBus.shared.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: { station -> Void in
+            if let transitStation = station as? TransitStation {
                 let lineTitles = "Prediction for lines: \(transitStation.routesAtStation.map({"\($0.routeTitle)"}))"
                 let predictionStrings = "Predictions at stop \(transitStation.combinedPredictions().map({$0.predictionInMinutes}))"
                 
@@ -109,10 +109,11 @@ class ViewController: UIViewController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getStopPredictionsForStop("3909", closure: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
-        SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
+        SwiftBus.shared.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: { route -> Void in
+            
             
             //If the stop and route exists
-            if let transitStop = route as TransitStop! {
+            if let transitStop = route as? TransitStop {
                 let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
                 
                 print("\n-----")
