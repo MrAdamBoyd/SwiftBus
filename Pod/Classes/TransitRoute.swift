@@ -238,8 +238,8 @@ open class TransitRoute: NSObject, NSCoding {
         self.routeColor = aDecoder.decodeObject(forKey: routeColorEncoderString) as! String
         self.oppositeColor = aDecoder.decodeObject(forKey: oppositeColorEncoderString) as! String
         #if os(OSX)
-        self.representedRouteColor = aDecoder.decodeObjectForKey(representedRouteColorEncoderString) as! NSColor
-        self.representedOppositeColor = aDecoder.decodeObjectForKey(representedOppositeColorEncoderString) as! NSColor
+        self.representedRouteColor = aDecoder.decodeObject(forKey: representedRouteColorEncoderString) as! NSColor
+        self.representedOppositeColor = aDecoder.decodeObject(forKey: representedOppositeColorEncoderString) as! NSColor
         #else
         self.representedRouteColor = aDecoder.decodeObject(forKey: representedRouteColorEncoderString) as! UIColor
         self.representedOppositeColor = aDecoder.decodeObject(forKey: representedOppositeColorEncoderString) as! UIColor
