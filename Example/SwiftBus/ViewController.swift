@@ -34,17 +34,17 @@ class ViewController: UIViewController {
     @IBAction func routesForAgencyTouched(_ sender: AnyObject) {
         //Alternative:
         //var agency = TransitAgency(agencyTag: "sf-muni")
-        //agency.getAgencyData({(success:Bool, agency:TransitAgency) -> Void in
-        SwiftBus.shared.routesForAgency("sf-muni", closure: { (agencyRoutes: [String: TransitRoute]) -> Void in
-            let agencyString = "Number of routes loaded for SF MUNI: \(agencyRoutes.count)"
-            let routeNamesString = agencyRoutes.map({_, route in "\(route.routeTitle)"})
+        //agency.download({(success:Bool, agency:TransitAgency) -> Void in
+        SwiftBus.shared.routes(forAgencyTag: "sf-muni") { routes in
+            let agencyString = "Number of routes loaded for SF MUNI: \(routes.count)"
+            let routeNamesString = routes.map({_, route in "\(route.routeTitle)"})
             
             print("\n-----")
             print(agencyString)
             print(routeNamesString)
             
             self.showAlertControllerWithTitle(agencyString, message: "\(routeNamesString)")
-        })
+        }
         
     }
     
@@ -52,22 +52,22 @@ class ViewController: UIViewController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getRouteConfig({(success:Bool, route:TransitRoute) -> Void in
-        SwiftBus.shared.routeConfiguration("5R", forAgency: "sf-muni", closure: { (route: TransitRoute?) -> Void in
+        SwiftBus.shared.configuration(forRouteTag: "5R", withAgencyTag: "sf-muni") { route in
             //If the route exists
-            if let transitRoute = route as TransitRoute! {
-                let routeCongigMessage = "Route config for route \(transitRoute.routeTitle)"
-                
-                let stops = Array(transitRoute.stopsOnRoute.values)
-                let numberOfStopsMessage = "Number of stops on route in one direction: \(stops[0].count)"
-
-                print("\n-----")
-                print(routeCongigMessage)
-                print(numberOfStopsMessage)
-                
-                self.showAlertControllerWithTitle(routeCongigMessage, message: numberOfStopsMessage)
-            }
+            guard let route = route else { return }
             
-        })
+            let routeCongigMessage = "Route config for route \(route.routeTitle)"
+            
+            let stops = Array(route.stopsOnRoute.values)
+            let numberOfStopsMessage = "Number of stops on route in one direction: \(stops[0].count)"
+
+            print("\n-----")
+            print(routeCongigMessage)
+            print(numberOfStopsMessage)
+            
+            self.showAlertControllerWithTitle(routeCongigMessage, message: numberOfStopsMessage)
+            
+        }
         
     }
     
@@ -75,23 +75,24 @@ class ViewController: UIViewController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getVehicleLocations({(success:Bool, vehicles:[TransitVehicle]) -> Void in
-        SwiftBus.shared.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{ route -> Void in
-            if let transitRoute = route as TransitRoute! {
-                let vehicleTitleMessage = "\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah"
-                let messageString = "Example vehicle:Vehcle ID: \(transitRoute.vehiclesOnRoute[0].vehicleId), \(transitRoute.vehiclesOnRoute[0].speedKmH) Km/h, \(transitRoute.vehiclesOnRoute[0].lat), \(transitRoute.vehiclesOnRoute[0].lon), seconds since report: \(transitRoute.vehiclesOnRoute[0].secondsSinceReport)"
-                
-                print("\n-----")
-                print(vehicleTitleMessage)
-                print(messageString)
-                
-                self.showAlertControllerWithTitle(vehicleTitleMessage, message: messageString)
-            }
-        })
+        SwiftBus.shared.vehicleLocations(forRouteTag: "N", forAgency: "sf-muni") { route in
+            
+            guard let route = route else { return }
+            
+            let vehicleTitleMessage = "\(route.vehiclesOnRoute.count) vehicles on route N Judah"
+            let messageString = "Example vehicle:Vehcle ID: \(route.vehiclesOnRoute[0].vehicleId), \(route.vehiclesOnRoute[0].speedKmH) Km/h, \(route.vehiclesOnRoute[0].lat), \(route.vehiclesOnRoute[0].lon), seconds since report: \(route.vehiclesOnRoute[0].secondsSinceReport)"
+            
+            print("\n-----")
+            print(vehicleTitleMessage)
+            print(messageString)
+            
+            self.showAlertControllerWithTitle(vehicleTitleMessage, message: messageString)
+        }
         
     }
 
     @IBAction func stationPredictionsTouched(_ sender: AnyObject) {
-        SwiftBus.shared.stationPredictions("5726", forRoutes: ["KT", "L", "M"], withAgency: "sf-muni", closure: { station -> Void in
+        SwiftBus.shared.stationPredictions(forStopTag: "5726", forRoutes: ["KT", "L", "M"], withAgencyTag: "sf-muni") { station in
             if let transitStation = station as TransitStation! {
                 let lineTitles = "Prediction for lines: \(transitStation.routesAtStation.map({"\($0.routeTitle)"}))"
                 let predictionStrings = "Predictions at stop \(transitStation.combinedPredictions().map({$0.predictionInMinutes}))"
@@ -103,16 +104,15 @@ class ViewController: UIViewController {
                 
                 self.showAlertControllerWithTitle(lineTitles, message: "\(predictionStrings)")
             }
-        })
+        }
     }
     
     
     @IBAction func stopPredictionsTouched(_ sender: AnyObject) {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
-        //route.getStopPredictionsForStop("3909", closure: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
-        SwiftBus.shared.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: { route -> Void in
-            
+        //route.getStopPredictionsForStop("3909", completion: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
+        SwiftBus.shared.stopPredictions(forStopTag: "3909", onRouteTag: "N", withAgencyTag: "sf-muni") { route in
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
                 self.showAlertControllerWithTitle("Stop Predictions for stop \(transitStop.stopTitle)", message: "\(predictionStrings)")
             }
             
-        })
+        }
         
     }
     

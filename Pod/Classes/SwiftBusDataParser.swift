@@ -12,12 +12,12 @@ import SWXMLHash
 class SwiftBusDataParser: NSObject {
     
     /**
-    Creating all the transit agencies from the xml, calls the allAgenciesClosure when done
+    Creating all the transit agencies from the xml, calls the allAgenciesCompletion when done
     
     - parameter xml:    xml gotten from calling NextBus's API
-    - parameter closure:code that gets called when fetch of information is complete
+    - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseAllAgenciesData(_ xml:XMLIndexer, closure: (_ agencies:[String : TransitAgency]) -> Void) {
+    func parseAllAgenciesData(_ xml: XMLIndexer, completion: (_ agencies: [String: TransitAgency]) -> Void) {
         let agenciesXML:[XMLIndexer] = xml["body"].children
         var transitAgencies:[String : TransitAgency] = [:]
         
@@ -39,16 +39,16 @@ class SwiftBusDataParser: NSObject {
             
         }
         
-        closure(transitAgencies)
+        completion(transitAgencies)
     }
     
     /**
-    Creating all the TransitRoutes from the xml, calls allRoutesForAgencyClosure when done
+    Creating all the TransitRoutes from the xml, calls allRoutesForAgencyCompletion when done
     
     - parameter xml:    XML gotten from NextBus's API
-    - parameter closure:code that gets called when fetch of information is complete
+    - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseAllRoutesData(_ xml:XMLIndexer, closure: (_ agencyRoutes:[String : TransitRoute]) -> Void) {
+    func parseAllRoutesData(_ xml: XMLIndexer, completion: (_ agencyRoutes: [String: TransitRoute]) -> Void) {
         var transitRoutes:[String : TransitRoute] = [:]
         
         //Going through all lines and saving them
@@ -61,16 +61,16 @@ class SwiftBusDataParser: NSObject {
             }
         }
         
-        closure(transitRoutes)
+        completion(transitRoutes)
     }
     
     /**
     Parsing the route configuration data
     
     - parameter xml:    XML gotten from NextBus's API
-    - parameter closure:code that gets called when fetch of information is complete
+    - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseRouteConfiguration(_ xml:XMLIndexer, closure:(_ route: TransitRoute?) -> Void) {
+    func parseRouteConfiguration(_ xml: XMLIndexer, completion:(_ route: TransitRoute?) -> Void) {
         let currentRoute = TransitRoute()
         var stopDirectionDict: [String : [String]] = [:]
         var allStopsDictionary: [String : TransitStop] = [:]
@@ -80,7 +80,7 @@ class SwiftBusDataParser: NSObject {
         //Creating the route from the current information
         guard let routeTag = routeConfig["tag"], let routeTitle = routeConfig["title"], let latMin = routeConfig["latMin"], let latMax = routeConfig["latMax"], let lonMin = routeConfig["lonMin"], let lonMax = routeConfig["lonMax"], let routeColorHex = routeConfig["color"], let oppositeColorHex = routeConfig["oppositeColor"] else {
             //Couldn't get the route information, return
-            closure(currentRoute)
+            completion(currentRoute)
             return
         }
         
@@ -153,16 +153,16 @@ class SwiftBusDataParser: NSObject {
             
         }
         
-        closure(currentRoute)
+        completion(currentRoute)
     }
     
     /**
     Parsing the vehicle location data
     
     - parameter xml:    XML gotten from NextBus's API
-    - parameter closure:code that gets called when fetch of information is complete
+    - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseVehicleLocations(_ xml:XMLIndexer, closure:(_ locations:[String : [TransitVehicle]]) -> Void) {
+    func parseVehicleLocations(_ xml: XMLIndexer, completion: (_ locations:[String : [TransitVehicle]]) -> Void) {
         let vehicles = xml["body"]
         var dictionaryOfVehicles:[String : [TransitVehicle]] = [:]
         
@@ -188,10 +188,10 @@ class SwiftBusDataParser: NSObject {
             }
         }
         
-        closure(dictionaryOfVehicles)
+        completion(dictionaryOfVehicles)
     }
     
-    func parseStationPredictions(_ xml:XMLIndexer, closure:(_ predictions: [String : [String : [TransitPrediction]]]) -> Void) {
+    func parseStationPredictions(_ xml: XMLIndexer, completion: (_ predictions: [String: [String: [TransitPrediction]]]) -> Void) {
         let predictions = xml["body"]
         var predictionDict:[String : [String : [TransitPrediction]]] = [:]
         
@@ -202,16 +202,16 @@ class SwiftBusDataParser: NSObject {
             }
         }
         
-        closure(predictionDict)
+        completion(predictionDict)
     }
     
     /**
     Parsing the stop prediction data
     
     - parameter xml:    XML gotten from NextBus's API
-    - parameter closure:code that gets called when fetch of information is complete
+    - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseStopPredictions(_ xml:XMLIndexer, closure:(_ predictions: [String : [TransitPrediction]], _ messages:[String]) -> Void) {
+    func parseStopPredictions(_ xml: XMLIndexer, completion:(_ predictions: [String: [TransitPrediction]], _ messages: [String]) -> Void) {
         let predictions = xml["body"]["predictions"]
         var messageArray:[String] = []
         
@@ -226,12 +226,12 @@ class SwiftBusDataParser: NSObject {
             }
         }
     
-        closure(predictionDict, messageArray)
+        completion(predictionDict, messageArray)
     }
 }
 
 //Parses the predictions for one line in all directions at the stop
-private func parsePredictions(_ predictionXML:XMLIndexer) -> [String : [TransitPrediction]] {
+private func parsePredictions(_ predictionXML: XMLIndexer) -> [String: [TransitPrediction]] {
     var predictions:[String : [TransitPrediction]] = [:]
     
     //Getting all the predictions

@@ -44,26 +44,26 @@ open class TransitStop:NSObject, NSCoding {
     /**
     Gets the predictions and messages for the current stop and calls the closure with the predictions and messages as a parameter. If the agency tag hasn't been loaded, it will call the closure with an empty dictionary.
     
-    - parameter closure:    Code that is called after the call has been downloaded and parsed
+    - parameter completion:    Code that is called after the call has been downloaded and parsed
         - parameter success:     Whether or not the call was a success
         - parameter predictions: The predictions, in all directions, for this stop
         - parameter messages:    The messages for this stop
     */
-    open func getPredictionsAndMessages(_ closure:@escaping (_ success:Bool, _ predictions:[String : [TransitPrediction]], _ messages:[String]) -> Void) {
+    open func getPredictionsAndMessages(_ completion:@escaping (_ success:Bool, _ predictions:[String : [TransitPrediction]], _ messages:[String]) -> Void) {
         if agencyTag != "" {
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+            connectionHandler.requestStopPredictionData(self.stopTag, onRoute: self.routeTag, withAgency: self.agencyTag, completion: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                 
                 self.predictions = predictions
                 self.messages = messages
                 
-                //Call closure with success, predictions, and message
-                closure(true, predictions, messages)
+                //Call completion with success, predictions, and message
+                completion(true, predictions, messages)
                 
             })
         } else {
             //Stop doesn't exist
-            closure(false, [:], [])
+            completion(false, [:], [])
         }
     }
     
@@ -91,28 +91,28 @@ open class TransitStop:NSObject, NSCoding {
     //MARK: NSCoding
     
     public required init?(coder aDecoder: NSCoder) {
-        routeTitle = aDecoder.decodeObject(forKey: routeTitleEncoderString) as! String
-        routeTag = aDecoder.decodeObject(forKey: routeTagEncoderString) as! String
-        stopTitle = aDecoder.decodeObject(forKey: stopTitleEncoderString) as! String
-        stopTag = aDecoder.decodeObject(forKey: stopTagEncoderString) as! String
-        agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
-        direction = aDecoder.decodeObject(forKey: directionEncoderString) as! String
-        lat = aDecoder.decodeDouble(forKey: latEncoderString)
-        lon = aDecoder.decodeDouble(forKey: lonEncoderString)
-        predictions = aDecoder.decodeObject(forKey: predictionsEncoderString) as! [String : [TransitPrediction]]
-        messages = aDecoder.decodeObject(forKey: messagesEncoderString) as! [String]
+        self.routeTitle = aDecoder.decodeObject(forKey: routeTitleEncoderString) as! String
+        self.routeTag = aDecoder.decodeObject(forKey: routeTagEncoderString) as! String
+        self.stopTitle = aDecoder.decodeObject(forKey: stopTitleEncoderString) as! String
+        self.stopTag = aDecoder.decodeObject(forKey: stopTagEncoderString) as! String
+        self.agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
+        self.direction = aDecoder.decodeObject(forKey: directionEncoderString) as! String
+        self.lat = aDecoder.decodeDouble(forKey: latEncoderString)
+        self.lon = aDecoder.decodeDouble(forKey: lonEncoderString)
+        self.predictions = aDecoder.decodeObject(forKey: predictionsEncoderString) as! [String : [TransitPrediction]]
+        self.messages = aDecoder.decodeObject(forKey: messagesEncoderString) as! [String]
     }
     
     open func encode(with aCoder: NSCoder) {
-        aCoder.encode(routeTitle, forKey: routeTitleEncoderString)
-        aCoder.encode(routeTag, forKey: routeTagEncoderString)
-        aCoder.encode(stopTitle, forKey: stopTitleEncoderString)
-        aCoder.encode(stopTag, forKey: stopTagEncoderString)
-        aCoder.encode(agencyTag, forKey: agencyTagEncoderString)
-        aCoder.encode(direction, forKey: directionEncoderString)
-        aCoder.encode(lat, forKey: latEncoderString)
-        aCoder.encode(lon, forKey: lonEncoderString)
-        aCoder.encode(predictions, forKey: predictionsEncoderString)
-        aCoder.encode(messages, forKey: messagesEncoderString)
+        aCoder.encode(self.routeTitle, forKey: routeTitleEncoderString)
+        aCoder.encode(self.routeTag, forKey: routeTagEncoderString)
+        aCoder.encode(self.stopTitle, forKey: stopTitleEncoderString)
+        aCoder.encode(self.stopTag, forKey: stopTagEncoderString)
+        aCoder.encode(self.agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encode(self.direction, forKey: directionEncoderString)
+        aCoder.encode(self.lat, forKey: latEncoderString)
+        aCoder.encode(self.lon, forKey: lonEncoderString)
+        aCoder.encode(self.predictions, forKey: predictionsEncoderString)
+        aCoder.encode(self.messages, forKey: messagesEncoderString)
     }
 }

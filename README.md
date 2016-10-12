@@ -32,7 +32,7 @@ SwiftBus manages everything for you, so you can focus on making your app great. 
 
 For example, if you wanted to get a list of routes for a certain agency, you'd do this:
 ```
-SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+SwiftBus.sharedController.routesForAgency("sf-muni", completion: {(agencyRoutes:[String : TransitRoute]) -> Void in
     for route in agencyRoutes.values {
         print("Route title: " + route.routeTitle)
     }
@@ -41,7 +41,7 @@ SwiftBus.sharedController.routesForAgency("sf-muni", closure: {(agencyRoutes:[St
 
 Or if you wanted to get a list of vehicle locations for a certain route:
 ```
-SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", closure:{(route:TransitRoute?) -> Void in
+SwiftBus.sharedController.vehicleLocationsForRoute("N", forAgency: "sf-muni", completion:{(route:TransitRoute?) -> Void in
     if let transitRoute = route as TransitRoute! {
         print("\(transitRoute.vehiclesOnRoute.count) vehicles on route N Judah\n")
     }
@@ -52,26 +52,26 @@ SwiftBus's usefulness shows itself here. If you tried to get the vehicle locatio
 
 Here's a list of all the calls you can make through the SwiftBus singleton:
 ```
-public func transitAgencies(closure: (agencies:[String : TransitAgency]) -> Void)
+public func transitAgencies(completion: (agencies:[String : TransitAgency]) -> Void)
 
-public func routesForAgency(agencyTag: String, closure: (agency:TransitAgency?) -> Void)
+public func routesForAgency(agencyTag: String, completion: (agency:TransitAgency?) -> Void)
 
-public func configurationForMultipleRoutes(routeTags: [String], forAgency agencyTag:String, closure:(routes:[String : TransitRoute]) -> Void)
+public func configurationForMultipleRoutes(routeTags: [String], forAgency agencyTag:String, completion:(routes:[String : TransitRoute]) -> Void)
 
-public func routesForAgency(agencyTag: String, closure: (routes:[String : TransitRoute] -> Void)
+public func routesForAgency(agencyTag: String, completion: (routes:[String : TransitRoute] -> Void)
 
-public func routeConfiguration(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void)
+public func routeConfiguration(routeTag: String, forAgency agencyTag: String, completion:(route: TransitRoute?) -> Void)
 
-public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, closure:(route: TransitRoute?) -> Void)
+public func vehicleLocationsForRoute(routeTag: String, forAgency agencyTag: String, completion:(route: TransitRoute?) -> Void)
 
-public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: (station: TransitStation?) -> Void)
+public func stationPredictions(stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, completion: (station: TransitStation?) -> Void)
 
-public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: (stop: TransitStop?) -> Void)
+public func stopPredictions(stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, completion: (stop: TransitStop?) -> Void)
 ```
 
 You don't have to deal with the SwiftBus singleton, though, if you don't want to. You can make these calls through the various Transit* objects included in SwiftBus. For example, you could get stop predictions by calling the singleton like this:
 ```
-SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", closure: {(route:TransitStop?) -> Void in
+SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-muni", completion: {(route:TransitStop?) -> Void in
     ...
 })
 ```
@@ -79,7 +79,7 @@ SwiftBus.sharedController.stopPredictions("3909", onRoute: "N", withAgency: "sf-
 Or like this:
 ```
 var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
-route.getStopPredictionsForStop("3909", closure: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
+route.getStopPredictionsForStop("3909", completion: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
     ...
 })
 ```

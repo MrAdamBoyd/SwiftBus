@@ -38,17 +38,17 @@ open class TransitPrediction: NSObject, NSCoding {
     
     //MARK : NSCoding
     public required init(coder aDecoder: NSCoder) {
-        numberOfVehicles = aDecoder.decodeObject(forKey: numberOfVehiclesEncoderString) as! Int
-        predictionInMinutes = aDecoder.decodeObject(forKey: predictionInMinutesEncoderString) as! Int
-        predictionInSeconds = aDecoder.decodeObject(forKey: predictionInSecondsEncoderString) as! Int
-        vehicleTag = aDecoder.decodeObject(forKey: vehicleTagEncoderString) as! Int
+        self.numberOfVehicles = aDecoder.decodeObject(forKey: numberOfVehiclesEncoderString) as! Int
+        self.predictionInMinutes = aDecoder.decodeObject(forKey: predictionInMinutesEncoderString) as! Int
+        self.predictionInSeconds = aDecoder.decodeObject(forKey: predictionInSecondsEncoderString) as! Int
+        self.vehicleTag = aDecoder.decodeObject(forKey: vehicleTagEncoderString) as! Int
     }
     
     open func encode(with aCoder: NSCoder) {
-        aCoder.encode(numberOfVehicles, forKey: numberOfVehiclesEncoderString)
-        aCoder.encode(predictionInMinutes, forKey: predictionInMinutesEncoderString)
-        aCoder.encode(predictionInSeconds, forKey: predictionInSecondsEncoderString)
-        aCoder.encode(vehicleTag, forKey: vehicleTagEncoderString)
+        aCoder.encode(self.numberOfVehicles, forKey: numberOfVehiclesEncoderString)
+        aCoder.encode(self.predictionInMinutes, forKey: predictionInMinutesEncoderString)
+        aCoder.encode(self.predictionInSeconds, forKey: predictionInSecondsEncoderString)
+        aCoder.encode(self.vehicleTag, forKey: vehicleTagEncoderString)
     }
     
 }

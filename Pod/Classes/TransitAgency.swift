@@ -39,16 +39,16 @@ open class TransitAgency: NSObject, NSCoding {
     /**
     Downloads all agency data from provided agencytag
     
-    - parameter closure:    Code that is called when the data is finished loading
+    - parameter completion:    Code that is called when the data is finished loading
         - parameter success:    Whether or not the call was successful
         - parameter agency:     The agency when the data is loaded
     */
-    open func getAgencyAndRoutes(_ closure:@escaping (_ success:Bool, _ agency:TransitAgency) -> Void) {
+    open func download(_ completion: ((_ success: Bool, _ agency: TransitAgency) -> Void)?) {
         //We need to load the transit agency data
         let connectionHandler = SwiftBusConnectionHandler()
         
         //Need to request agency data first because only this call has the region and full name
-        connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
+        connectionHandler.requestAllAgencies() { agencies in
             
             //Getting the current agency
             if let thisAgency = agencies[self.agencyTag] {
@@ -56,35 +56,35 @@ open class TransitAgency: NSObject, NSCoding {
                 self.agencyShortTitle = thisAgency.agencyShortTitle
                 self.agencyRegion = thisAgency.agencyRegion
                 
-                connectionHandler.requestAllRouteData(self.agencyTag, closure: {(newAgencyRoutes:[String : TransitRoute]) -> Void in
+                connectionHandler.requestAllRouteData(self.agencyTag) { (newAgencyRoutes: [String: TransitRoute])  in
                     self.agencyRoutes = newAgencyRoutes
                     
-                    closure(true, self)
+                    completion?(true, self)
                     
-                })
+                }
                 
             } else {
                 //This agency doesn't exist
-                closure(false, self)
+                completion?(false, self)
             }
-        })
+        }
     }
 
     //MARK : NSCoding
     
     required public init(coder aDecoder: NSCoder) {
-        agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
-        agencyTitle = aDecoder.decodeObject(forKey: agencyTitleEncoderString) as! String
-        agencyShortTitle = aDecoder.decodeObject(forKey: agencyShortTitleEncoderString) as! String
-        agencyRegion = aDecoder.decodeObject(forKey: agencyRegionEncoderString) as! String
-        agencyRoutes = aDecoder.decodeObject(forKey: agencyRoutesEncoderString) as! [String : TransitRoute]
+        self.agencyTag = aDecoder.decodeObject(forKey: agencyTagEncoderString) as! String
+        self.agencyTitle = aDecoder.decodeObject(forKey: agencyTitleEncoderString) as! String
+        self.agencyShortTitle = aDecoder.decodeObject(forKey: agencyShortTitleEncoderString) as! String
+        self.agencyRegion = aDecoder.decodeObject(forKey: agencyRegionEncoderString) as! String
+        self.agencyRoutes = aDecoder.decodeObject(forKey: agencyRoutesEncoderString) as! [String : TransitRoute]
     }
     
     open func encode(with aCoder: NSCoder) {
-        aCoder.encode(agencyTag, forKey: agencyTagEncoderString)
-        aCoder.encode(agencyTitle, forKey: agencyTitleEncoderString)
-        aCoder.encode(agencyShortTitle, forKey: agencyShortTitleEncoderString)
-        aCoder.encode(agencyRegion, forKey: agencyRegionEncoderString)
-        aCoder.encode(agencyRoutes, forKey: agencyRoutesEncoderString)
+        aCoder.encode(self.agencyTag, forKey: agencyTagEncoderString)
+        aCoder.encode(self.agencyTitle, forKey: agencyTitleEncoderString)
+        aCoder.encode(self.agencyShortTitle, forKey: agencyShortTitleEncoderString)
+        aCoder.encode(self.agencyRegion, forKey: agencyRegionEncoderString)
+        aCoder.encode(self.agencyRoutes, forKey: agencyRoutesEncoderString)
     }
 }

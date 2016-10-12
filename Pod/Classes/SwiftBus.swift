@@ -16,9 +16,10 @@
 import Foundation
 
 open class SwiftBus {
+    
     open static let shared = SwiftBus()
     
-    fileprivate var masterListTransitAgencies:[String : TransitAgency] = [:]
+    fileprivate var masterListTransitAgencies: [String: TransitAgency] = [:]
     
     fileprivate init() { }
     
@@ -39,13 +40,13 @@ open class SwiftBus {
     agencies.keys.array will return a list of the keys used
     agencies.values.array will return a list of TransitAgencies
     
-    - parameter closure: Code that is called after the dictionary of agencies has loaded
+    - parameter completion: Code that is called after the dictionary of agencies has loaded
         - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
-    open func transitAgencies(_ closure: @escaping (_ agencies:[String : TransitAgency]) -> Void) {
+    open func transitAgencies(_ completion: ((_ agencies: [String: TransitAgency]) -> Void)?) {
         
-        if masterListTransitAgencies.count > 0 {
-            closure(masterListTransitAgencies)
+        if self.masterListTransitAgencies.count > 0 {
+            completion?(self.masterListTransitAgencies)
             
         } else {
             //We need to load the transit agency data
@@ -54,33 +55,50 @@ open class SwiftBus {
                 //Insert this closure around the inner one because the agencies need to be saved
                 self.masterListTransitAgencies = agencies
 
-                closure(agencies)
+                completion?(agencies)
             })
             
         }
     }
     
     /**
+     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
+     
+     - parameter agency:       Agency object
+     - parameter completion:   Code that is called after everything has loaded
+        - parameter agency:    Optional TransitAgency object that contains the routes
+     */
+    open func configuration(forAgency agency: TransitAgency?, completion: ((_ agency: TransitAgency?) -> Void)?) {
+        self.configuration(forAgencyTag: agency?.agencyTag, completion: completion)
+    }
+    
+    /**
     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
     
-    - parameter agencyTag: Tag of the agency
-    - parameter closure:   Code that is called after everything has loaded
-        - parameter agency:  Optional TransitAgency object that contains the routes
+    - parameter agency:       Agency object
+    - parameter completion:   Code that is called after everything has loaded
+        - parameter agency:   Optional TransitAgency object that contains the routes
     */
-    open func routesForAgency(_ agencyTag: String, closure: @escaping (_ agency:TransitAgency?) -> Void) {
+    open func configuration(forAgencyTag agencyTag: String?, completion: ((_ agency: TransitAgency?) -> Void)?) {
+        
+        guard let agencyTag = agencyTag else {
+            //If the agency tag doesn't exist, exit early
+            completion?(nil)
+            return
+        }
         
         //Getting all the agencies
-        transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
+        self.transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
             
             guard let currentAgency = innerAgencies[agencyTag] else {
                 //The agency doesn't exist, return an empty dictionary
-                closure(nil)
+                completion?(nil)
                 return
             }
                 
             //The agency exists & we need to load the transit agency data
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestAllRouteData(agencyTag, closure: {(agencyRoutes:[String : TransitRoute]) -> Void in
+            connectionHandler.requestAllRouteData(agencyTag, completion: {(agencyRoutes:[String : TransitRoute]) -> Void in
                 
                 //Adding the agency to the route
                 for route in agencyRoutes.values {
@@ -91,30 +109,54 @@ open class SwiftBus {
                 currentAgency.agencyRoutes = agencyRoutes
                 
                 //Return the transitRoutes for the agency
-                closure(currentAgency)
+                completion?(currentAgency)
             })
         })
 
     }
     
     /**
+     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
+     
+     - parameter agencyTag:    the transit agency that this will download the routes for
+     - parameter completion:   Code that is called after all the data has loaded
+        - parameter routes:    Dictionary of routeTags to TransitRoute objects
+     */
+    open func routes(forAgency agency: TransitAgency?, completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
+        self.routes(forAgencyTag: agency?.agencyTag, completion: completion)
+    }
+    
+    /**
     Gets the TransitRoutes for a particular agency. If the list of agencies hasn't been downloaded, this functions gets them first
     
     - parameter agencyTag: the transit agency that this will download the routes for
-    - parameter closure:   Code that is called after all the data has loaded
+    - parameter completion:   Code that is called after all the data has loaded
         - parameter routes:  Dictionary of routeTags to TransitRoute objects
     */
-    open func routesForAgency(_ agencyTag: String, closure: @escaping (_ routes:[String : TransitRoute]) -> Void) {
-        routesForAgency(agencyTag, closure: {(agency:TransitAgency?) -> Void in
+    open func routes(forAgencyTag agencyTag: String?, completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
+        
+        self.configuration(forAgencyTag: agencyTag) { agency in
             
             guard let currentAgency = agency else {
                 //The agency doesn't exist, return an empty dictionary
-                closure([:])
+                completion?([:])
                 return
             }
             
-            closure(currentAgency.agencyRoutes)
-        })
+            completion?(currentAgency.agencyRoutes)
+        }
+    }
+    
+    /**
+     Gets the TransitStop object that contains a list of TransitStops in each direction and the location of each of those stops
+     
+     - parameter route:        TransitRoute object to download information for
+     - parameter completion:   the code that gets called after the data is loaded
+        - parameter route:     TransitRoute object that contains the configuration requested
+     */
+
+    open func configuration(forRoute route: TransitRoute?, completion: ((_ route: TransitRoute?) -> Void)?) {
+        self.configuration(forRouteTag: route?.routeTag, withAgencyTag: route?.agencyTag, completion: completion)
     }
     
     /**
@@ -122,23 +164,29 @@ open class SwiftBus {
     
     - parameter routeTag:  the route that is being looked up
     - parameter agencyTag: the agency for which the route is being looked up
-    - parameter closure:   the code that gets called after the data is loaded
+    - parameter completion:   the code that gets called after the data is loaded
         - parameter route:   TransitRoute object that contains the configuration requested
     */
-    open func routeConfiguration(_ routeTag: String, forAgency agencyTag: String, closure:@escaping (_ route: TransitRoute?) -> Void) {
+    open func configuration(forRouteTag routeTag: String?, withAgencyTag agencyTag: String?, completion: ((_ route: TransitRoute?) -> Void)?) {
+        
+        //Making sure the route and agency aren't nil
+        guard let routeTag = routeTag, let agencyTag = agencyTag else {
+            completion?(nil)
+            return
+        }
         
         //Getting all the routes for the agency
-        routesForAgency(agencyTag, closure: {(transitRoutes:[String : TransitRoute]) -> Void in
+        self.routes(forAgencyTag: agencyTag) { transitRoutes in
             
             guard transitRoutes[routeTag] != nil else {
                 //If the route doesn't exist, return nil
-                closure(nil)
+                completion?(nil)
                 return
             }
             
             //If the route exists, get the route configuration
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+            connectionHandler.requestRouteConfiguration(routeTag, fromAgency: agencyTag, completion: {(route:TransitRoute?) -> Void in
                 
                 //If there were no problems getting the route
                 if let transitRoute = route as TransitRoute! {
@@ -153,47 +201,95 @@ open class SwiftBus {
                     self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
                     
                     //Call the closure
-                    closure(transitRoute)
+                    completion?(transitRoute)
                     
                 } else {
                     //There was a problem, return nil
-                    closure(nil)
+                    completion?(nil)
                 }
             })
             
-        })
+        }
     }
     
     /**
-    Gets the route configuration for all routeTags provided. All routes must come from the same agency
+     Gets the route configuration for all routes
+     
+     - parameter routes:        routes to get the configuration for. Do not have to be in the same agency
+     - parameter completion:   the code that gets called after all routes have been loaded
+     - parameter routes: dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
+     */
+    open func configurations(forMultipleRoutes routes: [TransitRoute?], completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
+        let routeTags = routes.flatMap({ $0?.routeTag })
+        let agencyTags = routes.flatMap({ $0?.agencyTag })
+        self.configurations(forMultipleRouteTags: routeTags, withAgencies: agencyTags, completion: completion)
+    }
     
-    - parameter routeTags: array of routes that will be looked up
-    - parameter agencyTag: the agency for which the route is being looked up
-    - parameter closure:   the code that gets called after all routes have been loaded
-        - parameter routes: dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
-    */
-    open func configurationForMultipleRoutes(_ routeTags: [String], forAgency agencyTag:String, closure:@escaping (_ routes:[String : TransitRoute]) -> Void) {
+    
+    /**
+     Gets the route configuration for all routeTags provided. All routes must come from the same agency
+     
+     - parameter routeTags: array of routes that will be looked up.
+     - parameter agencyTag: the agency for which the route is being looked up
+     - parameter completion:   the code that gets called after all routes have been loaded
+     - parameter routes: dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
+     */
+    open func configurations(forMultipleRouteTags routeTags: [String], withAgencyTag agencyTag: String, completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
+        var agencies: [String] = []
+        for route in routeTags {
+            agencies.append(agencyTag)
+        }
+        
+        self.configurations(forMultipleRouteTags: routeTags, withAgencies: agencies, completion: completion)
+    }
+    
+    /**
+     Gets the route configuration for all routeTags provided.
+     
+     - parameter routeTags:     array of routes that will be looked up. Must match 1:1 to agencyTags
+     - parameter agencyTags:    array of agencies. Must match routes 1:1
+     - parameter completion:    the code that gets called after all routes have been loaded
+     - parameter routes:        dictionary of TransitRoute objects. Objects can be accessed with routes[routeTag]
+     */
+    open func configurations(forMultipleRouteTags routeTags: [String], withAgencies agencies: [String], completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
+        //Number of routes needs to equal number of agencies
+        guard routeTags.count == agencies.count else {
+            completion?([:])
+            return
+        }
+        
         var routesLoaded = 0
-        var routeDictionary:[String : TransitRoute] = [:]
+        var routeDictionary: [String : TransitRoute] = [:]
         
         //Going through each route tag
-        for routeTag in routeTags {
+        for (index, routeTag) in routeTags.enumerated() {
             
             //Getting the route configuration
-            routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route: TransitRoute?) -> Void in
+            self.configuration(forRouteTag: routeTag, withAgencyTag: agencies[index]) { route in
                 
                 //The route exists
                 if let transitRoute = route {
                     routeDictionary[routeTag] = transitRoute
                     routesLoaded += 1
                     
-                    //We have loaded all the routes, call the closure
+                    //We have loaded all the routes, call the completion
                     if routesLoaded == routeTags.count {
-                        closure(routeDictionary)
+                        completion?(routeDictionary)
                     }
                 }
-            })
+            }
         }
+    }
+    
+    /**
+     Gets the vehicle locations for a particular route
+     
+     - parameter route:         Route to get locations for
+     - parameter completion:    Code that gets called after the call has completed
+     - parameter route:         Optional TransitRoute object that contains the vehicle locations
+     */
+    open func vehicleLocations(forRoute route: TransitRoute?, completion: ((_ route: TransitRoute?) -> Void)?) {
+        self.vehicleLocations(forRouteTag: route?.routeTag, forAgency: route?.agencyTag, completion: completion)
     }
     
     /**
@@ -201,23 +297,28 @@ open class SwiftBus {
     
     - parameter routeTag:  Tag of the route we are looking at
     - parameter agencyTag: Tag of the agency where the line is
-    - parameter closure:   Code that gets called after the call has completed
+    - parameter completion:   Code that gets called after the call has completed
         - parameter route:   Optional TransitRoute object that contains the vehicle locations
     */
-    open func vehicleLocationsForRoute(_ routeTag: String, forAgency agencyTag: String, closure:@escaping (_ route: TransitRoute?) -> Void) {
+    open func vehicleLocations(forRouteTag routeTag: String?, forAgency agencyTag: String?, completion: ((_ route: TransitRoute?) -> Void)?) {
+        
+        guard let routeTag = routeTag, let agencyTag = agencyTag else {
+            completion?(nil)
+            return
+        }
         
         //Getting the route configuration for the route
-        routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+        self.configuration(forRouteTag: routeTag, withAgencyTag: agencyTag) { route in
             
             guard let currentRoute = route as TransitRoute! else {
                 //There's been a problem, return nil
-                closure(nil)
+                completion?(nil)
                 return
             }
                 
             //Get the route configuration
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, closure:{(locations: [String : [TransitVehicle]]) -> Void in
+            connectionHandler.requestVehicleLocationData(onRoute: routeTag, withAgency: agencyTag, completion:{(locations: [String : [TransitVehicle]]) -> Void in
                 
                 currentRoute.vehiclesOnRoute = []
                 
@@ -225,11 +326,19 @@ open class SwiftBus {
                     currentRoute.vehiclesOnRoute += vehiclesInDirection
                 }
                 
-                closure(currentRoute)
+                completion?(currentRoute)
                 
             })
                 
-        })
+        }
+    }
+    
+    open func stationPredictions(forStop stop: TransitStop?, forRoutes routes: [TransitRoute?], completion: ((_ station: TransitStation?) -> Void)?) {
+        guard let stop = stop else {
+            completion?(nil)
+            return
+        }
+        self.stationPredictions(forStopTag: stop.stopTag, forRoutes: routes.flatMap({ $0?.routeTag }), withAgencyTag: stop.agencyTag, completion: completion)
     }
     
     /**
@@ -238,13 +347,13 @@ open class SwiftBus {
     - parameter stopTag:   Tag of the stop
     - parameter routeTags: Tags of the routes that serve the stop
     - parameter agencyTag: Tag of the agency
-    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+    - parameter completion:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStation that contains the predictions
     */
-    open func stationPredictions(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, closure: @escaping (_ station: TransitStation?) -> Void) {
+    open func stationPredictions(forStopTag stopTag: String, forRoutes routeTags: [String], withAgencyTag agencyTag: String, completion: ((_ station: TransitStation?) -> Void)?) {
         
         //Getting the configuration for all routes
-        configurationForMultipleRoutes(routeTags, forAgency: agencyTag) { routes in
+        self.configurations(forMultipleRouteTags: routeTags, withAgencyTag: agencyTag) { routes in
             
             //Only use the routes that exist
             let existingRouteTags = Array(routes.keys)
@@ -258,20 +367,24 @@ open class SwiftBus {
                 currentStation.stopTag = stopTag
                 currentStation.agencyTag = agencyTag
                 currentStation.routesAtStation = Array(routes.values)
-                currentStation.stopTitle = existingRoutes[0].getStopForTag(stopTag)!.stopTitle //Safe, we know all these exist
+                currentStation.stopTitle = existingRoutes[0].stop(forTag: stopTag)!.stopTitle //Safe, we know all these exist
                 currentStation.predictions = predictions
 
                 //Saving the predictions in the TransitStop objects for all TransitRoutes
                 for route in routes.values {
-                    if let stop = route.getStopForTag(stopTag) {
+                    if let stop = route.stop(forTag: stopTag) {
                         stop.predictions = predictions[route.routeTag]!
                     }
                 }
                 
-                closure(currentStation)
+                completion?(currentStation)
             }
             
         }
+    }
+    
+    open func stopPredictions(forStop stop: TransitStop?, completion: ((_ stop: TransitStop?) -> Void)?) {
+        self.stopPredictions(forStopTag: stop?.stopTag, onRouteTag: stop?.routeTag, withAgencyTag: stop?.agencyTag, completion: completion)
     }
     
     /**
@@ -280,37 +393,43 @@ open class SwiftBus {
     - parameter stopTag:   Tag of the stop
     - parameter routeTag:  Tag of the route
     - parameter agencyTag: Tag of the agency
-    - parameter closure:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
+    - parameter completion:   Code that is called after the result is gotten, route will be nil if stop doesn't exist
         - parameter stop:    Optional TransitStop object that contains the predictions
     */
-    open func stopPredictions(_ stopTag: String, onRoute routeTag: String, withAgency agencyTag: String, closure: @escaping (_ stop: TransitStop?) -> Void) {
+    open func stopPredictions(forStopTag stopTag: String?, onRouteTag routeTag: String?, withAgencyTag agencyTag: String?, completion: ((_ stop: TransitStop?) -> Void)?) {
+        
+        guard let stopTag = stopTag, let routeTag = routeTag, let agencyTag = agencyTag else {
+            completion?(nil)
+            return
+        }
         
         //Getting the route configuration for the route
-        routeConfiguration(routeTag, forAgency: agencyTag, closure: {(route:TransitRoute?) -> Void in
+        self.configuration(forRouteTag: routeTag, withAgencyTag: agencyTag) { route in
+        
             if let currentRoute = route as TransitRoute! {
-                guard let currentStop = currentRoute.getStopForTag(stopTag) else {
+                guard let currentStop = currentRoute.stop(forTag: stopTag) else {
                     //This stop isn't in the route that was provided
-                    closure(nil)
+                    completion?(nil)
                     return
                 }
                 
                 //Get the route configuration
                 let connectionHandler = SwiftBusConnectionHandler()
-                connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, closure: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
+                connectionHandler.requestStopPredictionData(stopTag, onRoute: routeTag, withAgency: agencyTag, completion: {(predictions:[String : [TransitPrediction]], messages:[String]) -> Void in
                     
                     currentStop.predictions = predictions
                     currentStop.messages = messages
                     
                     //Call the closure
-                    closure(currentStop)
+                    completion?(currentStop)
                     
                 })
                     
             } else {
                 //There's been a problem, return nil
-                closure(nil)
+                completion?(nil)
             }
-        })
+        }
     }
     
     /**

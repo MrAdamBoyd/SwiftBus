@@ -43,7 +43,7 @@ class SwiftBusTests: XCTestCase {
     }
     
     func testRouteGetStop() {
-        if let _ = route.getStopForTag("3909") {
+        if let _ = route.stop(forTag: "3909") {
             XCTAssert(true, "Stop is gotten properly")
         } else {
             XCTAssert(false, "Stop is not gotten properly")
