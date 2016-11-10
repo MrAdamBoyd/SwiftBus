@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func agencyListTouched(_ sender: AnyObject) {
-        SwiftBus.shared.transitAgencies({(agencies:[String : TransitAgency]) -> Void in
+        SwiftBus.shared.transitAgencies() { (agencies: [String: TransitAgency]) -> Void in
             let agenciesString = "Number of agencies loaded: \(agencies.count)"
             let agencyNamesString = agencies.map({_, agency in "\(agency.agencyTitle)"})
             
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             print(agencyNamesString)
             
             self.showAlertControllerWithTitle(agenciesString, message: "\(agencyNamesString)")
-        })
+        }
     }
 
     
