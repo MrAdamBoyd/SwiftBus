@@ -7,68 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A47B990F4A93C4FD5936043AF9B316E /* SwiftBus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C3ED1DF7590D7E172F2369380488503 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */; };
-		0C99DE0B07AC4D0E072B187245736633 /* SWXMLHash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 484CFEFA68C1936A86ED7E58BC2C6786 /* SWXMLHash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2648410D30354DDF9BCB7C095D3A2B5A /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */; };
-		2C339C0DE0EB9AB4AC326678049FBBB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */; };
-		2D107065F1AB15FF88D1E6B6E0E6757A /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */; };
-		3731108BE648A677964FFBCE17382F3B /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */; };
-		40E96146A2070D3B8409A59F1DFAE1AB /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CD1AB1240AF8AA1700285AE6D3C711 /* TransitAgency.swift */; };
-		4BCFBC009094B084ED8E021C7719F3BF /* SwiftBus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */; };
-		63013F264B9B853DDDFB7D121652A7D1 /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */; };
-		649A3D5530DD4AE8295419A1BA69ED01 /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */; };
-		69BF811CCFD9379CF552C50AE9898A60 /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E859FADC054282770648947BD373A41 /* SwiftBus.swift */; };
-		7534341C7F2190231F0239F20B5B34C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */; };
-		846E3F5DF6384F5DD1955093BF6D1334 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */; };
-		88B1A2E76C6AC714C07A44B0C9B4A98C /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C4914E5092433E5FC5B12605CFED16 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93499882B6AC680058AC010FBAE95D75 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */; };
-		A2DEECFEB999E4FCE691867D963F0A68 /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F44A5AACA56B9CE80E23A3FD961037 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA33B148F8304B40645EA71BB54869EA /* SwiftBusDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE600DBDBC2762B853BB602997B0A7C9 /* SwiftBusDataParser.swift */; };
-		AC8E74D4F4CDF7671447C9F52D711CED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */; };
-		B51A09B0ADEA83E08E128E94EF1D3331 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */; };
-		C177BBC7397B63B9A4AB80F21D1C53FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */; };
-		CFD93C13A9C61B9215DE0D9F228C3399 /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CB946F9A84D5E5DF98B09158B00548 /* Pods-SwiftBus_Example-dummy.m */; };
-		D4EB63F19B8996CFAC7AD587CFAB1831 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574617B4035C6DE4A00CD3BF170966C /* TransitStation.swift */; };
-		D512131D3B50FB06051413779513B088 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20E0EFCD58CD4F8F60EADECD2D9EE95 /* TransitPrediction.swift */; };
-		E5F136228D8DCCBA478CB1B84387C079 /* SWXMLHash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */; };
-		F57E1F1737B5DCB12155C5462089DFE2 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */; };
+		0F469F75A7D2C703E3AB1044A5094DC0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */; };
+		2223E829B84A1AAD9295E9C5E5BA01F9 /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */; };
+		2235278EC052D58725BA37C2039614AF /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CD1AB1240AF8AA1700285AE6D3C711 /* TransitAgency.swift */; };
+		45969CB1D614607EB8F45527E6A38F75 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574617B4035C6DE4A00CD3BF170966C /* TransitStation.swift */; };
+		4CEAC86B230B0480637136901880BA76 /* SwiftBusDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE600DBDBC2762B853BB602997B0A7C9 /* SwiftBusDataParser.swift */; };
+		58A6DD099644C92CFE6A77AE0B1597F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
+		5D78E5DCE77823CE141A2931C2DA9E0D /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */; };
+		5FA3651A177055352661B9FA1BBFB54B /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */; };
+		605224073A01D89D44B8505A7D2D3ED1 /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E859FADC054282770648947BD373A41 /* SwiftBus.swift */; };
+		6380E90A84A3EB13C5465096488CBEEA /* SWXMLHash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */; };
+		68D425450F80F9673154FAB7C20E0684 /* SwiftBus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */; };
+		6C46372428E162111E66F2547394CF15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
+		6D200F1B154BC927AB248477725BF8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
+		763E5EC92712C4801C1181012337128C /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */; };
+		822808725E0FB870D33BB9EAA663E914 /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */; };
+		8B48387973C283743F7DB7AC8A9ACA90 /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CB946F9A84D5E5DF98B09158B00548 /* Pods-SwiftBus_Example-dummy.m */; };
+		AC153163A498B5082509921E57999797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
+		C0CDC2306376E1B55F2036D385BF5C4E /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */; };
+		CA5081074628E634F86E13C5028D08AC /* SWXMLHash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 484CFEFA68C1936A86ED7E58BC2C6786 /* SWXMLHash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE3A604CEF2A1FA233A2BDA8842F4548 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */; };
+		D61A1D5D1A35C1A6C74B00F569782074 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20E0EFCD58CD4F8F60EADECD2D9EE95 /* TransitPrediction.swift */; };
+		D75C365E4890B5D4F75952E2F99070FF /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */; };
+		E73EB5AFBA76E305526DA9DC7E9C447D /* SwiftBus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECA1F143790F4D8615873D16BB4F76E4 /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F44A5AACA56B9CE80E23A3FD961037 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED5D61DDE365841BD7B86A5BB6B72522 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */; };
+		F4A76ADFA37E410A985ABB04787584DC /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C4914E5092433E5FC5B12605CFED16 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		047C6A65639523FFCDBA7C3F081953E1 /* PBXContainerItemProxy */ = {
+		0D2B28220368167134CC6B5D5931D1B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 29EF31D8F5490F988DA3ED509908A18B;
+			remoteGlobalIDString = 485D05AE236754DDE9C52023DC897E53;
 			remoteInfo = SwiftBus;
 		};
-		24628F1507DC853CC81E220609587E3E /* PBXContainerItemProxy */ = {
+		11261AEEC0686EB1CC9FD7225C09C4DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CB8BDCAC5B491E3851FE14276AFBA5DD;
+			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
 			remoteInfo = SWXMLHash;
 		};
-		6082CEB41AC91B10A22BBA2299DF3212 /* PBXContainerItemProxy */ = {
+		74D2B84E113418DC2210D6A1DFEFB4C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 29EF31D8F5490F988DA3ED509908A18B;
+			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
+			remoteInfo = SWXMLHash;
+		};
+		78C411F266D3E2392FD226EE266F8FAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 485D05AE236754DDE9C52023DC897E53;
 			remoteInfo = SwiftBus;
 		};
-		936877940A3ACA9239D2940F317E787D /* PBXContainerItemProxy */ = {
+		FF6DBADF1A2D53E62ECC2DE4E39A5DF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CB8BDCAC5B491E3851FE14276AFBA5DD;
-			remoteInfo = SWXMLHash;
-		};
-		B923B3665AC05ABA3371080B5AF77ABA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB8BDCAC5B491E3851FE14276AFBA5DD;
+			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
 			remoteInfo = SWXMLHash;
 		};
 /* End PBXContainerItemProxy section */
@@ -76,21 +76,20 @@
 /* Begin PBXFileReference section */
 		010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftBus-dummy.m"; sourceTree = "<group>"; };
 		0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
-		09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftBus_Example.framework; path = "Pods-SwiftBus_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Tests-dummy.m"; sourceTree = "<group>"; };
 		10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-umbrella.h"; sourceTree = "<group>"; };
 		1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = Source/SWXMLHash.swift; sourceTree = "<group>"; };
-		204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Example.modulemap"; sourceTree = "<group>"; };
+		204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWXMLHash.framework; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwiftBus_Example.modulemap"; sourceTree = "<group>"; };
 		2E859FADC054282770648947BD373A41 /* SwiftBus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBus.swift; sourceTree = "<group>"; };
-		2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftBus.framework; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusRequestURLs.swift; sourceTree = "<group>"; };
-		3A14946936D6A7603C8CBF1950CAF504 /* SwiftBus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftBus.modulemap; sourceTree = "<group>"; };
+		3A14946936D6A7603C8CBF1950CAF504 /* SwiftBus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftBus.modulemap; sourceTree = "<group>"; };
 		3BA7835764604087511CDD00D3D1494B /* Pods-SwiftBus_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		3EF5FD201E03469AC1BB283C38ED9767 /* Pods-SwiftBus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		46C7A1872718FD01D1AD6AD5646B3520 /* Pods-SwiftBus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -104,9 +103,9 @@
 		7615EAF5E798BEC4636465CF109E9064 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7621D5E8355F9D7E66DF49EBEDF55046 /* Pods-SwiftBus_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-resources.sh"; sourceTree = "<group>"; };
 		7B7F26053A54CF0143E9E1D1DC25CF9E /* SWXMLHash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-prefix.pch"; sourceTree = "<group>"; };
-		836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88F63D7150EB7CB2C0CA915A8C8FE68F /* SWXMLHash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SWXMLHash.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftBus_Tests.framework; path = "Pods-SwiftBus_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88F63D7150EB7CB2C0CA915A8C8FE68F /* SWXMLHash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWXMLHash.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9516A4E7CD941FA27211D9F81B9CCCF0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95AD1A715A297C379C160282668EF97F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWXMLHash-dummy.m"; sourceTree = "<group>"; };
@@ -123,42 +122,43 @@
 		DFAFC11E178AA2FC0CEF8130C97853D8 /* Pods-SwiftBus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitVehicle.swift; sourceTree = "<group>"; };
 		EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
+		F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F567173B0154513363EF607C29EE7C01 /* Pods-SwiftBus_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-frameworks.sh"; sourceTree = "<group>"; };
 		F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusConnectionHandler.swift; sourceTree = "<group>"; };
-		F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Tests.modulemap"; sourceTree = "<group>"; };
+		F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwiftBus_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0264C4068E3CD7D41D71C0FE66BC8105 /* Frameworks */ = {
+		0EB3A8849EBD5E3BB2BA7F3CE5AA3BF2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C339C0DE0EB9AB4AC326678049FBBB0 /* Foundation.framework in Frameworks */,
+				58A6DD099644C92CFE6A77AE0B1597F0 /* Foundation.framework in Frameworks */,
+				D75C365E4890B5D4F75952E2F99070FF /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		63E6BF1696C2BE294779A86647C32D30 /* Frameworks */ = {
+		10368174AE9CC3D3CBC44E944F562D81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8E74D4F4CDF7671447C9F52D711CED /* Foundation.framework in Frameworks */,
+				6C46372428E162111E66F2547394CF15 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9E5ED8DA72F3202958C89FDA4C638E68 /* Frameworks */ = {
+		6D98DA111A56D630009BA08B2ABFEC30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7534341C7F2190231F0239F20B5B34C4 /* Foundation.framework in Frameworks */,
-				93499882B6AC680058AC010FBAE95D75 /* SWXMLHash.framework in Frameworks */,
+				AC153163A498B5082509921E57999797 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F827A9A8E153C03E47900ADF5A28B617 /* Frameworks */ = {
+		7F1E2C85ABB3252C6C4B1B3541C5AF0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C177BBC7397B63B9A4AB80F21D1C53FA /* Foundation.framework in Frameworks */,
+				6D200F1B154BC927AB248477725BF8F2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +172,7 @@
 				CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */,
 				2DD94BB51DB72757620960724B88B021 /* Support Files */,
 			);
+			name = SWXMLHash;
 			path = SWXMLHash;
 			sourceTree = "<group>";
 		};
@@ -214,6 +215,7 @@
 				0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */,
 				E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -233,6 +235,7 @@
 			children = (
 				35BBFD1425E245554FD35EF6B9C974F4 /* Classes */,
 			);
+			name = Pod;
 			path = Pod;
 			sourceTree = "<group>";
 		};
@@ -240,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */,
-				D1822BD791F93DE97177E853DE8AF693 /* iOS */,
+				B53121677E33A4A448BC32E7898AF3D0 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -283,6 +286,14 @@
 			path = "Target Support Files/Pods-SwiftBus_Tests";
 			sourceTree = "<group>";
 		};
+		B53121677E33A4A448BC32E7898AF3D0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		CD0F14A5AAB5A804D13FA8EF758B30AB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,14 +306,6 @@
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/SwiftBus";
-			sourceTree = "<group>";
-		};
-		D1822BD791F93DE97177E853DE8AF693 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				2ED01A354E77C084D7F8C4A3DCB4F657 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		DE8CA98822D2E573E698F52805EC3FCB /* Pods-SwiftBus_Example */ = {
@@ -343,104 +346,48 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		78D410B6720E27F667D9478EAB3C823A /* Headers */ = {
+		1FFF5D7DB48D5C7A0C4B82149FA15864 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B1A2E76C6AC714C07A44B0C9B4A98C /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
+				F4A76ADFA37E410A985ABB04787584DC /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE78779C390A62877CE6B51D6FC03BDB /* Headers */ = {
+		78A3BF00924A8EEEFD1729F3DA35FEC3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A47B990F4A93C4FD5936043AF9B316E /* SwiftBus-umbrella.h in Headers */,
+				CA5081074628E634F86E13C5028D08AC /* SWXMLHash-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DF061D8286A754033C7C9328D7330950 /* Headers */ = {
+		A74D91081DC6A85748E139394F751793 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C99DE0B07AC4D0E072B187245736633 /* SWXMLHash-umbrella.h in Headers */,
+				E73EB5AFBA76E305526DA9DC7E9C447D /* SwiftBus-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E3FB0127D8C25F7090513205CF608A66 /* Headers */ = {
+		BA2EF0D0018369C69D9E62B0B5DD24EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2DEECFEB999E4FCE691867D963F0A68 /* Pods-SwiftBus_Example-umbrella.h in Headers */,
+				ECA1F143790F4D8615873D16BB4F76E4 /* Pods-SwiftBus_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		159B29DB62A517C70989AF152E4246E7 /* Pods-SwiftBus_Example */ = {
+		2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60CE6E2C1B1DF5BBCB23024891B81182 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
+			buildConfigurationList = ADA5E55DAFA1F2A2A17A38672B7B344E /* Build configuration list for PBXNativeTarget "SWXMLHash" */;
 			buildPhases = (
-				74AA2B6D30A39A8303AA6A3D87C9E16B /* Sources */,
-				0264C4068E3CD7D41D71C0FE66BC8105 /* Frameworks */,
-				E3FB0127D8C25F7090513205CF608A66 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3A79DB5B003EA02B4B8695B71D12676E /* PBXTargetDependency */,
-				956D3BB3670C979BECF61AD32FF13629 /* PBXTargetDependency */,
-			);
-			name = "Pods-SwiftBus_Example";
-			productName = "Pods-SwiftBus_Example";
-			productReference = 09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		29EF31D8F5490F988DA3ED509908A18B /* SwiftBus */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A764A260FF8B226861A3367E36D9089B /* Build configuration list for PBXNativeTarget "SwiftBus" */;
-			buildPhases = (
-				7BA47F1229FAE57965A7F4468A760368 /* Sources */,
-				9E5ED8DA72F3202958C89FDA4C638E68 /* Frameworks */,
-				DE78779C390A62877CE6B51D6FC03BDB /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1F85645EB6585F0924721125447CADB8 /* PBXTargetDependency */,
-			);
-			name = SwiftBus;
-			productName = SwiftBus;
-			productReference = 3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		525A2D0DA06CE4EC3891B847DB2FC522 /* Pods-SwiftBus_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A44AE1EBB121C14CD9EB7FBBE41BF9A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
-			buildPhases = (
-				1A4F12E4C6A92B73F8CE31454DC2AF0F /* Sources */,
-				F827A9A8E153C03E47900ADF5A28B617 /* Frameworks */,
-				78D410B6720E27F667D9478EAB3C823A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB22E1CDD1FC6F6552D017AA45773A13 /* PBXTargetDependency */,
-				E48953E21CF48CB8C453E8311FB6A878 /* PBXTargetDependency */,
-			);
-			name = "Pods-SwiftBus_Tests";
-			productName = "Pods-SwiftBus_Tests";
-			productReference = 836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CB8BDCAC5B491E3851FE14276AFBA5DD /* SWXMLHash */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA609875AE7F5559AF88D1A3612CC011 /* Build configuration list for PBXNativeTarget "SWXMLHash" */;
-			buildPhases = (
-				EC1C1131E234325F39EF8D99CCCDDB2B /* Sources */,
-				63E6BF1696C2BE294779A86647C32D30 /* Frameworks */,
-				DF061D8286A754033C7C9328D7330950 /* Headers */,
+				C426F8F816B86D5A2C6E96FA7A88E0A5 /* Sources */,
+				10368174AE9CC3D3CBC44E944F562D81 /* Frameworks */,
+				78A3BF00924A8EEEFD1729F3DA35FEC3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -451,6 +398,62 @@
 			productReference = 204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		485D05AE236754DDE9C52023DC897E53 /* SwiftBus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 570D257F7BD2F6FB2B7428220F6A150B /* Build configuration list for PBXNativeTarget "SwiftBus" */;
+			buildPhases = (
+				E6A0002D6A6C55B8A650F61D76AC68B0 /* Sources */,
+				0EB3A8849EBD5E3BB2BA7F3CE5AA3BF2 /* Frameworks */,
+				A74D91081DC6A85748E139394F751793 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C48DF45D186B0FC4794C2CB4D30CD03 /* PBXTargetDependency */,
+			);
+			name = SwiftBus;
+			productName = SwiftBus;
+			productReference = 3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5F69F98E8BD2E2A6F6E016E959C7124E /* Pods-SwiftBus_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF38177279396A077A31A34D18E06D3B /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
+			buildPhases = (
+				FAE12962EAA749577233D8122A1840F5 /* Sources */,
+				6D98DA111A56D630009BA08B2ABFEC30 /* Frameworks */,
+				BA2EF0D0018369C69D9E62B0B5DD24EC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC7AF60A5DC3A83A6B9FC16B40936D01 /* PBXTargetDependency */,
+				2D8477970C9F95FE235A7C7F6B5A6CE8 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftBus_Example";
+			productName = "Pods-SwiftBus_Example";
+			productReference = 09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8F04E9B031ED960C1117BCEB3CFDE18E /* Pods-SwiftBus_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB590F05FBCEEF23AA5AF1DC44682C5A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
+			buildPhases = (
+				B30A27EA47D654E18269F6018706BA2C /* Sources */,
+				7F1E2C85ABB3252C6C4B1B3541C5AF0C /* Frameworks */,
+				1FFF5D7DB48D5C7A0C4B82149FA15864 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54E396861FA03C52F99378B235E1A810 /* PBXTargetDependency */,
+				C67B97C1C4592A23DCEB98C2D972A287 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftBus_Tests";
+			productName = "Pods-SwiftBus_Tests";
+			productReference = 836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -458,7 +461,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -472,102 +475,138 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				159B29DB62A517C70989AF152E4246E7 /* Pods-SwiftBus_Example */,
-				525A2D0DA06CE4EC3891B847DB2FC522 /* Pods-SwiftBus_Tests */,
-				29EF31D8F5490F988DA3ED509908A18B /* SwiftBus */,
-				CB8BDCAC5B491E3851FE14276AFBA5DD /* SWXMLHash */,
+				5F69F98E8BD2E2A6F6E016E959C7124E /* Pods-SwiftBus_Example */,
+				8F04E9B031ED960C1117BCEB3CFDE18E /* Pods-SwiftBus_Tests */,
+				485D05AE236754DDE9C52023DC897E53 /* SwiftBus */,
+				2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A4F12E4C6A92B73F8CE31454DC2AF0F /* Sources */ = {
+		B30A27EA47D654E18269F6018706BA2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2648410D30354DDF9BCB7C095D3A2B5A /* Pods-SwiftBus_Tests-dummy.m in Sources */,
+				763E5EC92712C4801C1181012337128C /* Pods-SwiftBus_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74AA2B6D30A39A8303AA6A3D87C9E16B /* Sources */ = {
+		C426F8F816B86D5A2C6E96FA7A88E0A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFD93C13A9C61B9215DE0D9F228C3399 /* Pods-SwiftBus_Example-dummy.m in Sources */,
+				C0CDC2306376E1B55F2036D385BF5C4E /* SWXMLHash+TypeConversion.swift in Sources */,
+				6380E90A84A3EB13C5465096488CBEEA /* SWXMLHash-dummy.m in Sources */,
+				5FA3651A177055352661B9FA1BBFB54B /* SWXMLHash.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BA47F1229FAE57965A7F4468A760368 /* Sources */ = {
+		E6A0002D6A6C55B8A650F61D76AC68B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57E1F1737B5DCB12155C5462089DFE2 /* ColorExtension.swift in Sources */,
-				4BCFBC009094B084ED8E021C7719F3BF /* SwiftBus-dummy.m in Sources */,
-				69BF811CCFD9379CF552C50AE9898A60 /* SwiftBus.swift in Sources */,
-				B51A09B0ADEA83E08E128E94EF1D3331 /* SwiftBusConnectionHandler.swift in Sources */,
-				AA33B148F8304B40645EA71BB54869EA /* SwiftBusDataParser.swift in Sources */,
-				846E3F5DF6384F5DD1955093BF6D1334 /* SwiftBusRequestURLs.swift in Sources */,
-				40E96146A2070D3B8409A59F1DFAE1AB /* TransitAgency.swift in Sources */,
-				D512131D3B50FB06051413779513B088 /* TransitPrediction.swift in Sources */,
-				63013F264B9B853DDDFB7D121652A7D1 /* TransitRoute.swift in Sources */,
-				D4EB63F19B8996CFAC7AD587CFAB1831 /* TransitStation.swift in Sources */,
-				3731108BE648A677964FFBCE17382F3B /* TransitStop.swift in Sources */,
-				649A3D5530DD4AE8295419A1BA69ED01 /* TransitVehicle.swift in Sources */,
+				0F469F75A7D2C703E3AB1044A5094DC0 /* ColorExtension.swift in Sources */,
+				68D425450F80F9673154FAB7C20E0684 /* SwiftBus-dummy.m in Sources */,
+				605224073A01D89D44B8505A7D2D3ED1 /* SwiftBus.swift in Sources */,
+				CE3A604CEF2A1FA233A2BDA8842F4548 /* SwiftBusConnectionHandler.swift in Sources */,
+				4CEAC86B230B0480637136901880BA76 /* SwiftBusDataParser.swift in Sources */,
+				ED5D61DDE365841BD7B86A5BB6B72522 /* SwiftBusRequestURLs.swift in Sources */,
+				2235278EC052D58725BA37C2039614AF /* TransitAgency.swift in Sources */,
+				D61A1D5D1A35C1A6C74B00F569782074 /* TransitPrediction.swift in Sources */,
+				822808725E0FB870D33BB9EAA663E914 /* TransitRoute.swift in Sources */,
+				45969CB1D614607EB8F45527E6A38F75 /* TransitStation.swift in Sources */,
+				2223E829B84A1AAD9295E9C5E5BA01F9 /* TransitStop.swift in Sources */,
+				5D78E5DCE77823CE141A2931C2DA9E0D /* TransitVehicle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC1C1131E234325F39EF8D99CCCDDB2B /* Sources */ = {
+		FAE12962EAA749577233D8122A1840F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D107065F1AB15FF88D1E6B6E0E6757A /* SWXMLHash+TypeConversion.swift in Sources */,
-				E5F136228D8DCCBA478CB1B84387C079 /* SWXMLHash-dummy.m in Sources */,
-				0C3ED1DF7590D7E172F2369380488503 /* SWXMLHash.swift in Sources */,
+				8B48387973C283743F7DB7AC8A9ACA90 /* Pods-SwiftBus_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F85645EB6585F0924721125447CADB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SWXMLHash;
-			target = CB8BDCAC5B491E3851FE14276AFBA5DD /* SWXMLHash */;
-			targetProxy = 936877940A3ACA9239D2940F317E787D /* PBXContainerItemProxy */;
-		};
-		3A79DB5B003EA02B4B8695B71D12676E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SWXMLHash;
-			target = CB8BDCAC5B491E3851FE14276AFBA5DD /* SWXMLHash */;
-			targetProxy = 24628F1507DC853CC81E220609587E3E /* PBXContainerItemProxy */;
-		};
-		956D3BB3670C979BECF61AD32FF13629 /* PBXTargetDependency */ = {
+		2D8477970C9F95FE235A7C7F6B5A6CE8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftBus;
-			target = 29EF31D8F5490F988DA3ED509908A18B /* SwiftBus */;
-			targetProxy = 6082CEB41AC91B10A22BBA2299DF3212 /* PBXContainerItemProxy */;
+			target = 485D05AE236754DDE9C52023DC897E53 /* SwiftBus */;
+			targetProxy = 78C411F266D3E2392FD226EE266F8FAF /* PBXContainerItemProxy */;
 		};
-		E48953E21CF48CB8C453E8311FB6A878 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftBus;
-			target = 29EF31D8F5490F988DA3ED509908A18B /* SwiftBus */;
-			targetProxy = 047C6A65639523FFCDBA7C3F081953E1 /* PBXContainerItemProxy */;
-		};
-		FB22E1CDD1FC6F6552D017AA45773A13 /* PBXTargetDependency */ = {
+		54E396861FA03C52F99378B235E1A810 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SWXMLHash;
-			target = CB8BDCAC5B491E3851FE14276AFBA5DD /* SWXMLHash */;
-			targetProxy = B923B3665AC05ABA3371080B5AF77ABA /* PBXContainerItemProxy */;
+			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
+			targetProxy = FF6DBADF1A2D53E62ECC2DE4E39A5DF7 /* PBXContainerItemProxy */;
+		};
+		5C48DF45D186B0FC4794C2CB4D30CD03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWXMLHash;
+			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
+			targetProxy = 11261AEEC0686EB1CC9FD7225C09C4DE /* PBXContainerItemProxy */;
+		};
+		C67B97C1C4592A23DCEB98C2D972A287 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftBus;
+			target = 485D05AE236754DDE9C52023DC897E53 /* SwiftBus */;
+			targetProxy = 0D2B28220368167134CC6B5D5931D1B6 /* PBXContainerItemProxy */;
+		};
+		CC7AF60A5DC3A83A6B9FC16B40936D01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWXMLHash;
+			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
+			targetProxy = 74D2B84E113418DC2210D6A1DFEFB4C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		003812531979219867B617F27084F605 /* Release */ = {
+		448A65CB6C722E198D37165721B88F7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5885CFAB2DF6067F05ECC0E1ED05A644 /* Pods-SwiftBus_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4938886F4F1B2456FD1FA09F6E4523DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D99D9E8B509A183B9592D95EE550D273 /* Pods-SwiftBus_Tests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -596,7 +635,177 @@
 			};
 			name = Release;
 		};
-		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+		4F3E34D601797B239817932425CD3BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5288A3D9B2A1E000766DF5E08A05D395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SWXMLHash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5719494230B630B918776E90051E0199 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6E8DDDCBA8E72A37D524567EE4C004DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7E70565790511EDE21B2ADB9CC4DCB75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -610,17 +819,14 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -632,179 +838,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		52825DA44D7F4C1D4986B655A66B561F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftBus;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6917A025AA3BB25D4B00D021B8F33882 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftBus;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7657478C1D44310FA26E3FECAC1F69C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B3BB8A88992BCDD605C3ABC0946079D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B55A7D1116E5AD456BEA4C8803C47C69 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5885CFAB2DF6067F05ECC0E1ED05A644 /* Pods-SwiftBus_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -818,18 +859,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -845,16 +883,19 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		DD221DA478DE13E110D9477AF7A2886D /* Release */ = {
+		C26221E275488E8168D5E071E1FB2178 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -880,81 +921,50 @@
 			};
 			name = Release;
 		};
-		FE672A70BDC2448500E7627B5702B84A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SWXMLHash;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A44AE1EBB121C14CD9EB7FBBE41BF9A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7657478C1D44310FA26E3FECAC1F69C4 /* Debug */,
-				003812531979219867B617F27084F605 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
-				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
+				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60CE6E2C1B1DF5BBCB23024891B81182 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
+		570D257F7BD2F6FB2B7428220F6A150B /* Build configuration list for PBXNativeTarget "SwiftBus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B3BB8A88992BCDD605C3ABC0946079D0 /* Debug */,
-				B55A7D1116E5AD456BEA4C8803C47C69 /* Release */,
+				4F3E34D601797B239817932425CD3BC0 /* Debug */,
+				6E8DDDCBA8E72A37D524567EE4C004DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A764A260FF8B226861A3367E36D9089B /* Build configuration list for PBXNativeTarget "SwiftBus" */ = {
+		ADA5E55DAFA1F2A2A17A38672B7B344E /* Build configuration list for PBXNativeTarget "SWXMLHash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6917A025AA3BB25D4B00D021B8F33882 /* Debug */,
-				52825DA44D7F4C1D4986B655A66B561F /* Release */,
+				5288A3D9B2A1E000766DF5E08A05D395 /* Debug */,
+				C26221E275488E8168D5E071E1FB2178 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA609875AE7F5559AF88D1A3612CC011 /* Build configuration list for PBXNativeTarget "SWXMLHash" */ = {
+		DF38177279396A077A31A34D18E06D3B /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE672A70BDC2448500E7627B5702B84A /* Debug */,
-				DD221DA478DE13E110D9477AF7A2886D /* Release */,
+				7E70565790511EDE21B2ADB9CC4DCB75 /* Debug */,
+				448A65CB6C722E198D37165721B88F7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB590F05FBCEEF23AA5AF1DC44682C5A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5719494230B630B918776E90051E0199 /* Debug */,
+				4938886F4F1B2456FD1FA09F6E4523DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
