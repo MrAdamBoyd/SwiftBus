@@ -96,7 +96,7 @@ open class TransitRoute: NSObject, NSCoding {
     */
     open func vehicleLocations(_ completion: ((_ vehicles: [TransitVehicle]?) -> Void)?) {
         self.configuration() { route in
-            if let route = route {
+            if let _ = route {
                 let connectionHandler = SwiftBusConnectionHandler()
                 connectionHandler.requestVehicleLocationData(onRoute: self.routeTag, withAgency: self.agencyTag) { (locations:[String : [TransitVehicle]]) in
                         
@@ -141,7 +141,7 @@ open class TransitRoute: NSObject, NSCoding {
         }
         
         self.configuration() { route in
-            if let route = route {
+            if let _ = route {
                 //Everything should be fine
                 if let stop = self.stop(forTag: stopTag) {
                     

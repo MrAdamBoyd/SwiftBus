@@ -236,7 +236,7 @@ open class SwiftBus {
      */
     open func configurations(forMultipleRouteTags routeTags: [String], withAgencyTag agencyTag: String, completion: ((_ routes: [String: TransitRoute]) -> Void)?) {
         var agencies: [String] = []
-        for route in routeTags {
+        for _ in routeTags {
             agencies.append(agencyTag)
         }
         
