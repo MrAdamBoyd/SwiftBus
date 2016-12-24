@@ -51,7 +51,7 @@ class SwiftBusTests: XCTestCase {
     }
     
     func testPredictionsInOrder() {
-        if stopOB.combinedPredictions()[0].predictionInSeconds < stopOB.combinedPredictions()[1].predictionInSeconds {
+        if stopOB.combinedPredictions[0].predictionInSeconds < stopOB.combinedPredictions[1].predictionInSeconds {
             XCTAssert(true, "Sorted predictions are in order")
         } else {
             XCTAssert(false, "Sorted predictions are not in order")

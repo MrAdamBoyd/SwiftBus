@@ -93,7 +93,7 @@ class ViewController: UIViewController {
         SwiftBus.shared.stationPredictions(forStopTag: "5726", forRoutes: ["KT", "L", "M"], withAgencyTag: "sf-muni") { station in
             if let transitStation = station as TransitStation! {
                 let lineTitles = "Prediction for lines: \(transitStation.routesAtStation.map({"\($0.routeTitle)"}))"
-                let predictionStrings = "Predictions at stop \(transitStation.combinedPredictions().map({$0.predictionInMinutes}))"
+                let predictionStrings = "Predictions at stop \(transitStation.combinedPredictions.map({$0.predictionInMinutes}))"
                 
                 print("\n-----")
                 print("Station: \(transitStation.stopTitle)")
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
             
             //If the stop and route exists
             if let transitStop = route as TransitStop! {
-                let predictionStrings:[Int] = transitStop.combinedPredictions().map({$0.predictionInMinutes})
+                let predictionStrings:[Int] = transitStop.combinedPredictions.map({$0.predictionInMinutes})
                 
                 print("\n-----")
                 print("Stop: \(transitStop.stopTitle)")
@@ -131,7 +131,7 @@ class ViewController: UIViewController {
         SwiftBus.shared.stopPredictions(forStopTags: ["7252", "6721"], routeTags: ["N", "31"], inAgency: "sf-muni") { stops in
             var stopString = ""
             for stop in stops {
-                stopString += "Stop \(stop.stopTitle) on route \(stop.routeTitle): \(stop.combinedPredictions().map({$0.predictionInMinutes}))\n"
+                stopString += "Stop \(stop.stopTitle) on route \(stop.routeTitle): \(stop.combinedPredictions.map({$0.predictionInMinutes}))\n"
             }
             
             print("\n-----")

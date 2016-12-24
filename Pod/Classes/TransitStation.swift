@@ -28,6 +28,30 @@ open class TransitStation:NSObject, NSCoding {
     open var predictions:[String : [String : [TransitPrediction]]] = [:] //[routeTag : [direction : prediction]]
     open var messages:[String] = []
     
+    /**
+     Returns a list of all the predictions from the different directions in order
+     
+     - returns: In order list of all predictions from all different directions
+     */
+    open var combinedPredictions: [TransitPrediction] {
+        var listOfPredictions: [TransitPrediction] = []
+        
+        for line in predictions.values {
+            //Going through each line
+            for predictionDirection in line.values {
+                //Going through each direction
+                listOfPredictions += predictionDirection
+            }
+        }
+        
+        //Sorting the list
+        listOfPredictions.sort {
+            return $0.predictionInSeconds < $1.predictionInSeconds
+        }
+        
+        return listOfPredictions
+    }
+    
     //Basic init
     public override init() { super.init() }
     
@@ -44,30 +68,6 @@ open class TransitStation:NSObject, NSCoding {
         self.stopTitle = stopTitle
         self.stopTag = stopTag
         self.routesAtStation = routesAtStation
-    }
-    
-    /**
-    Returns a list of all the predictions from the different directions in order
-    
-    - returns: In order list of all predictions from all different directions
-    */
-    open func combinedPredictions() -> [TransitPrediction] {
-        var listOfPredictions:[TransitPrediction] = []
-
-        for line in predictions.values {
-            //Going through each line
-            for predictionDirection in line.values {
-                //Going through each direction
-                listOfPredictions += predictionDirection
-            }
-        }
-        
-        //Sorting the list
-        listOfPredictions.sort {
-            return $0.predictionInSeconds < $1.predictionInSeconds
-        }
-        
-        return listOfPredictions
     }
     
     //MARK: NSCoding

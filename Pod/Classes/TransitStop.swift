@@ -33,6 +33,27 @@ open class TransitStop:NSObject, NSCoding {
     open var predictions:[String : [TransitPrediction]] = [:] //[direction : [prediction]]
     open var messages:[String] = []
     
+    /**
+     Returns a list of all the predictions from the different directions in order
+     
+     - returns: In order list of all predictions from all different directions
+     */
+    open var combinedPredictions: [TransitPrediction] {
+        var listOfPredictions: [TransitPrediction] = []
+        
+        for predictionDirection in predictions.values {
+            //Going through each direction
+            listOfPredictions += predictionDirection
+        }
+        
+        //Sorting the list
+        listOfPredictions.sort {
+            return $0.predictionInSeconds < $1.predictionInSeconds
+        }
+        
+        return listOfPredictions
+    }
+    
     //Init without predictions or direction
     public init(routeTitle:String, routeTag:String, stopTitle:String, stopTag:String) {
         self.routeTitle = routeTitle
@@ -65,27 +86,6 @@ open class TransitStop:NSObject, NSCoding {
             //Stop doesn't exist
             completion(false, [:], [])
         }
-    }
-    
-    /**
-    Returns a list of all the predictions from the different directions in order
-    
-    - returns: In order list of all predictions from all different directions
-    */
-    open func combinedPredictions() -> [TransitPrediction] {
-        var listOfPredictions:[TransitPrediction] = []
-        
-        for predictionDirection in predictions.values {
-            //Going through each direction
-            listOfPredictions += predictionDirection
-        }
-        
-        //Sorting the list
-        listOfPredictions.sort {
-            return $0.predictionInSeconds < $1.predictionInSeconds
-        }
-        
-        return listOfPredictions
     }
     
     //MARK: NSCoding
