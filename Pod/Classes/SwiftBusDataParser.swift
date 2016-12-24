@@ -139,7 +139,7 @@ class SwiftBusDataParser: NSObject {
         for stopDirection in stopDirectionDict.keys {
             //For each direction
             
-            currentRoute.stopsOnRoute[stopDirection] = []
+            currentRoute.stops[stopDirection] = []
             
             for stopTag in stopDirectionDict[stopDirection]! {
                 //For each stop per direction
@@ -147,7 +147,7 @@ class SwiftBusDataParser: NSObject {
                 if let transitStop = allStopsDictionary[stopTag] {
                     //Getting the stop from the dictionary of all stops and adding it to the correct direction for the current TransitRoute
                     transitStop.direction = stopDirection
-                    currentRoute.stopsOnRoute[stopDirection]!.append(transitStop)
+                    currentRoute.stops[stopDirection]!.append(transitStop)
                 }
             }
             

@@ -192,7 +192,7 @@ open class SwiftBus {
                 if let transitRoute = route as TransitRoute! {
                     
                     //Applying agencyTag to all TransitStop subelements
-                    for routeDirection in transitRoute.stopsOnRoute.values {
+                    for routeDirection in transitRoute.stops.values {
                         for stop in routeDirection {
                             stop.agencyTag = agencyTag
                         }

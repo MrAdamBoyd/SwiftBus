@@ -38,7 +38,7 @@ open class TransitStop:NSObject, NSCoding {
      
      - returns: In order list of all predictions from all different directions
      */
-    open var combinedPredictions: [TransitPrediction] {
+    open var allPredictions: [TransitPrediction] {
         var listOfPredictions: [TransitPrediction] = []
         
         for predictionDirection in predictions.values {
@@ -86,6 +86,11 @@ open class TransitStop:NSObject, NSCoding {
             //Stop doesn't exist
             completion(false, [:], [])
         }
+    }
+    
+    @available(*, deprecated: 1.4, obsoleted: 2.0, message: "Use variable `allPredictions` instead")
+    open func combinedPredictions() -> [TransitPrediction] {
+        return self.allPredictions
     }
     
     //MARK: NSCoding
