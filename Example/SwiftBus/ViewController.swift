@@ -13,8 +13,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     @IBAction func agencyListTouched(_ sender: AnyObject) {
@@ -127,6 +125,20 @@ class ViewController: UIViewController {
             
         }
         
+    }
+    
+    @IBAction func multiPredictionsTouched(_ sender: Any) {
+        SwiftBus.shared.stopPredictions(forStopTags: ["7252", "6721"], routeTags: ["N", "31"], inAgency: "sf-muni") { stops in
+            var stopString = ""
+            for stop in stops {
+                stopString += "Stop \(stop.stopTitle) on route \(stop.routeTitle): \(stop.combinedPredictions().map({$0.predictionInMinutes}))\n"
+            }
+            
+            print("\n-----")
+            print("\(stopString)")
+            
+            self.showAlertControllerWithTitle("Multi Stop Predictions", message: "\(stopString)")
+        }
     }
     
     func showAlertControllerWithTitle(_ title: String, message: String) {
