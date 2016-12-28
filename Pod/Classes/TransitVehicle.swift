@@ -57,7 +57,7 @@ open class TransitVehicle: NSObject, NSCoding {
     
     public required init(coder aDecoder: NSCoder) {
         self.vehicleId = aDecoder.decodeInteger(forKey: vehicleIdEncoderString)
-        self.directionTag = aDecoder.decodeInteger(forKey: directionTagEncoderString) as? String ?? ""
+        self.directionTag = aDecoder.decodeObject(forKey: directionTagEncoderString) as? String ?? ""
         self.lat = aDecoder.decodeDouble(forKey: latEncoderString)
         self.lon = aDecoder.decodeDouble(forKey: lonEncoderString)
         self.secondsSinceReport = aDecoder.decodeInteger(forKey: secondsSinceReportEncoderString)
