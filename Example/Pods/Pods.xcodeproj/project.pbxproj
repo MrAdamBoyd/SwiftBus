@@ -7,245 +7,361 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F469F75A7D2C703E3AB1044A5094DC0 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */; };
-		2223E829B84A1AAD9295E9C5E5BA01F9 /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */; };
-		2235278EC052D58725BA37C2039614AF /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CD1AB1240AF8AA1700285AE6D3C711 /* TransitAgency.swift */; };
-		45969CB1D614607EB8F45527E6A38F75 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574617B4035C6DE4A00CD3BF170966C /* TransitStation.swift */; };
-		4CEAC86B230B0480637136901880BA76 /* SwiftBusDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE600DBDBC2762B853BB602997B0A7C9 /* SwiftBusDataParser.swift */; };
-		58A6DD099644C92CFE6A77AE0B1597F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
-		5D78E5DCE77823CE141A2931C2DA9E0D /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */; };
-		5FA3651A177055352661B9FA1BBFB54B /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */; };
-		605224073A01D89D44B8505A7D2D3ED1 /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E859FADC054282770648947BD373A41 /* SwiftBus.swift */; };
-		6380E90A84A3EB13C5465096488CBEEA /* SWXMLHash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */; };
-		66CBC1951E173CC2000761BB /* TransitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CBC1931E173BE6000761BB /* TransitMessage.swift */; };
-		68D425450F80F9673154FAB7C20E0684 /* SwiftBus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */; };
-		6C46372428E162111E66F2547394CF15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
-		6D200F1B154BC927AB248477725BF8F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
-		763E5EC92712C4801C1181012337128C /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */; };
-		822808725E0FB870D33BB9EAA663E914 /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */; };
-		8B48387973C283743F7DB7AC8A9ACA90 /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CB946F9A84D5E5DF98B09158B00548 /* Pods-SwiftBus_Example-dummy.m */; };
-		AC153163A498B5082509921E57999797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */; };
-		C0CDC2306376E1B55F2036D385BF5C4E /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */; };
-		CA5081074628E634F86E13C5028D08AC /* SWXMLHash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 484CFEFA68C1936A86ED7E58BC2C6786 /* SWXMLHash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE3A604CEF2A1FA233A2BDA8842F4548 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */; };
-		D61A1D5D1A35C1A6C74B00F569782074 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20E0EFCD58CD4F8F60EADECD2D9EE95 /* TransitPrediction.swift */; };
-		D75C365E4890B5D4F75952E2F99070FF /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */; };
-		E73EB5AFBA76E305526DA9DC7E9C447D /* SwiftBus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECA1F143790F4D8615873D16BB4F76E4 /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F44A5AACA56B9CE80E23A3FD961037 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED5D61DDE365841BD7B86A5BB6B72522 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */; };
-		F4A76ADFA37E410A985ABB04787584DC /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7C4914E5092433E5FC5B12605CFED16 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00B57E2B92E07162A5C93A7C2C99E51A /* Pods-SwiftBus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17877B3D433C7FA08078C0115AD35A94 /* Pods-SwiftBus_Tests-dummy.m */; };
+		03580398D7B58A83F948F5EEC15B24E5 /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B837EF9E21F3F70E71731395102A837 /* TransitStop.swift */; };
+		04CE81D4A444E9BD16D512B090701CFB /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3D0D05249991CF0B9AFC5D1B02A635 /* TransitAgency.swift */; };
+		04D03A82CE5E11BF7DA5CAB1E8B92AFE /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0F53AED7CF0AEC489E58B2171AB39 /* SwiftBus.swift */; };
+		050896CFC12392DD073CF5D83D7E778C /* SWXMLHash-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313A075D054B5328133DCE4AB831053 /* SWXMLHash-iOS-dummy.m */; };
+		06E67B4153D8CA1D153C7F8A4EDA49BD /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA7F637386F7546ECBD0B49DE2E560 /* SWXMLHash.swift */; };
+		0ABEE46B2D25EBB7C1DEE4A8FE7C1FC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */; };
+		0B9E8C313026EB3550434B60888BA716 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D613873D57EF1271EC66EC10A7EB35 /* SWXMLHash+TypeConversion.swift */; };
+		2060FC99D1B00B05E16F212C50C88061 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AFA5C73F072C280037E2AEDFA54DE /* SwiftBusConnectionHandler.swift */; };
+		288A09A60494C95D39D6BBD0BD41E611 /* SwiftBusDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A545A8AB90159556556F647CB6861A8 /* SwiftBusDataParser.swift */; };
+		28D916685A3BB624AE058C70EECEFAC6 /* TransitAgency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3D0D05249991CF0B9AFC5D1B02A635 /* TransitAgency.swift */; };
+		2AAA655744B228F562C4205E3E4C765B /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAE96896BCCA1EF0B710CF7ED64A40 /* TransitStation.swift */; };
+		306679989805DACA59FF123F99C4AC15 /* SWXMLHash-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B51F7F3494AA02A0DF3D16315293060A /* SWXMLHash-watchOS-dummy.m */; };
+		32D5DEA2A306500C3A024FA481D68632 /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81DC901B8D87B83D3EEB0D01FE7F7E6 /* TransitVehicle.swift */; };
+		3CCCA64C3B54BCBF7FE49F0F3C5EC179 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18ECDE88A66349C1ABE446FF855448C6 /* SWXMLHash.framework */; };
+		3DBD886B2CC26F96AB4AAF1EE4A7F5E0 /* SwiftBus-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E2F78D07849E14B4407ACC225F1203 /* SwiftBus-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40F60B151A85251D3F9A75C0F5073B0E /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667DFAF353F17E421CD78AE80B0FF90 /* ColorExtension.swift */; };
+		455E193B97161F047E4FEE1304A64DA0 /* TransitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BBB9F3F66C361A8F9E0180D123D359 /* TransitMessage.swift */; };
+		4E5C77CBAAF6FE91DF42314E6D69ECF5 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA7F637386F7546ECBD0B49DE2E560 /* SWXMLHash.swift */; };
+		50AB915E036F6B744013C9AB62F6311E /* SwiftBusDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A545A8AB90159556556F647CB6861A8 /* SwiftBusDataParser.swift */; };
+		5146DC30A9FA0B563E4B696DDBB1BC83 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667DFAF353F17E421CD78AE80B0FF90 /* ColorExtension.swift */; };
+		55105A8C28983E3E6C8889E541CD64D2 /* SwiftBus-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D96976437484DC18C3E6091C53667 /* SwiftBus-iOS-dummy.m */; };
+		590E89A6D7E12682FD1A70E5F0DE7E28 /* Pods-SwiftBus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC42642CA32FBC437D070715EEF0C94 /* Pods-SwiftBus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		608B682D70E56DA328BC84C1AE190F34 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63208964AE6775A14D35FD2DC7DC1843 /* TransitPrediction.swift */; };
+		6168DEC2A218AAB1C932C8C2FFB832A1 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1543F0062B3AB6DA6750A5065D234AC /* SwiftBusRequestURLs.swift */; };
+		66C476541E4437DF00437677 /* SwiftBusConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1AFA5C73F072C280037E2AEDFA54DE /* SwiftBusConnectionHandler.swift */; };
+		704466BB9B1C4893FF571D888DB3083F /* TransitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BBB9F3F66C361A8F9E0180D123D359 /* TransitMessage.swift */; };
+		72CE14BCEED4F9F42EFD2BE7C9156C02 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18ECDE88A66349C1ABE446FF855448C6 /* SWXMLHash.framework */; };
+		787914598821B6A678C7250089DD54D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346545CD07DBC196AB86598F9368B120 /* Foundation.framework */; };
+		853EA0117332428E5083EABEAA33AF61 /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9462195F9362C3B4E9B6A49E835EDAF /* TransitRoute.swift */; };
+		8566ADEA6D11A9598F927F73161D9742 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */; };
+		8931369A713C04994854A1C744D035AD /* SwiftBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B0F53AED7CF0AEC489E58B2171AB39 /* SwiftBus.swift */; };
+		894ABACF46512DA5BCD977CAABA25F36 /* Pods-SwiftBus Watch Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 526199A3FF84DA6CE9E2662A8402855F /* Pods-SwiftBus Watch Example-dummy.m */; };
+		8AC10FA6CF7177605F59B9C61FD1382C /* SWXMLHash-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C367B3AE2D1771CD8B0D0F5D0C6E2F1 /* SWXMLHash-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EAA954BF083DF6C86862CFE5871C1BA /* TransitRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9462195F9362C3B4E9B6A49E835EDAF /* TransitRoute.swift */; };
+		9085AE27AEC3265752452E6D943DEC15 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D613873D57EF1271EC66EC10A7EB35 /* SWXMLHash+TypeConversion.swift */; };
+		997E415C51BBE70B7CB8B8FCB078F592 /* TransitPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63208964AE6775A14D35FD2DC7DC1843 /* TransitPrediction.swift */; };
+		9A9BF65B0ED1EB55C9E34FAF31A4D016 /* Pods-SwiftBus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FEC92450B891C78FA092E1E5C4EE7D /* Pods-SwiftBus_Example-dummy.m */; };
+		A0B9DA9FA8A6718014FA796BD73AF879 /* TransitStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BAE96896BCCA1EF0B710CF7ED64A40 /* TransitStation.swift */; };
+		A309577513D1BA20C2F60243992BFE13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */; };
+		B0483D2F5C5612385518F70A9DAA9495 /* SWXMLHash-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10675845E84BEE24B96B5644A81A9685 /* SWXMLHash-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3EAA4CDA07A6ECAE3418727A5B2B391 /* TransitStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B837EF9E21F3F70E71731395102A837 /* TransitStop.swift */; };
+		BC6BBEA50DAA0F36136EFF76927B7770 /* SwiftBusRequestURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1543F0062B3AB6DA6750A5065D234AC /* SwiftBusRequestURLs.swift */; };
+		C59FDB8067A04F46D2811DC9B32553C2 /* Pods-SwiftBus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA47794961F4BF4E1B83CE84B1A9C39 /* Pods-SwiftBus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC5FED4DFDBC59C93E9F9D6769EC4CE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */; };
+		D078CCEC127059D9F3184371F5CC5D82 /* SwiftBus-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE8981112520C5EB3B0A4CB7B84202C7 /* SwiftBus-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0E60C12177D6F6DCFF5F7D547915FA9 /* Pods-SwiftBus Watch Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EFDEDE5A66EF033DA4D3334C608F1FC /* Pods-SwiftBus Watch Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6F4BE945A19FC6FF66EF6DC55BEB641 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346545CD07DBC196AB86598F9368B120 /* Foundation.framework */; };
+		DF1E9DC2397FDC48758C642797F35A01 /* SwiftBus-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0427A6572B197831E2746F489203B75 /* SwiftBus-watchOS-dummy.m */; };
+		F7849C3D9A9B0BFE28AEEB64623F100B /* TransitVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81DC901B8D87B83D3EEB0D01FE7F7E6 /* TransitVehicle.swift */; };
+		FD66EADE2B5343E4993045BD1FCB1BDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346545CD07DBC196AB86598F9368B120 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0D2B28220368167134CC6B5D5931D1B6 /* PBXContainerItemProxy */ = {
+		2857B367EAE90226A32B270DECCDFCCA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 485D05AE236754DDE9C52023DC897E53;
-			remoteInfo = SwiftBus;
+			remoteGlobalIDString = 50AEF5AD6276D94CB8ECCE4A5FD1CA95;
+			remoteInfo = "SwiftBus-iOS";
 		};
-		11261AEEC0686EB1CC9FD7225C09C4DE /* PBXContainerItemProxy */ = {
+		3514162886BE38510C0D3226AC117DD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
-			remoteInfo = SWXMLHash;
+			remoteGlobalIDString = 5D7FF0FFE5A25655515890462E740C98;
+			remoteInfo = "SWXMLHash-iOS";
 		};
-		74D2B84E113418DC2210D6A1DFEFB4C4 /* PBXContainerItemProxy */ = {
+		38F4CBF5CD5686A3DB878EBF2587667B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
-			remoteInfo = SWXMLHash;
+			remoteGlobalIDString = D5BC45D1C7036E4F4CE47DDA09A95664;
+			remoteInfo = "SWXMLHash-watchOS";
 		};
-		78C411F266D3E2392FD226EE266F8FAF /* PBXContainerItemProxy */ = {
+		49A592CEA486417272AC46DD7A210D9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 485D05AE236754DDE9C52023DC897E53;
-			remoteInfo = SwiftBus;
+			remoteGlobalIDString = 4CCF6FCD7ECB66457F2694DA0C63CEE8;
+			remoteInfo = "SwiftBus-watchOS";
 		};
-		FF6DBADF1A2D53E62ECC2DE4E39A5DF7 /* PBXContainerItemProxy */ = {
+		611CC534B3FFCF7C58A4B854AF61DC5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2F5739097A23E09C7AB7CB9DBCF6DD92;
-			remoteInfo = SWXMLHash;
+			remoteGlobalIDString = D5BC45D1C7036E4F4CE47DDA09A95664;
+			remoteInfo = "SWXMLHash-watchOS";
+		};
+		9E67E08A5E5ED52FA0DB4DBF4C40BB36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D7FF0FFE5A25655515890462E740C98;
+			remoteInfo = "SWXMLHash-iOS";
+		};
+		B8BDA74C2855CCEA8CCEC87C8CD6E590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AEF5AD6276D94CB8ECCE4A5FD1CA95;
+			remoteInfo = "SwiftBus-iOS";
+		};
+		F6200F1E5BA906E66FE071796473EFEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D7FF0FFE5A25655515890462E740C98;
+			remoteInfo = "SWXMLHash-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftBus-dummy.m"; sourceTree = "<group>"; };
-		0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
-		09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Tests-dummy.m"; sourceTree = "<group>"; };
-		10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-umbrella.h"; sourceTree = "<group>"; };
-		1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = Source/SWXMLHash.swift; sourceTree = "<group>"; };
-		204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Example.modulemap"; sourceTree = "<group>"; };
-		2E859FADC054282770648947BD373A41 /* SwiftBus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBus.swift; sourceTree = "<group>"; };
-		319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusRequestURLs.swift; sourceTree = "<group>"; };
-		3A14946936D6A7603C8CBF1950CAF504 /* SwiftBus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftBus.modulemap; sourceTree = "<group>"; };
-		3BA7835764604087511CDD00D3D1494B /* Pods-SwiftBus_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		3EF5FD201E03469AC1BB283C38ED9767 /* Pods-SwiftBus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46C7A1872718FD01D1AD6AD5646B3520 /* Pods-SwiftBus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		484CFEFA68C1936A86ED7E58BC2C6786 /* SWXMLHash-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-umbrella.h"; sourceTree = "<group>"; };
-		56F44A5AACA56B9CE80E23A3FD961037 /* Pods-SwiftBus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Example-umbrella.h"; sourceTree = "<group>"; };
-		57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWXMLHash.xcconfig; sourceTree = "<group>"; };
-		5885CFAB2DF6067F05ECC0E1ED05A644 /* Pods-SwiftBus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5E21B29BA2DF6A44405B0D21F06F4AA9 /* Pods-SwiftBus_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-resources.sh"; sourceTree = "<group>"; };
-		669161C808952BF725A66C5CF4552843 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66CBC1931E173BE6000761BB /* TransitMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitMessage.swift; sourceTree = "<group>"; };
-		7574617B4035C6DE4A00CD3BF170966C /* TransitStation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitStation.swift; sourceTree = "<group>"; };
-		7615EAF5E798BEC4636465CF109E9064 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7621D5E8355F9D7E66DF49EBEDF55046 /* Pods-SwiftBus_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-resources.sh"; sourceTree = "<group>"; };
-		7B7F26053A54CF0143E9E1D1DC25CF9E /* SWXMLHash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-prefix.pch"; sourceTree = "<group>"; };
-		836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88F63D7150EB7CB2C0CA915A8C8FE68F /* SWXMLHash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SWXMLHash.modulemap; sourceTree = "<group>"; };
+		02518F4EDDC73D640B9D40EE23A7415D /* Pods_SwiftBus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		049B6F2266A4AECE411AE16098F2B1AA /* Pods-SwiftBus_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-frameworks.sh"; sourceTree = "<group>"; };
+		0C3D0D05249991CF0B9AFC5D1B02A635 /* TransitAgency.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitAgency.swift; sourceTree = "<group>"; };
+		0C3F0F2E7616E8140FD205D83670F410 /* Pods_SwiftBus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C46DF5A15E9DBE4D90456070CCAD6B4 /* SWXMLHash-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "SWXMLHash-watchOS.modulemap"; path = "../SWXMLHash-watchOS/SWXMLHash-watchOS.modulemap"; sourceTree = "<group>"; };
+		10675845E84BEE24B96B5644A81A9685 /* SWXMLHash-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SWXMLHash-watchOS-umbrella.h"; path = "../SWXMLHash-watchOS/SWXMLHash-watchOS-umbrella.h"; sourceTree = "<group>"; };
+		124357FDE7AE0426A28C02797D1B4438 /* Pods-SwiftBus_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		17877B3D433C7FA08078C0115AD35A94 /* Pods-SwiftBus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Tests-dummy.m"; sourceTree = "<group>"; };
+		18ECDE88A66349C1ABE446FF855448C6 /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AA47794961F4BF4E1B83CE84B1A9C39 /* Pods-SwiftBus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Tests-umbrella.h"; sourceTree = "<group>"; };
+		226867538A641D920D101A18921E53D4 /* Pods-SwiftBus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		233F01BF5C694C220A6EB16C85787C17 /* Pods-SwiftBus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		244BE5043132123624BEB93F01F1A29E /* SwiftBus-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SwiftBus-watchOS.xcconfig"; path = "../SwiftBus-watchOS/SwiftBus-watchOS.xcconfig"; sourceTree = "<group>"; };
+		299F76EFF2F6F094C5CDD59B5C04B415 /* Pods-SwiftBus Watch Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus Watch Example.debug.xcconfig"; sourceTree = "<group>"; };
+		29BAE96896BCCA1EF0B710CF7ED64A40 /* TransitStation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitStation.swift; sourceTree = "<group>"; };
+		2AC40690632C0D6E5E20D2A7918DA0FA /* Pods-SwiftBus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E7AD55EBE2776F0F4F23C93E421F872 /* Pods-SwiftBus Watch Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus Watch Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		300ED6DF9BBAF2859A91FDCC938BA8BF /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3313A075D054B5328133DCE4AB831053 /* SWXMLHash-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWXMLHash-iOS-dummy.m"; sourceTree = "<group>"; };
+		346545CD07DBC196AB86598F9368B120 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		34A384F13E204CDFA6B0AC558803D277 /* SWXMLHash-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "SWXMLHash-iOS.modulemap"; sourceTree = "<group>"; };
+		39423E50225A82CC8DDF521751FD2383 /* SwiftBus-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "SwiftBus-iOS.modulemap"; sourceTree = "<group>"; };
+		3EFDEDE5A66EF033DA4D3334C608F1FC /* Pods-SwiftBus Watch Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus Watch Example-umbrella.h"; sourceTree = "<group>"; };
+		406DB52376583E1C214979CDC075A3F0 /* Pods-SwiftBus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.release.xcconfig"; sourceTree = "<group>"; };
+		40D613873D57EF1271EC66EC10A7EB35 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SWXMLHash+TypeConversion.swift"; path = "Source/SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
+		4190044C638951623F4C55A727AE92B9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44165E43DA6F478E4850BA09CCF92558 /* Pods-SwiftBus Watch Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus Watch Example-frameworks.sh"; sourceTree = "<group>"; };
+		4637B2BF59F2D484858A354196304A22 /* Pods-SwiftBus_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		48FEC92450B891C78FA092E1E5C4EE7D /* Pods-SwiftBus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Example-dummy.m"; sourceTree = "<group>"; };
+		526199A3FF84DA6CE9E2662A8402855F /* Pods-SwiftBus Watch Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus Watch Example-dummy.m"; sourceTree = "<group>"; };
+		5667DFAF353F17E421CD78AE80B0FF90 /* ColorExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		5E17414B3BC7EDF5893D1C6FE3A120A0 /* Pods-SwiftBus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		63208964AE6775A14D35FD2DC7DC1843 /* TransitPrediction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitPrediction.swift; sourceTree = "<group>"; };
+		6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6B837EF9E21F3F70E71731395102A837 /* TransitStop.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitStop.swift; sourceTree = "<group>"; };
+		6C367B3AE2D1771CD8B0D0F5D0C6E2F1 /* SWXMLHash-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-iOS-umbrella.h"; sourceTree = "<group>"; };
+		6F0414DF91E83BEB7464C5A8A2BFBD75 /* Pods-SwiftBus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Tests.modulemap"; sourceTree = "<group>"; };
+		7108876CECAB23B0B46AE28B9D77484F /* SWXMLHash-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SWXMLHash-watchOS-prefix.pch"; path = "../SWXMLHash-watchOS/SWXMLHash-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		7149FF2FE576CEAA692DFCBDEAF94434 /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AF53C947657C367E59F8E5EB15ABED /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B0F53AED7CF0AEC489E58B2171AB39 /* SwiftBus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBus.swift; sourceTree = "<group>"; };
+		78CCCB263E9AC6204EF35253DE29C747 /* Pods-SwiftBus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7A545A8AB90159556556F647CB6861A8 /* SwiftBusDataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusDataParser.swift; sourceTree = "<group>"; };
+		7C751C68EC85D35835F36137E38CC1E9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		813029C86E29347E6859E56D41172204 /* Pods-SwiftBus Watch Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus Watch Example.release.xcconfig"; sourceTree = "<group>"; };
+		8657EC306881FED91D3A8EFA0A56BCED /* SwiftBus-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-iOS-prefix.pch"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9516A4E7CD941FA27211D9F81B9CCCF0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95AD1A715A297C379C160282668EF97F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWXMLHash-dummy.m"; sourceTree = "<group>"; };
-		A4CD1AB1240AF8AA1700285AE6D3C711 /* TransitAgency.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitAgency.swift; sourceTree = "<group>"; };
-		B7CB946F9A84D5E5DF98B09158B00548 /* Pods-SwiftBus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftBus_Example-dummy.m"; sourceTree = "<group>"; };
-		BE600DBDBC2762B853BB602997B0A7C9 /* SwiftBusDataParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusDataParser.swift; sourceTree = "<group>"; };
-		C20E0EFCD58CD4F8F60EADECD2D9EE95 /* TransitPrediction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitPrediction.swift; sourceTree = "<group>"; };
-		C28B836EA0B5D7243C626B310698E35C /* SwiftBus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-prefix.pch"; sourceTree = "<group>"; };
-		C7C4914E5092433E5FC5B12605CFED16 /* Pods-SwiftBus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Tests-umbrella.h"; sourceTree = "<group>"; };
-		CAB7AB84E1A991DE4D7445A50BD44FD3 /* Pods-SwiftBus_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftBus_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SWXMLHash+TypeConversion.swift"; path = "Source/SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
-		D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftBus.xcconfig; sourceTree = "<group>"; };
-		D99D9E8B509A183B9592D95EE550D273 /* Pods-SwiftBus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		DFAFC11E178AA2FC0CEF8130C97853D8 /* Pods-SwiftBus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitVehicle.swift; sourceTree = "<group>"; };
-		EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
-		F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F567173B0154513363EF607C29EE7C01 /* Pods-SwiftBus_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusConnectionHandler.swift; sourceTree = "<group>"; };
-		F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Tests.modulemap"; sourceTree = "<group>"; };
+		949337A6A833F07E4D75251030737FB0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AF6D6A21EEA55F5CCE33CC5F9007915 /* Pods-SwiftBus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBus_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9E0BC523B123BC82A0E0E596A53DC60D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F0D96976437484DC18C3E6091C53667 /* SwiftBus-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftBus-iOS-dummy.m"; sourceTree = "<group>"; };
+		A0C10EA7DC7CB45E4F55A5ED61A4BDD8 /* SwiftBus-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "SwiftBus-watchOS.modulemap"; path = "../SwiftBus-watchOS/SwiftBus-watchOS.modulemap"; sourceTree = "<group>"; };
+		A6E2F78D07849E14B4407ACC225F1203 /* SwiftBus-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftBus-watchOS-umbrella.h"; path = "../SwiftBus-watchOS/SwiftBus-watchOS-umbrella.h"; sourceTree = "<group>"; };
+		ACC5C6EEC1AC0E11F3718359EFD7D3B5 /* Pods-SwiftBus_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Tests-resources.sh"; sourceTree = "<group>"; };
+		ADCA7F637386F7546ECBD0B49DE2E560 /* SWXMLHash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = Source/SWXMLHash.swift; sourceTree = "<group>"; };
+		AE1AFA5C73F072C280037E2AEDFA54DE /* SwiftBusConnectionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusConnectionHandler.swift; sourceTree = "<group>"; };
+		AE8981112520C5EB3B0A4CB7B84202C7 /* SwiftBus-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftBus-iOS-umbrella.h"; sourceTree = "<group>"; };
+		B0427A6572B197831E2746F489203B75 /* SwiftBus-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SwiftBus-watchOS-dummy.m"; path = "../SwiftBus-watchOS/SwiftBus-watchOS-dummy.m"; sourceTree = "<group>"; };
+		B51F7F3494AA02A0DF3D16315293060A /* SWXMLHash-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SWXMLHash-watchOS-dummy.m"; path = "../SWXMLHash-watchOS/SWXMLHash-watchOS-dummy.m"; sourceTree = "<group>"; };
+		B6B980EE43ED03FFED326179136154A9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA1A633567019881C3FEBA09CDBDC3D1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../SwiftBus-watchOS/Info.plist"; sourceTree = "<group>"; };
+		C2DCA4F64175EC2A89D7887A24DBF478 /* SWXMLHash-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWXMLHash-iOS-prefix.pch"; sourceTree = "<group>"; };
+		C36B5B52088E6A478BB037CB9FB4DAAD /* Pods-SwiftBus_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus_Example-resources.sh"; sourceTree = "<group>"; };
+		C6049CBA56729A040B64F34E0414F7AB /* SwiftBus-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftBus-iOS.xcconfig"; sourceTree = "<group>"; };
+		CD1B1633DA73E051EA09162ED404FD66 /* SWXMLHash-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SWXMLHash-iOS.xcconfig"; sourceTree = "<group>"; };
+		D0337743D2397F0204825683A91CEFDC /* SwiftBus-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SwiftBus-watchOS-prefix.pch"; path = "../SwiftBus-watchOS/SwiftBus-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		D0A11D93342DE4DD9D5ED6BAE7368368 /* Pods-SwiftBus Watch Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBus Watch Example-resources.sh"; sourceTree = "<group>"; };
+		D0F1E0787FD58F66BCEDAFDCA237A8AE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../SWXMLHash-watchOS/Info.plist"; sourceTree = "<group>"; };
+		D1543F0062B3AB6DA6750A5065D234AC /* SwiftBusRequestURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftBusRequestURLs.swift; sourceTree = "<group>"; };
+		D81DC901B8D87B83D3EEB0D01FE7F7E6 /* TransitVehicle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitVehicle.swift; sourceTree = "<group>"; };
+		D9462195F9362C3B4E9B6A49E835EDAF /* TransitRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitRoute.swift; sourceTree = "<group>"; };
+		DCC42642CA32FBC437D070715EEF0C94 /* Pods-SwiftBus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBus_Example-umbrella.h"; sourceTree = "<group>"; };
+		DDC5F281EBE872F8D2E214F9628D19EC /* Pods-SwiftBus Watch Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus Watch Example.modulemap"; sourceTree = "<group>"; };
+		E0967CFC595F053589C2CB083D0535B8 /* Pods-SwiftBus Watch Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftBus Watch Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		E1520ACF50BC94D988809F0B2B1ABC7D /* Pods_SwiftBus_Watch_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBus_Watch_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A4831174908F697277C9E7D607CB13 /* Pods-SwiftBus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwiftBus_Example.modulemap"; sourceTree = "<group>"; };
+		E7B76F1241C5FD1563E2DD25C6DC735A /* SWXMLHash-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "SWXMLHash-watchOS.xcconfig"; path = "../SWXMLHash-watchOS/SWXMLHash-watchOS.xcconfig"; sourceTree = "<group>"; };
+		E8BBB9F3F66C361A8F9E0180D123D359 /* TransitMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitMessage.swift; sourceTree = "<group>"; };
+		F225DD037C1A303DDA0E2E9C6AEDE2BF /* SwiftBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0EB3A8849EBD5E3BB2BA7F3CE5AA3BF2 /* Frameworks */ = {
+		06F2379D88AB89DB9B559C67DBDDEF35 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58A6DD099644C92CFE6A77AE0B1597F0 /* Foundation.framework in Frameworks */,
-				D75C365E4890B5D4F75952E2F99070FF /* SWXMLHash.framework in Frameworks */,
+				FD66EADE2B5343E4993045BD1FCB1BDD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		10368174AE9CC3D3CBC44E944F562D81 /* Frameworks */ = {
+		1B30A8EDE932E366CF1039EC6F5FBFCF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C46372428E162111E66F2547394CF15 /* Foundation.framework in Frameworks */,
+				8566ADEA6D11A9598F927F73161D9742 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D98DA111A56D630009BA08B2ABFEC30 /* Frameworks */ = {
+		3ACCB7C0B8DFC4489630DBFFBACDECE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC153163A498B5082509921E57999797 /* Foundation.framework in Frameworks */,
+				A309577513D1BA20C2F60243992BFE13 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F1E2C85ABB3252C6C4B1B3541C5AF0C /* Frameworks */ = {
+		7016A8C2503B4411FC9DF8F5D57B4B9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D200F1B154BC927AB248477725BF8F2 /* Foundation.framework in Frameworks */,
+				0ABEE46B2D25EBB7C1DEE4A8FE7C1FC5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FFBF8587B98C3C8AF5C3FDC71D62C28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC5FED4DFDBC59C93E9F9D6769EC4CE1 /* Foundation.framework in Frameworks */,
+				72CE14BCEED4F9F42EFD2BE7C9156C02 /* SWXMLHash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8116A7BAD0EB2923B0AA54FFBB4CB160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				787914598821B6A678C7250089DD54D0 /* Foundation.framework in Frameworks */,
+				3CCCA64C3B54BCBF7FE49F0F3C5EC179 /* SWXMLHash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E843F7F5134C93D9E8D4538A4BA8B08C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6F4BE945A19FC6FF66EF6DC55BEB641 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		030971845A9690039BD4C4A72336E004 /* SWXMLHash */ = {
+		07C01FE93E88FE104EAFC1C7CF48D999 /* Pods-SwiftBus_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1F8D9B0A430D5C61CAF730AEDB753BDD /* SWXMLHash.swift */,
-				CAE7EE7657D55A521CD6D39E9C03AEAB /* SWXMLHash+TypeConversion.swift */,
-				2DD94BB51DB72757620960724B88B021 /* Support Files */,
+				B6B980EE43ED03FFED326179136154A9 /* Info.plist */,
+				6F0414DF91E83BEB7464C5A8A2BFBD75 /* Pods-SwiftBus_Tests.modulemap */,
+				226867538A641D920D101A18921E53D4 /* Pods-SwiftBus_Tests-acknowledgements.markdown */,
+				233F01BF5C694C220A6EB16C85787C17 /* Pods-SwiftBus_Tests-acknowledgements.plist */,
+				17877B3D433C7FA08078C0115AD35A94 /* Pods-SwiftBus_Tests-dummy.m */,
+				124357FDE7AE0426A28C02797D1B4438 /* Pods-SwiftBus_Tests-frameworks.sh */,
+				ACC5C6EEC1AC0E11F3718359EFD7D3B5 /* Pods-SwiftBus_Tests-resources.sh */,
+				1AA47794961F4BF4E1B83CE84B1A9C39 /* Pods-SwiftBus_Tests-umbrella.h */,
+				2AC40690632C0D6E5E20D2A7918DA0FA /* Pods-SwiftBus_Tests.debug.xcconfig */,
+				78CCCB263E9AC6204EF35253DE29C747 /* Pods-SwiftBus_Tests.release.xcconfig */,
 			);
-			path = SWXMLHash;
+			name = "Pods-SwiftBus_Tests";
+			path = "Target Support Files/Pods-SwiftBus_Tests";
 			sourceTree = "<group>";
 		};
-		258D6DE6BAF68E30726067F696F9CFB2 /* SwiftBus */ = {
+		0BD2D3A6E8B742BEC3FECD07DE68DEBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B6434D253DECD5360F330D7A077828A /* Pod */,
-				CD0F14A5AAB5A804D13FA8EF758B30AB /* Support Files */,
+				18ECDE88A66349C1ABE446FF855448C6 /* SWXMLHash.framework */,
+				CAB130A2824B40B39E844E05455CFAFB /* iOS */,
+				7CF09C789D1B6C241396A40EF8D8BC6C /* watchOS */,
 			);
-			name = SwiftBus;
-			path = ../..;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2DD94BB51DB72757620960724B88B021 /* Support Files */ = {
+		173425E892555E68E6DE90710DAA4710 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				95AD1A715A297C379C160282668EF97F /* Info.plist */,
-				88F63D7150EB7CB2C0CA915A8C8FE68F /* SWXMLHash.modulemap */,
-				57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */,
-				9C88930491A973BD975A51360689138D /* SWXMLHash-dummy.m */,
-				7B7F26053A54CF0143E9E1D1DC25CF9E /* SWXMLHash-prefix.pch */,
-				484CFEFA68C1936A86ED7E58BC2C6786 /* SWXMLHash-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SWXMLHash";
-			sourceTree = "<group>";
-		};
-		35BBFD1425E245554FD35EF6B9C974F4 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				319DFBAB86B179F533D029852DECFC19 /* ColorExtension.swift */,
-				2E859FADC054282770648947BD373A41 /* SwiftBus.swift */,
-				F87FD3E069911732FD96418F1E428A3F /* SwiftBusConnectionHandler.swift */,
-				BE600DBDBC2762B853BB602997B0A7C9 /* SwiftBusDataParser.swift */,
-				39D4C2D49FAC67DB57014F790248FEAD /* SwiftBusRequestURLs.swift */,
-				A4CD1AB1240AF8AA1700285AE6D3C711 /* TransitAgency.swift */,
-				C20E0EFCD58CD4F8F60EADECD2D9EE95 /* TransitPrediction.swift */,
-				66CBC1931E173BE6000761BB /* TransitMessage.swift */,
-				EA14ABE78EBE52A330AD18B556CCAA52 /* TransitRoute.swift */,
-				7574617B4035C6DE4A00CD3BF170966C /* TransitStation.swift */,
-				0367100C47E073E28459EA20C07966B1 /* TransitStop.swift */,
-				E1DEC0241CFDA2AB5C7EDEC860578CEC /* TransitVehicle.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		4F0EA2B31C09509520BFA53846752F40 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */,
-				836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */,
-				3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */,
-				204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6B6434D253DECD5360F330D7A077828A /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				35BBFD1425E245554FD35EF6B9C974F4 /* Classes */,
+				1A55565DACE685C8F7CCA8BE852A36C1 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
 		};
-		7A8797248051A54F948BAEAC68AA66D6 /* Frameworks */ = {
+		1A55565DACE685C8F7CCA8BE852A36C1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B3AF3363AC9EF967A002FAB11C4CECC /* SWXMLHash.framework */,
-				B53121677E33A4A448BC32E7898AF3D0 /* iOS */,
+				5667DFAF353F17E421CD78AE80B0FF90 /* ColorExtension.swift */,
+				73B0F53AED7CF0AEC489E58B2171AB39 /* SwiftBus.swift */,
+				AE1AFA5C73F072C280037E2AEDFA54DE /* SwiftBusConnectionHandler.swift */,
+				7A545A8AB90159556556F647CB6861A8 /* SwiftBusDataParser.swift */,
+				D1543F0062B3AB6DA6750A5065D234AC /* SwiftBusRequestURLs.swift */,
+				0C3D0D05249991CF0B9AFC5D1B02A635 /* TransitAgency.swift */,
+				E8BBB9F3F66C361A8F9E0180D123D359 /* TransitMessage.swift */,
+				63208964AE6775A14D35FD2DC7DC1843 /* TransitPrediction.swift */,
+				D9462195F9362C3B4E9B6A49E835EDAF /* TransitRoute.swift */,
+				29BAE96896BCCA1EF0B710CF7ED64A40 /* TransitStation.swift */,
+				6B837EF9E21F3F70E71731395102A837 /* TransitStop.swift */,
+				D81DC901B8D87B83D3EEB0D01FE7F7E6 /* TransitVehicle.swift */,
 			);
-			name = Frameworks;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3B6290D60CC2126828770975F08D1742 /* SWXMLHash */ = {
+			isa = PBXGroup;
+			children = (
+				ADCA7F637386F7546ECBD0B49DE2E560 /* SWXMLHash.swift */,
+				40D613873D57EF1271EC66EC10A7EB35 /* SWXMLHash+TypeConversion.swift */,
+				C0B9FED1E9D31F7DC15C71317361188C /* Support Files */,
+			);
+			path = SWXMLHash;
+			sourceTree = "<group>";
+		};
+		64673BC20C6D3851F11688D6B17521D2 /* Pods-SwiftBus_Example */ = {
+			isa = PBXGroup;
+			children = (
+				4190044C638951623F4C55A727AE92B9 /* Info.plist */,
+				E2A4831174908F697277C9E7D607CB13 /* Pods-SwiftBus_Example.modulemap */,
+				4637B2BF59F2D484858A354196304A22 /* Pods-SwiftBus_Example-acknowledgements.markdown */,
+				5E17414B3BC7EDF5893D1C6FE3A120A0 /* Pods-SwiftBus_Example-acknowledgements.plist */,
+				48FEC92450B891C78FA092E1E5C4EE7D /* Pods-SwiftBus_Example-dummy.m */,
+				049B6F2266A4AECE411AE16098F2B1AA /* Pods-SwiftBus_Example-frameworks.sh */,
+				C36B5B52088E6A478BB037CB9FB4DAAD /* Pods-SwiftBus_Example-resources.sh */,
+				DCC42642CA32FBC437D070715EEF0C94 /* Pods-SwiftBus_Example-umbrella.h */,
+				9AF6D6A21EEA55F5CCE33CC5F9007915 /* Pods-SwiftBus_Example.debug.xcconfig */,
+				406DB52376583E1C214979CDC075A3F0 /* Pods-SwiftBus_Example.release.xcconfig */,
+			);
+			name = "Pods-SwiftBus_Example";
+			path = "Target Support Files/Pods-SwiftBus_Example";
+			sourceTree = "<group>";
+		};
+		730DB664ABD2D6415A9E67D5A2646432 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B7ABAE7DC3B9E5FC6887B8AD80BEA0B /* Pods-SwiftBus Watch Example */,
+				64673BC20C6D3851F11688D6B17521D2 /* Pods-SwiftBus_Example */,
+				07C01FE93E88FE104EAFC1C7CF48D999 /* Pods-SwiftBus_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7CF09C789D1B6C241396A40EF8D8BC6C /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				346545CD07DBC196AB86598F9368B120 /* Foundation.framework */,
+			);
+			name = watchOS;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -253,205 +369,306 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				9748C2AE86B3CFF8DC3E6A973165B6EC /* Development Pods */,
-				7A8797248051A54F948BAEAC68AA66D6 /* Frameworks */,
+				0BD2D3A6E8B742BEC3FECD07DE68DEBC /* Frameworks */,
 				F038B086B06CA3335C9E632B7286AE07 /* Pods */,
-				4F0EA2B31C09509520BFA53846752F40 /* Products */,
-				F1FCDBF4C6F83B1AA7DD91E8B7AD673F /* Targets Support Files */,
+				88E6971EC5144D30D148E06CBA08FAA2 /* Products */,
+				730DB664ABD2D6415A9E67D5A2646432 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		88E6971EC5144D30D148E06CBA08FAA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02518F4EDDC73D640B9D40EE23A7415D /* Pods_SwiftBus_Example.framework */,
+				0C3F0F2E7616E8140FD205D83670F410 /* Pods_SwiftBus_Tests.framework */,
+				E1520ACF50BC94D988809F0B2B1ABC7D /* Pods_SwiftBus_Watch_Example.framework */,
+				F225DD037C1A303DDA0E2E9C6AEDE2BF /* SwiftBus.framework */,
+				71AF53C947657C367E59F8E5EB15ABED /* SwiftBus.framework */,
+				7149FF2FE576CEAA692DFCBDEAF94434 /* SWXMLHash.framework */,
+				300ED6DF9BBAF2859A91FDCC938BA8BF /* SWXMLHash.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9748C2AE86B3CFF8DC3E6A973165B6EC /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				258D6DE6BAF68E30726067F696F9CFB2 /* SwiftBus */,
+				9C3BB8A9982B907261F701472FFC1A77 /* SwiftBus */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		98E5454658907A195D12A25BC1BB2876 /* Pods-SwiftBus_Tests */ = {
+		9B7ABAE7DC3B9E5FC6887B8AD80BEA0B /* Pods-SwiftBus Watch Example */ = {
 			isa = PBXGroup;
 			children = (
-				7615EAF5E798BEC4636465CF109E9064 /* Info.plist */,
-				F90A5CE17319FB395EFD3ABF103BEC71 /* Pods-SwiftBus_Tests.modulemap */,
-				3EF5FD201E03469AC1BB283C38ED9767 /* Pods-SwiftBus_Tests-acknowledgements.markdown */,
-				46C7A1872718FD01D1AD6AD5646B3520 /* Pods-SwiftBus_Tests-acknowledgements.plist */,
-				10A9525ABE04C8DA20DAF9B77A0C7ACE /* Pods-SwiftBus_Tests-dummy.m */,
-				3BA7835764604087511CDD00D3D1494B /* Pods-SwiftBus_Tests-frameworks.sh */,
-				5E21B29BA2DF6A44405B0D21F06F4AA9 /* Pods-SwiftBus_Tests-resources.sh */,
-				C7C4914E5092433E5FC5B12605CFED16 /* Pods-SwiftBus_Tests-umbrella.h */,
-				1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */,
-				D99D9E8B509A183B9592D95EE550D273 /* Pods-SwiftBus_Tests.release.xcconfig */,
+				9E0BC523B123BC82A0E0E596A53DC60D /* Info.plist */,
+				DDC5F281EBE872F8D2E214F9628D19EC /* Pods-SwiftBus Watch Example.modulemap */,
+				2E7AD55EBE2776F0F4F23C93E421F872 /* Pods-SwiftBus Watch Example-acknowledgements.markdown */,
+				E0967CFC595F053589C2CB083D0535B8 /* Pods-SwiftBus Watch Example-acknowledgements.plist */,
+				526199A3FF84DA6CE9E2662A8402855F /* Pods-SwiftBus Watch Example-dummy.m */,
+				44165E43DA6F478E4850BA09CCF92558 /* Pods-SwiftBus Watch Example-frameworks.sh */,
+				D0A11D93342DE4DD9D5ED6BAE7368368 /* Pods-SwiftBus Watch Example-resources.sh */,
+				3EFDEDE5A66EF033DA4D3334C608F1FC /* Pods-SwiftBus Watch Example-umbrella.h */,
+				299F76EFF2F6F094C5CDD59B5C04B415 /* Pods-SwiftBus Watch Example.debug.xcconfig */,
+				813029C86E29347E6859E56D41172204 /* Pods-SwiftBus Watch Example.release.xcconfig */,
 			);
-			name = "Pods-SwiftBus_Tests";
-			path = "Target Support Files/Pods-SwiftBus_Tests";
+			name = "Pods-SwiftBus Watch Example";
+			path = "Target Support Files/Pods-SwiftBus Watch Example";
 			sourceTree = "<group>";
 		};
-		B53121677E33A4A448BC32E7898AF3D0 /* iOS */ = {
+		9C3BB8A9982B907261F701472FFC1A77 /* SwiftBus */ = {
 			isa = PBXGroup;
 			children = (
-				F09DAFC923E560B5B224B7255480CDD4 /* Foundation.framework */,
+				173425E892555E68E6DE90710DAA4710 /* Pod */,
+				E5D55E7D272847C19426B028D504816F /* Support Files */,
+			);
+			name = SwiftBus;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		C0B9FED1E9D31F7DC15C71317361188C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				949337A6A833F07E4D75251030737FB0 /* Info.plist */,
+				D0F1E0787FD58F66BCEDAFDCA237A8AE /* Info.plist */,
+				34A384F13E204CDFA6B0AC558803D277 /* SWXMLHash-iOS.modulemap */,
+				CD1B1633DA73E051EA09162ED404FD66 /* SWXMLHash-iOS.xcconfig */,
+				3313A075D054B5328133DCE4AB831053 /* SWXMLHash-iOS-dummy.m */,
+				C2DCA4F64175EC2A89D7887A24DBF478 /* SWXMLHash-iOS-prefix.pch */,
+				6C367B3AE2D1771CD8B0D0F5D0C6E2F1 /* SWXMLHash-iOS-umbrella.h */,
+				0C46DF5A15E9DBE4D90456070CCAD6B4 /* SWXMLHash-watchOS.modulemap */,
+				E7B76F1241C5FD1563E2DD25C6DC735A /* SWXMLHash-watchOS.xcconfig */,
+				B51F7F3494AA02A0DF3D16315293060A /* SWXMLHash-watchOS-dummy.m */,
+				7108876CECAB23B0B46AE28B9D77484F /* SWXMLHash-watchOS-prefix.pch */,
+				10675845E84BEE24B96B5644A81A9685 /* SWXMLHash-watchOS-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SWXMLHash-iOS";
+			sourceTree = "<group>";
+		};
+		CAB130A2824B40B39E844E05455CFAFB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6530F41B05D3B5F55B804A9426DE57E9 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		CD0F14A5AAB5A804D13FA8EF758B30AB /* Support Files */ = {
+		E5D55E7D272847C19426B028D504816F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9516A4E7CD941FA27211D9F81B9CCCF0 /* Info.plist */,
-				3A14946936D6A7603C8CBF1950CAF504 /* SwiftBus.modulemap */,
-				D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */,
-				010BEDD8040F36E2FF156DCA27B31EC3 /* SwiftBus-dummy.m */,
-				C28B836EA0B5D7243C626B310698E35C /* SwiftBus-prefix.pch */,
-				16D478BF3CEB16FF3EFF07A66B21CA6E /* SwiftBus-umbrella.h */,
+				7C751C68EC85D35835F36137E38CC1E9 /* Info.plist */,
+				BA1A633567019881C3FEBA09CDBDC3D1 /* Info.plist */,
+				39423E50225A82CC8DDF521751FD2383 /* SwiftBus-iOS.modulemap */,
+				C6049CBA56729A040B64F34E0414F7AB /* SwiftBus-iOS.xcconfig */,
+				9F0D96976437484DC18C3E6091C53667 /* SwiftBus-iOS-dummy.m */,
+				8657EC306881FED91D3A8EFA0A56BCED /* SwiftBus-iOS-prefix.pch */,
+				AE8981112520C5EB3B0A4CB7B84202C7 /* SwiftBus-iOS-umbrella.h */,
+				A0C10EA7DC7CB45E4F55A5ED61A4BDD8 /* SwiftBus-watchOS.modulemap */,
+				244BE5043132123624BEB93F01F1A29E /* SwiftBus-watchOS.xcconfig */,
+				B0427A6572B197831E2746F489203B75 /* SwiftBus-watchOS-dummy.m */,
+				D0337743D2397F0204825683A91CEFDC /* SwiftBus-watchOS-prefix.pch */,
+				A6E2F78D07849E14B4407ACC225F1203 /* SwiftBus-watchOS-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SwiftBus";
-			sourceTree = "<group>";
-		};
-		DE8CA98822D2E573E698F52805EC3FCB /* Pods-SwiftBus_Example */ = {
-			isa = PBXGroup;
-			children = (
-				669161C808952BF725A66C5CF4552843 /* Info.plist */,
-				2C970D56702EB29625CDA23C307A3D01 /* Pods-SwiftBus_Example.modulemap */,
-				CAB7AB84E1A991DE4D7445A50BD44FD3 /* Pods-SwiftBus_Example-acknowledgements.markdown */,
-				DFAFC11E178AA2FC0CEF8130C97853D8 /* Pods-SwiftBus_Example-acknowledgements.plist */,
-				B7CB946F9A84D5E5DF98B09158B00548 /* Pods-SwiftBus_Example-dummy.m */,
-				F567173B0154513363EF607C29EE7C01 /* Pods-SwiftBus_Example-frameworks.sh */,
-				7621D5E8355F9D7E66DF49EBEDF55046 /* Pods-SwiftBus_Example-resources.sh */,
-				56F44A5AACA56B9CE80E23A3FD961037 /* Pods-SwiftBus_Example-umbrella.h */,
-				10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */,
-				5885CFAB2DF6067F05ECC0E1ED05A644 /* Pods-SwiftBus_Example.release.xcconfig */,
-			);
-			name = "Pods-SwiftBus_Example";
-			path = "Target Support Files/Pods-SwiftBus_Example";
+			path = "Example/Pods/Target Support Files/SwiftBus-iOS";
 			sourceTree = "<group>";
 		};
 		F038B086B06CA3335C9E632B7286AE07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				030971845A9690039BD4C4A72336E004 /* SWXMLHash */,
+				3B6290D60CC2126828770975F08D1742 /* SWXMLHash */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		F1FCDBF4C6F83B1AA7DD91E8B7AD673F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DE8CA98822D2E573E698F52805EC3FCB /* Pods-SwiftBus_Example */,
-				98E5454658907A195D12A25BC1BB2876 /* Pods-SwiftBus_Tests */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1FFF5D7DB48D5C7A0C4B82149FA15864 /* Headers */ = {
+		0ED45FDD1818E541EB077F4D410A42AE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4A76ADFA37E410A985ABB04787584DC /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
+				D078CCEC127059D9F3184371F5CC5D82 /* SwiftBus-iOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A3BF00924A8EEEFD1729F3DA35FEC3 /* Headers */ = {
+		2F2EFE070CDCDCBE678AF7E4D4111FA5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA5081074628E634F86E13C5028D08AC /* SWXMLHash-umbrella.h in Headers */,
+				590E89A6D7E12682FD1A70E5F0DE7E28 /* Pods-SwiftBus_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A74D91081DC6A85748E139394F751793 /* Headers */ = {
+		32CB670713BA42621E49ABB1CD4DFB4D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E73EB5AFBA76E305526DA9DC7E9C447D /* SwiftBus-umbrella.h in Headers */,
+				D0E60C12177D6F6DCFF5F7D547915FA9 /* Pods-SwiftBus Watch Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BA2EF0D0018369C69D9E62B0B5DD24EC /* Headers */ = {
+		7655DD76CE808556BC07B99D9900A17B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA1F143790F4D8615873D16BB4F76E4 /* Pods-SwiftBus_Example-umbrella.h in Headers */,
+				C59FDB8067A04F46D2811DC9B32553C2 /* Pods-SwiftBus_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6C8B4ABAAFF0F37F48CA39520645D49 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AC10FA6CF7177605F59B9C61FD1382C /* SWXMLHash-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B825E2482832A96CA28A06E247E550FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBD886B2CC26F96AB4AAF1EE4A7F5E0 /* SwiftBus-watchOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D21684413188DFE9097A72752000C6C8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0483D2F5C5612385518F70A9DAA9495 /* SWXMLHash-watchOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */ = {
+		2A41A70AFD4EBFE1DFA030136F66960F /* Pods-SwiftBus Watch Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADA5E55DAFA1F2A2A17A38672B7B344E /* Build configuration list for PBXNativeTarget "SWXMLHash" */;
+			buildConfigurationList = 233A13C935FEFE04DC80E8C6F3DCD2ED /* Build configuration list for PBXNativeTarget "Pods-SwiftBus Watch Example" */;
 			buildPhases = (
-				C426F8F816B86D5A2C6E96FA7A88E0A5 /* Sources */,
-				10368174AE9CC3D3CBC44E944F562D81 /* Frameworks */,
-				78A3BF00924A8EEEFD1729F3DA35FEC3 /* Headers */,
+				2FB4A3E74372668F64A5966D7E85F684 /* Sources */,
+				E843F7F5134C93D9E8D4538A4BA8B08C /* Frameworks */,
+				32CB670713BA42621E49ABB1CD4DFB4D /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				966507D8690B3169FC51AEC352B0C9CD /* PBXTargetDependency */,
+				D15AECFF280C08EB8FB62045F0494384 /* PBXTargetDependency */,
 			);
-			name = SWXMLHash;
-			productName = SWXMLHash;
-			productReference = 204F9E4B110A1E18F015BF08DF08C80F /* SWXMLHash.framework */;
+			name = "Pods-SwiftBus Watch Example";
+			productName = "Pods-SwiftBus Watch Example";
+			productReference = E1520ACF50BC94D988809F0B2B1ABC7D /* Pods_SwiftBus_Watch_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		485D05AE236754DDE9C52023DC897E53 /* SwiftBus */ = {
+		2D7844B036345BA816FF9F1DFA117636 /* Pods-SwiftBus_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 570D257F7BD2F6FB2B7428220F6A150B /* Build configuration list for PBXNativeTarget "SwiftBus" */;
+			buildConfigurationList = 325EDCA0C74BEAD5E3AABABCA337BA28 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
 			buildPhases = (
-				E6A0002D6A6C55B8A650F61D76AC68B0 /* Sources */,
-				0EB3A8849EBD5E3BB2BA7F3CE5AA3BF2 /* Frameworks */,
-				A74D91081DC6A85748E139394F751793 /* Headers */,
+				A2BD2B1E52DAD2C31F2B3D310D1ADD7B /* Sources */,
+				1B30A8EDE932E366CF1039EC6F5FBFCF /* Frameworks */,
+				2F2EFE070CDCDCBE678AF7E4D4111FA5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5C48DF45D186B0FC4794C2CB4D30CD03 /* PBXTargetDependency */,
-			);
-			name = SwiftBus;
-			productName = SwiftBus;
-			productReference = 3295F4E1B0464529411DD895A86DF629 /* SwiftBus.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5F69F98E8BD2E2A6F6E016E959C7124E /* Pods-SwiftBus_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DF38177279396A077A31A34D18E06D3B /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */;
-			buildPhases = (
-				FAE12962EAA749577233D8122A1840F5 /* Sources */,
-				6D98DA111A56D630009BA08B2ABFEC30 /* Frameworks */,
-				BA2EF0D0018369C69D9E62B0B5DD24EC /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC7AF60A5DC3A83A6B9FC16B40936D01 /* PBXTargetDependency */,
-				2D8477970C9F95FE235A7C7F6B5A6CE8 /* PBXTargetDependency */,
+				89C68B269F7F6274275699B013830E5C /* PBXTargetDependency */,
+				626B106763DEF51A72673F36590305E6 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftBus_Example";
 			productName = "Pods-SwiftBus_Example";
-			productReference = 09278C74CC20467880B75F8A80D5449F /* Pods_SwiftBus_Example.framework */;
+			productReference = 02518F4EDDC73D640B9D40EE23A7415D /* Pods_SwiftBus_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8F04E9B031ED960C1117BCEB3CFDE18E /* Pods-SwiftBus_Tests */ = {
+		4CCF6FCD7ECB66457F2694DA0C63CEE8 /* SwiftBus-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB590F05FBCEEF23AA5AF1DC44682C5A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
+			buildConfigurationList = 4E673D9732285619491776756B415F1D /* Build configuration list for PBXNativeTarget "SwiftBus-watchOS" */;
 			buildPhases = (
-				B30A27EA47D654E18269F6018706BA2C /* Sources */,
-				7F1E2C85ABB3252C6C4B1B3541C5AF0C /* Frameworks */,
-				1FFF5D7DB48D5C7A0C4B82149FA15864 /* Headers */,
+				197B4F16DEE1692AA2166531A06FB8EE /* Sources */,
+				8116A7BAD0EB2923B0AA54FFBB4CB160 /* Frameworks */,
+				B825E2482832A96CA28A06E247E550FD /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				54E396861FA03C52F99378B235E1A810 /* PBXTargetDependency */,
-				C67B97C1C4592A23DCEB98C2D972A287 /* PBXTargetDependency */,
+				DFE04FE19FE1FFA8103C02F4D582E990 /* PBXTargetDependency */,
+			);
+			name = "SwiftBus-watchOS";
+			productName = "SwiftBus-watchOS";
+			productReference = F225DD037C1A303DDA0E2E9C6AEDE2BF /* SwiftBus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		50AEF5AD6276D94CB8ECCE4A5FD1CA95 /* SwiftBus-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B208F3E2A9008124E411E090E2E03E6 /* Build configuration list for PBXNativeTarget "SwiftBus-iOS" */;
+			buildPhases = (
+				5862A46E01DF785CEBB2FB0C8D90B8CE /* Sources */,
+				7FFBF8587B98C3C8AF5C3FDC71D62C28 /* Frameworks */,
+				0ED45FDD1818E541EB077F4D410A42AE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A802AE579F408049E90802D90435F86A /* PBXTargetDependency */,
+			);
+			name = "SwiftBus-iOS";
+			productName = "SwiftBus-iOS";
+			productReference = 71AF53C947657C367E59F8E5EB15ABED /* SwiftBus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5D7FF0FFE5A25655515890462E740C98 /* SWXMLHash-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6450FDDB9CF76E26C447393610E2A360 /* Build configuration list for PBXNativeTarget "SWXMLHash-iOS" */;
+			buildPhases = (
+				379236D01EA27E08B522707A119A03E3 /* Sources */,
+				7016A8C2503B4411FC9DF8F5D57B4B9E /* Frameworks */,
+				A6C8B4ABAAFF0F37F48CA39520645D49 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SWXMLHash-iOS";
+			productName = "SWXMLHash-iOS";
+			productReference = 7149FF2FE576CEAA692DFCBDEAF94434 /* SWXMLHash.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6397E1B793542FAF534323CF6129359D /* Pods-SwiftBus_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B272CC88C105BF996E9CA15317565DC6 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */;
+			buildPhases = (
+				2B5C252213A64D7413CFF7AD7AA75BFC /* Sources */,
+				3ACCB7C0B8DFC4489630DBFFBACDECE5 /* Frameworks */,
+				7655DD76CE808556BC07B99D9900A17B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DEAFEFA7E8C5952BD2CB6AAC0FC0400 /* PBXTargetDependency */,
+				38F21AF3E69D3134A80B327F1A4D8FA2 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftBus_Tests";
 			productName = "Pods-SwiftBus_Tests";
-			productReference = 836FF648432DF1BEDCCE80559A37398A /* Pods_SwiftBus_Tests.framework */;
+			productReference = 0C3F0F2E7616E8140FD205D83670F410 /* Pods_SwiftBus_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D5BC45D1C7036E4F4CE47DDA09A95664 /* SWXMLHash-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 014D1B277CD017819D60623587CAA40C /* Build configuration list for PBXNativeTarget "SWXMLHash-watchOS" */;
+			buildPhases = (
+				1030E013FE0F71FA21F685CADC2C5478 /* Sources */,
+				06F2379D88AB89DB9B559C67DBDDEF35 /* Frameworks */,
+				D21684413188DFE9097A72752000C6C8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SWXMLHash-watchOS";
+			productName = "SWXMLHash-watchOS";
+			productReference = 300ED6DF9BBAF2859A91FDCC938BA8BF /* SWXMLHash.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -462,11 +679,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					5F69F98E8BD2E2A6F6E016E959C7124E = {
-						LastSwiftMigration = 0820;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -476,106 +688,164 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 4F0EA2B31C09509520BFA53846752F40 /* Products */;
+			productRefGroup = 88E6971EC5144D30D148E06CBA08FAA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F69F98E8BD2E2A6F6E016E959C7124E /* Pods-SwiftBus_Example */,
-				8F04E9B031ED960C1117BCEB3CFDE18E /* Pods-SwiftBus_Tests */,
-				485D05AE236754DDE9C52023DC897E53 /* SwiftBus */,
-				2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */,
+				2A41A70AFD4EBFE1DFA030136F66960F /* Pods-SwiftBus Watch Example */,
+				2D7844B036345BA816FF9F1DFA117636 /* Pods-SwiftBus_Example */,
+				6397E1B793542FAF534323CF6129359D /* Pods-SwiftBus_Tests */,
+				50AEF5AD6276D94CB8ECCE4A5FD1CA95 /* SwiftBus-iOS */,
+				4CCF6FCD7ECB66457F2694DA0C63CEE8 /* SwiftBus-watchOS */,
+				5D7FF0FFE5A25655515890462E740C98 /* SWXMLHash-iOS */,
+				D5BC45D1C7036E4F4CE47DDA09A95664 /* SWXMLHash-watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B30A27EA47D654E18269F6018706BA2C /* Sources */ = {
+		1030E013FE0F71FA21F685CADC2C5478 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				763E5EC92712C4801C1181012337128C /* Pods-SwiftBus_Tests-dummy.m in Sources */,
+				0B9E8C313026EB3550434B60888BA716 /* SWXMLHash+TypeConversion.swift in Sources */,
+				306679989805DACA59FF123F99C4AC15 /* SWXMLHash-watchOS-dummy.m in Sources */,
+				06E67B4153D8CA1D153C7F8A4EDA49BD /* SWXMLHash.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C426F8F816B86D5A2C6E96FA7A88E0A5 /* Sources */ = {
+		197B4F16DEE1692AA2166531A06FB8EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CDC2306376E1B55F2036D385BF5C4E /* SWXMLHash+TypeConversion.swift in Sources */,
-				6380E90A84A3EB13C5465096488CBEEA /* SWXMLHash-dummy.m in Sources */,
-				5FA3651A177055352661B9FA1BBFB54B /* SWXMLHash.swift in Sources */,
+				5146DC30A9FA0B563E4B696DDBB1BC83 /* ColorExtension.swift in Sources */,
+				DF1E9DC2397FDC48758C642797F35A01 /* SwiftBus-watchOS-dummy.m in Sources */,
+				66C476541E4437DF00437677 /* SwiftBusConnectionHandler.swift in Sources */,
+				8931369A713C04994854A1C744D035AD /* SwiftBus.swift in Sources */,
+				288A09A60494C95D39D6BBD0BD41E611 /* SwiftBusDataParser.swift in Sources */,
+				BC6BBEA50DAA0F36136EFF76927B7770 /* SwiftBusRequestURLs.swift in Sources */,
+				28D916685A3BB624AE058C70EECEFAC6 /* TransitAgency.swift in Sources */,
+				455E193B97161F047E4FEE1304A64DA0 /* TransitMessage.swift in Sources */,
+				608B682D70E56DA328BC84C1AE190F34 /* TransitPrediction.swift in Sources */,
+				853EA0117332428E5083EABEAA33AF61 /* TransitRoute.swift in Sources */,
+				2AAA655744B228F562C4205E3E4C765B /* TransitStation.swift in Sources */,
+				B3EAA4CDA07A6ECAE3418727A5B2B391 /* TransitStop.swift in Sources */,
+				F7849C3D9A9B0BFE28AEEB64623F100B /* TransitVehicle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E6A0002D6A6C55B8A650F61D76AC68B0 /* Sources */ = {
+		2B5C252213A64D7413CFF7AD7AA75BFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F469F75A7D2C703E3AB1044A5094DC0 /* ColorExtension.swift in Sources */,
-				66CBC1951E173CC2000761BB /* TransitMessage.swift in Sources */,
-				68D425450F80F9673154FAB7C20E0684 /* SwiftBus-dummy.m in Sources */,
-				605224073A01D89D44B8505A7D2D3ED1 /* SwiftBus.swift in Sources */,
-				CE3A604CEF2A1FA233A2BDA8842F4548 /* SwiftBusConnectionHandler.swift in Sources */,
-				4CEAC86B230B0480637136901880BA76 /* SwiftBusDataParser.swift in Sources */,
-				ED5D61DDE365841BD7B86A5BB6B72522 /* SwiftBusRequestURLs.swift in Sources */,
-				2235278EC052D58725BA37C2039614AF /* TransitAgency.swift in Sources */,
-				D61A1D5D1A35C1A6C74B00F569782074 /* TransitPrediction.swift in Sources */,
-				822808725E0FB870D33BB9EAA663E914 /* TransitRoute.swift in Sources */,
-				45969CB1D614607EB8F45527E6A38F75 /* TransitStation.swift in Sources */,
-				2223E829B84A1AAD9295E9C5E5BA01F9 /* TransitStop.swift in Sources */,
-				5D78E5DCE77823CE141A2931C2DA9E0D /* TransitVehicle.swift in Sources */,
+				00B57E2B92E07162A5C93A7C2C99E51A /* Pods-SwiftBus_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAE12962EAA749577233D8122A1840F5 /* Sources */ = {
+		2FB4A3E74372668F64A5966D7E85F684 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B48387973C283743F7DB7AC8A9ACA90 /* Pods-SwiftBus_Example-dummy.m in Sources */,
+				894ABACF46512DA5BCD977CAABA25F36 /* Pods-SwiftBus Watch Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		379236D01EA27E08B522707A119A03E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9085AE27AEC3265752452E6D943DEC15 /* SWXMLHash+TypeConversion.swift in Sources */,
+				050896CFC12392DD073CF5D83D7E778C /* SWXMLHash-iOS-dummy.m in Sources */,
+				4E5C77CBAAF6FE91DF42314E6D69ECF5 /* SWXMLHash.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5862A46E01DF785CEBB2FB0C8D90B8CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40F60B151A85251D3F9A75C0F5073B0E /* ColorExtension.swift in Sources */,
+				55105A8C28983E3E6C8889E541CD64D2 /* SwiftBus-iOS-dummy.m in Sources */,
+				04D03A82CE5E11BF7DA5CAB1E8B92AFE /* SwiftBus.swift in Sources */,
+				2060FC99D1B00B05E16F212C50C88061 /* SwiftBusConnectionHandler.swift in Sources */,
+				50AB915E036F6B744013C9AB62F6311E /* SwiftBusDataParser.swift in Sources */,
+				6168DEC2A218AAB1C932C8C2FFB832A1 /* SwiftBusRequestURLs.swift in Sources */,
+				04CE81D4A444E9BD16D512B090701CFB /* TransitAgency.swift in Sources */,
+				704466BB9B1C4893FF571D888DB3083F /* TransitMessage.swift in Sources */,
+				997E415C51BBE70B7CB8B8FCB078F592 /* TransitPrediction.swift in Sources */,
+				8EAA954BF083DF6C86862CFE5871C1BA /* TransitRoute.swift in Sources */,
+				A0B9DA9FA8A6718014FA796BD73AF879 /* TransitStation.swift in Sources */,
+				03580398D7B58A83F948F5EEC15B24E5 /* TransitStop.swift in Sources */,
+				32D5DEA2A306500C3A024FA481D68632 /* TransitVehicle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2BD2B1E52DAD2C31F2B3D310D1ADD7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9BF65B0ED1EB55C9E34FAF31A4D016 /* Pods-SwiftBus_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2D8477970C9F95FE235A7C7F6B5A6CE8 /* PBXTargetDependency */ = {
+		1DEAFEFA7E8C5952BD2CB6AAC0FC0400 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SwiftBus;
-			target = 485D05AE236754DDE9C52023DC897E53 /* SwiftBus */;
-			targetProxy = 78C411F266D3E2392FD226EE266F8FAF /* PBXContainerItemProxy */;
+			name = "SWXMLHash-iOS";
+			target = 5D7FF0FFE5A25655515890462E740C98 /* SWXMLHash-iOS */;
+			targetProxy = 3514162886BE38510C0D3226AC117DD7 /* PBXContainerItemProxy */;
 		};
-		54E396861FA03C52F99378B235E1A810 /* PBXTargetDependency */ = {
+		38F21AF3E69D3134A80B327F1A4D8FA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SWXMLHash;
-			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
-			targetProxy = FF6DBADF1A2D53E62ECC2DE4E39A5DF7 /* PBXContainerItemProxy */;
+			name = "SwiftBus-iOS";
+			target = 50AEF5AD6276D94CB8ECCE4A5FD1CA95 /* SwiftBus-iOS */;
+			targetProxy = 2857B367EAE90226A32B270DECCDFCCA /* PBXContainerItemProxy */;
 		};
-		5C48DF45D186B0FC4794C2CB4D30CD03 /* PBXTargetDependency */ = {
+		626B106763DEF51A72673F36590305E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SWXMLHash;
-			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
-			targetProxy = 11261AEEC0686EB1CC9FD7225C09C4DE /* PBXContainerItemProxy */;
+			name = "SwiftBus-iOS";
+			target = 50AEF5AD6276D94CB8ECCE4A5FD1CA95 /* SwiftBus-iOS */;
+			targetProxy = B8BDA74C2855CCEA8CCEC87C8CD6E590 /* PBXContainerItemProxy */;
 		};
-		C67B97C1C4592A23DCEB98C2D972A287 /* PBXTargetDependency */ = {
+		89C68B269F7F6274275699B013830E5C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SwiftBus;
-			target = 485D05AE236754DDE9C52023DC897E53 /* SwiftBus */;
-			targetProxy = 0D2B28220368167134CC6B5D5931D1B6 /* PBXContainerItemProxy */;
+			name = "SWXMLHash-iOS";
+			target = 5D7FF0FFE5A25655515890462E740C98 /* SWXMLHash-iOS */;
+			targetProxy = F6200F1E5BA906E66FE071796473EFEF /* PBXContainerItemProxy */;
 		};
-		CC7AF60A5DC3A83A6B9FC16B40936D01 /* PBXTargetDependency */ = {
+		966507D8690B3169FC51AEC352B0C9CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SWXMLHash;
-			target = 2F5739097A23E09C7AB7CB9DBCF6DD92 /* SWXMLHash */;
-			targetProxy = 74D2B84E113418DC2210D6A1DFEFB4C4 /* PBXContainerItemProxy */;
+			name = "SWXMLHash-watchOS";
+			target = D5BC45D1C7036E4F4CE47DDA09A95664 /* SWXMLHash-watchOS */;
+			targetProxy = 611CC534B3FFCF7C58A4B854AF61DC5B /* PBXContainerItemProxy */;
+		};
+		A802AE579F408049E90802D90435F86A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SWXMLHash-iOS";
+			target = 5D7FF0FFE5A25655515890462E740C98 /* SWXMLHash-iOS */;
+			targetProxy = 9E67E08A5E5ED52FA0DB4DBF4C40BB36 /* PBXContainerItemProxy */;
+		};
+		D15AECFF280C08EB8FB62045F0494384 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftBus-watchOS";
+			target = 4CCF6FCD7ECB66457F2694DA0C63CEE8 /* SwiftBus-watchOS */;
+			targetProxy = 49A592CEA486417272AC46DD7A210D9E /* PBXContainerItemProxy */;
+		};
+		DFE04FE19FE1FFA8103C02F4D582E990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SWXMLHash-watchOS";
+			target = D5BC45D1C7036E4F4CE47DDA09A95664 /* SWXMLHash-watchOS */;
+			targetProxy = 38F4CBF5CD5686A3DB878EBF2587667B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		448A65CB6C722E198D37165721B88F7D /* Release */ = {
+		0FCE4D1A92AB371BED66C6A1FFBDDD46 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5885CFAB2DF6067F05ECC0E1ED05A644 /* Pods-SwiftBus_Example.release.xcconfig */;
+			baseConfigurationReference = 406DB52376583E1C214979CDC075A3F0 /* Pods-SwiftBus_Example.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -601,52 +871,17 @@
 				PRODUCT_NAME = Pods_SwiftBus_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		4938886F4F1B2456FD1FA09F6E4523DC /* Release */ = {
+		22DA78996EC4FFEA0E89DA0690457E73 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D99D9E8B509A183B9592D95EE550D273 /* Pods-SwiftBus_Tests.release.xcconfig */;
+			baseConfigurationReference = E7B76F1241C5FD1563E2DD25C6DC735A /* SWXMLHash-watchOS.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4F3E34D601797B239817932425CD3BC0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
-			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -658,96 +893,27 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash-watchOS/SWXMLHash-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash-watchOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftBus;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5288A3D9B2A1E000766DF5E08A05D395 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash-watchOS/SWXMLHash-watchOS.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SWXMLHash;
-				SDKROOT = iphoneos;
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		5719494230B630B918776E90051E0199 /* Debug */ = {
+		296C494865CA8FE4B95FAB212BC66734 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B2D2852E6A943F3CD55A1EBBA8D9CE3 /* Pods-SwiftBus_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6E8DDDCBA8E72A37D524567EE4C004DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D562DC1345386550F26E3BAFC5E50C51 /* SwiftBus.xcconfig */;
+			baseConfigurationReference = 78CCCB263E9AC6204EF35253DE29C747 /* Pods-SwiftBus_Tests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -760,28 +926,30 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus/SwiftBus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftBus/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftBus/SwiftBus.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftBus;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		7E70565790511EDE21B2ADB9CC4DCB75 /* Debug */ = {
+		3E3541B3E8B538364719D3AD9F27DF6E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10F2A2F30D6F845CC75CB2B2AD52A45F /* Pods-SwiftBus_Example.debug.xcconfig */;
+			baseConfigurationReference = C6049CBA56729A040B64F34E0414F7AB /* SwiftBus-iOS.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -793,18 +961,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus-iOS/SwiftBus-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus-iOS/SwiftBus-iOS.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwiftBus_Example;
+				PRODUCT_NAME = SwiftBus;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -815,47 +979,7 @@
 			};
 			name = Debug;
 		};
-		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+		58C198E2053A034AFA9E97E5D83DB6DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -896,12 +1020,188 @@
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		C26221E275488E8168D5E071E1FB2178 /* Release */ = {
+		5CADE136F901589954DE02335745BBE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57E6217B848339A4E955BDBE2F18BC72 /* SWXMLHash.xcconfig */;
+			baseConfigurationReference = 2AC40690632C0D6E5E20D2A7918DA0FA /* Pods-SwiftBus_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Tests/Pods-SwiftBus_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		648CD24B68F0B9F93662949E6E6AD96D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD1B1633DA73E051EA09162ED404FD66 /* SWXMLHash-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash-iOS/SWXMLHash-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash-iOS/SWXMLHash-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SWXMLHash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		64D4574D10650C4B964DC0C1BDE94D58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7B76F1241C5FD1563E2DD25C6DC735A /* SWXMLHash-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash-watchOS/SWXMLHash-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash-watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash-watchOS/SWXMLHash-watchOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWXMLHash;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		73B34F23C52C0AAA6C0D88833B83BE2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 299F76EFF2F6F094C5CDD59B5C04B415 /* Pods-SwiftBus Watch Example.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus Watch Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus Watch Example/Pods-SwiftBus Watch Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Watch_Example;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		8833B5C486B3BDEBBE92B69BA7644E0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF6D6A21EEA55F5CCE33CC5F9007915 /* Pods-SwiftBus_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus_Example/Pods-SwiftBus_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		90C165121871A59FC2FB64DD2F32B722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD1B1633DA73E051EA09162ED404FD66 /* SWXMLHash-iOS.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -914,67 +1214,270 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash/SWXMLHash-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWXMLHash/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SWXMLHash-iOS/SWXMLHash-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWXMLHash-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWXMLHash/SWXMLHash.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SWXMLHash-iOS/SWXMLHash-iOS.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SWXMLHash;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
+		BA7BB70835243599CADEE8005FFAAF56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244BE5043132123624BEB93F01F1A29E /* SwiftBus-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus-watchOS/SwiftBus-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus-watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus-watchOS/SwiftBus-watchOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		C519105D40AB11B8E1317A736165D6BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244BE5043132123624BEB93F01F1A29E /* SwiftBus-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus-watchOS/SwiftBus-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus-watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus-watchOS/SwiftBus-watchOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		E58C01B37DD1042C39E0F9166770E514 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6049CBA56729A040B64F34E0414F7AB /* SwiftBus-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftBus-iOS/SwiftBus-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftBus-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftBus-iOS/SwiftBus-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftBus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EA10D7B8BEFC20E77C4F15B6E6CF57A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		F1322F8B5C4F38044F97FA690847A105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 813029C86E29347E6859E56D41172204 /* Pods-SwiftBus Watch Example.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftBus Watch Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftBus Watch Example/Pods-SwiftBus Watch Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwiftBus_Watch_Example;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		014D1B277CD017819D60623587CAA40C /* Build configuration list for PBXNativeTarget "SWXMLHash-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22DA78996EC4FFEA0E89DA0690457E73 /* Debug */,
+				64D4574D10650C4B964DC0C1BDE94D58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233A13C935FEFE04DC80E8C6F3DCD2ED /* Build configuration list for PBXNativeTarget "Pods-SwiftBus Watch Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73B34F23C52C0AAA6C0D88833B83BE2E /* Debug */,
+				F1322F8B5C4F38044F97FA690847A105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
-				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
+				58C198E2053A034AFA9E97E5D83DB6DE /* Debug */,
+				EA10D7B8BEFC20E77C4F15B6E6CF57A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		570D257F7BD2F6FB2B7428220F6A150B /* Build configuration list for PBXNativeTarget "SwiftBus" */ = {
+		325EDCA0C74BEAD5E3AABABCA337BA28 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4F3E34D601797B239817932425CD3BC0 /* Debug */,
-				6E8DDDCBA8E72A37D524567EE4C004DD /* Release */,
+				8833B5C486B3BDEBBE92B69BA7644E0A /* Debug */,
+				0FCE4D1A92AB371BED66C6A1FFBDDD46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADA5E55DAFA1F2A2A17A38672B7B344E /* Build configuration list for PBXNativeTarget "SWXMLHash" */ = {
+		4E673D9732285619491776756B415F1D /* Build configuration list for PBXNativeTarget "SwiftBus-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5288A3D9B2A1E000766DF5E08A05D395 /* Debug */,
-				C26221E275488E8168D5E071E1FB2178 /* Release */,
+				BA7BB70835243599CADEE8005FFAAF56 /* Debug */,
+				C519105D40AB11B8E1317A736165D6BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF38177279396A077A31A34D18E06D3B /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Example" */ = {
+		5B208F3E2A9008124E411E090E2E03E6 /* Build configuration list for PBXNativeTarget "SwiftBus-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7E70565790511EDE21B2ADB9CC4DCB75 /* Debug */,
-				448A65CB6C722E198D37165721B88F7D /* Release */,
+				3E3541B3E8B538364719D3AD9F27DF6E /* Debug */,
+				E58C01B37DD1042C39E0F9166770E514 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB590F05FBCEEF23AA5AF1DC44682C5A /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
+		6450FDDB9CF76E26C447393610E2A360 /* Build configuration list for PBXNativeTarget "SWXMLHash-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5719494230B630B918776E90051E0199 /* Debug */,
-				4938886F4F1B2456FD1FA09F6E4523DC /* Release */,
+				648CD24B68F0B9F93662949E6E6AD96D /* Debug */,
+				90C165121871A59FC2FB64DD2F32B722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B272CC88C105BF996E9CA15317565DC6 /* Build configuration list for PBXNativeTarget "Pods-SwiftBus_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CADE136F901589954DE02335745BBE7 /* Debug */,
+				296C494865CA8FE4B95FAB212BC66734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

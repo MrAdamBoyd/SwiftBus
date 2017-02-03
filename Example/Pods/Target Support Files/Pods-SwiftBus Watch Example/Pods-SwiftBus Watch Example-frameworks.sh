@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/SWXMLHash-iOS/SWXMLHash.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftBus-iOS/SwiftBus.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SWXMLHash-watchOS/SWXMLHash.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftBus-watchOS/SwiftBus.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/SWXMLHash-iOS/SWXMLHash.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftBus-iOS/SwiftBus.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SWXMLHash-watchOS/SWXMLHash.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftBus-watchOS/SwiftBus.framework"
 fi
