@@ -19,8 +19,11 @@
                                 <action selector="getTimesTapped" destination="AgC-eL-Hgc" id="bhy-Hc-rak"/>
                             </connections>
                         </button>
-                        <label alignment="left" text="Times: None" id="Ak9-L8-G0y"/>
+                        <label alignment="left" text="Times: None" numberOfLines="0" id="Ak9-L8-G0y"/>
                     </items>
+                    <connections>
+                        <outlet property="timesLabel" destination="Ak9-L8-G0y" id="0ju-KC-IzI"/>
+                    </connections>
                 </controller>
             </objects>
         </scene>

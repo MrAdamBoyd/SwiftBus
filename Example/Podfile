@@ -9,7 +9,7 @@ target 'SwiftBus_Tests' do
   pod "SwiftBus", :path => "../"
 end
 
-target 'SwiftBus Watch Example' do
+target 'SwiftBus Watch Example Extension' do
   platform :watchos, '2.0'
   pod "SwiftBus", :path => "../"
 end

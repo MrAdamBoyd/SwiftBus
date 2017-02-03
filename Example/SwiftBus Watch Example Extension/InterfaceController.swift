@@ -8,9 +8,12 @@
 
 import WatchKit
 import Foundation
+import SwiftBus
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet var timesLabel: WKInterfaceLabel!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -28,6 +31,27 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func getTimesTapped() {
+        //Alternative:
+        //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
+        //route.getStopPredictionsForStop("3909", completion: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
+        if #available(watchOS 3, *) {
+            self.timesLabel.setText("watchOS 3 Does not allow unsecure HTTP requests and that's what NextBus uses :(")
+            return
+        }
         
+        SwiftBus.shared.stopPredictions(forStopTag: "3909", onRouteTag: "N", withAgencyTag: "sf-muni") { stop in
+            
+            //If the stop and route exists
+            if let transitStop = stop as TransitStop! {
+                let predictionStrings:[Int] = transitStop.allPredictions.map({$0.predictionInMinutes})
+                
+                print("\n-----")
+                print("Stop: \(transitStop.stopTitle)")
+                print("Predictions at stop \(predictionStrings) mins")
+                
+                self.timesLabel.setText("Times: \(predictionStrings)")
+            }
+            
+        }
     }
 }
