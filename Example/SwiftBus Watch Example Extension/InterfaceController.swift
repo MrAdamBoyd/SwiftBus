@@ -34,11 +34,6 @@ class InterfaceController: WKInterfaceController {
         //Alternative:
         //var route = TransitRoute(routeTag: "N", agencyTag: "sf-muni")
         //route.getStopPredictionsForStop("3909", completion: {(success:Bool, predictions:[String : [TransitPrediction]]) -> Void in
-        if #available(watchOS 3, *) {
-            self.timesLabel.setText("watchOS 3 Does not allow unsecure HTTP requests and that's what NextBus uses :(")
-            return
-        }
-        
         SwiftBus.shared.stopPredictions(forStopTag: "3909", onRouteTag: "N", withAgencyTag: "sf-muni") { stop in
             
             //If the stop and route exists
