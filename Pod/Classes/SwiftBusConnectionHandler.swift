@@ -85,8 +85,8 @@ class SwiftBusConnectionHandler: NSObject {
             let session = URLSession(configuration: URLSessionConfiguration.default)
             
             let dataTask = session.dataTask(with: url) { data, response, error in
-                let xmlString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
-                let xml = SWXMLHash.parse(xmlString!)
+                let xmlString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String
+                let xml = SWXMLHash.parse(xmlString)
                 let parser = SwiftBusDataParser()
                 
                 switch requestType {
