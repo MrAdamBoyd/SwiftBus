@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftBus"
-  s.version          = "1.4.5"
+  s.version          = "1.4.6"
   s.summary          = "Asynchronous Swift wrapper for the NextBus API."
 
   s.homepage         = "https://github.com/MrAdamBoyd/SwiftBus"
@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
 
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.1' }
   s.dependency 'SWXMLHash', '~> 3.0.0'
 end
