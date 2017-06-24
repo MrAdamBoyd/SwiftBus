@@ -195,7 +195,8 @@ class SwiftBusDataParser: NSObject {
             if let routeTitle = route.element?.allAttributes["routeTag"]?.text {
                 if let _ = predictionDict[routeTitle] {
                     let newPredictions = parsePredictions(route)
-//                    predictionDict[routeTitle]![newPredictions.key] = newPredictions.value
+                    let newStopTag = Array(newPredictions.keys).first!
+                    predictionDict[routeTitle]![newStopTag] = newPredictions[newStopTag]
                 } else {
                     predictionDict[routeTitle] = parsePredictions(route)
                 }
@@ -233,13 +234,15 @@ class SwiftBusDataParser: NSObject {
     private func parsePredictions(_ predictionXML: XMLIndexer) -> [String: [TransitPrediction]] {
         var predictions:[String : [TransitPrediction]] = [:]
         
+        guard let stopTag = predictionXML.element?.allAttributes["stopTag"]?.text else { return [:] }
+        
         //Getting all the predictions
         for direction in predictionXML.children {
             
-            //Getting the direction name
+            //Making sure this is a valid element
             if let directionName = direction.element?.allAttributes["title"]?.text {
                 
-                predictions[directionName] = []
+                predictions[stopTag] = []
                 
                 for prediction in direction.children {
                     //Getting each individual prediction in minutes
@@ -254,7 +257,9 @@ class SwiftBusDataParser: NSObject {
                             newPrediction.numberOfVehicles = Int(numberOfVechiles)!
                         }
                         
-                        predictions[directionName]?.append(newPrediction)
+                        newPrediction.directionName = directionName
+                        
+                        predictions[stopTag]?.append(newPrediction)
                     }
                 }
             }

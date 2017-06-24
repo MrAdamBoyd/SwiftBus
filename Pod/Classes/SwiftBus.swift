@@ -430,26 +430,56 @@ open class SwiftBus {
         let stopTags = stopRoutePairs.map { $0.key }
         let routeTags = stopRoutePairs.map { $0.value }
         
-//        self.configurations(forMultipleRouteTags: routeTags, withAgencyTag: agencyTag) { routes in
-        
+        self.configurations(forMultipleRouteTags: routeTags, withAgencyTag: agencyTag) { routes in
+            
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestMultipleStopPredictionData(stopTags, forRoutes: routeTags, withAgency: agencyTag) { predictions in
+            connectionHandler.requestMultipleStopPredictionData(stopTags, forRoutes: routeTags, withAgency: agencyTag) { allPredictionData in
                 
                 var finalStops: [TransitStop] = []
                 
-//                for route in routes {
-                
-                    //If the stop exists, add the predictions and add it to the array which will be passed back to user
-//                    if let stopTag = routeStopPairs[route.routeTag], let stop = route.stop(forTag: stopTag) {
-//                        stop.predictions = predictions[route.routeTag] ?? [:]
-//                        finalStops.append(stop)
-//                    }
-                
-//                }
+                for predictionGroup in allPredictionData {
+                    
+                    //Going through each route and organizing the prediction data
+                    
+                    let routeTag = predictionGroup.key
+                    let predictionForRoute = predictionGroup.value
+                    
+                    guard let route = routes.filter({ $0.routeTag == routeTag }).first else { break }
+                    
+                    for predictionForStop in predictionForRoute {
+                        
+                        //Going through all stops that were requested per route
+                        
+                        let stopTag = predictionForStop.key
+                        
+                        if let stop = route.stop(forTag: stopTag) {
+                            var bucketPredictions: [String: [TransitPrediction]] = [:]
+                            
+                            //This can be easily done in swift 4, need to switch to that
+                            for prediction in predictionForStop.value {
+                                
+                                //For each stop, make sure that all directions are taken care of
+                                //For example, at a stop, the same bus can go to 2 different locations
+                                
+                                if let _ = bucketPredictions[prediction.directionName] {
+                                    bucketPredictions[prediction.directionName]?.append(prediction)
+                                } else {
+                                    bucketPredictions[prediction.directionName] = [prediction]
+                                }
+                                
+                            }
+                            
+                            stop.predictions = bucketPredictions
+                            finalStops.append(stop)
+                        }
+                        print("LOL!")
+                    }
+                    
+                }
                 
                 completion?(finalStops)
                 
-//            }
+            }
         }
         
     }
