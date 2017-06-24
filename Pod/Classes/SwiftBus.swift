@@ -392,7 +392,7 @@ open class SwiftBus {
         
         var dictionary: [RouteTag: StopTag] = [:]
         for stop in stops {
-            dictionary[stop.routeTag] = stop.stopTag
+            dictionary[stop.stopTag] = stop.routeTag
         }
         
         self.stopPredictions(forStops: dictionary, inAgency: agencyTag, completion: completion)
