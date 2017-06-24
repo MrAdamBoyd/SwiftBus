@@ -128,10 +128,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func multiPredictionsTouched(_ sender: Any) {
-        SwiftBus.shared.stopPredictions(forStopTags: ["7252", "6721"], routeTags: ["N", "31"], inAgency: "sf-muni") { stops in
+        SwiftBus.shared.stopPredictions(forStopTags: ["7252", "6721", "5631", "6985"], onRouteTags: ["N", "31", "43", "43"], inAgency: "sf-muni") { stops in
             var stopString = ""
             for stop in stops {
-                stopString += "Stop \(stop.stopTitle) on route \(stop.routeTitle): \(stop.allPredictions.map({$0.predictionInMinutes}))\n"
+                stopString += "Stop \(stop.stopTitle) on route \(stop.routeTitle): \(stop.allPredictions.map({$0.predictionInMinutes}))\n\n"
             }
             
             print("\n-----")
