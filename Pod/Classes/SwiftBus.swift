@@ -2,8 +2,8 @@
 //  SwiftBus.swift
 //  SwiftBus
 //
-//  Created by Adam on 2015-08-29.
-//  Copyright (c) 2015 Adam Boyd. All rights reserved.
+//  Created by Adam on 2017-08-29.
+//  Copyright (c) 2017 Adam Boyd. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -19,7 +19,7 @@ open class SwiftBus {
     
     open static let shared = SwiftBus()
     
-    fileprivate var masterListTransitAgencies: [String: TransitAgency] = [:]
+    fileprivate var masterListTransitAgencies: [TransitAgencyTag: TransitAgency] = [:]
     
     fileprivate init() { }
     
@@ -41,9 +41,9 @@ open class SwiftBus {
     agencies.values.array will return a list of TransitAgencies
     
     - parameter completion: Code that is called after the dictionary of agencies has loaded
-        - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
+        - parameter agencies:    Dictionary of TransitAgency
     */
-    open func transitAgencies(_ completion: ((_ agencies: [String: TransitAgency]) -> Void)?) {
+    open func transitAgencies(_ completion: ((_ agencies: [TransitAgencyTag: TransitAgency]) -> Void)?) {
         
         if self.masterListTransitAgencies.count > 0 {
             completion?(self.masterListTransitAgencies)
@@ -51,12 +51,13 @@ open class SwiftBus {
         } else {
             //We need to load the transit agency data
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
-                //Insert this closure around the inner one because the agencies need to be saved
-                self.masterListTransitAgencies = agencies
-
-                completion?(agencies)
-            })
+            connectionHandler.requestAllAgencies() { agencies in
+                DispatchQueue.main.async { [weak self] in
+                    self?.masterListTransitAgencies = agencies
+                    
+                    completion?(agencies)
+                }
+            }
             
         }
     }
@@ -88,9 +89,9 @@ open class SwiftBus {
         }
         
         //Getting all the agencies
-        self.transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
+        self.transitAgencies() { innerAgencies in
             
-            guard let currentAgency = innerAgencies[agencyTag] else {
+            guard let currentAgency = innerAgencies[TransitAgencyTag(agencyTag)] else {
                 //The agency doesn't exist, return an empty dictionary
                 completion?(nil)
                 return
@@ -111,7 +112,7 @@ open class SwiftBus {
                 //Return the transitRoutes for the agency
                 completion?(currentAgency)
             })
-        })
+        }
 
     }
     
@@ -198,7 +199,7 @@ open class SwiftBus {
                         }
                     }
                     
-                    self.masterListTransitAgencies[agencyTag]?.agencyRoutes[routeTag] = transitRoute
+                    self.masterListTransitAgencies[TransitAgencyTag(agencyTag)]?.agencyRoutes[routeTag] = transitRoute
                     
                     //Call the closure
                     completion?(transitRoute)

@@ -2,7 +2,7 @@
 //  SwiftBusParser.swift
 //  Pods
 //
-//  Created by Adam on 2015-09-21.
+//  Created by Adam on 2017-09-21.
 //
 //
 
@@ -17,24 +17,24 @@ class SwiftBusDataParser: NSObject {
     - parameter xml:    xml gotten from calling NextBus's API
     - parameter completion:code that gets called when fetch of information is complete
     */
-    func parseAllAgenciesData(_ xml: XMLIndexer, completion: (_ agencies: [String: TransitAgency]) -> Void) {
-        let agenciesXML:[XMLIndexer] = xml["body"].children
-        var transitAgencies:[String : TransitAgency] = [:]
+    func parseAllAgenciesData(_ xml: XMLIndexer, completion: (_ agencies: [TransitAgencyTag: TransitAgency]) -> Void) {
+        let agenciesXML: [XMLIndexer] = xml["body"].children
+        var transitAgencies: [TransitAgencyTag: TransitAgency] = [:]
         
         //Creating all the agencies
-        for agencyXML:XMLIndexer in agenciesXML {
+        for agencyXML in agenciesXML {
             
             //If all the proper elements exist
             if let agencyTag = agencyXML.element?.allAttributes["tag"]?.text, let agencyTitle = agencyXML.element?.allAttributes["title"]?.text, let agencyRegion = agencyXML.element?.allAttributes["regionTitle"]?.text {
                 
-                let newAgency:TransitAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
+                let newAgency = TransitAgency(agencyTag: agencyTag, agencyTitle: agencyTitle, agencyRegion: agencyRegion)
                 
                 //Some agencies have a shortTitle
                 if let agencyShortTitle = agencyXML.element?.allAttributes["shortTitle"]?.text {
                     newAgency.agencyShortTitle = agencyShortTitle
                 }
                 
-                transitAgencies[agencyTag] = newAgency
+                transitAgencies[TransitAgencyTag(agencyTag)] = newAgency
             }
             
         }
