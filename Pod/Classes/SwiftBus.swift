@@ -472,7 +472,6 @@ open class SwiftBus {
                             stop.predictions = bucketPredictions
                             finalStops.append(stop)
                         }
-                        print("LOL!")
                     }
                     
                 }
