@@ -2,27 +2,27 @@
 //  ConnectionHandler.swift
 //  SwiftBus
 //
-//  Created by Adam on 2017-08-29.
-//  Copyright (c) 2017 Adam Boyd. All rights reserved.
+//  Created by Adam on 2015-08-29.
+//  Copyright (c) 2015 Adam Boyd. All rights reserved.
 //
 
 import Foundation
 import SWXMLHash
 
 enum RequestType {
-    case allAgencies(([TransitAgencyTag: TransitAgency]) -> Void)
-    case allRoutes(([String: TransitRoute]) -> Void)
+    case allAgencies(([String: TransitAgency]) -> Void)
+    case allRoutes(([String : TransitRoute]) -> Void)
     case routeConfiguration((TransitRoute?) -> Void)
-    case stopPredictions(([String: [TransitPrediction]], [TransitMessage]) -> Void)
-    case stationPredictions(([String: [String: [TransitPrediction]]]) -> Void)
-    case vehicleLocations(([String: [TransitVehicle]]) -> Void)
+    case stopPredictions(([String : [TransitPrediction]], [TransitMessage]) -> Void)
+    case stationPredictions(([String : [String : [TransitPrediction]]]) -> Void)
+    case vehicleLocations(([String : [TransitVehicle]]) -> Void)
 }
 
 class SwiftBusConnectionHandler: NSObject {
     
     //MARK: Requesting data
     
-    func requestAllAgencies(_ completion: @escaping (_ agencies: [TransitAgencyTag: TransitAgency]) -> Void) {
+    func requestAllAgencies(_ completion: @escaping (_ agencies: [String: TransitAgency]) -> Void) {
         
         startConnection(allAgenciesURL, with: .allAgencies(completion))
     }

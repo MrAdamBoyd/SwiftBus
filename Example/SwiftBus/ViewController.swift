@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  SwiftBus
 //
-//  Created by Adam on 2017-08-29.
-//  Copyright (c) 2017 Adam Boyd. All rights reserved.
+//  Created by Adam on 2015-08-29.
+//  Copyright (c) 2015 Adam Boyd. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func agencyListTouched(_ sender: AnyObject) {
-        SwiftBus.shared.transitAgencies() { (agencies: [TransitAgencyTag: TransitAgency]) -> Void in
+        SwiftBus.shared.transitAgencies() { (agencies: [String: TransitAgency]) -> Void in
             let agenciesString = "Number of agencies loaded: \(agencies.count)"
             let agencyNamesString = agencies.map({_, agency in "\(agency.agencyTitle)"})
             

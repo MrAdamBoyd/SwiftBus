@@ -2,8 +2,8 @@
 //  TransitAgency.swift
 //  SwiftBus
 //
-//  Created by Adam on 2017-08-29.
-//  Copyright (c) 2017 Adam Boyd. All rights reserved.
+//  Created by Adam on 2015-08-29.
+//  Copyright (c) 2015 Adam Boyd. All rights reserved.
 //
 
 import Foundation
@@ -15,10 +15,6 @@ private let agencyRegionEncoderString = "kAgencyRegionEncoder"
 private let agencyRoutesEncoderString = "kAgencyRoutesEncoder"
 
 open class TransitAgency: NSObject, NSCoding {
-    
-    public var dictionaryKey: TransitAgencyTag {
-        return TransitAgencyTag(self.agencyTag)
-    }
     
     open var agencyTag: String = ""
     open var agencyTitle: String = ""
@@ -34,7 +30,7 @@ open class TransitAgency: NSObject, NSCoding {
         self.agencyTag = agencyTag
     }
     
-    public init(agencyTag: String, agencyTitle: String, agencyRegion: String) {
+    public init(agencyTag:String, agencyTitle:String, agencyRegion:String) {
         self.agencyTag = agencyTag
         self.agencyTitle = agencyTitle
         self.agencyRegion = agencyRegion
@@ -55,7 +51,7 @@ open class TransitAgency: NSObject, NSCoding {
         connectionHandler.requestAllAgencies() { agencies in
             
             //Getting the current agency
-            if let thisAgency = agencies[TransitAgencyTag(self.agencyTag)] {
+            if let thisAgency = agencies[self.agencyTag] {
                 self.agencyTitle = thisAgency.agencyTitle
                 self.agencyShortTitle = thisAgency.agencyShortTitle
                 self.agencyRegion = thisAgency.agencyRegion
