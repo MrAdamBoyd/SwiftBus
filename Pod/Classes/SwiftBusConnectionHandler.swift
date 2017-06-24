@@ -43,7 +43,7 @@ class SwiftBusConnectionHandler: NSObject {
         startConnection(vehicleLocationsURL + agencyTag + routeURLSegment + routeTag, with: .vehicleLocations(completion))
     }
     
-    func requestStationPredictionData(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, completion: @escaping (_ predictions: [String : [String : [TransitPrediction]]]) -> Void) {
+    func requestStationPredictionData(_ stopTag: String, forRoutes routeTags: [String], withAgency agencyTag: String, completion: @escaping (_ predictions: PredictionGroup) -> Void) {
         
         //Building the multi stop url
         var multiplePredictionString = multiplePredictionsURL + agencyTag
@@ -54,19 +54,19 @@ class SwiftBusConnectionHandler: NSObject {
         startConnection(multiplePredictionString, with: .stationPredictions(completion))
     }
     
-    func requestStopPredictionData(_ stopTag: String, onRoute routeTag: String, withAgency agencyTag:String, completion: @escaping (_ predictions: [String: [TransitPrediction]], _ messages: [TransitMessage]) -> Void) {
+    func requestStopPredictionData(_ stopTag: String, onRoute routeTag: String, withAgency agencyTag:String, completion: @escaping (_ predictions: [DirectionName: [TransitPrediction]], _ messages: [TransitMessage]) -> Void) {
         
         startConnection(stopPredictionsURL + agencyTag + routeURLSegment + routeTag + stopURLSegment + stopTag, with: .stopPredictions(completion))
     }
     
-    func requestMultipleStopPredictionData(_ stopTags: [String], forRoutes routeTags: [String], withAgency agencyTag: String, completion: @escaping (_ predictions: [String : [String : [TransitPrediction]]]) -> Void) {
+    func requestMultipleStopPredictionData(_ stopTags: [String], forRoutes routeTags: [String], withAgency agencyTag: String, completion: @escaping (_ predictions: PredictionGroup) -> Void) {
         
         let smallestArrayCount = min(stopTags.count, routeTags.count)
         
         //Building the multi stop url
         var multiplePredictionString = multiplePredictionsURL + agencyTag
         for index in 0..<smallestArrayCount {
-            multiplePredictionString.append("&stops=\(routeTags[index])|\(stopTags[index])")
+            multiplePredictionString.append("\(multiStopURLSegment)\(routeTags[index])|\(stopTags[index])")
         }
         
         startConnection(multiplePredictionString, with: .stationPredictions(completion))
