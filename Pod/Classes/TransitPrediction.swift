@@ -3,7 +3,7 @@
 //  SwiftBus
 //
 //  Created by Adam on 2015-09-01.
-//  Copyright (c) 2015 Adam Boyd. All rights reserved.
+//  Copyright (c) 2017 Adam Boyd. All rights reserved.
 //
 
 import Foundation
