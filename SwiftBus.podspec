@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Classes/**/*'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
-  s.dependency 'SWXMLHash', '~> 3.0.0'
+  s.dependency 'SWXMLHash', '~> 4.0.0'
 end
