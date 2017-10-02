@@ -43,20 +43,24 @@ open class SwiftBus {
     - parameter completion: Code that is called after the dictionary of agencies has loaded
         - parameter agencies:    Dictionary of agencyTags to TransitAgency objects
     */
-    open func transitAgencies(_ completion: ((_ agencies: [String: TransitAgency]) -> Void)?) {
+    open func transitAgencies(_ completion: ((_ agencies: SwiftBusResult<[String: TransitAgency]>) -> Void)?) {
         
         if self.masterListTransitAgencies.count > 0 {
-            completion?(self.masterListTransitAgencies)
+            completion?(.success(self.masterListTransitAgencies))
             
         } else {
             //We need to load the transit agency data
             let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestAllAgencies({(agencies:[String : TransitAgency]) -> Void in
-                //Insert this closure around the inner one because the agencies need to be saved
-                self.masterListTransitAgencies = agencies
-
-                completion?(agencies)
-            })
+            connectionHandler.requestAllAgencies() { [weak self] result in
+                switch result {
+                case let .success(agencies):
+                    self?.masterListTransitAgencies = agencies
+                    
+                    completion?(.success(agencies))
+                case let .error(error):
+                    completion?(.error(error))
+                }
+            }
             
         }
     }
@@ -68,7 +72,7 @@ open class SwiftBus {
      - parameter completion:   Code that is called after everything has loaded
         - parameter agency:    Optional TransitAgency object that contains the routes
      */
-    open func configuration(forAgency agency: TransitAgency?, completion: ((_ agency: TransitAgency?) -> Void)?) {
+    open func configuration(forAgency agency: TransitAgency?, completion: ((_ agency: SwiftBusResult<TransitAgency>) -> Void)?) {
         self.configuration(forAgencyTag: agency?.agencyTag, completion: completion)
     }
     
@@ -79,39 +83,47 @@ open class SwiftBus {
     - parameter completion:   Code that is called after everything has loaded
         - parameter agency:   Optional TransitAgency object that contains the routes
     */
-    open func configuration(forAgencyTag agencyTag: String?, completion: ((_ agency: TransitAgency?) -> Void)?) {
+    open func configuration(forAgencyTag agencyTag: String?, completion: ((_ agency: SwiftBusResult<TransitAgency>) -> Void)?) {
         
         guard let agencyTag = agencyTag else {
             //If the agency tag doesn't exist, exit early
-            completion?(nil)
+            completion?(.error(SwiftBusError.error(with: .unspecifiedAgencyTag)))
             return
         }
         
         //Getting all the agencies
-        self.transitAgencies({(innerAgencies:[String : TransitAgency]) -> Void in
-            
-            guard let currentAgency = innerAgencies[agencyTag] else {
-                //The agency doesn't exist, return an empty dictionary
-                completion?(nil)
-                return
-            }
+        self.transitAgencies() { result in
+            switch result {
+            case let .success(innerAgencies) where innerAgencies[agencyTag] != nil:
                 
-            //The agency exists & we need to load the transit agency data
-            let connectionHandler = SwiftBusConnectionHandler()
-            connectionHandler.requestAllRouteData(agencyTag, completion: {(agencyRoutes:[String : TransitRoute]) -> Void in
+                let currentAgency = innerAgencies[agencyTag]!
                 
-                //Adding the agency to the route
-                for route in agencyRoutes.values {
-                    route.agencyTag = agencyTag
+                //The agency exists & we need to load the transit agency data
+                let connectionHandler = SwiftBusConnectionHandler()
+                connectionHandler.requestAllRouteData(agencyTag) { result in
+                    
+                    switch result {
+                    case let .success(agencyRoutes):
+                        //Adding the agency to the route
+                        for route in agencyRoutes.values {
+                            route.agencyTag = agencyTag
+                        }
+                        
+                        //Saving the routes for the agency
+                        currentAgency.agencyRoutes = agencyRoutes
+                        
+                        //Return the transitRoutes for the agency
+                        completion?(.success(currentAgency))
+                    case let .error(error):
+                        completion?(.error(error))
+                    }
                 }
-                
-                //Saving the routes for the agency
-                currentAgency.agencyRoutes = agencyRoutes
-                
-                //Return the transitRoutes for the agency
-                completion?(currentAgency)
-            })
-        })
+            case .success:
+                completion?(.error(SwiftBusError.error(with: .unknownAgency)))
+            case let .error(error):
+                completion?(.error(error))
+            }
+        }
 
     }
     
