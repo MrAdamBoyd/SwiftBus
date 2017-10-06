@@ -102,6 +102,11 @@ class SwiftBusConnectionHandler: NSObject {
             let session = URLSession(configuration: URLSessionConfiguration.default)
             
             let dataTask = session.dataTask(with: url) { data, response, error in
+                guard error == nil else {
+                    request.passErrorToClosure(error!)
+                    return
+                }
+                
                 let xmlString = NSString(data: data ?? Data(), encoding: String.Encoding.utf8.rawValue)! as String
                 let xml = SWXMLHash.parse(xmlString)
                 let parser = SwiftBusDataParser()
@@ -110,6 +115,9 @@ class SwiftBusConnectionHandler: NSObject {
             }
                 
             dataTask.resume()
+            
+            session.finishTasksAndInvalidate()
+            
         } else {
             request.passErrorToClosure(SwiftBusError.error(with: .malformedURL))
         }
